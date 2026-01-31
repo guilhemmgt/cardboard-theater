@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://7bkl72rbjsk2" path="res://entities/incidents/repair/repair_incident.tscn" id="2_noarx"]
 [ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="3_r3fl7"]
 [ext_resource type="PackedScene" uid="uid://crmmgpxf31kdn" path="res://utilities/orchestrator/actor_controller.tscn" id="4_jka67"]
+[ext_resource type="PackedScene" uid="uid://7hmyj02kii3d" path="res://entities/incidents/dialog/dialog_incident.tscn" id="4_jsk3o"]
 [ext_resource type="AudioStream" uid="uid://cb1ckd7b3kmcu" path="res://sounds/music/ggj2026.mp3" id="6_i5arm"]
 [ext_resource type="PackedScene" uid="uid://d3t74t4c2wtyw" path="res://ui/signs/game_over.tscn" id="7_wc5p8"]
 
@@ -551,6 +552,9 @@ mesh = SubResource("CapsuleMesh_272bh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/actor1/ActorController" unique_id=374462122]
 libraries/ = SubResource("AnimationLibrary_wc5p8")
+
+[node name="DialogIncident" parent="Actors/actor1" unique_id=1025400322 instance=ExtResource("4_jsk3o")]
+text_to_write = "Polish Cow "
 
 [node name="actor2" type="MeshInstance3D" parent="Actors" unique_id=420871054]
 transform = Transform3D(0.834321, 0, 0, 0, 0.90051776, 0, 0, 0, 0.0801657, -5.323698, 1.2269359, 1.6520064)
