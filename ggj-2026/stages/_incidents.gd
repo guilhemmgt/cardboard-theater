@@ -16,7 +16,7 @@ func _ready() -> void:
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("test"):
-		all_incident.activate(5)
+		all_incident.activate(10)
 		# random_incident.activate(5)
 
 func update_ui_whisper(text:String):
