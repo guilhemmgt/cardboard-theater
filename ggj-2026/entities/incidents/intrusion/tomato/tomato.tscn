@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://dj578e75m5t8u"]
 
 [ext_resource type="PackedScene" uid="uid://b4xxmk5n8xq8p" path="res://entities/incidents/intrusion/tomato/tomato.blend" id="1_5enex"]
+[ext_resource type="Script" uid="uid://cgvqcqncq0xc5" path="res://entities/incidents/intrusion/tomato/tomato.gd" id="1_h2yse"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jkkfl"]
 radius = 0.09456536
 
-[node name="Tomato" type="RigidBody3D" unique_id=492124725]
-gravity_scale = 0.0
+[node name="Tomato" type="Area3D" unique_id=1597748282]
+script = ExtResource("1_h2yse")
 
 [node name="tomato" parent="." unique_id=914016523 instance=ExtResource("1_5enex")]
 

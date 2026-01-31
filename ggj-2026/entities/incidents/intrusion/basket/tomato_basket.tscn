@@ -12,7 +12,9 @@ script = ExtResource("1_hymqw")
 tomato_scene = ExtResource("2_ligaw")
 area = NodePath("Area3D")
 raycast = NodePath("RayCast3D")
-tomato_peak_height = 0.4
+tomato_speed = 5.0
+tomato_peak_height_coef = 0.25
+tomato_safety_overshoot_coef = 2.0
 
 [node name="tomato" parent="." unique_id=914016523 instance=ExtResource("1_ykba1")]
 

@@ -1,4 +1,5 @@
 extends Node3D
+class_name TomatoBasket
 
 signal sprotched(pos: Vector3)
 
@@ -7,7 +8,9 @@ signal sprotched(pos: Vector3)
 @export var area: Area3D
 @export var raycast: RayCast3D
 
-@export var tomato_peak_height: float
+@export var tomato_speed: float
+@export var tomato_peak_height_coef: float
+@export var tomato_safety_overshoot_coef: float
 
 var aiming : bool
 
@@ -24,21 +27,22 @@ func aim():
 	aiming = true
 		
 func shoot(target_pos: Vector3):
-	print("[tomato] fire !")
+	#print("[tomato] fire !")
+	var dist_to_target: float = global_position.distance_to(target_pos)
 	var tomato_inst: Node3D = tomato_scene.instantiate()
 	get_tree().root.add_child(tomato_inst)
-	var mid_pos: Vector3 = global_position.lerp(target_pos, 0.5) + Vector3.UP * tomato_peak_height
+	var peak_height: float = dist_to_target * tomato_peak_height_coef
+	var mid_pos: Vector3 = global_position.lerp(target_pos, 0.5) + Vector3.UP * peak_height
+	var duration: float = (dist_to_target / tomato_speed) * tomato_safety_overshoot_coef
 	var tween: Tween = create_tween()
-	tween.tween_method(func(t: float): _bezier(tomato_inst, global_position, mid_pos, target_pos, t), 0.0, 1.0, 1.5)
-	tween.finished.connect(func():
-		sprotched.emit(target_pos)
-		tomato_inst.queue_free()
-	)
+	tween.bind_node(tomato_inst)
+	tween.tween_method(func(t: float): _bezier(tomato_inst, global_position, mid_pos, target_pos, t), 0.0, tomato_safety_overshoot_coef, duration)
 	
 func _bezier(obj: Node3D, p0: Vector3, p1: Vector3, p2: Vector3, t: float):
 	var q0: Vector3 = p0.lerp(p1, t)
 	var q1: Vector3 = p1.lerp(p2, t)
-	obj.global_position = q0.lerp(q1, t)
+	if obj != null:
+		obj.global_position = q0.lerp(q1, t)
 
 func _input(event: InputEvent) -> void:
 	if aiming and event.is_action_released("click"):
@@ -48,13 +52,13 @@ func _input(event: InputEvent) -> void:
 		var ray_end: Vector3 = ray_origin + camera.project_ray_normal(mouse_pos) * 1000
 		raycast.global_position = ray_origin
 		raycast.look_at(ray_end)
-		print("ray end", ray_end)
-		print("ray global pos", raycast.global_position)
-		print("ray global rot", raycast.global_rotation_degrees)
+		#print("ray end", ray_end)
+		#print("ray global pos", raycast.global_position)
+		#print("ray global rot", raycast.global_rotation_degrees)
 		await get_tree().process_frame
 		var r_obj = raycast.get_collider()
 		var r_pos: Vector3 = raycast.get_collision_point()
-		print(r_obj, r_pos)
+		#print(r_obj, r_pos)
 		if r_obj == area:
 			dearm()
 			return

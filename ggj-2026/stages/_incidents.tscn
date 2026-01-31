@@ -6,26 +6,10 @@
 [sub_resource type="BoxMesh" id="BoxMesh_o280i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0yc7w"]
-[ext_resource type="Script" uid="uid://cns7qt0qmj6iy" path="res://stages/_incidents.gd" id="1_wupjw"]
-[ext_resource type="PackedScene" uid="uid://7hmyj02kii3d" path="res://entities/incidents/dialog/dialog_incident.tscn" id="2_0yc7w"]
-[ext_resource type="PackedScene" uid="uid://3q7u47fq30rs" path="res://entities/incidents/activation/activation_incident.tscn" id="4_swtja"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_wupjw"]
-radius = 1.0
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ojhf4"]
-height = 4.0
-
-[node name="Incidents" type="Node3D" unique_id=1914987216 node_paths=PackedStringArray("repair", "dialog", "activation", "whisper")]
-script = ExtResource("1_wupjw")
-repair = NodePath("RepairIncident")
-dialog = NodePath("DialogIncident")
-activation = NodePath("ActivationIncident")
-whisper = NodePath("Whisper")
+[node name="Incidents" type="Node3D" unique_id=1914987216]
 
 [node name="RepairIncident" parent="." unique_id=1978840276 instance=ExtResource("1_o280i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.62151015, 0, 0)
-shape = SubResource("SphereShape3D_wupjw")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=534233597]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.4881706)
@@ -42,21 +26,6 @@ shape = SubResource("BoxShape3D_0yc7w")
 [node name="TomatoBasket" parent="." unique_id=735284322 node_paths=PackedStringArray("camera") instance=ExtResource("2_0yc7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22484303, -0.29049122, 3.9372)
 camera = NodePath("../Camera3D")
-tomato_peak_height = 1.5
 
 [node name="Node3D" type="Node3D" parent="." unique_id=1205141847]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -390, -469, -787)
-
-[node name="DialogIncident" parent="." unique_id=1025400322 instance=ExtResource("2_0yc7w")]
-text_to_write = "Demain des l'aube"
-
-[node name="Whisper" type="RichTextLabel" parent="." unique_id=737406805]
-offset_right = 721.0
-offset_bottom = 351.0
-mouse_filter = 1
-theme_override_font_sizes/normal_font_size = 32
-bbcode_enabled = true
-
-[node name="ActivationIncident" parent="." unique_id=1377364127 instance=ExtResource("4_swtja")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9949161, 0, 0)
-shape = SubResource("CapsuleShape3D_ojhf4")

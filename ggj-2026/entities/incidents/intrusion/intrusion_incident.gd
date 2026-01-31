@@ -7,6 +7,10 @@ class_name IntrusionIncident
 func _ready() -> void:
 	super._ready()
 
+func activate(time: float):
+	super.activate(time)
+	collisionShape.disabled = false
+
 func deactivate(success: bool):
 	super.deactivate(success)
 	collisionShape.disabled = true

@@ -1,13 +1,11 @@
-[gd_scene format=3 uid="uid://dpqiw8gi3smmw"]
+[gd_scene format=3 uid="uid://dq8y837y8ll4b"]
 
-[ext_resource type="Script" uid="uid://gc4exw5prjyg" path="res://entities/incidents/intrusion/intrusion_incident.gd" id="1_r7iy7"]
+[ext_resource type="Script" path="res://entities/incidents/impl/intrusion_incident.gd" id="1_r7iy7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6v8rm"]
 
-[node name="IntrusionIncident" type="Node3D" unique_id=1502549711 node_paths=PackedStringArray("area", "collisionShape")]
+[node name="IntrusionIncident" type="Node3D" unique_id=1502549711]
 script = ExtResource("1_r7iy7")
-area = NodePath("Area3D")
-collisionShape = NodePath("Area3D/CollisionShape3D")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=172460390]
 monitoring = false
