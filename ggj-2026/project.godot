@@ -34,6 +34,10 @@ folder_colors={
 "res://utilities/": "blue"
 }
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 click={
