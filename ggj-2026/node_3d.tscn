@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://d21s2cs8s3lpd"]
 
 [ext_resource type="Texture2D" uid="uid://bu0jq5rop2wt3" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="1_a202f"]
-[ext_resource type="Script" uid="uid://b77rw5elxerfm" path="res://nuage.gd" id="2_jka67"]
-[ext_resource type="PackedScene" uid="uid://7bkl72rbjsk2" path="res://entities/incidents/repair/repair_incident.tscn" id="2_noarx"]
 [ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="3_r3fl7"]
 [ext_resource type="PackedScene" uid="uid://crmmgpxf31kdn" path="res://utilities/orchestrator/actor_controller.tscn" id="4_jka67"]
 [ext_resource type="PackedScene" uid="uid://7hmyj02kii3d" path="res://entities/incidents/dialog/dialog_incident.tscn" id="5_jka67"]
@@ -66,6 +64,9 @@ uv1_world_triplanar = true
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_272bh"]
 
+[sub_resource type="Animation" id="Animation_wc5p8"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_r3fl7"]
 resource_name = "scene0"
 length = 2.3
@@ -106,6 +107,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jka67"]
 _data = {
+&"RESET": SubResource("Animation_wc5p8"),
 &"scene0": SubResource("Animation_r3fl7")
 }
 
@@ -151,183 +153,6 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_jka67"),
 &"idle": SubResource("Animation_i5arm")
-}
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jka67"]
-albedo_color = Color(0.7254902, 1, 0.19607843, 1)
-albedo_texture = ExtResource("1_a202f")
-uv1_triplanar = true
-uv1_world_triplanar = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_i5arm"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_noarx"]
-
-[sub_resource type="Animation" id="Animation_wc5p8"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:rotation:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
-[sub_resource type="Animation" id="Animation_jsk3o"]
-resource_name = "tremblement"
-loop_mode = 2
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 3, 3),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.105, 0, 0.105, 0, 0, -0.13, 0, 0.13, 0),
-"times": PackedFloat32Array(0, 0.42, 0.94)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 3, 3),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.105, 0, 0.105, 0, 0, -0.13, 0, 0.13, 0),
-"times": PackedFloat32Array(0, 0.42, 0.94)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:rotation:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 3, 3),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.18744838, -0.105, -0.046862096, 0.105, 0.046862096, -0.24223423, -0.13, 0.10742065, 0.13, -0.10742065),
-"times": PackedFloat32Array(0, 0.42, 0.94)
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_i5arm"]
-_data = {
-&"RESET": SubResource("Animation_wc5p8"),
-&"tremblement": SubResource("Animation_jsk3o")
-}
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4arys"]
-albedo_texture = ExtResource("1_a202f")
-uv1_triplanar = true
-uv1_world_triplanar = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_6iypd"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_tereu"]
-
-[sub_resource type="Animation" id="Animation_cdqbm"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:rotation:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
-[sub_resource type="Animation" id="Animation_imku0"]
-resource_name = "tremblement"
-loop_mode = 2
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 3, 3),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.105, 0, 0.105, 0, 0, -0.13, 0, 0.13, 0),
-"times": PackedFloat32Array(0, 0.42, 0.94)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 3, 3),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.105, 0, 0.105, 0, 0, -0.13, 0, 0.13, 0),
-"times": PackedFloat32Array(0, 0.42, 0.94)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:rotation:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 3, 3),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.18744838, -0.105, -0.046862096, 0.105, 0.046862096, -0.24223423, -0.13, 0.10742065, 0.13, -0.10742065),
-"times": PackedFloat32Array(0, 0.42, 0.94)
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wlxy5"]
-_data = {
-&"RESET": SubResource("Animation_cdqbm"),
-&"tremblement": SubResource("Animation_imku0")
 }
 
 [node name="root" type="Node3D" unique_id=80377798]
@@ -560,6 +385,10 @@ transform = Transform3D(-0.99999803, 0.0018779158, -0.0006346515, 0.0018191794, 
 wait_time = 3.0
 autostart = true
 
+[node name="MainSceneAnimation" type="AnimationPlayer" parent="." unique_id=2119099654]
+libraries/ = SubResource("AnimationLibrary_jka67")
+autoplay = &"scene0"
+
 [node name="Orchestrator" type="Node" parent="." unique_id=932776283]
 script = ExtResource("3_r3fl7")
 
@@ -582,10 +411,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.255335, 1.2203755, 1.82292
 [node name="Plan3" type="Node" parent="Orchestrator" unique_id=204057427]
 
 [node name="Node" type="Node" parent="Orchestrator" unique_id=1906876023]
-
-[node name="MainSceneAnimation" type="AnimationPlayer" parent="." unique_id=2119099654]
-libraries/ = SubResource("AnimationLibrary_jka67")
-autoplay = &"scene0"
 
 [node name="Actors" type="Node3D" parent="." unique_id=531247647]
 
