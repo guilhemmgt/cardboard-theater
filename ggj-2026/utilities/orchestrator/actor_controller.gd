@@ -3,7 +3,7 @@ class_name ActorController
 
 @onready var actor_node: Node = get_parent()
 @onready var actor_animation_player: AnimationPlayer = actor_node.get_node("AnimationPlayer")
-@onready var orchestrator: Orchestrator = $"../../Orchestrator"
+@onready var orchestrator: Orchestrator = $"../../../Orchestrator"
 
 var is_actor_moving: bool = false
 var is_paused: bool = false
