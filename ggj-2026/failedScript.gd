@@ -12,7 +12,7 @@ func _ready() -> void:
 		animation_player.stop()
 	)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _on_repair_incident_activated() -> void:
