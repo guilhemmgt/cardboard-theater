@@ -5,6 +5,7 @@ class_name Incident
 
 signal resolved
 signal failed
+signal activated
 
 @export var _timer: Timer
 var _activated: bool
@@ -17,6 +18,7 @@ func activate(time: float):
 		push_error("Already activated.")
 	print("activated")
 	_activated = true
+	activated.emit()
 	_timer.stop()
 	_timer.wait_time = time
 	_timer.start()
