@@ -140,8 +140,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("INPUT", type=str)
     parser.add_argument("OUTPUT", type=str)
-    parser.add_argument("simplification", type=float, required=False)
-    parser.add_argument("extrusion", type=float, required=False)
+    parser.add_argument("--simplification", type=float, required=False)
+    parser.add_argument("--extrusion", type=float, required=False)
 
     args = parser.parse_args()
 

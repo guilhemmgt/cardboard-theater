@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c7gurpiyfxg3t"]
+
+[ext_resource type="ArrayMesh" uid="uid://c32t7qhbohbjs" path="res://carton/cloud1.obj" id="1_ul50y"]
+
+[node name="Node3D" type="Node3D" unique_id=1403385017]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2022357365]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.044, 0, 0)
+lod_bias = 0.001
+mesh = ExtResource("1_ul50y")
