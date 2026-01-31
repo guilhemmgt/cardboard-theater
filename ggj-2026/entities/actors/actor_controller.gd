@@ -46,8 +46,10 @@ func anim(anim_name: String, anim_duration: float) -> void:
 	if is_paused:
 		return
 	actor_animation_player.play(anim_name)
-	animation_timer = Timer.new()
-	animation_timer.one_shot = true
+	if !animation_timer:
+		animation_timer = Timer.new()
+		add_child(animation_timer)
+		animation_timer.one_shot = true
 	animation_timer.wait_time = anim_duration
 	animation_timer.timeout.connect(on_animation_timer_timeout)
 
