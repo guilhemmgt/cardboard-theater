@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://d2jtustkq1pcn"]
 
 [ext_resource type="PackedScene" uid="uid://7bkl72rbjsk2" path="res://entities/incidents/repair/repair_incident.tscn" id="1_o280i"]
+[ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="2_0yc7w"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_o280i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0yc7w"]
 
 [node name="Incidents" type="Node3D" unique_id=1914987216]
 
@@ -8,3 +13,20 @@
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=534233597]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.4881706)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2108700387]
+transform = Transform3D(0.73119897, 0, 2.4507737, 0, 2.636416, 0, -0.6821643, 0, 2.6269376, 2.876216, 0, -1.0816438)
+mesh = SubResource("BoxMesh_o280i")
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D" unique_id=397253847]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D" unique_id=2108716087]
+shape = SubResource("BoxShape3D_0yc7w")
+
+[node name="TomatoBasket" parent="." unique_id=735284322 node_paths=PackedStringArray("camera") instance=ExtResource("2_0yc7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22484303, -0.29049122, 3.9372)
+camera = NodePath("../Camera3D")
+tomato_peak_height = 1.5
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1205141847]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -390, -469, -787)
