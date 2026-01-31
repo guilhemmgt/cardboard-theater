@@ -9,7 +9,6 @@ signal pause_state_changed(is_paused: bool)
 @onready var plan1: Node = $Plan1
 @onready var plan2: Node = $Plan2
 @onready var plan3: Node = $Plan3
-@onready var nuage_2: RepairIncident = $"../nuage2/RepairIncident"
 @onready var reparable_env: Node = $"../ReparableEnv"
 
 var points_plan1: Array = []
