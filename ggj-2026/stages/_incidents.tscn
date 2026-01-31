@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d2jtustkq1pcn"]
+
+[ext_resource type="PackedScene" uid="uid://7bkl72rbjsk2" path="res://entities/incidents/repair/repair_incident.tscn" id="1_o280i"]
+
+[node name="Incidents" type="Node3D" unique_id=1914987216]
+
+[node name="RepairIncident" parent="." unique_id=1978840276 instance=ExtResource("1_o280i")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=534233597]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.4881706)
