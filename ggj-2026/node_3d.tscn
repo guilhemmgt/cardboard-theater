@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://3q7u47fq30rs" path="res://entities/incidents/activation/activation_incident.tscn" id="9_4arys"]
 [ext_resource type="PackedScene" uid="uid://dxch6vbu2k336" path="res://entities/intru/intru_control.tscn" id="10_6iypd"]
 
+[sub_resource type="Environment" id="Environment_6iypd"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_color = Color(0.72428656, 0.29958177, 0.19783527, 1)
 albedo_texture = ExtResource("1_a202f")
