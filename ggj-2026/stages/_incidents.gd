@@ -8,6 +8,7 @@ extends Node3D
 func _ready() -> void:
 	dialog.write_letter.connect(update_ui_whisper)
 	repair.activate(10)
+	dialog.set_text_to_write("Polish Cow !,")
 	dialog.activate(10)
 	activation.activate(10)
 	
