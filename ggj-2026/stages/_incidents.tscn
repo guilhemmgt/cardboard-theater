@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://d2jtustkq1pcn"]
+
+[ext_resource type="PackedScene" uid="uid://7bkl72rbjsk2" path="res://entities/incidents/repair/repair_incident.tscn" id="1_o280i"]
+[ext_resource type="Script" uid="uid://cns7qt0qmj6iy" path="res://stages/_incidents.gd" id="1_wupjw"]
+[ext_resource type="PackedScene" uid="uid://7hmyj02kii3d" path="res://entities/incidents/dialog/dialog_incident.tscn" id="2_0yc7w"]
+
+[node name="Incidents" type="Node3D" unique_id=1914987216 node_paths=PackedStringArray("repair", "dialog", "whisper")]
+script = ExtResource("1_wupjw")
+repair = NodePath("RepairIncident")
+dialog = NodePath("DialogIncident")
+whisper = NodePath("Whisper")
+
+[node name="RepairIncident" parent="." unique_id=1978840276 instance=ExtResource("1_o280i")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=534233597]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.4881706)
+
+[node name="DialogIncident" parent="." unique_id=1025400322 instance=ExtResource("2_0yc7w")]
+text_to_write = "Demain des l'aube"
+
+[node name="Whisper" type="RichTextLabel" parent="." unique_id=737406805]
+offset_right = 721.0
+offset_bottom = 351.0
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true

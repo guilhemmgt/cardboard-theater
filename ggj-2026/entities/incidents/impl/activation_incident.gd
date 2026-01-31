@@ -1,0 +1,2 @@
+extends Incident
+class_name ActivationIncident

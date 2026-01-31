@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://7bkl72rbjsk2"]
+
+[ext_resource type="Script" uid="uid://c1fgi5873sc7v" path="res://entities/incidents/repair/repair_incident.gd" id="1_x8l73"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x8l73"]
+
+[node name="RepairIncident" type="Node3D" unique_id=1978840276 node_paths=PackedStringArray("area", "collisionShape", "_timer")]
+script = ExtResource("1_x8l73")
+area = NodePath("Area3D")
+collisionShape = NodePath("Area3D/CollisionShape3D")
+clicks_required = 5
+_timer = NodePath("Timer")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1785350009]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1126944218]
+shape = SubResource("BoxShape3D_x8l73")
+
+[node name="Timer" type="Timer" parent="." unique_id=1770524056]
+one_shot = true
