@@ -14,6 +14,9 @@ func _process(delta: float) -> void:
 
 func turn_with_elasticity(duration: float,degrees: float = 2.0) -> void:
 	var tween: Tween = create_tween()
+	# + ou -1
+	var sign_rand: int = -1 if randi() % 2 == 0 else 1
+	degrees *= sign_rand
 	tween.tween_property(self, "rotation_degrees:x", rotation_degrees.x + degrees, duration).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 
 func reset_with_elasticity(duration: float) -> void:
