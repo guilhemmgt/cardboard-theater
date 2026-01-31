@@ -127,7 +127,7 @@ def create_cardboard_mesh(image_path, output_obj='sprite_mesh.obj',
         
         # Faces
         for face in faces:
-            f.write(f"f {face[0]} {face[1]} {face[2]}\n")
+            f.write(f"f {face[0]}/{face[0]} {face[1]}/{face[1]} {face[2]}/{face[2]}\n")
     
     print(f"Mesh créé : {output_obj}")
     print(f"Vertices : {len(vertices_3d)}, Faces : {len(faces)}")
