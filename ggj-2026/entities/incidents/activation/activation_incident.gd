@@ -20,6 +20,7 @@ func _ready() -> void:
 	collisionShape.shape = shape
 	collisionShape.disabled = true
 	area.input_event.connect(on_click)
+	blocking = true
 
 func activate(time: float):
 	super.activate(time)

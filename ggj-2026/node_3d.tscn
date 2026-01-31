@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://b5cv4ybux4tk0"]
 
 [ext_resource type="Texture2D" uid="uid://bu0jq5rop2wt3" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="1_a202f"]
-[ext_resource type="Script" path="res://failedScript.gd" id="2_jka67"]
+[ext_resource type="Script" uid="uid://b77rw5elxerfm" path="res://failedScript.gd" id="2_jka67"]
 [ext_resource type="PackedScene" uid="uid://7bkl72rbjsk2" path="res://entities/incidents/repair/repair_incident.tscn" id="2_noarx"]
 [ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="3_r3fl7"]
-[ext_resource type="PackedScene" uid="uid://crmmgpxf31kdn" path="res://utilities/orchestrator/actor_controller.tscn" id="4_jka67"]
+[ext_resource type="PackedScene" uid="uid://crmmgpxf31kdn" path="res://entities/actors/actor_controller.tscn" id="4_jka67"]
 [ext_resource type="PackedScene" uid="uid://7hmyj02kii3d" path="res://entities/incidents/dialog/dialog_incident.tscn" id="4_jsk3o"]
 [ext_resource type="AudioStream" uid="uid://cb1ckd7b3kmcu" path="res://sounds/music/ggj2026.mp3" id="6_i5arm"]
 [ext_resource type="PackedScene" uid="uid://d3t74t4c2wtyw" path="res://ui/signs/game_over.tscn" id="7_wc5p8"]
+[ext_resource type="PackedScene" uid="uid://3q7u47fq30rs" path="res://entities/incidents/activation/activation_incident.tscn" id="9_4arys"]
+[ext_resource type="PackedScene" uid="uid://dxch6vbu2k336" path="res://entities/intru/intru_control.tscn" id="10_6iypd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_color = Color(0.72428656, 0.29958177, 0.19783527, 1)
@@ -132,6 +134,45 @@ tracks/2/keys = {
 }, {
 "args": [2, 2, 5.0],
 "method": &"plan_change"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("IncidentsManager/nuage4/ActivationIncident")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.6333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [5.0],
+"method": &"activate"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("IncidentsManager/nuage2/nuage0")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Node/actor1/IntruControl")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.5999999),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [2, 3.0],
+"method": &"move"
 }]
 }
 
@@ -272,7 +313,19 @@ _data = {
 &"tremblement": SubResource("Animation_imku0")
 }
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_jsk3o"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6iypd"]
+albedo_color = Color(0.8746432, 2.8878452e-07, 0.50854856, 1)
+albedo_texture = ExtResource("1_a202f")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4arys"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tereu"]
+albedo_color = Color(0.07058824, 0.4117647, 0.21568628, 1)
+albedo_texture = ExtResource("1_a202f")
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [node name="root" type="Node3D" unique_id=80377798]
 
@@ -556,7 +609,6 @@ mesh = SubResource("CapsuleMesh_272bh")
 libraries/ = SubResource("AnimationLibrary_wc5p8")
 
 [node name="DialogIncident" parent="Actors/actor1" unique_id=1025400322 instance=ExtResource("4_jsk3o")]
-text_to_write = "Polish Cow "
 
 [node name="actor2" type="MeshInstance3D" parent="Actors" unique_id=420871054]
 transform = Transform3D(0.834321, 0, 0, 0, 0.90051776, 0, 0, 0, 0.0801657, -5.323698, 1.2269359, 1.6520064)
@@ -587,43 +639,51 @@ autoplay = true
 transform = Transform3D(-3.278823, 0, 0.087863214, 0, 3.28, 0, -0.087863214, 0, -3.278823, -0.278, 2.203, 1.104)
 visible = false
 
-[node name="ReparableEnv" type="Node" parent="." unique_id=1918486374]
+[node name="IncidentsManager" type="Node" parent="." unique_id=1918486374]
 
-[node name="nuage2" type="MeshInstance3D" parent="ReparableEnv" unique_id=755418964]
+[node name="nuage2" type="MeshInstance3D" parent="IncidentsManager" unique_id=755418964]
 transform = Transform3D(2.6904604, 0, 0, 0, 1.162349, 0, 0, 0, 0.08636669, 2.0409865, 3.4804454, 1.3228183)
 material_override = SubResource("StandardMaterial3D_4arys")
 mesh = SubResource("BoxMesh_6iypd")
 script = ExtResource("2_jka67")
 
-[node name="RepairIncident" parent="ReparableEnv/nuage2" unique_id=2102664361 instance=ExtResource("2_noarx")]
+[node name="nuage0" parent="IncidentsManager/nuage2" unique_id=2102664361 instance=ExtResource("2_noarx")]
 shape = SubResource("BoxShape3D_tereu")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ReparableEnv/nuage2" unique_id=815137503]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="IncidentsManager/nuage2" unique_id=815137503]
 libraries/ = SubResource("AnimationLibrary_wlxy5")
 
-[node name="nuage3" type="MeshInstance3D" parent="ReparableEnv" unique_id=1277462142]
+[node name="nuage3" type="MeshInstance3D" parent="IncidentsManager" unique_id=1277462142]
 transform = Transform3D(2.6904604, 0, 0, 0, 1.162349, 0, 0, 0, 0.08636669, -2.1612577, 3.4804454, 1.3228183)
 material_override = SubResource("StandardMaterial3D_4arys")
 mesh = SubResource("BoxMesh_6iypd")
 script = ExtResource("2_jka67")
 
-[node name="RepairIncident" parent="ReparableEnv/nuage3" unique_id=1978840276 instance=ExtResource("2_noarx")]
+[node name="RepairIncident" parent="IncidentsManager/nuage3" unique_id=1978840276 instance=ExtResource("2_noarx")]
 shape = SubResource("BoxShape3D_tereu")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ReparableEnv/nuage3" unique_id=2077618757]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="IncidentsManager/nuage3" unique_id=2077618757]
 libraries/ = SubResource("AnimationLibrary_wlxy5")
 
-[node name="MeshInstance3D24" type="MeshInstance3D" parent="ReparableEnv" unique_id=1250284477]
-transform = Transform3D(1.2564994, 0, 0, 0, 3.9523811, 0, 0, 0, 0.14308278, -2.2751694, 2.1070619, 1.9852555)
-material_override = SubResource("StandardMaterial3D_4c57u")
-mesh = SubResource("BoxMesh_h2yge")
-script = ExtResource("2_jka67")
+[node name="nuage4" type="MeshInstance3D" parent="IncidentsManager" unique_id=85251806]
+transform = Transform3D(2.6904604, 0, 0, 0, 1.162349, 0, 0, 0, 0.08636669, -3.4368951, 1.9475434, 1.3228183)
+material_override = SubResource("StandardMaterial3D_6iypd")
+mesh = SubResource("BoxMesh_6iypd")
 
-[node name="RepairIncident" parent="ReparableEnv/MeshInstance3D24" unique_id=2134457102 instance=ExtResource("2_noarx")]
-transform = Transform3D(2.1311226, -0.089798376, 0, 0.06607879, 0.29269943, 0, 0, 0, 0.6036135, 0, 0, 0)
-shape = SubResource("BoxShape3D_jsk3o")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ReparableEnv/MeshInstance3D24" unique_id=176207128]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="IncidentsManager/nuage4" unique_id=31206648]
 libraries/ = SubResource("AnimationLibrary_wlxy5")
+
+[node name="ActivationIncident" parent="IncidentsManager/nuage4" unique_id=1377364127 instance=ExtResource("9_4arys")]
+transform = Transform3D(0.37168357, 0, 0, 0, 0.86032677, 0, 0, 0, 11.578538, 0, 0, 0)
+shape = SubResource("BoxShape3D_4arys")
+
+[node name="Node" type="Node" parent="." unique_id=1301099338]
+
+[node name="actor1" type="MeshInstance3D" parent="Node" unique_id=1855910158]
+transform = Transform3D(0.834321, 0, 0, 0, 0.90051776, 0, 0, 0, 0.0801657, 4.0864406, 1.2269359, 1.6520064)
+material_override = SubResource("StandardMaterial3D_tereu")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="IntruControl" parent="Node/actor1" unique_id=187030485 instance=ExtResource("10_6iypd")]
 
 [connection signal="timeout" from="ErrorEvent" to="Orchestrator" method="_on_error_event_timeout"]
