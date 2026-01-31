@@ -29,11 +29,6 @@ func _ready() -> void:
 	points_plan2 = orchestrator.get_plan_points(2)
 	points_plan3 = orchestrator.get_plan_points(3)
 
-	animation_timer = Timer.new()
-	animation_timer.one_shot = true
-	actor_node.add_child(animation_timer)
-	animation_timer.timeout.connect(on_animation_timer_timeout)
-
 func _exit_tree() -> void:
 	if orchestrator and is_instance_valid(orchestrator):
 		orchestrator.unregister_actor(self)
@@ -56,7 +51,7 @@ func anim(anim_name: String, anim_duration: float) -> void:
 		print("Animation action skipped - actor is paused")
 		return
 	actor_animation_player.play(anim_name)
-	animation_timer.start(anim_duration)
+	get_tree().create_timer(anim_duration).timeout.connect(on_animation_timer_timeout)
 
 func plan_change(new_plan_number: int,new_plan_node_id :int,duration:float) -> void:
 	plan_number = new_plan_number
