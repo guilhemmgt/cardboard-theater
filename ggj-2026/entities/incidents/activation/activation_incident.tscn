@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://3q7u47fq30rs"]
+
+[ext_resource type="Script" uid="uid://bal4305ljxvoq" path="res://entities/incidents/activation/activation_incident.gd" id="1_0f5pt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0f5pt"]
+
+[node name="ActivationIncident" type="Node3D" unique_id=1377364127 node_paths=PackedStringArray("area", "collisionShape", "_timer")]
+script = ExtResource("1_0f5pt")
+area = NodePath("Area3D")
+collisionShape = NodePath("Area3D/CollisionShape3D")
+_timer = NodePath("Timer")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1245094455]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1780399060]
+shape = SubResource("BoxShape3D_0f5pt")
+
+[node name="Timer" type="Timer" parent="." unique_id=851617015]
+one_shot = true
