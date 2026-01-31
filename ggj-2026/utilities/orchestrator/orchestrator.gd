@@ -3,6 +3,7 @@ class_name Orchestrator
 
 signal points_ready
 signal pause_state_changed(is_paused: bool)
+@onready var error_event: Timer = $"../ErrorEvent"
 
 @onready var plan1: Node = $Plan1
 @onready var plan2: Node = $Plan2
@@ -15,6 +16,8 @@ var points_plan3: Array = []
 # Système de pause
 var is_paused: bool = false
 var registered_actors: Array[ActorController] = []
+@onready var nuage: RepairIncident = $"../nuage/RepairIncident"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,6 +30,12 @@ func _ready() -> void:
 	await get_tree().create_timer(2.0).timeout
 	#test pause resume
 	#play turn
+
+	error_event.wait_time = randf_range(5.0,15.0)
+	error_event.start()
+
+	nuage.resolved.connect(_on_event_success)
+	nuage.failed.connect(_on_event_failure)
 
 
 
@@ -75,3 +84,15 @@ func toggle_pause() -> void:
 
 func get_pause_state() -> bool:
 	return is_paused
+
+
+func _on_error_event_timeout() -> void:
+	print("Error event triggered - toggling pause state")
+	nuage.activate(5)
+
+func _on_event_success() -> void:
+	print("Event success - resuming all actors")
+	
+func _on_event_failure() -> void:
+	print("Event failure - pausing all actors")
+	pause_all_actors()
