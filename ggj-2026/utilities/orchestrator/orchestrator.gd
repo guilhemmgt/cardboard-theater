@@ -18,14 +18,17 @@ var is_paused: bool = false
 var registered_actors: Array[ActorController] = []
 @onready var nuage: RepairIncident = $"../nuage/RepairIncident"
 
-
+var is_point_ready:bool=false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	points_plan1 = plan1.get_children()
+	print(points_plan1)
 	points_plan2 = plan2.get_children()
 	points_plan3 = plan3.get_children()
+	print("emit")
 	# Émettre le signal pour notifier que les points sont prêts
 	points_ready.emit()
+	is_point_ready=true
 
 	await get_tree().create_timer(2.0).timeout
 	#test pause resume

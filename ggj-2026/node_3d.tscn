@@ -2,7 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bu0jq5rop2wt3" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="1_a202f"]
 [ext_resource type="PackedScene" uid="uid://7bkl72rbjsk2" path="res://entities/incidents/repair/repair_incident.tscn" id="2_noarx"]
-[ext_resource type="PackedScene" uid="uid://bb42si1p0l8fq" path="res://utilities/orchestrator/orchestrator.tscn" id="3_a0tk4"]
+[ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="3_r3fl7"]
+[ext_resource type="PackedScene" uid="uid://crmmgpxf31kdn" path="res://utilities/orchestrator/actor_controller.tscn" id="4_jka67"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_color = Color(0.72428656, 0.29958177, 0.19783527, 1)
@@ -55,21 +56,57 @@ albedo_texture = ExtResource("1_a202f")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vw27"]
-albedo_color = Color(0.75188833, 0.30335018, 0.21623313, 1)
-albedo_texture = ExtResource("1_a202f")
-uv1_triplanar = true
-uv1_world_triplanar = true
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_272bh"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mycd"]
 albedo_color = Color(0.20392157, 0.05490196, 0.02745098, 1)
 albedo_texture = ExtResource("1_a202f")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_272bh"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_noarx"]
+
+[sub_resource type="Animation" id="Animation_r3fl7"]
+resource_name = "scene0"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("actor1/ActorController")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [1, 1.0],
+"method": &"move"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("actor2/ActorController")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.03333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [2, 1.0],
+"method": &"move"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jka67"]
+_data = {
+&"scene0": SubResource("Animation_r3fl7")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vw27"]
+albedo_color = Color(0.75188833, 0.30335018, 0.21623313, 1)
+albedo_texture = ExtResource("1_a202f")
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [node name="root" type="Node3D" unique_id=80377798]
 
@@ -164,11 +201,6 @@ mesh = SubResource("BoxMesh_h2yge")
 transform = Transform3D(16.203173, 0, 0, 0, 1.1578108, 0, 0, 0, 0.1443747, 0.019216299, 0.18051958, 3.4084694)
 material_override = SubResource("StandardMaterial3D_1bvp3")
 mesh = SubResource("BoxMesh_h2yge")
-
-[node name="MeshInstance3D34" type="MeshInstance3D" parent="TheatreScene" unique_id=383165599]
-transform = Transform3D(0.834321, 0, 0, 0, 0.90051776, 0, 0, 0, 0.0801657, 1.1250987, 1.2269359, 1.6520064)
-material_override = SubResource("StandardMaterial3D_5vw27")
-mesh = SubResource("CapsuleMesh_272bh")
 
 [node name="MeshInstance3D36" type="MeshInstance3D" parent="TheatreScene" unique_id=1233102515]
 transform = Transform3D(0.834321, 0, 0, 0, 0.90051776, 0, 0, 0, 0.0801657, -4.1041656, 1.2269359, 2.8086102)
@@ -314,6 +346,47 @@ shape = SubResource("BoxShape3D_noarx")
 wait_time = 10.0
 autostart = true
 
-[node name="Orchestrator" parent="." unique_id=932776283 instance=ExtResource("3_a0tk4")]
+[node name="Orchestrator" type="Node" parent="." unique_id=932776283]
+script = ExtResource("3_r3fl7")
+
+[node name="Plan1" type="Node" parent="Orchestrator" unique_id=1060826621]
+
+[node name="Marker3D" type="Marker3D" parent="Orchestrator/Plan1" unique_id=1724698681]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.991971, 0.6524732, 1.8229239)
+
+[node name="Marker3D2" type="Marker3D" parent="Orchestrator/Plan1" unique_id=725528460]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2582436, 1.2280192, 1.8229239)
+
+[node name="Marker3D3" type="Marker3D" parent="Orchestrator/Plan1" unique_id=395210064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3479066, 1.2203755, 1.8229239)
+
+[node name="Marker3D4" type="Marker3D" parent="Orchestrator/Plan1" unique_id=1566474956]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.255335, 1.2203755, 1.8229239)
+
+[node name="Plan2" type="Node" parent="Orchestrator" unique_id=137186800]
+
+[node name="Plan3" type="Node" parent="Orchestrator" unique_id=204057427]
+
+[node name="Node" type="Node" parent="Orchestrator" unique_id=1906876023]
+
+[node name="Nuage" type="Node3D" parent="." unique_id=1632395382]
+
+[node name="MainSceneAnimation" type="AnimationPlayer" parent="." unique_id=2119099654]
+libraries/ = SubResource("AnimationLibrary_jka67")
+autoplay = &"scene0"
+
+[node name="actor1" type="MeshInstance3D" parent="." unique_id=152028511]
+transform = Transform3D(0.834321, 0, 0, 0, 0.90051776, 0, 0, 0, 0.0801657, 4.3044724, 1.2269359, 1.6520064)
+material_override = SubResource("StandardMaterial3D_5vw27")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="ActorController" parent="actor1" unique_id=385023856 instance=ExtResource("4_jka67")]
+
+[node name="actor2" type="MeshInstance3D" parent="." unique_id=420871054]
+transform = Transform3D(0.834321, 0, 0, 0, 0.90051776, 0, 0, 0, 0.0801657, -5.323698, 1.2269359, 1.6520064)
+material_override = SubResource("StandardMaterial3D_5vw27")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="ActorController" parent="actor2" unique_id=1767442541 instance=ExtResource("4_jka67")]
 
 [connection signal="timeout" from="ErrorEvent" to="Orchestrator" method="_on_error_event_timeout"]
