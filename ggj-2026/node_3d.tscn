@@ -77,14 +77,17 @@ tracks/0/path = NodePath("Actors/actor1/ActorController")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 17, 26.766666, 46.833332),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.033333335, 1.2, 17, 26.766666, 46.833332),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [2, 1.0],
 "method": &"move"
 }, {
 "args": [1, 1.0],
 "method": &"move"
+}, {
+"args": ["idle", 2.0],
+"method": &"anim"
 }, {
 "args": [2, 1.0],
 "method": &"move"
@@ -103,12 +106,9 @@ tracks/1/path = NodePath("Actors/actor2/ActorController")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.23333359, 5.0666666, 17.233334, 46.233334),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.1666666),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
-"args": [1, 1.0],
-"method": &"move"
-}, {
 "args": [2, 1.0],
 "method": &"move"
 }, {
@@ -549,8 +549,7 @@ mesh = SubResource("CapsuleMesh_272bh")
 
 [node name="ActorController" parent="Actors/actor1" unique_id=385023856 instance=ExtResource("4_jka67")]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/actor1" unique_id=374462122]
-root_node = NodePath("../ActorController")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/actor1/ActorController" unique_id=374462122]
 libraries/ = SubResource("AnimationLibrary_wc5p8")
 
 [node name="actor2" type="MeshInstance3D" parent="Actors" unique_id=420871054]
@@ -560,8 +559,7 @@ mesh = SubResource("CapsuleMesh_272bh")
 
 [node name="ActorController" parent="Actors/actor2" unique_id=1767442541 instance=ExtResource("4_jka67")]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/actor2" unique_id=1497312585]
-root_node = NodePath("../ActorController")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/actor2/ActorController" unique_id=1497312585]
 libraries/ = SubResource("AnimationLibrary_wc5p8")
 
 [node name="actor3" type="MeshInstance3D" parent="Actors" unique_id=54412257]
@@ -571,8 +569,7 @@ mesh = SubResource("CapsuleMesh_272bh")
 
 [node name="ActorController" parent="Actors/actor3" unique_id=1703141769 instance=ExtResource("4_jka67")]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/actor3" unique_id=789143174]
-root_node = NodePath("../ActorController")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/actor3/ActorController" unique_id=789143174]
 libraries/ = SubResource("AnimationLibrary_wc5p8")
 
 [node name="nuage2" type="MeshInstance3D" parent="." unique_id=755418964]
