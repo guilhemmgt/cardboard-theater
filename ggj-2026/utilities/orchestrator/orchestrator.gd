@@ -4,12 +4,12 @@ class_name Orchestrator
 signal points_ready
 signal pause_state_changed(is_paused: bool)
 
-@onready var error_event: Timer = $"../ErrorEvent"
 @onready var game_over: Node3D = $"../GameOver"
 @onready var plan1: Node = $Plan1
 @onready var plan2: Node = $Plan2
 @onready var plan3: Node = $Plan3
-@onready var reparable_env: Node = $"../ReparableEnv"
+@onready var incidents_manager: Node = $"../IncidentsManager"
+
 
 var points_plan1: Array = []
 var points_plan2: Array = []
@@ -18,7 +18,7 @@ var points_plan3: Array = []
 # Pause system
 var is_paused: bool = false
 var registered_actors: Array[ActorController] = []
-var decors_nodes: Array[RepairIncident] = []
+var incidents_nodes: Array[Incident] = []
 var is_point_ready: bool = false
 func _ready() -> void:
 	# Initialize plan points
@@ -30,23 +30,21 @@ func _ready() -> void:
 	points_ready.emit()
 	is_point_ready = true
 	
-	# Start error event timer
-	error_event.wait_time = randf_range(3.0, 8.0)
-	error_event.start()
+	# Find all RepairIncident nodes in incidents manager
+	for child in incidents_manager.get_children():
+		for incident in child.get_children():
+			if incident and incident is Incident:
+				var decor: Incident = incident as Incident
+				incidents_nodes.append(decor)
 	
-	# Find all RepairIncident nodes in reparable environment
-	for child in reparable_env.get_children():
-		var repair_incident = child.get_node_or_null("RepairIncident")
-		if repair_incident and repair_incident is RepairIncident:
-			var decor: RepairIncident = repair_incident as RepairIncident
-			decors_nodes.append(decor)
 	
-	print("Registered decor nodes: ", decors_nodes.size())
-	
-	# Connect signals for all decor nodes
-	for decor in decors_nodes:
-		decor.resolved.connect(_on_event_success)
-		decor.failed.connect(_on_event_failure)
+	# Connect signals for all incident nodes
+	print("Incidents found: %d" % incidents_nodes.size())
+	for incident in incidents_nodes:
+		incident.resolved.connect(_on_event_success)
+		incident.failed.connect(_on_event_failure)
+		incident.activated.connect(_on_incident_activated)
+		
 
 func get_plan_points(plan_number: int) -> Array:
 	match plan_number:
@@ -94,26 +92,18 @@ func toggle_pause() -> void:
 func get_pause_state() -> bool:
 	return is_paused
 
-
-func _on_error_event_timeout() -> void:
-	print("Error event triggered")
-	var rand_event_type = randi() % 2
-	if rand_event_type == 0:
-		random_decor_error_event()
-	else : 
-		pass
-
-
-func random_decor_error_event() -> void:
-
-	var random_index = randi() % decors_nodes.size()
-	var random_decor: RepairIncident = decors_nodes[random_index]
-	print("Activating decor at index: ", random_index)
-	random_decor.activate(5.0)
-
 func _on_event_success() -> void:
 	print("Event resolved successfully")
+	if is_paused:
+		resume_all_actors()
 
 func _on_event_failure() -> void:
 	print("Event failed - game over")
 	game_over.visible = true
+
+func _on_incident_activated(blocking: bool) -> void:
+	if blocking:
+		pause_all_actors()
+		print("Blocking incident activated")
+	else:
+		print("Non-blocking incident activated")

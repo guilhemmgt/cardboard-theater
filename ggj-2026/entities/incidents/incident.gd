@@ -5,10 +5,12 @@ class_name Incident
 
 signal resolved
 signal failed
-signal activated
+signal activated(blocking: bool)
 
 @export var _timer: Timer
 var _activated: bool
+
+var blocking: bool = false
 
 func _ready() -> void:
 	_timer.timeout.connect(func(): deactivate(false))
@@ -16,9 +18,9 @@ func _ready() -> void:
 func activate(time: float):
 	if _activated:
 		push_error("Already activated.")
-	print("activated")
+	print("Event activated on node: " + str(self))
 	_activated = true
-	activated.emit()
+	activated.emit(blocking)
 	_timer.stop()
 	_timer.wait_time = time
 	_timer.start()
