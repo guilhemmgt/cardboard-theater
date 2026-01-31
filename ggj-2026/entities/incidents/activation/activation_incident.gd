@@ -1,13 +1,10 @@
 @tool
 extends Incident
-class_name RepairIncident
+class_name ActivationIncident
 
+@export var shape: Shape3D
 @export var area: Area3D
 @export var collisionShape: CollisionShape3D
-@export var clicks_required: int
-@export var shape : Shape3D
-var clicks_done : int
-
 @export_tool_button("Apply Shape") var apply_shape_button = apply_shape
 
 func apply_shape() -> void:
@@ -17,6 +14,7 @@ func apply_shape() -> void:
 	else :
 		print("no collision shape")
 
+
 func _ready() -> void:
 	super._ready()
 	collisionShape.shape = shape
@@ -24,7 +22,6 @@ func _ready() -> void:
 
 func activate(time: float):
 	super.activate(time)
-	clicks_done = 0
 	collisionShape.disabled = false
 	
 func deactivate(success: bool):
@@ -37,7 +34,4 @@ func on_click(_camera: Node,
 			  _normal: Vector3, 
 			  _shape_idx: int):
 	if (event.is_action_pressed('click')):
-		print("coucou")
-		clicks_done += 1
-		if clicks_done >= clicks_required:
-			deactivate(true)
+		deactivate(true)

@@ -1,2 +1,0 @@
-extends Incident
-class_name DialogIncident
