@@ -101,13 +101,10 @@ func _on_error_event_timeout() -> void:
 	print("Error event triggered - toggling pause state")
 	print("decors_nodes size: ", decors_nodes.size())
 	print("decors_nodes content: ", decors_nodes)
-	for i in range(decors_nodes.size()):
-		print("  [", i, "] = ", decors_nodes[i], " parent: ", decors_nodes[i].get_parent().name if decors_nodes[i].get_parent() else "null")
 	#vhoose random decor to trigger event
 	var random_index = randi() % decors_nodes.size()
 	print("Random index: ", random_index)
 	var random_decor: RepairIncident = decors_nodes[random_index]
-	print("Selected decor: ", random_decor, " parent: ", random_decor.get_parent().name if random_decor.get_parent() else "null")
 	random_decor.activate(5.0)
 
 func _on_event_success() -> void:
