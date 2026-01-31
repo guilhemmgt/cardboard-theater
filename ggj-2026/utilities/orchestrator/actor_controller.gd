@@ -51,7 +51,10 @@ func anim(anim_name: String, anim_duration: float) -> void:
 		print("Animation action skipped - actor is paused")
 		return
 	actor_animation_player.play(anim_name)
-	get_tree().create_timer(anim_duration).timeout.connect(on_animation_timer_timeout)
+	animation_timer = Timer.new()
+	animation_timer.one_shot = true
+	animation_timer.wait_time = anim_duration
+	animation_timer.timeout.connect(on_animation_timer_timeout)
 
 func plan_change(new_plan_number: int,new_plan_node_id :int,duration:float) -> void:
 	plan_number = new_plan_number
