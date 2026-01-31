@@ -13,10 +13,16 @@ var points_plan1: Array = []
 var points_plan2: Array = []
 var points_plan3: Array = []
 
+@onready var arbre: RepairIncident = $"../nuage2/RepairIncident"
+@onready var nuage_2: RepairIncident = $"../arbre/RepairIncident"
+
+
 # Système de pause
 var is_paused: bool = false
 var registered_actors: Array[ActorController] = []
-@onready var nuage: RepairIncident = $"../nuage/RepairIncident"
+
+
+var decors_nodes: Array[RepairIncident] = []
 
 var is_point_ready:bool=false
 # Called when the node enters the scene tree for the first time.
@@ -30,15 +36,19 @@ func _ready() -> void:
 	points_ready.emit()
 	is_point_ready=true
 
-	await get_tree().create_timer(2.0).timeout
-	#test pause resume
-	#play turn
 
-	error_event.wait_time = randf_range(5.0,15.0)
+	error_event.wait_time = randf_range(3.0, 8.0)
 	error_event.start()
 
-	nuage.resolved.connect(_on_event_success)
-	nuage.failed.connect(_on_event_failure)
+	print("J'appends :",arbre,nuage_2)
+	decors_nodes.append(arbre)
+	decors_nodes.append(nuage_2)
+	print("Decors nodes registered:")
+	print("decors_nodes:",decors_nodes)
+
+	for decor in decors_nodes:
+		decor.resolved.connect(_on_event_success)
+		decor.failed.connect(_on_event_failure)
 
 
 
@@ -91,11 +101,12 @@ func get_pause_state() -> bool:
 
 func _on_error_event_timeout() -> void:
 	print("Error event triggered - toggling pause state")
-	nuage.activate(5)
+	#vhoose random decor to trigger event
+	var random_decor: RepairIncident = decors_nodes[randi() % decors_nodes.size()]
+	random_decor.activate(5.0)
 
 func _on_event_success() -> void:
 	print("Event success - resuming all actors")
 	
 func _on_event_failure() -> void:
-	print("Event failure - pausing all actors")
-	pause_all_actors()
+	print("Vous avez échoué l'événement !")
