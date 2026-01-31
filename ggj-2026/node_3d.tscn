@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://7bkl72rbjsk2" path="res://entities/incidents/repair/repair_incident.tscn" id="2_noarx"]
 [ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="3_r3fl7"]
 [ext_resource type="PackedScene" uid="uid://crmmgpxf31kdn" path="res://utilities/orchestrator/actor_controller.tscn" id="4_jka67"]
+[ext_resource type="AudioStream" uid="uid://cb1ckd7b3kmcu" path="res://sounds/music/ggj2026.mp3" id="6_i5arm"]
+[ext_resource type="PackedScene" uid="uid://d3t74t4c2wtyw" path="res://ui/signs/game_over.tscn" id="7_wc5p8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_color = Color(0.72428656, 0.29958177, 0.19783527, 1)
@@ -67,6 +69,7 @@ uv1_world_triplanar = true
 
 [sub_resource type="Animation" id="Animation_r3fl7"]
 resource_name = "scene0"
+length = 60.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -74,14 +77,23 @@ tracks/0/path = NodePath("Actors/actor1/ActorController")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.033333335, 0.8),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.033333335, 17, 26.766666, 46.833332),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "values": [{
+"args": [2, 1.0],
+"method": &"move"
+}, {
 "args": [1, 1.0],
 "method": &"move"
 }, {
-"args": ["idle", 2.0],
+"args": [2, 1.0],
+"method": &"move"
+}, {
+"args": ["idle", 15.0],
 "method": &"anim"
+}, {
+"args": [0, 4.0],
+"method": &"move"
 }]
 }
 tracks/1/type = "method"
@@ -91,9 +103,12 @@ tracks/1/path = NodePath("Actors/actor2/ActorController")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.03333333, 0.8),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.23333359, 5.0666666, 17.233334, 46.233334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "values": [{
+"args": [1, 1.0],
+"method": &"move"
+}, {
 "args": [2, 1.0],
 "method": &"move"
 }, {
@@ -571,5 +586,14 @@ shape = SubResource("BoxShape3D_tereu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="nuage2" unique_id=815137503]
 libraries/ = SubResource("AnimationLibrary_wlxy5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1441380298]
+stream = ExtResource("6_i5arm")
+volume_db = -5.915
+autoplay = true
+
+[node name="GameOver" parent="." unique_id=1945262765 instance=ExtResource("7_wc5p8")]
+transform = Transform3D(-3.278823, 0, 0.087863214, 0, 3.28, 0, -0.087863214, 0, -3.278823, -0.278, 2.203, 1.104)
+visible = false
 
 [connection signal="timeout" from="ErrorEvent" to="Orchestrator" method="_on_error_event_timeout"]

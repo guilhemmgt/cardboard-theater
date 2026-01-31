@@ -11,9 +11,7 @@ func _ready() -> void:
 		print("[failedScript] Resolved on: ", name)
 		animation_player.stop()
 	)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+
 
 func _on_repair_incident_activated() -> void:
 	print("[failedScript] Activated on: ", name, " - Playing tremblement on AnimationPlayer: ", animation_player)

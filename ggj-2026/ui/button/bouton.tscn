@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dlevpco8snw5k"]
 
-[ext_resource type="Script" uid="uid://dhcr03f3m0kiw" path="res://entities/buttonUI.gd" id="1_y084j"]
+[ext_resource type="Script" uid="uid://dhcr03f3m0kiw" path="res://ui/button/buttonUI.gd" id="1_y084j"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_noarx"]
 
