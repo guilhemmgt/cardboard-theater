@@ -80,8 +80,8 @@ def create_cardboard_mesh(image_path, output_obj='sprite_mesh.obj',
     for i in range(0, len(triangles), 3):
         faces.append([
             triangles[i] + 1,
-            triangles[i + 1] + 1,
-            triangles[i + 2] + 1 
+            triangles[i + 2] + 1,
+            triangles[i + 1] + 1 
         ])
     
     # Triangulation de la face arrière (ordre inversé)
@@ -102,10 +102,10 @@ def create_cardboard_mesh(image_path, output_obj='sprite_mesh.obj',
         back_next = n + next_i + 1
         
         # Premier triangle de la face latérale
-        faces.append([front_curr, front_next, back_curr])
+        faces.append([front_curr, back_curr, front_next])
         
         # Deuxième triangle de la face latérale
-        faces.append([front_next, back_next, back_curr])
+        faces.append([front_next, back_curr, back_next])
 
     # 8. Exporter en OBJ
     with open(output_obj, 'w') as f:
@@ -127,7 +127,7 @@ def create_cardboard_mesh(image_path, output_obj='sprite_mesh.obj',
         
         # Faces
         for face in faces:
-            f.write(f"f {face[0]}/{face[0]} {face[1]}/{face[1]} {face[2]}/{face[2]}\n")
+            f.write(f"f {face[0]} {face[1]} {face[2]}\n")
     
     print(f"Mesh créé : {output_obj}")
     print(f"Vertices : {len(vertices_3d)}, Faces : {len(faces)}")
@@ -140,8 +140,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("INPUT", type=str)
     parser.add_argument("OUTPUT", type=str)
-    parser.add_argument("simplification", type=float, required=False)
-    parser.add_argument("extrusion", type=float, required=False)
+    parser.add_argument("--simplification", type=float, required=False)
+    parser.add_argument("--extrusion", type=float, required=False)
 
     args = parser.parse_args()
 
