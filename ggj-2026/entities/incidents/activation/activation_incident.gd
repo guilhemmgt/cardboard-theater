@@ -2,6 +2,7 @@
 extends Incident
 class_name ActivationIncident
 
+
 @export var shape: Shape3D
 @export var area: Area3D
 @export var collisionShape: CollisionShape3D
@@ -37,3 +38,4 @@ func on_click(_camera: Node,
 			  _shape_idx: int):
 	if (event.is_action_pressed('click')):
 		deactivate(true)
+		

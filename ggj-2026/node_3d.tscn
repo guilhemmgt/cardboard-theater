@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b5cv4ybux4tk0"]
 
 [ext_resource type="Texture2D" uid="uid://bu0jq5rop2wt3" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="1_a202f"]
+[ext_resource type="Script" uid="uid://d3uf356n1craj" path="res://ui/cursor/mouse_manager.gd" id="1_tereu"]
 [ext_resource type="Script" uid="uid://b77rw5elxerfm" path="res://failedScript.gd" id="2_jka67"]
 [ext_resource type="PackedScene" uid="uid://7bkl72rbjsk2" path="res://entities/incidents/repair/repair_incident.tscn" id="2_noarx"]
 [ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="3_r3fl7"]
@@ -328,6 +329,9 @@ uv1_triplanar = true
 uv1_world_triplanar = true
 
 [node name="root" type="Node3D" unique_id=80377798]
+
+[node name="MouseManager" type="Node" parent="." unique_id=184214542]
+script = ExtResource("1_tereu")
 
 [node name="TheatreScene" type="Node3D" parent="." unique_id=814067477]
 

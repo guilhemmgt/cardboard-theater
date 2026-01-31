@@ -7,6 +7,9 @@ extends Node3D
 @export var all_incident : AllIncident
 @export var whisper : RichTextLabel
 
+const MOUSE_IDLE = preload("uid://cv8er5i4lebj2")
+const MOUSE_ACTION = preload("uid://djb7775gil4aa")
+
 func _ready() -> void:
 	dialog.write_letter.connect(update_ui_whisper)
 	# repair.activate(10)
@@ -15,6 +18,10 @@ func _ready() -> void:
 	# activation.activate(10)
 	
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("click"):
+		Input.set_custom_mouse_cursor(MOUSE_ACTION)
+	if event.is_action_released("click"):
+		Input.set_custom_mouse_cursor(MOUSE_IDLE)
 	if event.is_action_pressed("test"):
 		all_incident.activate(10)
 		# random_incident.activate(5)
