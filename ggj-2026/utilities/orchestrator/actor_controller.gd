@@ -2,7 +2,7 @@ extends Node
 class_name ActorController
 
 @onready var actor_node: Node = get_parent()
-@onready var actor_animation_player: AnimationPlayer = actor_node.get_node_or_null("AnimationPlayer")
+@onready var actor_animation_player: AnimationPlayer = $AnimationPlayer
 @onready var orchestrator: Orchestrator = $"../../../Orchestrator"
 
 var is_actor_moving: bool = false

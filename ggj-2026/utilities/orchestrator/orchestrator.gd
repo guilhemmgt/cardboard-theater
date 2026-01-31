@@ -13,7 +13,6 @@ var points_plan1: Array = []
 var points_plan2: Array = []
 var points_plan3: Array = []
 
-@onready var arbre: RepairIncident = $"../arbre/RepairIncident"
 @onready var nuage_2: RepairIncident = $"../nuage2/RepairIncident"
 
 
@@ -40,7 +39,6 @@ func _ready() -> void:
 	error_event.wait_time = randf_range(3.0, 8.0)
 	error_event.start()
 
-	print("J'appends :",arbre,nuage_2)
 	#decors_nodes.append(arbre)
 	decors_nodes.append(nuage_2)
 	print("Decors nodes registered:")
@@ -114,6 +112,8 @@ func _on_error_event_timeout() -> void:
 
 func _on_event_success() -> void:
 	print("Event success - resuming all actors")
+@onready var game_over: Node3D = $"../GameOver"
 	
 func _on_event_failure() -> void:
 	print("Vous avez échoué l'événement !")
+	game_over.visible=true
