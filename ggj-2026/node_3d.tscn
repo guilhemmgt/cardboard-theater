@@ -4,11 +4,12 @@
 [ext_resource type="Script" uid="uid://b77rw5elxerfm" path="res://failedScript.gd" id="2_jka67"]
 [ext_resource type="PackedScene" uid="uid://7bkl72rbjsk2" path="res://entities/incidents/repair/repair_incident.tscn" id="2_noarx"]
 [ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="3_r3fl7"]
-[ext_resource type="PackedScene" uid="uid://crmmgpxf31kdn" path="res://utilities/orchestrator/actor_controller.tscn" id="4_jka67"]
+[ext_resource type="PackedScene" uid="uid://crmmgpxf31kdn" path="res://entities/actors/actor_controller.tscn" id="4_jka67"]
 [ext_resource type="PackedScene" uid="uid://7hmyj02kii3d" path="res://entities/incidents/dialog/dialog_incident.tscn" id="4_jsk3o"]
 [ext_resource type="AudioStream" uid="uid://cb1ckd7b3kmcu" path="res://sounds/music/ggj2026.mp3" id="6_i5arm"]
 [ext_resource type="PackedScene" uid="uid://d3t74t4c2wtyw" path="res://ui/signs/game_over.tscn" id="7_wc5p8"]
 [ext_resource type="PackedScene" uid="uid://3q7u47fq30rs" path="res://entities/incidents/activation/activation_incident.tscn" id="9_4arys"]
+[ext_resource type="PackedScene" uid="uid://dxch6vbu2k336" path="res://entities/intru/intru_control.tscn" id="10_6iypd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_color = Color(0.72428656, 0.29958177, 0.19783527, 1)
@@ -142,9 +143,12 @@ tracks/3/path = NodePath("IncidentsManager/nuage4/ActivationIncident")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
+"times": PackedFloat32Array(1.6333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [5.0],
+"method": &"activate"
+}]
 }
 tracks/4/type = "method"
 tracks/4/imported = false
@@ -153,11 +157,22 @@ tracks/4/path = NodePath("IncidentsManager/nuage2/nuage0")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(1.1666666),
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Node/actor1/IntruControl")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.5999999),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [3.0],
-"method": &"activate"
+"args": [2, 3.0],
+"method": &"move"
 }]
 }
 
@@ -305,6 +320,12 @@ uv1_triplanar = true
 uv1_world_triplanar = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4arys"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tereu"]
+albedo_color = Color(0.07058824, 0.4117647, 0.21568628, 1)
+albedo_texture = ExtResource("1_a202f")
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [node name="root" type="Node3D" unique_id=80377798]
 
@@ -655,5 +676,14 @@ libraries/ = SubResource("AnimationLibrary_wlxy5")
 [node name="ActivationIncident" parent="IncidentsManager/nuage4" unique_id=1377364127 instance=ExtResource("9_4arys")]
 transform = Transform3D(0.37168357, 0, 0, 0, 0.86032677, 0, 0, 0, 11.578538, 0, 0, 0)
 shape = SubResource("BoxShape3D_4arys")
+
+[node name="Node" type="Node" parent="." unique_id=1301099338]
+
+[node name="actor1" type="MeshInstance3D" parent="Node" unique_id=1855910158]
+transform = Transform3D(0.834321, 0, 0, 0, 0.90051776, 0, 0, 0, 0.0801657, 4.0864406, 1.2269359, 1.6520064)
+material_override = SubResource("StandardMaterial3D_tereu")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="IntruControl" parent="Node/actor1" unique_id=187030485 instance=ExtResource("10_6iypd")]
 
 [connection signal="timeout" from="ErrorEvent" to="Orchestrator" method="_on_error_event_timeout"]
