@@ -26,7 +26,6 @@ shape = SubResource("SphereShape3D_wupjw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.4881706)
 
 [node name="DialogIncident" parent="." unique_id=1025400322 instance=ExtResource("2_0yc7w")]
-text_to_write = "Demain des l'aube"
 
 [node name="Whisper" type="RichTextLabel" parent="." unique_id=737406805]
 offset_right = 721.0
