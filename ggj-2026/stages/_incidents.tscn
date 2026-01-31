@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://cns7qt0qmj6iy" path="res://stages/_incidents.gd" id="1_wupjw"]
 [ext_resource type="PackedScene" uid="uid://7hmyj02kii3d" path="res://entities/incidents/dialog/dialog_incident.tscn" id="2_0yc7w"]
 [ext_resource type="PackedScene" uid="uid://3q7u47fq30rs" path="res://entities/incidents/activation/activation_incident.tscn" id="4_swtja"]
+[ext_resource type="PackedScene" uid="uid://chrbg1i81qs88" path="res://entities/incidents/random/random_incident.tscn" id="5_ojhf4"]
+[ext_resource type="PackedScene" uid="uid://bqhlmj5ksct5d" path="res://entities/incidents/all/all_incident.tscn" id="6_4qcjg"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wupjw"]
 radius = 1.0
@@ -11,11 +13,13 @@ radius = 1.0
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ojhf4"]
 height = 4.0
 
-[node name="Incidents" type="Node3D" unique_id=1914987216 node_paths=PackedStringArray("repair", "dialog", "activation", "whisper")]
+[node name="Incidents" type="Node3D" unique_id=1914987216 node_paths=PackedStringArray("repair", "dialog", "activation", "random_incident", "all_incident", "whisper")]
 script = ExtResource("1_wupjw")
 repair = NodePath("RepairIncident")
 dialog = NodePath("DialogIncident")
 activation = NodePath("ActivationIncident")
+random_incident = NodePath("RandomIncident")
+all_incident = NodePath("AllIncident")
 whisper = NodePath("Whisper")
 
 [node name="RepairIncident" parent="." unique_id=1978840276 instance=ExtResource("1_o280i")]
@@ -37,3 +41,9 @@ bbcode_enabled = true
 [node name="ActivationIncident" parent="." unique_id=1377364127 instance=ExtResource("4_swtja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9949161, 0, 0)
 shape = SubResource("CapsuleShape3D_ojhf4")
+
+[node name="RandomIncident" parent="." unique_id=1859898801 node_paths=PackedStringArray("incidents") instance=ExtResource("5_ojhf4")]
+incidents = [NodePath("../RepairIncident"), NodePath("../DialogIncident"), NodePath("../ActivationIncident")]
+
+[node name="AllIncident" parent="." unique_id=1341367953 node_paths=PackedStringArray("incidents") instance=ExtResource("6_4qcjg")]
+incidents = [NodePath("../RepairIncident"), NodePath("../ActivationIncident"), NodePath("../DialogIncident")]

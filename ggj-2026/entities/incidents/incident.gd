@@ -28,7 +28,7 @@ func activate(time: float):
 func deactivate(success: bool):
 	if not _activated:
 		push_error("Already deactivated.")
-	print("deactivated " + str(success))
+	# print("deactivated " + str(success))
 	_activated = false
 	_timer.stop()
 	if success:

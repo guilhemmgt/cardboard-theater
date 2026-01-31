@@ -10,13 +10,11 @@ var _lower_text_to_write: String
 @export var color_error: Color
 var letters_written: int
 
-func _ready() -> void:
-	letters_written = 0
-
 func set_text_to_write(dialog: String):
 	text_to_write = dialog
 
 func activate(time: float):
+	letters_written = 0
 	_lower_text_to_write = text_to_write.to_lower()
 	super.activate(time)
 	
@@ -24,7 +22,6 @@ func activate(time: float):
 
 func _event_to_string(event: InputEvent) -> String:
 	var letter : String = event.as_text().to_lower()
-	print(letter)
 	if letter == "space":
 		letter = " "
 	if letter == "exclam":

@@ -30,8 +30,8 @@ func activate(time: float):
 	collisionShape.disabled = false
 	
 func deactivate(success: bool):
-	super.deactivate(success)
 	collisionShape.disabled = true
+	super.deactivate(success)
 
 func on_click(_camera: Node, 
 			  event: InputEvent, 
