@@ -3,52 +3,51 @@ class_name Orchestrator
 
 signal points_ready
 signal pause_state_changed(is_paused: bool)
-@onready var error_event: Timer = $"../ErrorEvent"
 
+@onready var error_event: Timer = $"../ErrorEvent"
+@onready var game_over: Node3D = $"../GameOver"
 @onready var plan1: Node = $Plan1
 @onready var plan2: Node = $Plan2
 @onready var plan3: Node = $Plan3
+@onready var nuage_2: RepairIncident = $"../nuage2/RepairIncident"
+@onready var reparable_env: Node = $"../ReparableEnv"
 
 var points_plan1: Array = []
 var points_plan2: Array = []
 var points_plan3: Array = []
 
-@onready var nuage_2: RepairIncident = $"../nuage2/RepairIncident"
-
-
-# Système de pause
+# Pause system
 var is_paused: bool = false
 var registered_actors: Array[ActorController] = []
-
-
 var decors_nodes: Array[RepairIncident] = []
-
-var is_point_ready:bool=false
-# Called when the node enters the scene tree for the first time.
+var is_point_ready: bool = false
 func _ready() -> void:
+	# Initialize plan points
 	points_plan1 = plan1.get_children()
-	print(points_plan1)
 	points_plan2 = plan2.get_children()
 	points_plan3 = plan3.get_children()
-	print("emit")
-	# Émettre le signal pour notifier que les points sont prêts
+	
+	# Emit signal to notify that points are ready
 	points_ready.emit()
-	is_point_ready=true
-
-
+	is_point_ready = true
+	
+	# Start error event timer
 	error_event.wait_time = randf_range(3.0, 8.0)
 	error_event.start()
-
-	#decors_nodes.append(arbre)
-	decors_nodes.append(nuage_2)
-	print("Decors nodes registered:")
-	print("decors_nodes:",decors_nodes)
-
+	
+	# Find all RepairIncident nodes in reparable environment
+	for child in reparable_env.get_children():
+		var repair_incident = child.get_node_or_null("RepairIncident")
+		if repair_incident and repair_incident is RepairIncident:
+			var decor: RepairIncident = repair_incident as RepairIncident
+			decors_nodes.append(decor)
+	
+	print("Registered decor nodes: ", decors_nodes.size())
+	
+	# Connect signals for all decor nodes
 	for decor in decors_nodes:
 		decor.resolved.connect(_on_event_success)
 		decor.failed.connect(_on_event_failure)
-
-
 
 func get_plan_points(plan_number: int) -> Array:
 	match plan_number:
@@ -98,19 +97,24 @@ func get_pause_state() -> bool:
 
 
 func _on_error_event_timeout() -> void:
-	print("Error event triggered - toggling pause state")
-	print("decors_nodes size: ", decors_nodes.size())
-	print("decors_nodes content: ", decors_nodes)
-	#vhoose random decor to trigger event
+	print("Error event triggered")
+	var rand_event_type = randi() % 2
+	if rand_event_type == 0:
+		random_decor_error_event()
+	else : 
+		pass
+
+
+func random_decor_error_event() -> void:
+
 	var random_index = randi() % decors_nodes.size()
-	print("Random index: ", random_index)
 	var random_decor: RepairIncident = decors_nodes[random_index]
+	print("Activating decor at index: ", random_index)
 	random_decor.activate(5.0)
 
 func _on_event_success() -> void:
-	print("Event success - resuming all actors")
-@onready var game_over: Node3D = $"../GameOver"
-	
+	print("Event resolved successfully")
+
 func _on_event_failure() -> void:
-	print("Vous avez échoué l'événement !")
-	game_over.visible=true
+	print("Event failed - game over")
+	game_over.visible = true
