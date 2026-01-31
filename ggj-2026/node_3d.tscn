@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d21s2cs8s3lpd"]
 
 [ext_resource type="Texture2D" uid="uid://bu0jq5rop2wt3" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="1_a202f"]
+[ext_resource type="Script" uid="uid://b77rw5elxerfm" path="res://nuage.gd" id="2_jka67"]
 [ext_resource type="PackedScene" uid="uid://7bkl72rbjsk2" path="res://entities/incidents/repair/repair_incident.tscn" id="2_noarx"]
 [ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="3_r3fl7"]
 [ext_resource type="PackedScene" uid="uid://crmmgpxf31kdn" path="res://utilities/orchestrator/actor_controller.tscn" id="4_jka67"]
@@ -64,8 +65,6 @@ uv1_world_triplanar = true
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_272bh"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_noarx"]
-
 [sub_resource type="Animation" id="Animation_r3fl7"]
 resource_name = "scene0"
 tracks/0/type = "method"
@@ -112,6 +111,7 @@ uv1_triplanar = true
 uv1_world_triplanar = true
 
 [sub_resource type="Animation" id="Animation_jka67"]
+resource_name = "tremblement"
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -145,6 +145,183 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_jka67"),
 &"idle": SubResource("Animation_i5arm")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jka67"]
+albedo_color = Color(0.7254902, 1, 0.19607843, 1)
+albedo_texture = ExtResource("1_a202f")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_i5arm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_noarx"]
+
+[sub_resource type="Animation" id="Animation_wc5p8"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_jsk3o"]
+resource_name = "tremblement"
+loop_mode = 2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 3, 3),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.105, 0, 0.105, 0, 0, -0.13, 0, 0.13, 0),
+"times": PackedFloat32Array(0, 0.42, 0.94)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 3, 3),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.105, 0, 0.105, 0, 0, -0.13, 0, 0.13, 0),
+"times": PackedFloat32Array(0, 0.42, 0.94)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 3, 3),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.18744838, -0.105, -0.046862096, 0.105, 0.046862096, -0.24223423, -0.13, 0.10742065, 0.13, -0.10742065),
+"times": PackedFloat32Array(0, 0.42, 0.94)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i5arm"]
+_data = {
+&"RESET": SubResource("Animation_wc5p8"),
+&"tremblement": SubResource("Animation_jsk3o")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4arys"]
+albedo_texture = ExtResource("1_a202f")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_6iypd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tereu"]
+
+[sub_resource type="Animation" id="Animation_cdqbm"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_imku0"]
+resource_name = "tremblement"
+loop_mode = 2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 3, 3),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.105, 0, 0.105, 0, 0, -0.13, 0, 0.13, 0),
+"times": PackedFloat32Array(0, 0.42, 0.94)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 3, 3),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.105, 0, 0.105, 0, 0, -0.13, 0, 0.13, 0),
+"times": PackedFloat32Array(0, 0.42, 0.94)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 3, 3),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.18744838, -0.105, -0.046862096, 0.105, 0.046862096, -0.24223423, -0.13, 0.10742065, 0.13, -0.10742065),
+"times": PackedFloat32Array(0, 0.42, 0.94)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wlxy5"]
+_data = {
+&"RESET": SubResource("Animation_cdqbm"),
+&"tremblement": SubResource("Animation_imku0")
 }
 
 [node name="root" type="Node3D" unique_id=80377798]
@@ -373,16 +550,8 @@ spot_angle = 43.361313
 [node name="Camera3D" type="Camera3D" parent="." unique_id=356183010]
 transform = Transform3D(-0.99999803, 0.0018779158, -0.0006346515, 0.0018191794, 0.99659187, 0.08247014, 0.00078736054, 0.08246882, -0.99659336, -0.3704396, 2.5399058, -2.0036309)
 
-[node name="nuage" type="MeshInstance3D" parent="." unique_id=1779286923]
-transform = Transform3D(2.6904607, 0, 0, 0, 1.1623489, 0, 0, 0, 0.08636668, 2.9527602, 3.8227243, 1.617806)
-material_override = SubResource("StandardMaterial3D_272bh")
-mesh = SubResource("BoxMesh_5vw27")
-
-[node name="RepairIncident" parent="nuage" unique_id=1978840276 instance=ExtResource("2_noarx")]
-shape = SubResource("BoxShape3D_noarx")
-
 [node name="ErrorEvent" type="Timer" parent="." unique_id=55791112]
-wait_time = 10.0
+wait_time = 3.0
 autostart = true
 
 [node name="Orchestrator" type="Node" parent="." unique_id=932776283]
@@ -408,8 +577,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.255335, 1.2203755, 1.82292
 
 [node name="Node" type="Node" parent="Orchestrator" unique_id=1906876023]
 
-[node name="Nuage" type="Node3D" parent="." unique_id=1632395382]
-
 [node name="MainSceneAnimation" type="AnimationPlayer" parent="." unique_id=2119099654]
 libraries/ = SubResource("AnimationLibrary_jka67")
 autoplay = &"scene0"
@@ -432,5 +599,28 @@ material_override = SubResource("StandardMaterial3D_5vw27")
 mesh = SubResource("CapsuleMesh_272bh")
 
 [node name="ActorController" parent="Actors/actor2" unique_id=1767442541 instance=ExtResource("4_jka67")]
+
+[node name="arbre" type="MeshInstance3D" parent="." unique_id=29756471]
+transform = Transform3D(1.2564994, 0, 0, 0, 3.9523811, 0, 0, 0, 0.14308278, -3.0443153, 1.4314971, 2.4558396)
+material_override = SubResource("StandardMaterial3D_jka67")
+mesh = SubResource("BoxMesh_i5arm")
+
+[node name="RepairIncident" parent="arbre" unique_id=1978840276 instance=ExtResource("2_noarx")]
+shape = SubResource("BoxShape3D_noarx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="arbre" unique_id=245536371]
+libraries/ = SubResource("AnimationLibrary_i5arm")
+
+[node name="nuage2" type="MeshInstance3D" parent="." unique_id=755418964]
+transform = Transform3D(2.6904604, 0, 0, 0, 1.162349, 0, 0, 0, 0.08636669, 2.0409865, 3.4804454, 1.3228183)
+material_override = SubResource("StandardMaterial3D_4arys")
+mesh = SubResource("BoxMesh_6iypd")
+script = ExtResource("2_jka67")
+
+[node name="RepairIncident" parent="nuage2" unique_id=2102664361 instance=ExtResource("2_noarx")]
+shape = SubResource("BoxShape3D_tereu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="nuage2" unique_id=815137503]
+libraries/ = SubResource("AnimationLibrary_wlxy5")
 
 [connection signal="timeout" from="ErrorEvent" to="Orchestrator" method="_on_error_event_timeout"]
