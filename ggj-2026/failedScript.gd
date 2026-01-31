@@ -5,8 +5,10 @@ extends MeshInstance3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("[failedScript] Ready on: ", name, " - RepairIncident: ", repair_incident)
 	repair_incident.activated.connect(_on_repair_incident_activated)
 	repair_incident.resolved.connect(func():
+		print("[failedScript] Resolved on: ", name)
 		animation_player.stop()
 	)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -14,4 +16,5 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_repair_incident_activated() -> void:
+	print("[failedScript] Activated on: ", name, " - Playing tremblement on AnimationPlayer: ", animation_player)
 	animation_player.play("tremblement")

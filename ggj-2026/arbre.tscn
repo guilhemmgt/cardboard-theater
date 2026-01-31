@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bu0jq5rop2wt3" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="1_qn361"]
 [ext_resource type="PackedScene" uid="uid://7bkl72rbjsk2" path="res://entities/incidents/repair/repair_incident.tscn" id="2_0fkkm"]
+[ext_resource type="Script" uid="uid://b77rw5elxerfm" path="res://failedScript.gd" id="3_arbre"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4c57u"]
 albedo_color = Color(0.7254902, 1, 0.19607843, 1)
@@ -96,6 +97,7 @@ _data = {
 transform = Transform3D(1.2564994, 0, 0, 0, 3.9523811, 0, 0, 0, 0.14308278, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_4c57u")
 mesh = SubResource("BoxMesh_h2yge")
+script = ExtResource("3_arbre")
 
 [node name="RepairIncident" parent="." unique_id=1978840276 instance=ExtResource("2_0fkkm")]
 shape = SubResource("BoxShape3D_noarx")
