@@ -2,11 +2,11 @@ import argparse
 import cv2
 import numpy as np
 from shapely import Polygon
-from shapely import constrained_delaunay_triangles
+from shapely import constrained_delaunay_triangles, convex_hull
 
 
 def create_cardboard_mesh(image_path, output_obj='sprite_mesh.obj', 
-                          simplification=0.01, extrusion=0.1):
+                          simplification=0.01, extrusion=0.1, convexity=False):
     """
     Crée un mesh 3D cardboard à partir d'un sprite 2D
     
@@ -48,15 +48,17 @@ def create_cardboard_mesh(image_path, output_obj='sprite_mesh.obj',
     vertices[:, 1] = 0.5 - (vertices[:, 1] / h)  # Centrer en Y et inverser
 
     polygon = Polygon(vertices)
+    if convexity:
+        polygon = convex_hull(polygon)
     tri = constrained_delaunay_triangles(polygon)
 
+    points = list(polygon.exterior.coords)
     triangles = []
     t: Polygon
     for t in tri.geoms:
-        points = list(t.exterior.coords)
+        tri_points = list(t.exterior.coords)
         for i in range(3):
-            px, py = points[i]
-            a = np.argwhere(np.all(vertices == np.array([px, py]), axis=1))
+            a = np.argwhere(np.all(np.array(points) == np.array(tri_points[i]), axis=1))
             triangles.append(a[0, 0])
     
     # 7. Créer le mesh 3D (cardboard = 2 faces)
@@ -65,16 +67,16 @@ def create_cardboard_mesh(image_path, output_obj='sprite_mesh.obj',
     uvs = []
     
     # Face avant (z = 0)
-    for i, v in enumerate(vertices):
+    for i, v in enumerate(points):
         vertices_3d.append([v[0], v[1], 0])
         uvs.append([(v[0] + 0.5), (v[1] + 0.5)])
     
     # Face arrière (z = -extrusion)
-    for i, v in enumerate(vertices):
+    for i, v in enumerate(points):
         vertices_3d.append([v[0], v[1], -extrusion])
         uvs.append([(v[0] + 0.5), (v[1] + 0.5)])
     
-    n = len(vertices)
+    n = len(points)
 
     # Triangulation de la face avant
     for i in range(0, len(triangles), 3):
@@ -101,11 +103,18 @@ def create_cardboard_mesh(image_path, output_obj='sprite_mesh.obj',
         back_curr = n + i + 1
         back_next = n + next_i + 1
         
-        # Premier triangle de la face latérale
-        faces.append([front_curr, back_curr, front_next])
-        
-        # Deuxième triangle de la face latérale
-        faces.append([front_next, back_curr, back_next])
+        if convexity:
+            # Premier triangle de la face latérale
+            faces.append([front_curr, front_next, back_curr])
+            
+            # Deuxième triangle de la face latérale
+            faces.append([front_next, back_next, back_curr])
+        else:
+            # Premier triangle de la face latérale
+            faces.append([front_curr, back_curr, front_next])
+            
+            # Deuxième triangle de la face latérale
+            faces.append([front_next, back_curr, back_next])
 
     # 8. Exporter en OBJ
     with open(output_obj, 'w') as f:
@@ -142,6 +151,7 @@ if __name__ == "__main__":
     parser.add_argument("OUTPUT", type=str)
     parser.add_argument("--simplification", type=float, required=False)
     parser.add_argument("--extrusion", type=float, required=False)
+    parser.add_argument("--convexity", action="store_true", required=False)
 
     args = parser.parse_args()
 
@@ -149,10 +159,13 @@ if __name__ == "__main__":
         args.simplification = 0.01
     if args.extrusion is None:
         args.extrusion = 0.03
+    if args.convexity is None:
+        args.convexity = False
 
     create_cardboard_mesh(
         args.INPUT,
         args.OUTPUT, 
         args.simplification,
-        args.extrusion
+        args.extrusion,
+        args.convexity
     )
