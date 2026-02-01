@@ -1,0 +1,12 @@
+INIT
+ACTOR : MadKing : 0-0
+ACTOR : Knight : 0-0
+ACTOR : Dragon : 0-0
+ACTOR : GobTheGoblin : 0-0
+ACTOR : Princess : 0-0
+ACTOR : GreatestTree : 0-0
+ACTOR : Cible : 0-1
+
+SCENE
+0.0 : ACTION : Move : MadKing : 2 : 0.01
+1.0 : ACTION : Move : MadKing : 3 : 0.01
