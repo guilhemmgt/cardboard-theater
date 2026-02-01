@@ -77,7 +77,8 @@ texture_repeat = 2
 
 [resource]
 modes/cull = 2
-preview_params/Texture2DParameter = "Resource(\"uid://csmwrklr2jhfk\", \"res://carton/cloud_1.png\")"
+modes/specular = 1
+preview_params/Texture2DParameter = "Resource(\"uid://csmwrklr2jhfk\", \"res://carton/3Dcardboards/nuage/cloud_1.png\")"
 nodes/vertex/0/position = Vector2(850, 30)
 nodes/fragment/0/position = Vector2(1810, 700)
 nodes/fragment/3/node = SubResource("VisualShaderNodeInput_0x6xp")
