@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cism81l75d45e"]
+
+[ext_resource type="PackedScene" uid="uid://7yehy28doul" path="res://entities/bulle/bulle.tscn" id="1_fiqib"]
+
+[node name="DialogManager" type="Node" unique_id=1332470380]
+
+[node name="KnightBulle" parent="." unique_id=750024757 node_paths=PackedStringArray("bubble_marker") instance=ExtResource("1_fiqib")]
+bubble_marker = NodePath("")
+
+[node name="KingBulle" parent="." unique_id=1986579513 node_paths=PackedStringArray("bubble_marker") instance=ExtResource("1_fiqib")]
+bubble_marker = NodePath("")

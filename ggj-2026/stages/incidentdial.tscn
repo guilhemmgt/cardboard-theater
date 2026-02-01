@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://bb7foe3ltltb8"]
+
+[ext_resource type="Script" uid="uid://dfdy35mpkqbab" path="res://entities/bulle/bulle_incident.gd" id="1_4hq7c"]
+[ext_resource type="FontFile" uid="uid://btaosis1u2l53" path="res://entities/bulle/absender1.ttf" id="2_5gmh3"]
+[ext_resource type="PackedScene" uid="uid://d0b08xu72xnum" path="res://carton/3Dcardboards/bulle_main/bulle_main.tscn" id="3_615hk"]
+[ext_resource type="PackedScene" uid="uid://cl7su7uskwgcj" path="res://carton/3Dcardboards/bulle_handle/bulle_handle.tscn" id="4_o3mox"]
+[ext_resource type="PackedScene" uid="uid://7hmyj02kii3d" path="res://entities/incidents/dialog/dialog_incident.tscn" id="5_q3rig"]
+
+[node name="incidentdial" type="Node" unique_id=1367754588]
+
+[node name="KnightBIncident" type="Node3D" parent="." unique_id=2142173048]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+visible = false
+script = ExtResource("1_4hq7c")
+padding = Vector2(0, 0)
+
+[node name="goodletter" type="Label3D" parent="KnightBIncident" unique_id=326817410]
+transform = Transform3D(-0.6413422, -0.0009500691, 5.9462355e-09, -0.0011193545, 0.54434896, 0, -5.606792e-08, -8.305768e-11, -0.068017006, 0, 0, -0.034724236)
+shaded = true
+modulate = Color(0, 1, 0, 0.65882355)
+text = "Hello World
+Billy Person"
+font = ExtResource("2_5gmh3")
+font_size = 128
+
+[node name="wrongletter" type="Label3D" parent="KnightBIncident" unique_id=1496518779]
+transform = Transform3D(-0.6413422, -0.0009500691, 5.9462355e-09, -0.0011193545, 0.54434896, 0, -5.606792e-08, -8.305768e-11, -0.068017006, 0, 0, -0.034724236)
+shaded = true
+modulate = Color(1, 0, 0, 1)
+text = "Hello    LD
+Silly Person"
+font = ExtResource("2_5gmh3")
+font_size = 128
+
+[node name="waitedletter" type="Label3D" parent="KnightBIncident" unique_id=595570218]
+transform = Transform3D(-0.6413422, -0.0009500691, 5.9462355e-09, -0.0011193545, 0.54434896, 0, -5.606792e-08, -8.305768e-11, -0.068017006, 0, 0, -0.034724236)
+shaded = true
+modulate = Color(1, 1, 1, 0.3019608)
+text = "Hello    LD
+Silly Person"
+font = ExtResource("2_5gmh3")
+font_size = 128
+
+[node name="BulleMain" parent="KnightBIncident" unique_id=1791090360 instance=ExtResource("3_615hk")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -0.004686981, 0, 0.00037443638)
+
+[node name="Node3D" type="Node3D" parent="KnightBIncident/BulleMain" unique_id=1465569017]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32875082, -0.32090044, -0.102073535)
+
+[node name="BulleHandle" parent="KnightBIncident/BulleMain/Node3D" unique_id=1391828836 instance=ExtResource("4_o3mox")]
+transform = Transform3D(0.11227442, -0.48706895, 0.012570208, 0.48723137, 0.1122349, -0.0029798206, 8.114054e-05, 0.012918315, 0.49983296, 0.7073785, 0, 0.07211208)
+
+[node name="KnightDialogIncident" parent="KnightBIncident" unique_id=1025400322 instance=ExtResource("5_q3rig")]
+
+[node name="KingtBIncident2" type="Node3D" parent="." unique_id=808703699]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+script = ExtResource("1_4hq7c")
+padding = Vector2(0, 0)
+
+[node name="goodletter" type="Label3D" parent="KingtBIncident2" unique_id=180984075]
+transform = Transform3D(-0.6413422, -0.0009500691, 5.9462355e-09, -0.0011193545, 0.54434896, 0, -5.606792e-08, -8.305768e-11, -0.068017006, 0, 0, -0.034724236)
+shaded = true
+modulate = Color(0, 1, 0, 0.65882355)
+text = "Hello World
+Billy Person"
+font = ExtResource("2_5gmh3")
+font_size = 128
+
+[node name="wrongletter" type="Label3D" parent="KingtBIncident2" unique_id=499016700]
+transform = Transform3D(-0.6413422, -0.0009500691, 5.9462355e-09, -0.0011193545, 0.54434896, 0, -5.606792e-08, -8.305768e-11, -0.068017006, 0, 0, -0.034724236)
+shaded = true
+modulate = Color(1, 0, 0, 1)
+text = "Hello    LD
+Silly Person"
+font = ExtResource("2_5gmh3")
+font_size = 128
+
+[node name="waitedletter" type="Label3D" parent="KingtBIncident2" unique_id=1712265468]
+transform = Transform3D(-0.6413422, -0.0009500691, 5.9462355e-09, -0.0011193545, 0.54434896, 0, -5.606792e-08, -8.305768e-11, -0.068017006, 0, 0, -0.034724236)
+shaded = true
+modulate = Color(1, 1, 1, 0.3019608)
+text = "Hello    LD
+Silly Person"
+font = ExtResource("2_5gmh3")
+font_size = 128
+
+[node name="BulleMain" parent="KingtBIncident2" unique_id=313243329 instance=ExtResource("3_615hk")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -0.004686981, 0, 0.00037443638)
+
+[node name="Node3D" type="Node3D" parent="KingtBIncident2/BulleMain" unique_id=1692884251]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32875082, -0.32090044, -0.102073535)
+
+[node name="BulleHandle" parent="KingtBIncident2/BulleMain/Node3D" unique_id=1775530566 instance=ExtResource("4_o3mox")]
+transform = Transform3D(0.11227442, -0.48706895, 0.012570208, 0.48723137, 0.1122349, -0.0029798206, 8.114054e-05, 0.012918315, 0.49983296, 0.7073785, 0, 0.07211208)
+
+[node name="KingDialogIncident" parent="KingtBIncident2" unique_id=1805839414 instance=ExtResource("5_q3rig")]
+
+[connection signal="resolved" from="KnightBIncident/KnightDialogIncident" to="KnightBIncident" method="_on_dialog_incident_resolved"]
+[connection signal="write_letter" from="KnightBIncident/KnightDialogIncident" to="KnightBIncident" method="_on_dialog_incident_write_letter"]
+[connection signal="resolved" from="KingtBIncident2/KingDialogIncident" to="KingtBIncident2" method="_on_dialog_incident_resolved"]
+[connection signal="write_letter" from="KingtBIncident2/KingDialogIncident" to="KingtBIncident2" method="_on_dialog_incident_write_letter"]
