@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c7bxmad57rhk4"]
+
+[ext_resource type="AudioStream" uid="uid://yxolqfju8536" path="res://sounds/vache1.wav" id="1_88co7"]
+[ext_resource type="AudioStream" uid="uid://sl7prj8hnyms" path="res://sounds/vache2.wav" id="2_03gc7"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ga4m3"]
+random_pitch = 1.3348398
+streams_count = 2
+stream_0/stream = ExtResource("1_88co7")
+stream_1/stream = ExtResource("2_03gc7")
+
+[node name="Vache" type="AudioStreamPlayer3D" unique_id=1079889871]
+stream = SubResource("AudioStreamRandomizer_ga4m3")
+volume_db = -10.0

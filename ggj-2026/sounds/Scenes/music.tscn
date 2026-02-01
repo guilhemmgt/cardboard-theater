@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bucumosh3d6p0"]
+
+[ext_resource type="AudioStream" uid="uid://cb1ckd7b3kmcu" path="res://sounds/music/ggj2026.mp3" id="1_d76ds"]
+
+[node name="Music" type="AudioStreamPlayer3D" unique_id=1199812020]
+stream = ExtResource("1_d76ds")
+volume_db = -15.0
