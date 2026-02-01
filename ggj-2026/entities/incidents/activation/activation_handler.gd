@@ -1,5 +1,7 @@
 extends MeshInstance3D
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@export var anim_name: String # sus
 @onready var activation_incident: ActivationIncident
 
 # Called when the node enters the scene tree for the first time.
@@ -23,3 +25,7 @@ func _on_incident_failed() -> void:
 
 func _on_incident_resolved() -> void:
 	print("[activation] Resolved on: ", name)
+	if anim_name == null:
+		push_error("no anim")
+		return
+	animation_player.play(anim_name)

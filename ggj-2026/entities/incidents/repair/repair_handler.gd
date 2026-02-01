@@ -23,7 +23,7 @@ func _on_incident_activated(_blocking: bool) -> void:
 	animation_player.play("tremblement")
 
 func _on_incident_failed() -> void:
-	print("[intrusion] Failed on: ", name)
+	print("[repair] Failed on: ", name)
 	var angle : int = 5
 	var time_oscillation : float = 0.08
 	animation_player.stop()
@@ -37,5 +37,5 @@ func _on_incident_failed() -> void:
 	tween.play()
 
 func _on_incident_resolved() -> void:
-	print("[intrusion] Resolved on: ", name)
+	print("[repair] Resolved on: ", name)
 	animation_player.stop()

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dxch6vbu2k336"]
 
-[ext_resource type="Script" uid="uid://opxnqhgj6yr7" path="res://utilities/orchestrator/intru.gd" id="1_wwc15"]
+[ext_resource type="Script" uid="uid://opxnqhgj6yr7" path="res://entities/intru/intru.gd" id="1_wwc15"]
 
 [sub_resource type="Animation" id="Animation_jka67"]
 resource_name = "tremblement"
