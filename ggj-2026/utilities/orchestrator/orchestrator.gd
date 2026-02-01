@@ -102,7 +102,9 @@ func _on_event_success() -> void:
 func _on_event_failure() -> void:
 	print("Event failed - game over")
 	await get_tree().create_timer(2.0).timeout
-	game_over.visible = true
+	#game_over.visible = true
+	var tween = create_tween()
+	tween.tween_property(game_over, "global_position:y", 2.203, 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 func _on_incident_activated(blocking: bool) -> void:
 	if blocking:
