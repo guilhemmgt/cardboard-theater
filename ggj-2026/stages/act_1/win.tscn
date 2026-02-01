@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://qwqb057pjk8d"]
+
+[ext_resource type="Shader" uid="uid://dy6ecpm6tdmku" path="res://carton/Cartons.tres" id="1_pdeli"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_naxdd"]
+render_priority = 0
+shader = ExtResource("1_pdeli")
+shader_parameter/Vector2Parameter = Vector2(1.4, 1.4)
+shader_parameter/Vector2Parameter2 = Vector2(0.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6njmk"]
+material = SubResource("ShaderMaterial_naxdd")
+size = Vector3(1, 0.5, 0.02)
+
+[sub_resource type="Animation" id="Animation_4xy4s"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_c5quw"]
+resource_name = "win"
+length = 5.0
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 2, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vj8p4"]
+_data = {
+&"RESET": SubResource("Animation_4xy4s"),
+&"win": SubResource("Animation_c5quw")
+}
+
+[node name="Win" type="Node3D" unique_id=920192457]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1509515393]
+mesh = SubResource("BoxMesh_6njmk")
+
+[node name="Label3D" type="Label3D" parent="MeshInstance3D" unique_id=303895918]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.011490136)
+modulate = Color(0.91881675, 0.91881675, 0.9188166, 1)
+text = "Thank you
+for playing !"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1187852616]
+libraries/ = SubResource("AnimationLibrary_vj8p4")

@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://d3uf356n1craj" path="res://ui/cursor/mouse_manager.gd" id="17_q661t"]
 [ext_resource type="PackedScene" uid="uid://d3t74t4c2wtyw" path="res://ui/signs/game_over.tscn" id="18_26mr1"]
 [ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="19_ujv0r"]
+[ext_resource type="PackedScene" uid="uid://c0337ps55fd1y" path="res://stages/curtains.tscn" id="20_26mr1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_color = Color(0.72428656, 0.29958177, 0.19783527, 1)
@@ -534,3 +535,6 @@ autoplay = &"scene0"
 script = ExtResource("13_1027p")
 source_file_path = "res://stages/act_1/script.txt"
 target_animation_player = NodePath("../Act1")
+
+[node name="Node3D2" parent="." unique_id=1413050651 instance=ExtResource("20_26mr1")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 1.330236, 1.3881593)
