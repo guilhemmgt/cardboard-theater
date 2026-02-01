@@ -99,6 +99,7 @@ func _on_event_success() -> void:
 
 func _on_event_failure() -> void:
 	print("Event failed - game over")
+	await get_tree().create_timer(2.0).timeout
 	game_over.visible = true
 
 func _on_incident_activated(blocking: bool) -> void:
