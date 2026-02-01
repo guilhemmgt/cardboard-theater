@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://co6dbsyo3x6hf"]
 
 [ext_resource type="Texture2D" uid="uid://bu0jq5rop2wt3" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="1_2b70k"]
+[ext_resource type="PackedScene" uid="uid://b8a0vav2gqvcg" path="res://carton/3Dcardboards/knight/knight.tscn" id="2_jd0xw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_color = Color(0.72428656, 0.29958177, 0.19783527, 1)
@@ -325,3 +326,6 @@ light_color = Color(1, 1, 0.3137255, 1)
 light_energy = 2.577
 spot_range = 7.5137596
 spot_angle = 43.361313
+
+[node name="MeshInstance3D6" parent="." unique_id=1290083251 instance=ExtResource("2_jd0xw")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.2128115, 2.0617802)
