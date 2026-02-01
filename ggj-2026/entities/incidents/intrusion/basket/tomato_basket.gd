@@ -2,6 +2,7 @@ extends Node3D
 class_name TomatoBasket
 
 signal sprotched(pos: Vector3)
+signal drag(is_dragging: bool)
 
 @export var camera: Camera3D
 @export var tomato_scene: PackedScene
@@ -18,6 +19,7 @@ func _ready():
 	area.input_event.connect(func(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int):
 		if event.is_action_pressed('click'):
 			aim()
+			drag.emit(true)
 	)
 
 func dearm():
@@ -59,6 +61,7 @@ func _input(event: InputEvent) -> void:
 		var r_obj = raycast.get_collider()
 		var r_pos: Vector3 = raycast.get_collision_point()
 		#print(r_obj, r_pos)
+		drag.emit(false)
 		if r_obj == area:
 			dearm()
 			return
