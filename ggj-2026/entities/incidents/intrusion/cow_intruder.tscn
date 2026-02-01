@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://htqngq48qjf0"]
+[gd_scene format=3 uid="uid://3sjgbm880njl"]
 
 [ext_resource type="Script" uid="uid://cv71aefo6wn1s" path="res://entities/incidents/intrusion/intrusion_handler.gd" id="1_onk32"]
 [ext_resource type="PackedScene" uid="uid://c432atnphqs7w" path="res://carton/3Dcardboards/cow/cow.tscn" id="2_plkks"]
