@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b8a0vav2gqvcg"]
+
+[ext_resource type="ArrayMesh" uid="uid://dv0yyxqavvjfh" path="res://carton/knight.obj" id="1_qm8yr"]
+[ext_resource type="Shader" uid="uid://dy6ecpm6tdmku" path="res://carton/Cartons.tres" id="2_yicq7"]
+[ext_resource type="Texture2D" uid="uid://dqb2k41x3gha2" path="res://carton/knight.png" id="3_20xlq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vlxbc"]
+render_priority = 0
+shader = ExtResource("2_yicq7")
+shader_parameter/Vector2Parameter = Vector2(1.2, 1.2)
+shader_parameter/Vector2Parameter2 = Vector2(0.5, 0.7)
+shader_parameter/Texture2DParameter = ExtResource("3_20xlq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" unique_id=1290083251]
+visible = false
+mesh = ExtResource("1_qm8yr")
+surface_material_override/0 = SubResource("ShaderMaterial_vlxbc")

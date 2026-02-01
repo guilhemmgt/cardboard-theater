@@ -1,17 +1,8 @@
 [gd_scene format=3 uid="uid://c7gurpiyfxg3t"]
 
 [ext_resource type="PackedScene" uid="uid://ubi0bjcosamr" path="res://carton/3Dcardboards/nuage.tscn" id="1_psn52"]
-[ext_resource type="Shader" uid="uid://dy6ecpm6tdmku" path="res://carton/Cartons.tres" id="2_ylyfr"]
-[ext_resource type="Texture2D" uid="uid://dthsikmo58ciq" path="res://carton/paper_0009_1k/paper_0009_normal_opengl_1k.png" id="4_ws5sg"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4si2r"]
-load_path = "res://.godot/imported/cloud_1.png-883a9fa10a2a99096065dd695daa30eb.bptc.ctex"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ylyfr"]
-render_priority = 0
-shader = ExtResource("2_ylyfr")
-shader_parameter/Texture2DParameter = SubResource("CompressedTexture2D_4si2r")
-shader_parameter/Texture2DParameter2 = ExtResource("4_ws5sg")
+[ext_resource type="PackedScene" uid="uid://b11xfxrnpmhje" path="res://carton/3Dcardboards/storm.tscn" id="2_72ecl"]
+[ext_resource type="PackedScene" uid="uid://bn21pj7fdgghm" path="res://carton/3Dcardboards/dragon.tscn" id="3_72ecl"]
 
 [node name="Main" type="Node3D" unique_id=1403385017]
 
@@ -19,6 +10,8 @@ shader_parameter/Texture2DParameter2 = ExtResource("4_ws5sg")
 transform = Transform3D(-0.3159667, 0, -2.4861022e-08, 0, 0.3159667, 0, 4.7709644e-08, 0, -0.1646471, 0, 0, 0)
 visible = false
 
-[node name="Nuage2" parent="." unique_id=1229048122 instance=ExtResource("1_psn52")]
-transform = Transform3D(-0.3159667, 0, -2.4861022e-08, 0, 0.3159667, 0, 4.7709644e-08, 0, -0.1646471, 0, 0, 0)
-surface_material_override/0 = SubResource("ShaderMaterial_ylyfr")
+[node name="Storm" parent="." unique_id=1160265304 instance=ExtResource("2_72ecl")]
+visible = false
+
+[node name="Dragon" parent="." unique_id=521331207 instance=ExtResource("3_72ecl")]
+visible = false
