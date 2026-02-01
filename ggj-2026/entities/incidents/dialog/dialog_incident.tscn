@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://7hmyj02kii3d"]
+
+[ext_resource type="Script" uid="uid://cvibktc8waqsl" path="res://entities/incidents/dialog/dialog_incident.gd" id="1_w7e74"]
+
+[node name="DialogIncident" type="Node3D" unique_id=1025400322 node_paths=PackedStringArray("_timer")]
+script = ExtResource("1_w7e74")
+text_to_write = "Demain "
+color_not_written = Color(0.41215247, 0.41215247, 0.41215247, 1)
+color_written = Color(0, 0.57312953, 0, 1)
+color_error = Color(0.69411767, 0, 0, 1)
+_timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="." unique_id=1419140205]
+one_shot = true

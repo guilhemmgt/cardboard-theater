@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dq8y837y8ll4b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6v8rm"]
+
+[node name="IntrusionIncident" type="Node3D" unique_id=1502549711]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=172460390]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1800108527]
+shape = SubResource("BoxShape3D_6v8rm")
+
+[node name="Timer" type="Timer" parent="." unique_id=53688081]
+one_shot = true

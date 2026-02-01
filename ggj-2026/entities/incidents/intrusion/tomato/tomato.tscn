@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dj578e75m5t8u"]
+
+[ext_resource type="Script" uid="uid://cgvqcqncq0xc5" path="res://entities/incidents/intrusion/tomato/tomato.gd" id="1_h2yse"]
+[ext_resource type="Texture2D" uid="uid://ok2wqda3nmuk" path="res://entities/incidents/intrusion/tomato/sprotch2.png" id="2_8dqgf"]
+[ext_resource type="ArrayMesh" uid="uid://bmudt6tkcu4so" path="res://entities/incidents/intrusion/tomato/tomato.obj" id="2_h2yse"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jkkfl"]
+radius = 0.09456536
+
+[node name="Tomato" type="Area3D" unique_id=1597748282]
+script = ExtResource("1_h2yse")
+sprotch_texture = ExtResource("2_8dqgf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=574171625]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.0027697012, 0.0005584061)
+shape = SubResource("SphereShape3D_jkkfl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1690907839]
+mesh = ExtResource("2_h2yse")

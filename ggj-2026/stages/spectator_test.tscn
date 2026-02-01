@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dyh18pyj4cvr5"]
+
+[ext_resource type="Script" uid="uid://ckeyhx6o55lh2" path="res://stages/spectator_test.gd" id="1_x3fqs"]
+[ext_resource type="PackedScene" uid="uid://ryvnpit35lca" path="res://entities/spectators/spectator.tscn" id="2_csrbn"]
+
+[node name="SpectatorTest" type="Node3D" unique_id=1054120290]
+script = ExtResource("1_x3fqs")
+
+[node name="Spectator" parent="." unique_id=614035624 instance=ExtResource("2_csrbn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32112765, 0, 0)
+
+[node name="Spectator2" parent="." unique_id=928851828 instance=ExtResource("2_csrbn")]
+
+[node name="Spectator3" parent="." unique_id=1664352808 instance=ExtResource("2_csrbn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4060374, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=237582188]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.3932477)

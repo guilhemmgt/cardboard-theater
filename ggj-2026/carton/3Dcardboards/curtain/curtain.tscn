@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://d54151oehwue"]
+
+[ext_resource type="ArrayMesh" uid="uid://cfgy30ten87bn" path="res://carton/3Dcardboards/curtain/curtain.obj" id="1_1qm1s"]
+[ext_resource type="Shader" uid="uid://dy6ecpm6tdmku" path="res://carton/Cartons.tres" id="2_o2rkg"]
+[ext_resource type="Texture2D" uid="uid://bbr7hxxm04dbn" path="res://carton/3Dcardboards/curtain/curtain.png" id="3_435ul"]
+[ext_resource type="Texture2D" uid="uid://dthsikmo58ciq" path="res://carton/paper_0009_1k/paper_0009_normal_opengl_1k.png" id="4_d0g76"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hba6s"]
+render_priority = 0
+shader = ExtResource("2_o2rkg")
+shader_parameter/Vector2Parameter = Vector2(1, 1)
+shader_parameter/Vector2Parameter2 = Vector2(0.5, 0.5)
+shader_parameter/Texture2DParameter = ExtResource("3_435ul")
+shader_parameter/Texture2DParameter2 = ExtResource("4_d0g76")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1qm1s"]
+data = PackedVector3Array(-0.48569998, -0.4578, 0, -0.4719, 0.45139998, 0, 0.48169997, -0.45639998, 0, -0.4719, 0.45139998, -0.03, -0.4719, 0.45139998, 0, -0.48569998, -0.4578, 0, -0.4719, 0.45139998, -0.03, -0.48569998, -0.4578, 0, -0.48569998, -0.4578, -0.03, -0.48569998, -0.4578, -0.03, -0.48569998, -0.4578, 0, 0.48169997, -0.45639998, 0, 0.4852, 0.47329998, -0.03, -0.4719, 0.45139998, 0, -0.4719, 0.45139998, -0.03, -0.48569998, -0.4578, -0.03, 0.48169997, -0.45639998, 0, 0.48169997, -0.45639998, -0.03, 0.4852, 0.47329998, -0.03, 0.4852, 0.47329998, 0, -0.4719, 0.45139998, 0, 0.4852, 0.47329998, 0, 0.48169997, -0.45639998, 0, -0.4719, 0.45139998, 0, 0.48169997, -0.45639998, -0.03, 0.4852, 0.47329998, 0, 0.4852, 0.47329998, -0.03, 0.48169997, -0.45639998, -0.03, 0.48169997, -0.45639998, 0, 0.4852, 0.47329998, 0, 0.4852, 0.47329998, -0.03, 0.4852, 0.47329998, 0, 0.4852, 0.47329998, 0, 0.4852, 0.47329998, -0.03, 0.4852, 0.47329998, 0, 0.4852, 0.47329998, -0.03, -0.4719, 0.45139998, -0.03, 0.48169997, -0.45639998, -0.03, 0.4852, 0.47329998, -0.03, 0.48169997, -0.45639998, -0.03, -0.4719, 0.45139998, -0.03, -0.48569998, -0.4578, -0.03)
+
+[node name="Curtain" type="MeshInstance3D" unique_id=394997416]
+mesh = ExtResource("1_1qm1s")
+surface_material_override/0 = SubResource("ShaderMaterial_hba6s")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1567080319]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1424143322]
+shape = SubResource("ConcavePolygonShape3D_1qm1s")
