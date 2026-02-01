@@ -27,48 +27,29 @@ func update_bubble_handle_position() -> void:
 	var handle_global_pos = bubble_handle.global_position
 
 	
-	# Calcule la direction dans le plan XY
-	var direction = Vector2(
-		float(marker_global_pos.x - handle_global_pos.x),
-		float(marker_global_pos.y - handle_global_pos.y)
-	)
+	var dir = marker_global_pos.x - handle_global_pos.x
 
+	#rotate handle 180 degrees if dir is negative
+	if dir < 0:
+		bubble_handle.rotation.y = PI
 
-	# Calcule l'angle et applique la rotation autour de Z
-	var angle = direction.angle()
-
-	bubble_handle.rotation.z = angle
 
 
 func update_bulle_size() -> void:
-	# Récupère la font et la taille de font du Label3D
-	var font: Font = waitedletter.font if waitedletter.font else ThemeDB.fallback_font
-	var font_size: int = waitedletter.font_size
-	
-	# Calcule la taille du texte en pixels
-	var text_size: Vector2 = font.get_multiline_string_size(
-		waitedletter.text,
-		HORIZONTAL_ALIGNMENT_CENTER,
-		-1,
-		font_size
-	)
-	
-	# Convertit la taille en unités 3D (pixel_size du Label3D)
-	var pixel_size: float = waitedletter.pixel_size
-	var size_3d: Vector2 = text_size * pixel_size
-	
-	# Applique un scale uniforme au mesh avec padding
-	var scale_x = size_3d.x + padding.x * 2
-	var scale_y = size_3d.y + padding.y * 2
-	var uniform_scale = max(scale_x, scale_y)
-	
-	bulle_main.scale.x = uniform_scale
-	bulle_main.scale.y = uniform_scale
-	if bubble_marker:
+	var marker_global_pos = bubble_marker.global_position
+	var handle_global_pos = bubble_handle.global_position
+	print("avantif",bubble_marker and marker_global_pos.x - handle_global_pos.x > 0)
+	if bubble_marker and marker_global_pos.x - handle_global_pos.x > 0:
+		print("LEFT SIDE")
 		global_position.z = 0.8
 		global_position.x = bubble_marker.global_position.x - bulle_main.scale.x / 2 -0.5
 		global_position.y = bubble_marker.global_position.y + bulle_main.scale.y / 2 +1.0
-
+	else:
+		print("RIGHT SIDE")
+		global_position.z = 0.8
+		global_position.x = bubble_marker.global_position.x + bulle_main.scale.x / 2 + 3.0
+		global_position.y = bubble_marker.global_position.y + bulle_main.scale.y / 2 +1.0
+	# Récupère la font et la taille
 
 # Appeler cette fonction pour mettre à jour le texte et la taille de la bulle
 func set_text(new_text: String) -> void:
@@ -77,8 +58,6 @@ func set_text(new_text: String) -> void:
 		update_bulle_size()
 	else:
 		print("Warning: waitedletter node is null")
-
-
 
 
 func auto_wrap(text: String, max_letters_per_line: int) -> String:
@@ -141,9 +120,9 @@ func get_next_expected_letter(written: String, waited: String) -> String:
 	if waited.length() > 0:
 		var next_letter = waited[0]
 		if next_letter == " ":
-			return "▍"  # Visual indicator for space
+			return "▍" # Visual indicator for space
 		return next_letter
-	return ""  # No more letters expected
+	return "" # No more letters expected
 
 
 func _on_dialog_incident_resolved() -> void:

@@ -18,9 +18,23 @@ func set_text(new_text: String) -> void:
 # Affiche le texte mot par mot avec un timing donné
 func start_dialog(text: String, duration: float) -> void:
 	visible = true
-	global_position.z = 0.8
-	global_position.x = bubble_marker.global_position.x - bulle_main.scale.x / 2 -0.5
-	global_position.y = bubble_marker.global_position.y + bulle_main.scale.y / 2 +1.0
+	print("\n\nSTARTING DIALOG \n\n")
+	var marker_global_pos = bubble_marker.global_position
+	var handle_global_pos = bubble_handle.global_position
+	if bubble_marker and marker_global_pos.x - handle_global_pos.x > 0:
+		print("LEFT SIDE")
+		global_position.z = 0.8
+		global_position.x = bubble_marker.global_position.x - bulle_main.scale.x / 2 -0.5
+		global_position.y = bubble_marker.global_position.y + bulle_main.scale.y / 2 +1.0
+	else:
+		print("RIGHT SIDE")
+		global_position.z = 0.8
+		global_position.x = bubble_marker.global_position.x + bulle_main.scale.x / 2 + 0.5
+		global_position.y = bubble_marker.global_position.y + bulle_main.scale.y / 2 +1.0
+		#rotate handle 180 degrees if dir is negative
+	if marker_global_pos.x - handle_global_pos.x < 0:
+		bubble_handle.rotation.y = PI
+
 
 	if text.is_empty():
 		return
@@ -29,7 +43,7 @@ func start_dialog(text: String, duration: float) -> void:
 	
 	# Sépare le texte en mots (en gardant les retours à la ligne)
 	var words = text.split(" ")
-	
+	print(visible)	
 	# Calcule le délai entre chaque mot
 	var delay_per_word = duration / float(words.size())
 	
@@ -37,5 +51,6 @@ func start_dialog(text: String, duration: float) -> void:
 	for i in range(words.size()):
 		label_3d.text = words[i]
 		await get_tree().create_timer(delay_per_word).timeout
+	print("\n\n ENDING DIAL \n\n")
 	visible = false
 	global_position.z = -10.0

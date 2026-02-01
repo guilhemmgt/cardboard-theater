@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://3feoqdak035q"]
+[gd_scene format=3 uid="uid://ru2s4b8adjo"]
 
 [ext_resource type="Script" uid="uid://p04yb5042qsm" path="res://stages/act_1.gd" id="1_nbsfb"]
 [ext_resource type="PackedScene" uid="uid://dpkayn65c5wf2" path="res://carton/3Dcardboards/wall/wall.tscn" id="1_v8n6q"]
@@ -27,8 +27,14 @@
 [ext_resource type="Script" uid="uid://opxnqhgj6yr7" path="res://entities/intru/intru.gd" id="18_nbsfb"]
 [ext_resource type="PackedScene" uid="uid://dq8y837y8ll4b" path="res://entities/incidents/intrusion/intrusion_incident.tscn" id="19_dc1uk"]
 [ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="19_ujv0r"]
-[ext_resource type="PackedScene" uid="uid://b2rkyem5ixn6p" path="res://stages/lights.tscn" id="25_4l38f"]
+[ext_resource type="Script" uid="uid://dfdy35mpkqbab" path="res://entities/bulle/bulle_incident.gd" id="21_2a03g"]
+[ext_resource type="FontFile" uid="uid://btaosis1u2l53" path="res://entities/bulle/absender1.ttf" id="22_y5a8n"]
+[ext_resource type="PackedScene" path="res://stages/lights.tscn" id="25_4l38f"]
+[ext_resource type="PackedScene" uid="uid://7hmyj02kii3d" path="res://entities/incidents/dialog/dialog_incident.tscn" id="25_w4qcf"]
 [ext_resource type="AudioStream" uid="uid://cb1ckd7b3kmcu" path="res://sounds/music/ggj2026.mp3" id="27_nbsfb"]
+[ext_resource type="PackedScene" uid="uid://d0b08xu72xnum" path="res://carton/3Dcardboards/bulle_main/bulle_main.tscn" id="28_8u0l0"]
+[ext_resource type="PackedScene" uid="uid://7yehy28doul" path="res://entities/bulle/bulle.tscn" id="29_8u0l0"]
+[ext_resource type="PackedScene" uid="uid://cl7su7uskwgcj" path="res://carton/3Dcardboards/bulle_handle/bulle_handle.tscn" id="29_ag2c3"]
 
 [sub_resource type="Environment" id="Environment_fie2r"]
 
@@ -327,9 +333,9 @@ _data = {
 &"tremblement": SubResource("Animation_7q86g")
 }
 
-[sub_resource type="Animation" id="Animation_fie2r"]
+[sub_resource type="Animation" id="Animation_w4qcf"]
 resource_name = "scene_generated"
-length = 15.0
+length = 53.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -351,13 +357,13 @@ tracks/1/path = NodePath("Actors/KnightMesh/Knight")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 9),
+"times": PackedFloat32Array(0, 0.2, 48),
 "transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [0.0, 0.01],
 "method": &"move"
 }, {
-"args": [3.0, 2.0],
+"args": [1.0, 3.0],
 "method": &"move"
 }, {
 "args": [0.0, 2.0],
@@ -367,67 +373,139 @@ tracks/1/keys = {
 tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("IncidentsManager/HornMesh/Horn")
+tracks/2/path = NodePath("IncidentsManager/CowBordel/Cow")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 6.6),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
-"args": [3.0],
+"args": [0.0, 0.01],
+"method": &"move"
+}, {
+"args": [5.0],
 "method": &"activate"
 }]
 }
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("IncidentsManager/ChandelierMesh/Chandelier")
+tracks/3/path = NodePath("IncidentsManager/HornMesh/Horn")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(4),
+"times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [2.0],
+"args": [5.0],
 "method": &"activate"
 }]
 }
 tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("IncidentsManager/CowBordel/Cow")
+tracks/4/path = NodePath("DialogManager/KingBulle")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(6),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.3, 6.7, 9.5, 24.5, 44.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "values": [{
-"args": [10.0],
-"method": &"activate"
+"args": ["\"Sir Mascarade, my bravest knight\"", 3.0],
+"method": &"start_dialog"
+}, {
+"args": ["\"That's not ... Nevermind.\"", 2.5],
+"method": &"start_dialog"
+}, {
+"args": ["\"I'm craving for some exquisite food for tonight.\"", 3.5],
+"method": &"start_dialog"
+}, {
+"args": ["\"I need you not to cook but to hunt.\"", 3.5],
+"method": &"start_dialog"
+}, {
+"args": ["\"Yes fool, go after it, swiftly !\"", 3.0],
+"method": &"start_dialog"
 }]
 }
 tracks/5/type = "method"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Actors/DragonMesh/Dragon")
+tracks/5/path = NodePath("DialogManager/KnightBulle")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(7),
+"times": PackedFloat32Array(3.5, 15.8, 20, 31, 41.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": ["\"Sir King, at your service\"", 3.0],
+"method": &"start_dialog"
+}, {
+"args": ["\"But Sir King, last time I tried to cook, it was not great great.\"", 4.0],
+"method": &"start_dialog"
+}, {
+"args": ["\"Remember the last plague upbreak ?\"", 4.0],
+"method": &"start_dialog"
+}, {
+"args": ["\"Hunt what ?\"", 3.0],
+"method": &"start_dialog"
+}, {
+"args": ["\"This one ?\"", 2.5],
+"method": &"start_dialog"
+}]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("IncidentsManager/ChandelierMesh/Chandelier")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(13.5, 27.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [2.0],
+"method": &"activate"
+}, {
+"args": [2.0],
+"method": &"activate"
+}]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("DialogManager/KingBulle")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(34.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [4.0, "\"A ferocious dragon\""],
+"method": &"dialogue"
+}]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Actors/DragonMesh/Dragon")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(39.1),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [0.0, 5.0],
 "method": &"move"
 }]
 }
-tracks/6/type = "method"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("IncidentsManager/HerseMesh/Herse")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(11),
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("IncidentsManager/HerseMesh/Herse")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(50.5),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [10.0],
@@ -437,7 +515,7 @@ tracks/6/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_26mr1"]
 _data = {
-&"scene0": SubResource("Animation_fie2r")
+&"scene0": SubResource("Animation_w4qcf")
 }
 
 [node name="TheatreScene" type="Node3D" unique_id=814067477]
@@ -745,6 +823,92 @@ metadata/_custom_type_script = "uid://opxnqhgj6yr7"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="IncidentsManager/CowBordel" unique_id=202065020]
 
+[node name="KnightBIncident" type="Node3D" parent="IncidentsManager" unique_id=2142173048]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+script = ExtResource("21_2a03g")
+padding = Vector2(0, 0)
+
+[node name="goodletter" type="Label3D" parent="IncidentsManager/KnightBIncident" unique_id=326817410]
+transform = Transform3D(-0.6413422, -0.0009500691, 5.9462355e-09, -0.0011193545, 0.54434896, 0, -5.606792e-08, -8.305768e-11, -0.068017006, 0, 0, -0.034724236)
+shaded = true
+modulate = Color(0, 1, 0, 0.65882355)
+text = "Hello World
+Billy Person"
+font = ExtResource("22_y5a8n")
+font_size = 128
+
+[node name="wrongletter" type="Label3D" parent="IncidentsManager/KnightBIncident" unique_id=1496518779]
+transform = Transform3D(-0.6413422, -0.0009500691, 5.9462355e-09, -0.0011193545, 0.54434896, 0, -5.606792e-08, -8.305768e-11, -0.068017006, 0, 0, -0.034724236)
+shaded = true
+modulate = Color(1, 0, 0, 1)
+text = "Hello    LD
+Silly Person"
+font = ExtResource("22_y5a8n")
+font_size = 128
+
+[node name="waitedletter" type="Label3D" parent="IncidentsManager/KnightBIncident" unique_id=595570218]
+transform = Transform3D(-0.6413422, -0.0009500691, 5.9462355e-09, -0.0011193545, 0.54434896, 0, -5.606792e-08, -8.305768e-11, -0.068017006, 0, 0, -0.034724236)
+shaded = true
+modulate = Color(1, 1, 1, 0.3019608)
+text = "Hello    LD
+Silly Person"
+font = ExtResource("22_y5a8n")
+font_size = 128
+
+[node name="BulleMain" parent="IncidentsManager/KnightBIncident" unique_id=1791090360 instance=ExtResource("28_8u0l0")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -0.004686981, 0, 0.00037443638)
+
+[node name="Node3D" type="Node3D" parent="IncidentsManager/KnightBIncident/BulleMain" unique_id=1465569017]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32875082, -0.32090044, -0.102073535)
+
+[node name="BulleHandle" parent="IncidentsManager/KnightBIncident/BulleMain/Node3D" unique_id=1391828836 instance=ExtResource("29_ag2c3")]
+transform = Transform3D(0.11227442, -0.48706895, 0.012570208, 0.48723137, 0.1122349, -0.0029798206, 8.114054e-05, 0.012918315, 0.49983296, 0.7073785, 0, 0.07211208)
+
+[node name="KnightDialogIncident" parent="IncidentsManager/KnightBIncident" unique_id=1025400322 instance=ExtResource("25_w4qcf")]
+
+[node name="KingtBIncident2" type="Node3D" parent="IncidentsManager" unique_id=808703699]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+script = ExtResource("21_2a03g")
+padding = Vector2(0, 0)
+
+[node name="goodletter" type="Label3D" parent="IncidentsManager/KingtBIncident2" unique_id=180984075]
+transform = Transform3D(-0.6413422, -0.0009500691, 5.9462355e-09, -0.0011193545, 0.54434896, 0, -5.606792e-08, -8.305768e-11, -0.068017006, 0, 0, -0.034724236)
+shaded = true
+modulate = Color(0, 1, 0, 0.65882355)
+text = "Hello World
+Billy Person"
+font = ExtResource("22_y5a8n")
+font_size = 128
+
+[node name="wrongletter" type="Label3D" parent="IncidentsManager/KingtBIncident2" unique_id=499016700]
+transform = Transform3D(-0.6413422, -0.0009500691, 5.9462355e-09, -0.0011193545, 0.54434896, 0, -5.606792e-08, -8.305768e-11, -0.068017006, 0, 0, -0.034724236)
+shaded = true
+modulate = Color(1, 0, 0, 1)
+text = "Hello    LD
+Silly Person"
+font = ExtResource("22_y5a8n")
+font_size = 128
+
+[node name="waitedletter" type="Label3D" parent="IncidentsManager/KingtBIncident2" unique_id=1712265468]
+transform = Transform3D(-0.6413422, -0.0009500691, 5.9462355e-09, -0.0011193545, 0.54434896, 0, -5.606792e-08, -8.305768e-11, -0.068017006, 0, 0, -0.034724236)
+shaded = true
+modulate = Color(1, 1, 1, 0.3019608)
+text = "Hello    LD
+Silly Person"
+font = ExtResource("22_y5a8n")
+font_size = 128
+
+[node name="BulleMain" parent="IncidentsManager/KingtBIncident2" unique_id=313243329 instance=ExtResource("28_8u0l0")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -0.004686981, 0, 0.00037443638)
+
+[node name="Node3D" type="Node3D" parent="IncidentsManager/KingtBIncident2/BulleMain" unique_id=1692884251]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32875082, -0.32090044, -0.102073535)
+
+[node name="BulleHandle" parent="IncidentsManager/KingtBIncident2/BulleMain/Node3D" unique_id=1775530566 instance=ExtResource("29_ag2c3")]
+transform = Transform3D(0.11227442, -0.48706895, 0.012570208, 0.48723137, 0.1122349, -0.0029798206, 8.114054e-05, 0.012918315, 0.49983296, 0.7073785, 0, 0.07211208)
+
+[node name="KingDialogIncident" parent="IncidentsManager/KingtBIncident2" unique_id=1805839414 instance=ExtResource("25_w4qcf")]
+
 [node name="Orchestrator" type="Node" parent="." unique_id=392292513 node_paths=PackedStringArray("animation_p")]
 script = ExtResource("16_7fwyp")
 animation_p = NodePath("../Act1")
@@ -839,5 +1003,18 @@ stream = ExtResource("27_nbsfb")
 volume_db = -5.538
 autoplay = true
 
+[node name="DialogManager" type="Node" parent="." unique_id=1332470380]
+
+[node name="KnightBulle" parent="DialogManager" unique_id=750024757 node_paths=PackedStringArray("bubble_marker") instance=ExtResource("29_8u0l0")]
+transform = Transform3D(0.64007866, 0, 0, 0, 0.6400787, 0, 0, 0, 0.99999994, 0, -0.13551915, 0)
+bubble_marker = NodePath("../../Actors/KnightMesh")
+
+[node name="KingBulle" parent="DialogManager" unique_id=1986579513 node_paths=PackedStringArray("bubble_marker") instance=ExtResource("29_8u0l0")]
+bubble_marker = NodePath("../../Actors/MadKingMesh")
+
 [connection signal="resolved" from="IncidentsManager/HerseMesh/Herse" to="IncidentsManager/HerseMesh" method="_on_herse_resolved"]
+[connection signal="resolved" from="IncidentsManager/KnightBIncident/KnightDialogIncident" to="IncidentsManager/KnightBIncident" method="_on_dialog_incident_resolved"]
+[connection signal="write_letter" from="IncidentsManager/KnightBIncident/KnightDialogIncident" to="IncidentsManager/KnightBIncident" method="_on_dialog_incident_write_letter"]
+[connection signal="resolved" from="IncidentsManager/KingtBIncident2/KingDialogIncident" to="IncidentsManager/KingtBIncident2" method="_on_dialog_incident_resolved"]
+[connection signal="write_letter" from="IncidentsManager/KingtBIncident2/KingDialogIncident" to="IncidentsManager/KingtBIncident2" method="_on_dialog_incident_write_letter"]
 [connection signal="animation_finished" from="Act1" to="." method="_on_act_1_animation_finished"]
