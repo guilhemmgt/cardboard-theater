@@ -65,5 +65,5 @@ func _on_sfx_timer_timeout():
 func _on_control_timer_timeout():
 	if not intrusion_incident._activated:
 		return
-	control.move(randi_range(1, 4), 1)
+	control.move(randi_range(1, 4), 3)
 	start_random_timer(control_timer, control_min_delay, control_max_delay)
