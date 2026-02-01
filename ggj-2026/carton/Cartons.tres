@@ -32,7 +32,7 @@ texture = ExtResource("1_0x6xp")
 [sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_qmj8r"]
 parameter_name = "Texture2DParameter2"
 texture_type = 2
-texture_repeat = 1
+texture_repeat = 2
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_3dum0"]
 texture = ExtResource("2_5861b")
