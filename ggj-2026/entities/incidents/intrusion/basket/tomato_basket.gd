@@ -28,6 +28,7 @@ func aim():
 		
 func shoot(target_pos: Vector3):
 	#print("[tomato] fire !")
+	dearm()
 	var dist_to_target: float = global_position.distance_to(target_pos)
 	var tomato_inst: Node3D = tomato_scene.instantiate()
 	get_tree().root.add_child(tomato_inst)
