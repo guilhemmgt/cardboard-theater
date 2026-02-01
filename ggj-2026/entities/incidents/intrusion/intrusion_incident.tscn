@@ -2,20 +2,9 @@
 
 [ext_resource type="Script" uid="uid://gc4exw5prjyg" path="res://entities/incidents/intrusion/intrusion_incident.gd" id="1_r7iy7"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_6v8rm"]
-
-[node name="IntrusionIncident" type="Node3D" unique_id=1502549711 node_paths=PackedStringArray("area", "collisionShape", "_timer")]
+[node name="IntrusionIncident" type="Node3D" unique_id=1502549711 node_paths=PackedStringArray("_timer")]
 script = ExtResource("1_r7iy7")
-area = NodePath("Area3D")
-collisionShape = NodePath("Area3D/CollisionShape3D")
 _timer = NodePath("Timer")
-
-[node name="Area3D" type="Area3D" parent="." unique_id=172460390]
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1800108527]
-shape = SubResource("BoxShape3D_6v8rm")
 
 [node name="Timer" type="Timer" parent="." unique_id=53688081]
 one_shot = true
