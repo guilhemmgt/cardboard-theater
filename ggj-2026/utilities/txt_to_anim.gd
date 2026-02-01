@@ -82,14 +82,18 @@ func parse_and_create_animation() -> void:
 				for i in range(4, parts.size()):
 					args_raw.append(parts[i])
 			
-			# Handle INCIDENT type commands that go to DialogIncident
+			# Handle INCIDENT type commands (SetDialogIncident, ActDialogIncident)
+			# Format: time : INCIDENT : SetDialogIncident : NodeName : text
+			# Format: time : INCIDENT : ActDialogIncident : NodeName : duration
 			if command_type == "INCIDENT" and command_raw in INCIDENT_COMMAND_MAPPING:
+				# target_name is the node name (e.g., KingDialog)
 				var cache_key = "INCIDENT_" + target_name
 				
 				var incident_track_idx: int = -1
 				if cache_key in tracks_cache:
 					incident_track_idx = tracks_cache[cache_key]
 				else:
+					# Find the actual node path for target_name
 					var node_path = _find_path_for_node(target_name)
 					if node_path.is_empty():
 						continue
@@ -107,6 +111,44 @@ func parse_and_create_animation() -> void:
 				}
 				
 				anim.track_insert_key(incident_track_idx, time, key_dict)
+				continue
+			
+			# Handle ACTION : DIALOG commands
+			# Format: time : ACTION : DIALOG : NodeName : duration
+			if command_type == "ACTION" and command_raw == "DIALOG":
+				# target_name is the bulle node (e.g., KnightBulle)
+				var cache_key = "DIALOG_" + target_name
+				
+				var dialog_track_idx: int = -1
+				if cache_key in tracks_cache:
+					dialog_track_idx = tracks_cache[cache_key]
+				else:
+					var node_path = _find_path_for_node(target_name)
+					if node_path.is_empty():
+						continue
+					dialog_track_idx = anim.add_track(Animation.TYPE_METHOD)
+					anim.track_set_path(dialog_track_idx, node_path)
+					tracks_cache[cache_key] = dialog_track_idx
+				
+				# start_dialog takes (text, duration)
+				# Format: time : ACTION : DIALOG : Node : duration : text
+				# args_raw = [duration, text]
+				var dialog_text = ""
+				var dialog_duration = 1.0
+				
+				if args_raw.size() > 0:
+					dialog_duration = str(args_raw[0]).to_float()
+				if args_raw.size() > 1:
+					dialog_text = str(args_raw[1])
+				
+				var final_args = [dialog_text, dialog_duration]
+				
+				var key_dict = {
+					"method": "start_dialog",
+					"args": final_args
+				}
+				
+				anim.track_insert_key(dialog_track_idx, time, key_dict)
 				continue
 			
 			# Gestion Piste (normal commands)
