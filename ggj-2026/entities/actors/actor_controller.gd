@@ -7,7 +7,7 @@ class_name ActorController
 
 var is_actor_moving: bool = false
 var is_paused: bool = false
-var plan_number: int = 1
+@export var plan_number: int = 3
 var points_plan1: Array = []
 var points_plan2: Array = []
 var points_plan3: Array = []
