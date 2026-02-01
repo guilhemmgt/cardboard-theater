@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ru2s4b8adjo"]
+[gd_scene format=3 uid="uid://cpgk7wtoir7jk"]
 
 [ext_resource type="PackedScene" uid="uid://dpkayn65c5wf2" path="res://carton/3Dcardboards/wall/wall.tscn" id="1_v8n6q"]
 [ext_resource type="Texture2D" uid="uid://bu0jq5rop2wt3" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="1_vpjuu"]
@@ -7,16 +7,21 @@
 [ext_resource type="Texture2D" uid="uid://cktr80sscioby" path="res://carton/paper_0009_1k/paper_0009_color_1k.jpg" id="3_15cu4"]
 [ext_resource type="Texture2D" uid="uid://dthsikmo58ciq" path="res://carton/paper_0009_1k/paper_0009_normal_opengl_1k.png" id="4_oe7mt"]
 [ext_resource type="Texture2D" uid="uid://b1rb783r5r7w7" path="res://entities/scenery/background/background.png" id="4_r47ec"]
+[ext_resource type="PackedScene" uid="uid://crmmgpxf31kdn" path="res://entities/actors/actor_controller.tscn" id="5_1hxc7"]
 [ext_resource type="PackedScene" uid="uid://c4amdjj53fb3d" path="res://carton/3Dcardboards/king/mad_king.tscn" id="5_xg04f"]
 [ext_resource type="PackedScene" uid="uid://dm7riayv01aoj" path="res://carton/3Dcardboards/chandelier/chandelier.tscn" id="6_r4qdm"]
 [ext_resource type="PackedScene" uid="uid://cmoh5erhg8ftq" path="res://carton/3Dcardboards/horn/horn.tscn" id="7_1hxc7"]
 [ext_resource type="PackedScene" uid="uid://be0prrgukhrkt" path="res://carton/3Dcardboards/herse/herse.tscn" id="8_1027p"]
+[ext_resource type="PackedScene" uid="uid://3q7u47fq30rs" path="res://entities/incidents/activation/activation_incident.tscn" id="9_15cu4"]
 [ext_resource type="PackedScene" uid="uid://c432atnphqs7w" path="res://carton/3Dcardboards/cow/cow.tscn" id="10_xg04f"]
+[ext_resource type="PackedScene" uid="uid://dq8y837y8ll4b" path="res://entities/incidents/intrusion/intrusion_incident.tscn" id="11_7fwyp"]
 [ext_resource type="PackedScene" uid="uid://bn21pj7fdgghm" path="res://carton/3Dcardboards/dragon/dragon.tscn" id="11_r4qdm"]
 [ext_resource type="PackedScene" uid="uid://bmq3jlb1anrhf" path="res://carton/3Dcardboards/border/border.tscn" id="11_xg04f"]
-[ext_resource type="PackedScene" uid="uid://dgixb4l7nrgd1" path="res://VFX/dust_particles.tscn" id="13_1hxc7"]
-[ext_resource type="PackedScene" uid="uid://c8qa52pajmfp7" path="res://carton/3Dcardboards/tapis/tapis.tscn" id="14_15cu4"]
-[ext_resource type="Texture2D" uid="uid://hlxdsbmuyxjr" path="res://VFX/Textures/blur.png" id="14_1027p"]
+[ext_resource type="Script" uid="uid://b0g4fonj8fno0" path="res://utilities/txt_to_anim.gd" id="13_1027p"]
+[ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="16_7fwyp"]
+[ext_resource type="Script" uid="uid://d3uf356n1craj" path="res://ui/cursor/mouse_manager.gd" id="17_q661t"]
+[ext_resource type="PackedScene" uid="uid://d3t74t4c2wtyw" path="res://ui/signs/game_over.tscn" id="18_26mr1"]
+[ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="19_ujv0r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_color = Color(0.72428656, 0.29958177, 0.19783527, 1)
@@ -83,9 +88,153 @@ proximity_fade_enabled = true
 material = SubResource("StandardMaterial3D_dfg05")
 size = Vector2(0.02, 0.02)
 
+[sub_resource type="Animation" id="Animation_jka67"]
+resource_name = "tremblement"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i5arm"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.17453292), Vector3(0, 0, 0.17453292), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oe7mt"]
+_data = {
+&"RESET": SubResource("Animation_jka67"),
+&"idle": SubResource("Animation_i5arm")
+}
+
+[sub_resource type="Animation" id="Animation_7fwyp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.433116, -0.05138254, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_udkvd"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.433116, -0.05138254, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q661t"]
+_data = {
+&"RESET": SubResource("Animation_7fwyp"),
+&"idle": SubResource("Animation_udkvd")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q661t"]
+
+[sub_resource type="Animation" id="Animation_q661t"]
+resource_name = "scene_generated"
+length = 60.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IncidentsManager/HornMesh/Horn")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [3.0],
+"method": &"activate"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Actors/KnightMesh/Knight")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [3.0, 2.0],
+"method": &"move"
+}, {
+"args": [0.0, 2.0],
+"method": &"move"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CowMesh/Cow")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [2.0],
+"method": &"activate"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("IncidentsManager/HerseMesh/Herse")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(11),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [2.0],
+"method": &"activate"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_26mr1"]
+_data = {
+&"scene0": SubResource("Animation_q661t")
+}
+
 [node name="TheatreScene" type="Node3D" unique_id=814067477]
 
-[node name="Wall" parent="." unique_id=1569451564 instance=ExtResource("1_v8n6q")]
+[node name="CastleMesh" parent="." unique_id=1569451564 instance=ExtResource("1_v8n6q")]
 transform = Transform3D(-13.1, 0, -7.54979e-07, 0, 5, 0, 1.978045e-06, 0, -5, -0.6407337, 2.8829699, 3.817027)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=276157703]
@@ -308,29 +457,19 @@ spot_angle = 40.62
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -1.0358963, 5.0135946, 7.4405117)
 texture = ExtResource("4_r47ec")
 
-[node name="MadKing" parent="." unique_id=263734070 instance=ExtResource("5_xg04f")]
-transform = Transform3D(-1.6, 0, -1.7484555e-07, 0, 2, 0, 1.3987645e-07, 0, -2, -3.9558759, 1.2863286, 2)
-
-[node name="Chandelier" parent="." unique_id=1891042531 instance=ExtResource("6_r4qdm")]
+[node name="ChandelierMesh" parent="." unique_id=1891042531 instance=ExtResource("6_r4qdm")]
 transform = Transform3D(2, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -0.18339112, 4.1768627, 1.9875224)
 
-[node name="Horn" parent="." unique_id=663205281 instance=ExtResource("7_1hxc7")]
-transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -4.9003606, 2.9512963, 2.3880968)
-
-[node name="Horn2" parent="." unique_id=31394489 instance=ExtResource("7_1hxc7")]
+[node name="Horn2Mesh" parent="." unique_id=31394489 instance=ExtResource("7_1hxc7")]
 transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -4.860007, 3.4437656, 1.8712091)
 
-[node name="Herse" parent="." unique_id=2104592546 instance=ExtResource("8_1027p")]
-transform = Transform3D(-3, 0, -7.54979e-07, 0, 5, 0, 4.5298742e-07, 0, -5, 5.0088763, 5.4482927, 3.9196062)
-
-[node name="Cow" parent="." unique_id=1879863676 instance=ExtResource("10_xg04f")]
+[node name="CowMesh" parent="." unique_id=1879863676 instance=ExtResource("10_xg04f")]
 transform = Transform3D(-2.3, 0, -2.0107238e-07, 0, 2.3, 0, 2.0107238e-07, 0, -2.3, 5.329977, 1.4847078, 1.2895038)
 
-[node name="Dragon" parent="." unique_id=521331207 instance=ExtResource("11_r4qdm")]
-transform = Transform3D(3.3006783, 0.71982014, 0, -0.815796, 2.9123633, 0, 0, 0, 2.9999995, 2.1023927, 2.8616333, 6.7969255)
+[node name="Cow" parent="CowMesh" unique_id=1502549711 instance=ExtResource("11_7fwyp")]
 
-[node name="Knight" parent="." unique_id=1290083251 instance=ExtResource("2_rsn10")]
-transform = Transform3D(1.3, 0, 0, 0, 2, 0, 0, 0, 2, -0.7928251, 1.3890936, 2)
+[node name="DragonMesh" parent="." unique_id=521331207 instance=ExtResource("11_r4qdm")]
+transform = Transform3D(3.3006783, 0.71982014, 0, -0.815796, 2.9123633, 0, 0, 0, 2.9999995, 2.1023927, 2.8616333, 6.7969255)
 
 [node name="Border" parent="." unique_id=195769391 instance=ExtResource("11_xg04f")]
 transform = Transform3D(11, 0, 0, 0, 6, 0, 0, 0, 1, -0.17333889, 2.1501837, 1.0046821)
@@ -350,3 +489,121 @@ transform = Transform3D(8, 0, 0, 0, 0.6, 0, 0, 0, 1, 0, 0.44473636, 2.419076)
 
 [node name="Tapis3" parent="." unique_id=988506100 instance=ExtResource("14_15cu4")]
 transform = Transform3D(8, 0, 0, 0, 0.6, 0, 0, 0, 1, 0, 0.48617506, 1.2618487)
+
+[node name="Actors" type="Node3D" parent="." unique_id=615534014]
+transform = Transform3D(1.3, 0, 0, 0, 2, 0, 0, 0, 2, -0.7928251, 1.3890936, 2)
+
+[node name="KnightMesh" parent="Actors" unique_id=1290083251 instance=ExtResource("2_rsn10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Knight" parent="Actors/KnightMesh" unique_id=716446422 instance=ExtResource("5_1hxc7")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/KnightMesh/Knight" unique_id=2002873780]
+libraries/ = SubResource("AnimationLibrary_oe7mt")
+
+[node name="MadKingMesh" parent="Actors" unique_id=263734070 instance=ExtResource("5_xg04f")]
+transform = Transform3D(-1.2307693, 0, -1.3449659e-07, 0, 1, 0, 6.9938224e-08, 0, -1, -2.433116, -0.05138254, 0)
+
+[node name="MadKing" parent="Actors/MadKingMesh" unique_id=1767442541 instance=ExtResource("5_1hxc7")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/MadKingMesh/MadKing" unique_id=557913032]
+libraries/ = SubResource("AnimationLibrary_q661t")
+
+[node name="IncidentsManager" type="Node" parent="." unique_id=2140090368]
+
+[node name="HerseMesh" parent="IncidentsManager" unique_id=2104592546 instance=ExtResource("8_1027p")]
+transform = Transform3D(-3, 0, -7.54979e-07, 0, 5, 0, 4.5298742e-07, 0, -5, 5.0088763, 5.4482927, 3.9196062)
+
+[node name="Herse" parent="IncidentsManager/HerseMesh" unique_id=1377364127 instance=ExtResource("9_15cu4")]
+
+[node name="HornMesh" parent="IncidentsManager" unique_id=663205281 instance=ExtResource("7_1hxc7")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -4.0142355, 2.9512963, 2.3880968)
+
+[node name="Horn" parent="IncidentsManager/HornMesh" unique_id=1453017866 instance=ExtResource("9_15cu4")]
+shape = SubResource("BoxShape3D_q661t")
+
+[node name="Orchestrator" type="Node" parent="." unique_id=392292513]
+script = ExtResource("16_7fwyp")
+
+[node name="Plan1" type="Node" parent="Orchestrator" unique_id=961782369]
+
+[node name="Marker3D" type="Marker3D" parent="Orchestrator/Plan1" unique_id=760705021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.652, 1.823)
+
+[node name="Marker3D2" type="Marker3D" parent="Orchestrator/Plan1" unique_id=746135230]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1.228, 1.823)
+
+[node name="Marker3D3" type="Marker3D" parent="Orchestrator/Plan1" unique_id=2145073986]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.22, 1.823)
+
+[node name="Marker3D4" type="Marker3D" parent="Orchestrator/Plan1" unique_id=1309395691]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.22, 1.823)
+
+[node name="Marker3D5" type="Marker3D" parent="Orchestrator/Plan1" unique_id=2092882943]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 1.22, 1.823)
+
+[node name="Marker3D6" type="Marker3D" parent="Orchestrator/Plan1" unique_id=384946454]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.22, 1.823)
+
+[node name="Plan2" type="Node" parent="Orchestrator" unique_id=1055110995]
+
+[node name="Marker3D" type="Marker3D" parent="Orchestrator/Plan2" unique_id=868613300]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.652, 2.7563686)
+
+[node name="Marker3D2" type="Marker3D" parent="Orchestrator/Plan2" unique_id=1905714233]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1.228, 2.7563686)
+
+[node name="Marker3D3" type="Marker3D" parent="Orchestrator/Plan2" unique_id=1122258204]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.22, 2.7563686)
+
+[node name="Marker3D4" type="Marker3D" parent="Orchestrator/Plan2" unique_id=2002673949]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.22, 2.7563686)
+
+[node name="Marker3D5" type="Marker3D" parent="Orchestrator/Plan2" unique_id=1100709205]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 1.22, 2.7563686)
+
+[node name="Marker3D6" type="Marker3D" parent="Orchestrator/Plan2" unique_id=118430591]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.22, 2.7563686)
+
+[node name="Plan3" type="Node" parent="Orchestrator" unique_id=1290166373]
+
+[node name="Marker3D" type="Marker3D" parent="Orchestrator/Plan3" unique_id=1780124221]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.652, 4.975079)
+
+[node name="Marker3D2" type="Marker3D" parent="Orchestrator/Plan3" unique_id=609775979]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1.228, 4.975079)
+
+[node name="Marker3D3" type="Marker3D" parent="Orchestrator/Plan3" unique_id=1101901268]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.22, 4.975079)
+
+[node name="Marker3D4" type="Marker3D" parent="Orchestrator/Plan3" unique_id=416054172]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.22, 4.975079)
+
+[node name="Marker3D5" type="Marker3D" parent="Orchestrator/Plan3" unique_id=1660246173]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 1.22, 4.975079)
+
+[node name="Marker3D6" type="Marker3D" parent="Orchestrator/Plan3" unique_id=777085548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.22, 4.975079)
+
+[node name="Node" type="Node" parent="Orchestrator" unique_id=1894943545]
+
+[node name="MouseManager" type="Node" parent="." unique_id=1658592573 node_paths=PackedStringArray("tomato_basket")]
+script = ExtResource("17_q661t")
+tomato_basket = NodePath("../TomatoBasket")
+
+[node name="GameOver" parent="." unique_id=1945262765 instance=ExtResource("18_26mr1")]
+transform = Transform3D(-3.278823, 0, 0.087863214, 0, 3.28, 0, -0.087863214, 0, -3.278823, -0.278, 2.203, 1.104)
+visible = false
+
+[node name="TomatoBasket" parent="." unique_id=735284322 node_paths=PackedStringArray("camera") instance=ExtResource("19_ujv0r")]
+transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, -0.68718904, 2.288871, -1.70381)
+camera = NodePath("../Camera3D")
+
+[node name="Act1" type="AnimationPlayer" parent="." unique_id=1389752533]
+libraries/ = SubResource("AnimationLibrary_26mr1")
+autoplay = &"scene0"
+
+[node name="Node" type="Node" parent="." unique_id=936528559 node_paths=PackedStringArray("target_animation_player")]
+script = ExtResource("13_1027p")
+source_file_path = "res://stages/act_1/script.txt"
+target_animation_player = NodePath("../Act1")
