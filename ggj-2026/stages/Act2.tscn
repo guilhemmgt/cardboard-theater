@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://ubi0bjcosamr" path="res://carton/3Dcardboards/nuage/nuage.tscn" id="15_blgwc"]
 [ext_resource type="PackedScene" uid="uid://b11xfxrnpmhje" path="res://carton/3Dcardboards/storm/storm.tscn" id="16_sde5m"]
 [ext_resource type="PackedScene" uid="uid://erkk1pr4hfnh" path="res://carton/3Dcardboards/thunder/thunder_1.tscn" id="17_blgwc"]
+[ext_resource type="PackedScene" uid="uid://c4amdjj53fb3d" path="res://carton/3Dcardboards/king/mad_king.tscn" id="18_eg3nd"]
+[ext_resource type="PackedScene" uid="uid://bn21pj7fdgghm" path="res://carton/3Dcardboards/dragon/dragon.tscn" id="19_gpp26"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xgmc1"]
 albedo_texture = ExtResource("1_sde5m")
@@ -28,8 +30,8 @@ uv1_scale = Vector3(10, 10, 10)
 [sub_resource type="BoxMesh" id="BoxMesh_h2yge"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lquwl"]
-albedo_color = Color(0.7254902, 0.78431374, 0.78431374, 1)
-albedo_texture = ExtResource("2_upmff")
+albedo_color = Color(0.4994021, 0.13523778, 0, 1)
+albedo_texture = ExtResource("1_sde5m")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
@@ -222,7 +224,7 @@ texture = ExtResource("3_xgmc1")
 transform = Transform3D(-2.3, 0, -2.0107238e-07, 0, 2.3, 0, 2.0107238e-07, 0, -2.3, 5.329977, 1.4847078, 1.2895038)
 
 [node name="Knight" parent="." unique_id=1290083251 instance=ExtResource("10_cynsf")]
-transform = Transform3D(1.3, 0, 0, 0, 2, 0, 0, 0, 2, 2.0843973, 1.3890936, 2.5590363)
+transform = Transform3D(1.3, 0, 0, 0, 2, 0, 0, 0, 2, 2.3591628, 1.3890936, 1.6750038)
 
 [node name="Border" parent="." unique_id=195769391 instance=ExtResource("11_nimml")]
 transform = Transform3D(11, 0, 0, 0, 6, 0, 0, 0, 6, -0.17333889, 2.1501837, 1.0046821)
@@ -244,37 +246,13 @@ explosiveness = 0.8
 draw_pass_1 = SubResource("QuadMesh_15cu4")
 
 [node name="GobTheGoblin" parent="." unique_id=1319419001 instance=ExtResource("12_upmff")]
-transform = Transform3D(1.2, 0, 0, 0, 1.5, 0, 0, 0, 1, 0.80830026, 1.0972466, 1.6049213)
+transform = Transform3D(1.2, 0, 0, 0, 1.5, 0, 0, 0, 1, 1.1249034, 1.0972466, 1.6049213)
 
 [node name="GreatestTree" parent="." unique_id=258667498 instance=ExtResource("13_xgmc1")]
-transform = Transform3D(1.4, 0, 0, 0, 2, 0, 0, 0, 2, 3.7336836, 1.206886, 2.2125804)
-
-[node name="GreatestTree2" parent="." unique_id=1292239610 instance=ExtResource("13_xgmc1")]
-transform = Transform3D(1.4, 0, 0, 0, 2, 0, 0, 0, 2, 3.3669157, 1.206886, 1.1674731)
-
-[node name="GreatestTree3" parent="." unique_id=1843707211 instance=ExtResource("13_xgmc1")]
-transform = Transform3D(1.4, 0, 0, 0, 2, 0, 0, 0, 2, -3.7745447, 1.206886, 1.1674731)
-
-[node name="GreatestTree4" parent="." unique_id=719905290 instance=ExtResource("13_xgmc1")]
-transform = Transform3D(1.4, 0, 0, 0, 2, 0, 0, 0, 2, -3.7745447, 1.2142696, 2.1704972)
-
-[node name="GreatestTree7" parent="." unique_id=220486604 instance=ExtResource("13_xgmc1")]
-transform = Transform3D(1.4, 0, 0, 0, 2, 0, 0, 0, 2, 3.3480358, 1.2142696, 2.6024916)
-
-[node name="GreatestTree5" parent="." unique_id=1236758290 instance=ExtResource("13_xgmc1")]
-transform = Transform3D(1.4, 0, 0, 0, 2, 0, 0, 0, 2, -3.3410344, 1.2142696, 3.2112343)
-
-[node name="GreatestTree8" parent="." unique_id=264068263 instance=ExtResource("13_xgmc1")]
-transform = Transform3D(1.3998135, 0, 0.032636207, 0, 2, 0, -0.022845345, 0, 1.9997337, -2.8244576, 1.2142696, 4.145281)
-
-[node name="GreatestTree9" parent="." unique_id=2136480893 instance=ExtResource("13_xgmc1")]
-transform = Transform3D(1.3998135, 0, 0.032636207, 0, 2, 0, -0.022845345, 0, 1.9997337, -1.6626267, 1.2142696, 4.145281)
-
-[node name="GreatestTree6" parent="." unique_id=1469875189 instance=ExtResource("13_xgmc1")]
-transform = Transform3D(1.4, 0, 0, 0, 2, 0, 0, 0, 2, -5.2626324, 1.2142696, 3.2112343)
+transform = Transform3D(1.4, 0, 0, 0, 2, 0, 0, 0, 2, -1.2146034, 1.3496404, 1.7208054)
 
 [node name="Princess" parent="." unique_id=837612745 instance=ExtResource("14_sde5m")]
-transform = Transform3D(1.5, 0, 0, 0, 2, 0, 0, 0, 1, -1.3898164, 1.28499, 2.088852)
+transform = Transform3D(1.5, 0, 0, 0, 2, 0, 0, 0, 1, 0.11198306, 1.28499, 1.7022717)
 
 [node name="Nuage" parent="." unique_id=2083094686 instance=ExtResource("15_blgwc")]
 transform = Transform3D(-1.8, 0, -7.881981e-08, 0, 1, 0, 2.7179243e-07, 0, -0.522, -0.3834846, 3.1341567, 1.0551085)
@@ -377,3 +355,9 @@ light_indirect_energy = 1.3
 spot_range = 16.624
 spot_attenuation = 0.2
 spot_angle = 40.62
+
+[node name="MadKing" parent="." unique_id=263734070 instance=ExtResource("18_eg3nd")]
+transform = Transform3D(1.6, 0, 0, 0, 2, 0, 0, 0, 2, -2.7645378, 1.2953215, 1.721595)
+
+[node name="Dragon" parent="MadKing" unique_id=521331207 instance=ExtResource("19_gpp26")]
+transform = Transform3D(2.4, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.5151396, 0.23812616, 0.59806657)
