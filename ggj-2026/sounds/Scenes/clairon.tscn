@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c0ly5me4bdau4"]
+
+[ext_resource type="AudioStream" uid="uid://bsbafa7i7i611" path="res://sounds/clairon.wav" id="1_td4ie"]
+
+[node name="Clairon" type="AudioStreamPlayer3D" unique_id=1176126862]
+stream = ExtResource("1_td4ie")
+volume_db = -11.0

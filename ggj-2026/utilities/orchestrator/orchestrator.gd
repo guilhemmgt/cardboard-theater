@@ -9,7 +9,7 @@ signal pause_state_changed(is_paused: bool)
 @onready var plan2: Node = $Plan2
 @onready var plan3: Node = $Plan3
 @onready var incidents_manager: Node = $"../IncidentsManager"
-
+@export var animation_p : AnimationPlayer 
 
 var points_plan1: Array = []
 var points_plan2: Array = []
@@ -95,6 +95,8 @@ func get_pause_state() -> bool:
 func _on_event_success() -> void:
 	print("Event resolved successfully")
 	if is_paused:
+		animation_p.play()
+
 		resume_all_actors()
 
 func _on_event_failure() -> void:
@@ -104,6 +106,7 @@ func _on_event_failure() -> void:
 
 func _on_incident_activated(blocking: bool) -> void:
 	if blocking:
+		animation_p.pause()
 		pause_all_actors()
 		print("Blocking incident activated")
 	else:

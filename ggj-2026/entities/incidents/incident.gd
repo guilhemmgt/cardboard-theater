@@ -18,7 +18,7 @@ func _ready() -> void:
 func activate(time: float):
 	if _activated:
 		push_error("Already activated.")
-	print("Event activated on node: " + str(self))
+	print("Event activated on node: " + str(self)+"with time" + str(time))
 	_activated = true
 	activated.emit(blocking)
 	_timer.stop()

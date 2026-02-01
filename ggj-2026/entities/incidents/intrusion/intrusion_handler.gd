@@ -1,9 +1,10 @@
-extends MeshInstance3D
+extends Node3D
 
-@onready var intrusion_incident: IntrusionIncident = $IntrusionIncident
+@onready var intrusion_incident: IntrusionIncident
 @onready var sfx_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
 @onready var sfx_timer: Timer = $SfxTimer
 @onready var control_timer: Timer = $ControlTimer
+@export var orchestrator: Orchestrator
 @export var control: Intru
 @export var sfx_min_delay: float = 2.0
 @export var sfx_max_delay: float = 4.0
@@ -26,13 +27,15 @@ func _ready() -> void:
 	#
 	sfx_timer.timeout.connect(_on_sfx_timer_timeout)
 	control_timer.timeout.connect(_on_control_timer_timeout)
+	control.orchestrator = orchestrator
+	control.init()
 	
 func _on_incident_activated(_blocking: bool) -> void:
 	print("[intrusion] Activated on: ", name)
 	# play sfx from time to time
-	start_random_timer(sfx_timer, sfx_min_delay, sfx_max_delay)
+	_on_sfx_timer_timeout()
 	# move the intruder around
-	start_random_timer(control_timer, control_min_delay, control_max_delay)
+	_on_control_timer_timeout()
 
 func _on_incident_failed() -> void:
 	print("[intrusion] Failed on: ", name)
