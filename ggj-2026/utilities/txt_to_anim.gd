@@ -15,6 +15,13 @@ const COMMAND_MAPPING = {
 	"Repair": "activate"
 }
 
+# Mapping for INCIDENT commands
+const INCIDENT_COMMAND_MAPPING = {
+	"SetDialogIncident": "set_text_to_write",
+	"ActDialogIncident": "activate"
+}
+
+
 # La fonction appelée par le bouton
 func _on_generate_pressed() -> void:
 	if not source_file_path or not FileAccess.file_exists(source_file_path):
@@ -66,6 +73,7 @@ func parse_and_create_animation() -> void:
 			var time_str: String = parts[0]
 			var time: float = time_str.to_float()
 			
+			var command_type: String = parts[1]
 			var command_raw: String = parts[2]
 			var target_name: String = parts[3]
 			
@@ -74,7 +82,34 @@ func parse_and_create_animation() -> void:
 				for i in range(4, parts.size()):
 					args_raw.append(parts[i])
 			
-			# Gestion Piste
+			# Handle INCIDENT type commands that go to DialogIncident
+			if command_type == "INCIDENT" and command_raw in INCIDENT_COMMAND_MAPPING:
+				var cache_key = "INCIDENT_" + target_name
+				
+				var incident_track_idx: int = -1
+				if cache_key in tracks_cache:
+					incident_track_idx = tracks_cache[cache_key]
+				else:
+					var node_path = _find_path_for_node(target_name)
+					if node_path.is_empty():
+						continue
+					incident_track_idx = anim.add_track(Animation.TYPE_METHOD)
+					anim.track_set_path(incident_track_idx, node_path)
+					tracks_cache[cache_key] = incident_track_idx
+				
+				# Get method name from INCIDENT_COMMAND_MAPPING
+				var method_name = INCIDENT_COMMAND_MAPPING.get(command_raw, command_raw.to_lower())
+				var parsed_args = _parse_arguments(args_raw)
+				
+				var key_dict = {
+					"method": method_name,
+					"args": parsed_args
+				}
+				
+				anim.track_insert_key(incident_track_idx, time, key_dict)
+				continue
+			
+			# Gestion Piste (normal commands)
 			var track_idx = -1
 			if target_name in tracks_cache:
 				track_idx = tracks_cache[target_name]
