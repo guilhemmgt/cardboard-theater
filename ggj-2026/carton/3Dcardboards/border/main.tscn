@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b5b103invtsiq"]
+
+[ext_resource type="ArrayMesh" uid="uid://58vp1omyxhb0" path="res://carton/3Dcardboards/border/border.obj" id="1_ktgj5"]
+[ext_resource type="Shader" uid="uid://dy6ecpm6tdmku" path="res://carton/Cartons.tres" id="2_w3o6g"]
+[ext_resource type="Texture2D" uid="uid://dwhilh0w7bwia" path="res://carton/3Dcardboards/border/border.png" id="3_mmhxy"]
+[ext_resource type="Texture2D" uid="uid://dthsikmo58ciq" path="res://carton/paper_0009_1k/paper_0009_normal_opengl_1k.png" id="4_814sf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ytm1f"]
+render_priority = 0
+shader = ExtResource("2_w3o6g")
+shader_parameter/Vector2Parameter = Vector2(1, 1)
+shader_parameter/Vector2Parameter2 = Vector2(0.5, 0.5)
+shader_parameter/Texture2DParameter = ExtResource("3_mmhxy")
+shader_parameter/Texture2DParameter2 = ExtResource("4_814sf")
+
+[node name="main" type="Node3D" unique_id=823102454]
+
+[node name="Border" type="MeshInstance3D" parent="." unique_id=253818157]
+mesh = ExtResource("1_ktgj5")
+surface_material_override/0 = SubResource("ShaderMaterial_ytm1f")
