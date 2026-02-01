@@ -22,12 +22,17 @@ func _ready() -> void:
 func _on_incident_activated(_blocking: bool) -> void:
 	print("[activation] Activated on: ", name)
 	light.visible=true
+	animation_player.play("light_blink")
 
 func _on_incident_failed() -> void:
 	print("[activation] Failed on: ", name)
+	animation_player.stop()
+	light.visible=false
 
 func _on_incident_resolved() -> void:
 	print("[activation] Resolved on: ", name)
+	animation_player.stop()
+	light.visible=false
 	if anim_name == null:
 		push_error("no anim")
 		return
