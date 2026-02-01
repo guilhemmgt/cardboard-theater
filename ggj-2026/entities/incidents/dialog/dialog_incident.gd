@@ -1,7 +1,7 @@
 extends Incident
 class_name DialogIncident
 
-signal write_letter(text:String)
+signal write_letter(json_data:Dictionary)
 
 var text_to_write: String
 var _lower_text_to_write: String
@@ -17,7 +17,7 @@ func activate(time: float):
 	letters_written = 0
 	_lower_text_to_write = text_to_write.to_lower()
 	super.activate(time)
-	
+	print("dec : ",_activated)
 	update_dialog_ui(true)
 
 func _event_to_string(event: InputEvent) -> String:
@@ -35,7 +35,7 @@ func _event_to_string(event: InputEvent) -> String:
 func _unhandled_input(event: InputEvent) -> void:
 	if _activated:
 		if event.is_released() && !(event is InputEventMouse):
-			
+			print("ev")
 			var letter_released: String = _event_to_string(event)
 			#if right letter
 			if letter_released == _lower_text_to_write[letters_written]:
@@ -49,12 +49,23 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func update_dialog_ui(success:bool):
-	var text:String = "[color="+str(color_written.to_html())+ "]"+text_to_write.left(letters_written) + "[/color]"
+	var written_letter = text_to_write.left(letters_written)
+	var failed_letter = ""
+	var waited_letter = ""
+	
 	if !success:
-		var false_letter : String = text_to_write[letters_written]
-		if false_letter == " ":
-			false_letter = "▍"
-		text +=  "[color="+str(color_error.to_html())+"]"+false_letter+"[/color]"
-	text +=  "[color="+str(color_not_written.to_html())+"]"+text_to_write.right(len(text_to_write) - letters_written - (1-int(success)))+"[/color]"
-	write_letter.emit(text)
+		failed_letter = text_to_write[letters_written]
+		if failed_letter == " ":
+			failed_letter = "▍"
+		waited_letter = text_to_write.right(len(text_to_write) - letters_written - 1)
+	else:
+		waited_letter = text_to_write.right(len(text_to_write) - letters_written)
+	
+	var json_data = {
+		"written_letter": written_letter,
+		"failed_letter": failed_letter,
+		"waited_letter": waited_letter
+	}
+	
+	write_letter.emit(json_data)
 	

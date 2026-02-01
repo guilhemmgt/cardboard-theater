@@ -1,30 +1,28 @@
-[gd_scene format=3 uid="uid://ru2s4b8adjo"]
+[gd_scene format=3 uid="uid://cpgk7wtoir7jk"]
 
 [ext_resource type="PackedScene" uid="uid://dpkayn65c5wf2" path="res://carton/3Dcardboards/wall/wall.tscn" id="1_v8n6q"]
 [ext_resource type="Texture2D" uid="uid://bu0jq5rop2wt3" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="1_vpjuu"]
 [ext_resource type="PackedScene" uid="uid://b8a0vav2gqvcg" path="res://carton/3Dcardboards/knight/knight.tscn" id="2_rsn10"]
-[ext_resource type="Texture2D" uid="uid://dt4w8nooq6i5b" path="res://carton/paper_0009_1k/paper_0009_normal_directx_1k.png" id="3_7fwyp"]
-[ext_resource type="Texture2D" uid="uid://cktr80sscioby" path="res://carton/paper_0009_1k/paper_0009_color_1k.jpg" id="3_15cu4"]
-[ext_resource type="Texture2D" uid="uid://dthsikmo58ciq" path="res://carton/paper_0009_1k/paper_0009_normal_opengl_1k.png" id="4_oe7mt"]
 [ext_resource type="Texture2D" uid="uid://b1rb783r5r7w7" path="res://entities/scenery/background/background.png" id="4_r47ec"]
+[ext_resource type="PackedScene" uid="uid://crmmgpxf31kdn" path="res://entities/actors/actor_controller.tscn" id="5_1hxc7"]
 [ext_resource type="PackedScene" uid="uid://c4amdjj53fb3d" path="res://carton/3Dcardboards/king/mad_king.tscn" id="5_xg04f"]
 [ext_resource type="PackedScene" uid="uid://dm7riayv01aoj" path="res://carton/3Dcardboards/chandelier/chandelier.tscn" id="6_r4qdm"]
 [ext_resource type="PackedScene" uid="uid://cmoh5erhg8ftq" path="res://carton/3Dcardboards/horn/horn.tscn" id="7_1hxc7"]
 [ext_resource type="PackedScene" uid="uid://be0prrgukhrkt" path="res://carton/3Dcardboards/herse/herse.tscn" id="8_1027p"]
+[ext_resource type="PackedScene" uid="uid://3q7u47fq30rs" path="res://entities/incidents/activation/activation_incident.tscn" id="9_15cu4"]
 [ext_resource type="PackedScene" uid="uid://c432atnphqs7w" path="res://carton/3Dcardboards/cow/cow.tscn" id="10_xg04f"]
+[ext_resource type="PackedScene" uid="uid://dq8y837y8ll4b" path="res://entities/incidents/intrusion/intrusion_incident.tscn" id="11_7fwyp"]
 [ext_resource type="PackedScene" uid="uid://bn21pj7fdgghm" path="res://carton/3Dcardboards/dragon/dragon.tscn" id="11_r4qdm"]
 [ext_resource type="PackedScene" uid="uid://bmq3jlb1anrhf" path="res://carton/3Dcardboards/border/border.tscn" id="11_xg04f"]
-[ext_resource type="PackedScene" uid="uid://dgixb4l7nrgd1" path="res://VFX/dust_particles.tscn" id="13_1hxc7"]
-[ext_resource type="PackedScene" uid="uid://c8qa52pajmfp7" path="res://carton/3Dcardboards/tapis/tapis.tscn" id="14_15cu4"]
-[ext_resource type="Texture2D" uid="uid://hlxdsbmuyxjr" path="res://VFX/Textures/blur.png" id="14_1027p"]
+[ext_resource type="Script" uid="uid://b0g4fonj8fno0" path="res://utilities/txt_to_anim.gd" id="13_1027p"]
+[ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="16_7fwyp"]
+[ext_resource type="Script" uid="uid://d3uf356n1craj" path="res://ui/cursor/mouse_manager.gd" id="17_q661t"]
+[ext_resource type="PackedScene" uid="uid://d3t74t4c2wtyw" path="res://ui/signs/game_over.tscn" id="18_26mr1"]
+[ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="19_ujv0r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_color = Color(0.72428656, 0.29958177, 0.19783527, 1)
-albedo_texture = ExtResource("3_15cu4")
-albedo_texture_force_srgb = true
-normal_enabled = true
-normal_texture = ExtResource("3_7fwyp")
-uv1_scale = Vector3(0.2, 0.2, 0.2)
+albedo_texture = ExtResource("1_vpjuu")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
@@ -32,10 +30,7 @@ uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lquwl"]
 albedo_color = Color(0.7254902, 0.78431374, 0.78431374, 1)
-albedo_texture = ExtResource("3_15cu4")
-normal_enabled = true
-normal_texture = ExtResource("4_oe7mt")
-uv1_scale = Vector3(0.2, 0.2, 0.2)
+albedo_texture = ExtResource("1_vpjuu")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
@@ -46,7 +41,8 @@ uv1_triplanar = true
 uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2yge"]
-albedo_color = Color(0.41415069, 0.26748028, 0.08667608, 1)
+albedo_color = Color(0.7254902, 0.4862745, 0.19607843, 1)
+albedo_texture = ExtResource("1_vpjuu")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
@@ -57,6 +53,12 @@ uv1_world_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_5vw27"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
+albedo_color = Color(0.7254902, 0.5647059, 0.19607843, 1)
+albedo_texture = ExtResource("1_vpjuu")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mycd"]
 albedo_color = Color(0.20392157, 0.05490196, 0.02745098, 1)
 albedo_texture = ExtResource("1_vpjuu")
@@ -65,27 +67,153 @@ uv1_world_triplanar = true
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_272bh"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfg05"]
-transparency = 1
-diffuse_mode = 3
-albedo_color = Color(1, 1, 1, 0.16470589)
-albedo_texture = ExtResource("14_1027p")
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-proximity_fade_enabled = true
+[sub_resource type="Animation" id="Animation_jka67"]
+resource_name = "tremblement"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
-[sub_resource type="QuadMesh" id="QuadMesh_15cu4"]
-material = SubResource("StandardMaterial3D_dfg05")
-size = Vector2(0.02, 0.02)
+[sub_resource type="Animation" id="Animation_i5arm"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.17453292), Vector3(0, 0, 0.17453292), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oe7mt"]
+_data = {
+&"RESET": SubResource("Animation_jka67"),
+&"idle": SubResource("Animation_i5arm")
+}
+
+[sub_resource type="Animation" id="Animation_7fwyp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.433116, -0.05138254, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_udkvd"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.433116, -0.05138254, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q661t"]
+_data = {
+&"RESET": SubResource("Animation_7fwyp"),
+&"idle": SubResource("Animation_udkvd")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q661t"]
+
+[sub_resource type="Animation" id="Animation_q661t"]
+resource_name = "scene_generated"
+length = 60.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IncidentsManager/HornMesh/Horn")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [3.0],
+"method": &"activate"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Actors/KnightMesh/Knight")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [3.0, 2.0],
+"method": &"move"
+}, {
+"args": [0.0, 2.0],
+"method": &"move"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CowMesh/Cow")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [2.0],
+"method": &"activate"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("IncidentsManager/HerseMesh/Herse")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(11),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [2.0],
+"method": &"activate"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_26mr1"]
+_data = {
+&"scene0": SubResource("Animation_q661t")
+}
 
 [node name="TheatreScene" type="Node3D" unique_id=814067477]
 
-[node name="Wall" parent="." unique_id=1569451564 instance=ExtResource("1_v8n6q")]
+[node name="CastleMesh" parent="." unique_id=1569451564 instance=ExtResource("1_v8n6q")]
 transform = Transform3D(-13.1, 0, -7.54979e-07, 0, 5, 0, 1.978045e-06, 0, -5, -0.6407337, 2.8829699, 3.817027)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=276157703]
@@ -123,6 +251,11 @@ transform = Transform3D(7.7982745, 0, 0, 0, 0.0033833408, -1.1078875, 0, 0.44257
 material_override = SubResource("StandardMaterial3D_h2yge")
 mesh = SubResource("BoxMesh_h2yge")
 
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="." unique_id=270090016]
+transform = Transform3D(1.2628009, 0, 0, 0, 3.924143, 0, 0, 0, 0.08636668, -6.9983706, 1.5482832, 1.8271389)
+material_override = SubResource("StandardMaterial3D_272bh")
+mesh = SubResource("BoxMesh_5vw27")
+
 [node name="MeshInstance3D27" type="MeshInstance3D" parent="." unique_id=1779286923]
 transform = Transform3D(2.6904607, 0, 0, 0, 1.1623489, 0, 0, 0, 0.08636668, 3.3757558, 4.216172, 1.617806)
 visible = false
@@ -140,6 +273,21 @@ transform = Transform3D(1.2628009, 0, 0, 0, 3.924143, 0, 0, 0, 0.08636668, 6.544
 visible = false
 material_override = SubResource("StandardMaterial3D_272bh")
 mesh = SubResource("BoxMesh_5vw27")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="." unique_id=420708307]
+transform = Transform3D(11.147169, 0, 0, 0, 1.1578108, 0, 0, 0, 0.1443747, 0.019216299, 0.18051958, 1.3749256)
+material_override = SubResource("StandardMaterial3D_1bvp3")
+mesh = SubResource("BoxMesh_h2yge")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="." unique_id=536984528]
+transform = Transform3D(13.687634, 0, 0, 0, 1.1578108, 0, 0, 0, 0.14308278, 0.019216299, 0.18051958, 2.3975346)
+material_override = SubResource("StandardMaterial3D_1bvp3")
+mesh = SubResource("BoxMesh_h2yge")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="." unique_id=2083242237]
+transform = Transform3D(16.203173, 0, 0, 0, 1.1578108, 0, 0, 0, 0.1443747, 0.019216299, 0.18051958, 3.4084694)
+material_override = SubResource("StandardMaterial3D_1bvp3")
+mesh = SubResource("BoxMesh_h2yge")
 
 [node name="Node3D" type="Node3D" parent="." unique_id=806130277]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3041154, -0.37863255)
@@ -217,136 +365,172 @@ mesh = SubResource("CapsuleMesh_272bh")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=356183010]
 transform = Transform3D(-0.99999803, 0.0018779158, -0.0006346515, 0.0018191794, 0.99659187, 0.08247014, 0.00078736054, 0.08246882, -0.99659336, -0.3704396, 2.5399058, -2.0036309)
 
-[node name="Lights" type="Node3D" parent="." unique_id=132441945]
-transform = Transform3D(-0.99999803, 0.0018779158, -0.0006346515, 0.0018191794, 0.99659187, 0.08247014, 0.00078736054, 0.08246882, -0.99659336, -0.3704396, 2.5399058, -2.0036309)
-
-[node name="LightLeft" type="SpotLight3D" parent="Lights" unique_id=1000414162]
-transform = Transform3D(-0.5331028, 0.56306434, -0.6314743, -0.8030456, -0.101823546, 0.587154, 0.26630655, 0.8201161, 0.50644875, -5.454218, 2.2308981, 1.1769435)
-light_color = Color(1.129497, 1.1119101, 0.97466743, 1)
+[node name="LightLeft" type="SpotLight3D" parent="." unique_id=1000414162]
+transform = Transform3D(0.62663096, -0.040813435, 0.7782467, -0.7793161, -0.03281719, 0.62577105, 0, -0.9986278, -0.05237083, 5.0872107, 4.850341, 1.1241331)
+light_color = Color(1.1638972, 1.1638972, 0.4616239, 1)
 light_energy = 4.0
-spot_range = 15.0
-spot_angle = 34.51
+spot_range = 7.5137596
+spot_angle = 43.361313
 
-[node name="LightRight" type="SpotLight3D" parent="Lights" unique_id=811234208]
-transform = Transform3D(0.43423322, 0.68885237, 0.5804515, -0.8149626, 0.025898717, 0.5789346, 0.38376755, -0.72443885, 0.57263494, 5.4572835, 2.2609603, 0.5729649)
-light_color = Color(1.1338254, 1.1367571, 0.9688917, 1)
+[node name="LightRight" type="SpotLight3D" parent="." unique_id=811234208]
+transform = Transform3D(-0.62577516, 0.008702377, -0.779955, -0.7797459, -0.03268105, 0.62524265, -0.020048652, 0.999428, 0.02723663, -5.8238297, 4.850341, 1.1241331)
+light_color = Color(1.1638972, 1.1638972, 0.4616239, 1)
 light_energy = 4.0
-spot_range = 15.0
-spot_angle = 28.61
+spot_range = 7.5137596
+spot_angle = 43.361313
 
-[node name="ChandelierLight" type="SpotLight3D" parent="Lights" unique_id=1447028576]
-transform = Transform3D(-0.16940962, 0.97083664, 0.16963695, -0.08730729, -0.1862318, 0.978619, 0.981671, 0.15097693, 0.11631056, 0.14501134, 3.8875468, -4.326315)
+[node name="SpotLight3D3" type="SpotLight3D" parent="." unique_id=2029748956]
+transform = Transform3D(-0.16205731, -0.9540994, -0.25185683, -0.9737291, 0.11324233, 0.19755466, -0.15996592, 0.2772555, -0.9473861, -1.2816, 2.2468967, -1.2735953)
+visible = false
+light_color = Color(0.9843137, 0.9529412, 0.78039217, 1)
+light_energy = 2.577
+spot_range = 7.5137596
+spot_angle = 43.361313
+
+[node name="ChandelierLight" type="SpotLight3D" parent="." unique_id=1447028576]
+transform = Transform3D(0.16862231, -0.9712803, -0.1678727, -0.042232722, -0.17727432, 0.9832549, -0.98477554, -0.158709, -0.07091221, -0.5054045, 6.057675, 1.152273)
+visible = false
 light_color = Color(1.0518116, 1.0518116, 0.44291607, 1)
 light_energy = 16.0
 spot_range = 8.433
-spot_attenuation = 1.4
+spot_attenuation = 0.62
 spot_angle = 28.69
-
-[node name="red_spot" type="SpotLight3D" parent="Lights" unique_id=716039743]
-transform = Transform3D(-0.16962412, 0.97081965, 0.16951995, -0.2077322, -0.20336942, 0.9568115, 0.9633665, 0.12708355, 0.23616683, 3.5374644, 4.369322, -2.9207215)
-light_color = Color(3.2944162, 0.82927567, 0.82927567, 1)
-light_energy = 1.5
-light_indirect_energy = 6.0
-light_bake_mode = 0
-spot_range = 8.0
-spot_angle = 20.0
-
-[node name="red_spot_2" type="SpotLight3D" parent="Lights" unique_id=1196863905]
-transform = Transform3D(-0.07371373, 0.9958756, -0.052895885, -0.21080339, 0.03628214, 0.9768549, 0.97474515, 0.08315825, 0.20725948, -3.450982, 4.183649, -3.1640918)
-light_color = Color(3.2944162, 0.82927567, 0.82927567, 1)
-light_energy = 1.5
-light_indirect_energy = 6.0
-light_bake_mode = 0
-spot_range = 8.0
-spot_angle = 20.0
-
-[node name="orange_spot" type="SpotLight3D" parent="Lights" unique_id=754201487]
-transform = Transform3D(0.9892163, -0.10469122, 0.10242397, -0.07437299, 0.24338749, 0.9670735, -0.12617281, -0.96426255, 0.2329767, 1.5406462, 4.3084984, -2.8340986)
-light_color = Color(2.9669967, 1.3660103, 0, 1)
-light_energy = 1.5
-light_indirect_energy = 6.0
-light_bake_mode = 0
-spot_range = 8.0
-spot_angle = 20.0
-
-[node name="orange_spot_22" type="SpotLight3D" parent="Lights" unique_id=86439847]
-transform = Transform3D(-0.99076205, 0.13481991, -0.014629272, -0.058624268, -0.3285278, 0.94267315, 0.12228498, 0.93482256, 0.3333966, -1.7380412, 4.3175898, -2.8565273)
-light_color = Color(2.9669967, 1.3660103, 0, 1)
-light_energy = 1.5
-light_indirect_energy = 6.0
-light_bake_mode = 0
-spot_range = 8.0
-spot_angle = 20.0
-
-[node name="yellow_spot" type="SpotLight3D" parent="Lights" unique_id=422215712]
-transform = Transform3D(0.9805871, -0.17948493, 0.078956835, -0.025177363, 0.28408536, 0.9584684, -0.1944611, -0.9418496, 0.27405143, 5.298688, 4.3292313, -2.8487554)
-light_color = Color(2.2101762, 1.902436, 0, 1)
-light_energy = 1.5
-light_indirect_energy = 6.0
-light_bake_mode = 0
-spot_range = 8.0
-spot_angle = 20.0
-
-[node name="yellow_spot_22" type="SpotLight3D" parent="Lights" unique_id=1604384220]
-transform = Transform3D(-0.9663121, 0.24641447, -0.074302256, -0.11919051, -0.17257759, 0.97775793, 0.22811078, 0.95367545, 0.19613406, -5.279572, 4.1839523, -2.9602742)
-light_color = Color(2.2101762, 1.902436, 0, 1)
-light_energy = 1.5
-light_indirect_energy = 6.0
-light_bake_mode = 0
-spot_range = 8.0
-spot_angle = 20.0
-
-[node name="BackLight" type="SpotLight3D" parent="Lights" unique_id=615163551]
-transform = Transform3D(0.99999803, 0.0019686911, 0.00023161742, -0.0018779533, 0.90347964, 0.42862698, 0.0006345725, -0.42862657, 0.90348154, -0.36997995, 1.4397671, 3.534828)
-light_color = Color(1.161201, 1.1413023, 1.1220638, 1)
-light_indirect_energy = 1.3
-spot_range = 16.624
-spot_attenuation = 0.2
-spot_angle = 40.62
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=955975264]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -1.0358963, 5.0135946, 7.4405117)
 texture = ExtResource("4_r47ec")
 
-[node name="MadKing" parent="." unique_id=263734070 instance=ExtResource("5_xg04f")]
-transform = Transform3D(-1.6, 0, -1.7484555e-07, 0, 2, 0, 1.3987645e-07, 0, -2, -3.9558759, 1.2863286, 2)
-
-[node name="Chandelier" parent="." unique_id=1891042531 instance=ExtResource("6_r4qdm")]
+[node name="ChandelierMesh" parent="." unique_id=1891042531 instance=ExtResource("6_r4qdm")]
 transform = Transform3D(2, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -0.18339112, 4.1768627, 1.9875224)
 
-[node name="Horn" parent="." unique_id=663205281 instance=ExtResource("7_1hxc7")]
-transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -4.9003606, 2.9512963, 2.3880968)
-
-[node name="Horn2" parent="." unique_id=31394489 instance=ExtResource("7_1hxc7")]
+[node name="Horn2Mesh" parent="." unique_id=31394489 instance=ExtResource("7_1hxc7")]
 transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -4.860007, 3.4437656, 1.8712091)
 
-[node name="Herse" parent="." unique_id=2104592546 instance=ExtResource("8_1027p")]
-transform = Transform3D(-3, 0, -7.54979e-07, 0, 5, 0, 4.5298742e-07, 0, -5, 5.0088763, 5.4482927, 3.9196062)
-
-[node name="Cow" parent="." unique_id=1879863676 instance=ExtResource("10_xg04f")]
+[node name="CowMesh" parent="." unique_id=1879863676 instance=ExtResource("10_xg04f")]
 transform = Transform3D(-2.3, 0, -2.0107238e-07, 0, 2.3, 0, 2.0107238e-07, 0, -2.3, 5.329977, 1.4847078, 1.2895038)
 
-[node name="Dragon" parent="." unique_id=521331207 instance=ExtResource("11_r4qdm")]
+[node name="Cow" parent="CowMesh" unique_id=1502549711 instance=ExtResource("11_7fwyp")]
+
+[node name="DragonMesh" parent="." unique_id=521331207 instance=ExtResource("11_r4qdm")]
 transform = Transform3D(3.3006783, 0.71982014, 0, -0.815796, 2.9123633, 0, 0, 0, 2.9999995, 2.1023927, 2.8616333, 6.7969255)
 
-[node name="Knight" parent="." unique_id=1290083251 instance=ExtResource("2_rsn10")]
+[node name="Border" parent="." unique_id=195769391 instance=ExtResource("11_xg04f")]
+transform = Transform3D(11, 0, 0, 0, 6, 0, 0, 0, 6, -0.17333889, 2.1501837, 1.0046821)
+
+[node name="Actors" type="Node3D" parent="." unique_id=615534014]
 transform = Transform3D(1.3, 0, 0, 0, 2, 0, 0, 0, 2, -0.7928251, 1.3890936, 2)
 
-[node name="Border" parent="." unique_id=195769391 instance=ExtResource("11_xg04f")]
-transform = Transform3D(11, 0, 0, 0, 6, 0, 0, 0, 1, -0.17333889, 2.1501837, 1.0046821)
+[node name="KnightMesh" parent="Actors" unique_id=1290083251 instance=ExtResource("2_rsn10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="DustParticles" parent="." unique_id=832185072 instance=ExtResource("13_1hxc7")]
-transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 1, -0.17059416, 2.8956504, -0.15478265)
-amount = 500
-speed_scale = 0.05
-explosiveness = 0.8
-draw_pass_1 = SubResource("QuadMesh_15cu4")
+[node name="Knight" parent="Actors/KnightMesh" unique_id=716446422 instance=ExtResource("5_1hxc7")]
 
-[node name="Tapis" parent="." unique_id=633612956 instance=ExtResource("14_15cu4")]
-transform = Transform3D(8, 0, 0, 0, 0.6, 0, 0, 0, 1, 0, 0.48617506, 3.4845343)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/KnightMesh/Knight" unique_id=2002873780]
+libraries/ = SubResource("AnimationLibrary_oe7mt")
 
-[node name="Tapis2" parent="." unique_id=83925355 instance=ExtResource("14_15cu4")]
-transform = Transform3D(8, 0, 0, 0, 0.6, 0, 0, 0, 1, 0, 0.44473636, 2.419076)
+[node name="MadKingMesh" parent="Actors" unique_id=263734070 instance=ExtResource("5_xg04f")]
+transform = Transform3D(-1.2307693, 0, -1.3449659e-07, 0, 1, 0, 6.9938224e-08, 0, -1, -2.433116, -0.05138254, 0)
 
-[node name="Tapis3" parent="." unique_id=988506100 instance=ExtResource("14_15cu4")]
-transform = Transform3D(8, 0, 0, 0, 0.6, 0, 0, 0, 1, 0, 0.48617506, 1.2618487)
+[node name="MadKing" parent="Actors/MadKingMesh" unique_id=1767442541 instance=ExtResource("5_1hxc7")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/MadKingMesh/MadKing" unique_id=557913032]
+libraries/ = SubResource("AnimationLibrary_q661t")
+
+[node name="IncidentsManager" type="Node" parent="." unique_id=2140090368]
+
+[node name="HerseMesh" parent="IncidentsManager" unique_id=2104592546 instance=ExtResource("8_1027p")]
+transform = Transform3D(-3, 0, -7.54979e-07, 0, 5, 0, 4.5298742e-07, 0, -5, 5.0088763, 5.4482927, 3.9196062)
+
+[node name="Herse" parent="IncidentsManager/HerseMesh" unique_id=1377364127 instance=ExtResource("9_15cu4")]
+
+[node name="HornMesh" parent="IncidentsManager" unique_id=663205281 instance=ExtResource("7_1hxc7")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -4.0142355, 2.9512963, 2.3880968)
+
+[node name="Horn" parent="IncidentsManager/HornMesh" unique_id=1453017866 instance=ExtResource("9_15cu4")]
+shape = SubResource("BoxShape3D_q661t")
+
+[node name="Orchestrator" type="Node" parent="." unique_id=392292513]
+script = ExtResource("16_7fwyp")
+
+[node name="Plan1" type="Node" parent="Orchestrator" unique_id=961782369]
+
+[node name="Marker3D" type="Marker3D" parent="Orchestrator/Plan1" unique_id=760705021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.652, 1.823)
+
+[node name="Marker3D2" type="Marker3D" parent="Orchestrator/Plan1" unique_id=746135230]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1.228, 1.823)
+
+[node name="Marker3D3" type="Marker3D" parent="Orchestrator/Plan1" unique_id=2145073986]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.22, 1.823)
+
+[node name="Marker3D4" type="Marker3D" parent="Orchestrator/Plan1" unique_id=1309395691]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.22, 1.823)
+
+[node name="Marker3D5" type="Marker3D" parent="Orchestrator/Plan1" unique_id=2092882943]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 1.22, 1.823)
+
+[node name="Marker3D6" type="Marker3D" parent="Orchestrator/Plan1" unique_id=384946454]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.22, 1.823)
+
+[node name="Plan2" type="Node" parent="Orchestrator" unique_id=1055110995]
+
+[node name="Marker3D" type="Marker3D" parent="Orchestrator/Plan2" unique_id=868613300]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.652, 2.7563686)
+
+[node name="Marker3D2" type="Marker3D" parent="Orchestrator/Plan2" unique_id=1905714233]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1.228, 2.7563686)
+
+[node name="Marker3D3" type="Marker3D" parent="Orchestrator/Plan2" unique_id=1122258204]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.22, 2.7563686)
+
+[node name="Marker3D4" type="Marker3D" parent="Orchestrator/Plan2" unique_id=2002673949]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.22, 2.7563686)
+
+[node name="Marker3D5" type="Marker3D" parent="Orchestrator/Plan2" unique_id=1100709205]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 1.22, 2.7563686)
+
+[node name="Marker3D6" type="Marker3D" parent="Orchestrator/Plan2" unique_id=118430591]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.22, 2.7563686)
+
+[node name="Plan3" type="Node" parent="Orchestrator" unique_id=1290166373]
+
+[node name="Marker3D" type="Marker3D" parent="Orchestrator/Plan3" unique_id=1780124221]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.652, 4.975079)
+
+[node name="Marker3D2" type="Marker3D" parent="Orchestrator/Plan3" unique_id=609775979]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1.228, 4.975079)
+
+[node name="Marker3D3" type="Marker3D" parent="Orchestrator/Plan3" unique_id=1101901268]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.22, 4.975079)
+
+[node name="Marker3D4" type="Marker3D" parent="Orchestrator/Plan3" unique_id=416054172]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.22, 4.975079)
+
+[node name="Marker3D5" type="Marker3D" parent="Orchestrator/Plan3" unique_id=1660246173]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 1.22, 4.975079)
+
+[node name="Marker3D6" type="Marker3D" parent="Orchestrator/Plan3" unique_id=777085548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.22, 4.975079)
+
+[node name="Node" type="Node" parent="Orchestrator" unique_id=1894943545]
+
+[node name="MouseManager" type="Node" parent="." unique_id=1658592573 node_paths=PackedStringArray("tomato_basket")]
+script = ExtResource("17_q661t")
+tomato_basket = NodePath("../TomatoBasket")
+
+[node name="GameOver" parent="." unique_id=1945262765 instance=ExtResource("18_26mr1")]
+transform = Transform3D(-3.278823, 0, 0.087863214, 0, 3.28, 0, -0.087863214, 0, -3.278823, -0.278, 2.203, 1.104)
+visible = false
+
+[node name="TomatoBasket" parent="." unique_id=735284322 node_paths=PackedStringArray("camera") instance=ExtResource("19_ujv0r")]
+transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, -0.68718904, 2.288871, -1.70381)
+camera = NodePath("../Camera3D")
+
+[node name="Act1" type="AnimationPlayer" parent="." unique_id=1389752533]
+libraries/ = SubResource("AnimationLibrary_26mr1")
+autoplay = &"scene0"
+
+[node name="Node" type="Node" parent="." unique_id=936528559 node_paths=PackedStringArray("target_animation_player")]
+script = ExtResource("13_1027p")
+source_file_path = "res://stages/act_1/script.txt"
+target_animation_player = NodePath("../Act1")
