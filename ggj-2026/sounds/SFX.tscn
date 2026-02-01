@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dns3n1kisdf68"]
+[gd_scene format=3 uid="uid://dglc103gp6s7u"]
 
 [ext_resource type="AudioStream" uid="uid://bsbafa7i7i611" path="res://sounds/clairon.wav" id="1_uy6eg"]
 [ext_resource type="AudioStream" uid="uid://dtnrhf2cox0sr" path="res://sounds/slapsh.wav" id="2_bob34"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://yxolqfju8536" path="res://sounds/vache1.wav" id="4_fk6xh"]
 [ext_resource type="AudioStream" uid="uid://sl7prj8hnyms" path="res://sounds/vache2.wav" id="5_bob34"]
 [ext_resource type="AudioStream" uid="uid://cb1ckd7b3kmcu" path="res://sounds/music/ggj2026.mp3" id="5_x1j01"]
+[ext_resource type="PackedScene" uid="uid://8tsya2b5yuvr" path="res://sounds/Scenes/applause.tscn" id="7_ga4m3"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qr2da"]
 playback_mode = 1
@@ -37,3 +38,5 @@ volume_db = -10.0
 [node name="Music" type="AudioStreamPlayer3D" parent="." unique_id=16325070]
 stream = ExtResource("5_x1j01")
 volume_db = -15.0
+
+[node name="Applause" parent="." unique_id=771132437 instance=ExtResource("7_ga4m3")]

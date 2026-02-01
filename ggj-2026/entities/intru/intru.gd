@@ -6,7 +6,7 @@ class_name Intru
 var orchestrator: Orchestrator
 
 var is_actor_moving: bool = false
-var plan_number: int = 1
+@export var plan_number: int = 1
 var points_plan1: Array = []
 var points_plan2: Array = []
 var points_plan3: Array = []

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://3feoqdak035q"]
 
+[ext_resource type="Script" uid="uid://p04yb5042qsm" path="res://stages/act_1.gd" id="1_nbsfb"]
 [ext_resource type="PackedScene" uid="uid://dpkayn65c5wf2" path="res://carton/3Dcardboards/wall/wall.tscn" id="1_v8n6q"]
 [ext_resource type="Texture2D" uid="uid://bu0jq5rop2wt3" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="1_vpjuu"]
 [ext_resource type="PackedScene" uid="uid://b8a0vav2gqvcg" path="res://carton/3Dcardboards/knight/knight.tscn" id="2_rsn10"]
@@ -25,7 +26,7 @@
 [ext_resource type="Script" uid="uid://opxnqhgj6yr7" path="res://entities/intru/intru.gd" id="18_nbsfb"]
 [ext_resource type="PackedScene" uid="uid://dq8y837y8ll4b" path="res://entities/incidents/intrusion/intrusion_incident.tscn" id="19_dc1uk"]
 [ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="19_ujv0r"]
-[ext_resource type="PackedScene" path="res://stages/lights.tscn" id="25_4l38f"]
+[ext_resource type="PackedScene" uid="uid://b2rkyem5ixn6p" path="res://stages/lights.tscn" id="25_4l38f"]
 [ext_resource type="AudioStream" uid="uid://cb1ckd7b3kmcu" path="res://sounds/music/ggj2026.mp3" id="27_nbsfb"]
 
 [sub_resource type="Environment" id="Environment_fie2r"]
@@ -298,7 +299,7 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_fie2r"]
 resource_name = "scene_generated"
-length = 60.0
+length = 15.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -410,6 +411,7 @@ _data = {
 }
 
 [node name="TheatreScene" type="Node3D" unique_id=814067477]
+script = ExtResource("1_nbsfb")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2029467546]
 environment = SubResource("Environment_fie2r")
@@ -804,3 +806,4 @@ volume_db = -5.538
 autoplay = true
 
 [connection signal="resolved" from="IncidentsManager/HerseMesh/Herse" to="IncidentsManager/HerseMesh" method="_on_herse_resolved"]
+[connection signal="animation_finished" from="Act1" to="." method="_on_act_1_animation_finished"]
