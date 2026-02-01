@@ -2,6 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://dy6ecpm6tdmku" path="res://carton/Cartons.tres" id="1_pdeli"]
 [ext_resource type="PackedScene" uid="uid://c3teht8qwha10" path="res://VFX/confettis.tscn" id="2_naxdd"]
+[ext_resource type="PackedScene" uid="uid://8tsya2b5yuvr" path="res://sounds/Scenes/applause.tscn" id="3_6njmk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_naxdd"]
 render_priority = 0
@@ -46,7 +47,7 @@ tracks/0/enabled = true
 tracks/0/path = NodePath("MeshInstance3D")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 2, 0, 0.2, 1, 0, 2, 0, 1, 1, 0, 0, 0)
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 2, 0, 1, 1, 0, 0, 0)
 tracks/1/type = "position_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
@@ -107,3 +108,6 @@ mesh = SubResource("BoxMesh_6njmk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.011490136)
 modulate = Color(0.91881675, 0.91881675, 0.9188166, 1)
 text = "by 7F old"
+
+[node name="Applause" parent="." unique_id=771132437 instance=ExtResource("3_6njmk")]
+autoplay = true
