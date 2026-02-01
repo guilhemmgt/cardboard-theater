@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://c7clsaa3tl788"]
-
-[ext_resource type="PackedScene" uid="uid://3p2eysrghmvy" path="res://carton/3Dcardboards/border/border.tscn" id="1_bejsb"]
-
-[node name="main" type="Node3D" unique_id=823102454]
-
-[node name="Grass" parent="." unique_id=265710641 instance=ExtResource("1_bejsb")]

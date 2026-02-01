@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7hnx7tajy0h5"
-path.s3tc="res://.godot/imported/border.png-c818d6a20d4c36ae26fe88ea0c2f945b.s3tc.ctex"
+uid="uid://cumhjiw7lcfmn"
+path.s3tc="res://.godot/imported/gob_the_goblin.png-150af673218b3ed42ad9df3f8e6429d1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://entities/scenery/border/border.png"
-dest_files=["res://.godot/imported/border.png-c818d6a20d4c36ae26fe88ea0c2f945b.s3tc.ctex"]
+source_file="res://carton/3Dcardboards/goblin/gob_the_goblin.png"
+dest_files=["res://.godot/imported/gob_the_goblin.png-150af673218b3ed42ad9df3f8e6429d1.s3tc.ctex"]
 
 [params]
 

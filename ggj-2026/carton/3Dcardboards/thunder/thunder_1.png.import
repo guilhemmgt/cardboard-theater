@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7hnx7tajy0h5"
-path.s3tc="res://.godot/imported/border.png-c818d6a20d4c36ae26fe88ea0c2f945b.s3tc.ctex"
+uid="uid://duwpj1c06g3fy"
+path.s3tc="res://.godot/imported/thunder_1.png-168e771f7e2d500f1b70f7626a885f64.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://entities/scenery/border/border.png"
-dest_files=["res://.godot/imported/border.png-c818d6a20d4c36ae26fe88ea0c2f945b.s3tc.ctex"]
+source_file="res://carton/3Dcardboards/thunder/thunder_1.png"
+dest_files=["res://.godot/imported/thunder_1.png-168e771f7e2d500f1b70f7626a885f64.s3tc.ctex"]
 
 [params]
 
