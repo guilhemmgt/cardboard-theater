@@ -12,6 +12,8 @@
 [ext_resource type="AudioStream" uid="uid://cb1ckd7b3kmcu" path="res://sounds/music/ggj2026.mp3" id="6_i5arm"]
 [ext_resource type="PackedScene" uid="uid://d3t74t4c2wtyw" path="res://ui/signs/game_over.tscn" id="7_wc5p8"]
 [ext_resource type="PackedScene" uid="uid://dxch6vbu2k336" path="res://entities/intru/intru_control.tscn" id="10_6iypd"]
+[ext_resource type="PackedScene" uid="uid://dq8y837y8ll4b" path="res://entities/incidents/intrusion/intrusion_incident.tscn" id="13_imku0"]
+[ext_resource type="Script" uid="uid://b0g4fonj8fno0" path="res://utilities/txt_to_anim.gd" id="14_wlxy5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_color = Color(0.72428656, 0.29958177, 0.19783527, 1)
@@ -72,104 +74,27 @@ uv1_world_triplanar = true
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_272bh"]
 
-[sub_resource type="Animation" id="Animation_r3fl7"]
-resource_name = "scene0"
+[sub_resource type="Animation" id="Animation_3v7ru"]
+resource_name = "scene_generated"
 length = 60.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Actors/actor1/ActorController")
+tracks/0/path = NodePath("Actors/Knight")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 1.2, 17, 26.766666, 46.833332),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"values": [{
-"args": [2, 1.0],
-"method": &"move"
-}, {
-"args": [1, 1.0],
-"method": &"move"
-}, {
-"args": ["idle", 2.0],
-"method": &"anim"
-}, {
-"args": [2, 1.0],
-"method": &"move"
-}, {
-"args": ["idle", 15.0],
-"method": &"anim"
-}, {
-"args": [0, 4.0],
-"method": &"move"
-}]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Actors/actor2/ActorController")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.1666666),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [2, 1.0],
-"method": &"move"
-}, {
-"args": ["idle", 2.0],
-"method": &"anim"
-}]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Actors/actor3/ActorController")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [2, 0, 0.0],
-"method": &"plan_change"
-}, {
-"args": [2, 2, 5.0],
-"method": &"plan_change"
-}]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("IncidentsManager/nuage2/nuage0")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.5),
+"times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [4.0],
-"method": &"activate"
-}]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Node/actor1/IntruControl")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(1.5999999),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [2, 3.0],
+"args": [0.0, 1.0, 3.0],
 "method": &"move"
 }]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jka67"]
 _data = {
-&"scene0": SubResource("Animation_r3fl7")
+&"scene0": SubResource("Animation_3v7ru")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vw27"]
@@ -337,6 +262,11 @@ albedo_color = Color(0.07058824, 0.4117647, 0.21568628, 1)
 albedo_texture = ExtResource("1_a202f")
 uv1_triplanar = true
 uv1_world_triplanar = true
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cdqbm"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_imku0"]
+points = PackedVector3Array(-0.12520654, -0.532801, -0.4805069, 0.022783129, 0.4760704, 0.49888408, 0.16971254, 0.5591441, 0.46417162, 0.23105091, -0.8035912, 0.32045516, 0.40741014, 0.651043, -0.24352328, -0.4827893, 0.59484255, 0.082213186, -0.3628679, -0.68231165, 0.2896967, 0.46904355, -0.65452886, -0.06627126, -0.12744367, 0.8427015, -0.33810276, -0.39343542, -0.6839421, -0.24471663, 0.43825462, 0.62330925, 0.20084947, 0.0841477, 0.977454, 0.11479468, -0.06820232, -0.9764576, -0.12927033, 0.20054972, -0.56312895, -0.4514544, -0.18552664, 0.59545326, -0.4534751, -0.27336287, 0.59226835, 0.40775412, -0.0069364863, -0.47682306, 0.49966025, 0.37582088, -0.5886136, 0.31695515, 0.111579016, 0.5630594, -0.48117727, -0.41725034, 0.5278656, -0.27049688, -0.48454633, -0.59697217, -0.06650971, -0.27974695, 0.90856135, 0.05333608, -0.25019687, -0.8807117, 0.20531891, 0.263647, -0.90277094, -0.1273943, 0.29336792, 0.8715263, -0.15719566, 0.3734115, -0.5263189, -0.32824618, 0.4996626, 0.47664148, -0.0068885577, 0.053105574, 0.8750009, 0.32470253, -0.15454252, -0.5908538, 0.4658794, -0.09727988, -0.7823577, -0.39818847, -0.3876489, -0.49817133, 0.31564978, -0.30067965, -0.58799505, -0.38890144)
 
 [sub_resource type="Environment" id="Environment_imku0"]
 
@@ -572,28 +502,31 @@ autoplay = &"scene0"
 
 [node name="actor1" type="MeshInstance3D" parent="Actors" unique_id=152028511]
 transform = Transform3D(0.834321, 0, 0, 0, 0.90051776, 0, 0, 0, 0.0801657, 4.3044724, 1.2269359, 1.6520064)
+visible = false
 material_override = SubResource("StandardMaterial3D_5vw27")
 mesh = SubResource("CapsuleMesh_272bh")
 
-[node name="ActorController" parent="Actors/actor1" unique_id=385023856 instance=ExtResource("4_jka67")]
+[node name="King" parent="Actors/actor1" unique_id=385023856 instance=ExtResource("4_jka67")]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/actor1/ActorController" unique_id=374462122]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/actor1/King" unique_id=374462122]
 libraries/ = SubResource("AnimationLibrary_wc5p8")
 
 [node name="DialogIncident" parent="Actors/actor1" unique_id=1025400322 instance=ExtResource("4_jsk3o")]
 
-[node name="actor2" type="MeshInstance3D" parent="Actors" unique_id=420871054]
+[node name="Knight" type="MeshInstance3D" parent="Actors" unique_id=420871054]
 transform = Transform3D(0.834321, 0, 0, 0, 0.90051776, 0, 0, 0, 0.0801657, -5.323698, 1.2269359, 1.6520064)
+visible = false
 material_override = SubResource("StandardMaterial3D_5vw27")
 mesh = SubResource("CapsuleMesh_272bh")
 
-[node name="ActorController" parent="Actors/actor2" unique_id=1767442541 instance=ExtResource("4_jka67")]
+[node name="Knight" parent="Actors/Knight" unique_id=1767442541 instance=ExtResource("4_jka67")]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/actor2/ActorController" unique_id=1497312585]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/Knight/Knight" unique_id=1497312585]
 libraries/ = SubResource("AnimationLibrary_wc5p8")
 
 [node name="actor3" type="MeshInstance3D" parent="Actors" unique_id=54412257]
 transform = Transform3D(0.834321, 0, 0, 0, 0.90051776, 0, 0, 0, 0.0801657, -5.323698, 1.2269359, 1.6520064)
+visible = false
 material_override = SubResource("StandardMaterial3D_5vw27")
 mesh = SubResource("CapsuleMesh_272bh")
 
@@ -629,13 +562,28 @@ libraries/ = SubResource("AnimationLibrary_wlxy5")
 [node name="Node" type="Node" parent="." unique_id=1301099338]
 
 [node name="actor1" type="MeshInstance3D" parent="Node" unique_id=1855910158]
-transform = Transform3D(0.834321, 0, 0, 0, 0.90051776, 0, 0, 0, 0.0801657, 4.0864406, 1.2269359, 1.6520064)
+transform = Transform3D(0.834321, 0, 0, 0, 0.90051776, 0, 0, 0, 0.0801657, 4.0864406, 1.2269359, 1.5769451)
 material_override = SubResource("StandardMaterial3D_tereu")
 mesh = SubResource("CapsuleMesh_272bh")
 
 [node name="IntruControl" parent="Node/actor1" unique_id=187030485 instance=ExtResource("10_6iypd")]
 
+[node name="IntrusionIncident" parent="Node/actor1" unique_id=1502549711 instance=ExtResource("13_imku0")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node/actor1/IntrusionIncident" unique_id=1516340020]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
+physics_material_override = SubResource("PhysicsMaterial_cdqbm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node/actor1/IntrusionIncident/StaticBody3D" unique_id=1527641269]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0.936327)
+shape = SubResource("ConvexPolygonShape3D_imku0")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=177154108]
 environment = SubResource("Environment_imku0")
+
+[node name="Node2" type="Node" parent="." unique_id=290777088 node_paths=PackedStringArray("target_animation_player")]
+script = ExtResource("14_wlxy5")
+source_file_path = "res://stages/act_1/script.txt"
+target_animation_player = NodePath("../MainSceneAnimation")
 
 [connection signal="timeout" from="ErrorEvent" to="Orchestrator" method="_on_error_event_timeout"]
