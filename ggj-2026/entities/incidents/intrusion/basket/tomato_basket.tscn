@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cjkahk7g7q2ef"]
+
+[ext_resource type="Script" uid="uid://gmuk8jh0epoa" path="res://entities/incidents/intrusion/basket/tomato_basket.gd" id="1_hymqw"]
+[ext_resource type="PackedScene" uid="uid://dj578e75m5t8u" path="res://entities/incidents/intrusion/tomato/tomato.tscn" id="2_ligaw"]
+[ext_resource type="ArrayMesh" uid="uid://bmudt6tkcu4so" path="res://entities/incidents/intrusion/tomato/tomato.obj" id="3_ligaw"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ykba1"]
+radius = 0.21358466
+
+[node name="TomatoBasket" type="Node3D" unique_id=735284322 node_paths=PackedStringArray("area", "raycast")]
+script = ExtResource("1_hymqw")
+tomato_scene = ExtResource("2_ligaw")
+area = NodePath("Area3D")
+raycast = NodePath("RayCast3D")
+tomato_speed = 5.0
+tomato_peak_height_coef = 0.25
+tomato_safety_overshoot_coef = 2.0
+
+[node name="Area3D" type="Area3D" parent="." unique_id=420328201]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=454840822]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042770386, 0.008780934, -0.083618164)
+shape = SubResource("SphereShape3D_ykba1")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1271400734]
+target_position = Vector3(0, 0, -10000)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="01" type="MeshInstance3D" parent="." unique_id=875805807]
+mesh = ExtResource("3_ligaw")
+
+[node name="02" type="MeshInstance3D" parent="." unique_id=594370896]
+transform = Transform3D(0.7723481, -0.19171691, 0.60557646, 0.15087084, 0.98145026, 0.11829359, -0.6170221, 0, 0.7869457, -0.04004199, 0, -0.16893622)
+mesh = ExtResource("3_ligaw")
+
+[node name="03" type="MeshInstance3D" parent="." unique_id=542010562]
+transform = Transform3D(0.990253, 0.12877728, 0.053058818, -0.07651592, 0.8213085, -0.5653295, -0.11637928, 0.55575955, 0.8231568, 0.024526253, 0.12718785, -0.113808274)
+mesh = ExtResource("3_ligaw")
+
+[node name="04" type="MeshInstance3D" parent="." unique_id=1378846964]
+transform = Transform3D(0.603218, 0.5744969, 0.55324614, -0.68965745, 0.72413576, 0, -0.40062532, -0.3815503, 0.8330178, 0.12916732, 0, -0.11519764)
+mesh = ExtResource("3_ligaw")

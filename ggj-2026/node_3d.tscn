@@ -1,10 +1,11 @@
-[gd_scene format=3 uid="uid://b5cv4ybux4tk0"]
+[gd_scene format=3 uid="uid://cy7c1fd13s4eg"]
 
 [ext_resource type="Texture2D" uid="uid://bu0jq5rop2wt3" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="1_a202f"]
 [ext_resource type="Script" uid="uid://d3uf356n1craj" path="res://ui/cursor/mouse_manager.gd" id="1_tereu"]
 [ext_resource type="Script" uid="uid://b77rw5elxerfm" path="res://failedScript.gd" id="2_jka67"]
 [ext_resource type="PackedScene" uid="uid://7bkl72rbjsk2" path="res://entities/incidents/repair/repair_incident.tscn" id="2_noarx"]
 [ext_resource type="PackedScene" uid="uid://wqndrrl2ra2q" path="res://entities/spectators/one_spector.tscn" id="3_cdqbm"]
+[ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="3_cdqbm"]
 [ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="3_r3fl7"]
 [ext_resource type="PackedScene" uid="uid://crmmgpxf31kdn" path="res://entities/actors/actor_controller.tscn" id="4_jka67"]
 [ext_resource type="PackedScene" uid="uid://7hmyj02kii3d" path="res://entities/incidents/dialog/dialog_incident.tscn" id="4_jsk3o"]
@@ -505,6 +506,10 @@ light_color = Color(1, 1, 0.3137255, 1)
 light_energy = 2.577
 spot_range = 7.5137596
 spot_angle = 43.361313
+
+[node name="TomatoBasket" parent="TheatreScene" unique_id=735284322 node_paths=PackedStringArray("camera") instance=ExtResource("3_cdqbm")]
+transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, -0.68718904, 2.288871, -1.70381)
+camera = NodePath("../../Camera3D")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=356183010]
 transform = Transform3D(-0.99999803, 0.0018779158, -0.0006346515, 0.0018191794, 0.99659187, 0.08247014, 0.00078736054, 0.08246882, -0.99659336, -0.3704396, 2.5399058, -2.0036309)
