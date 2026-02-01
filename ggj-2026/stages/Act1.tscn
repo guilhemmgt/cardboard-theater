@@ -293,5 +293,8 @@ transform = Transform3D(10, 0, 0, 0, 0.8, 0, 0, 0, 1, 0.0072612762, 0.4955169, 1
 transform = Transform3D(-10, 0, -8.742278e-08, 0, 0.8, 0, 8.742278e-07, 0, -1, -0.9927387, 0.4955169, 2.277623)
 
 [node name="DustParticles" parent="." unique_id=832185072 instance=ExtResource("13_1hxc7")]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, -0.7330942, 3.7466583, 0.5236013)
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 1, -0.17059416, 2.8956504, -0.15478265)
+amount = 500
+speed_scale = 0.05
+explosiveness = 0.8
 draw_pass_1 = SubResource("QuadMesh_15cu4")

@@ -6,12 +6,14 @@
 lifetime_randomness = 0.35
 emission_shape = 3
 emission_box_extents = Vector3(1, 1, 1)
-direction = Vector3(3, 0, 3)
+direction = Vector3(1, 1, 1)
 initial_velocity_min = 0.5
-initial_velocity_max = 0.5
+initial_velocity_max = 1.0
+angular_velocity_min = -180.00002
+angular_velocity_max = 179.99998
 orbit_velocity_min = 0.1000001
 orbit_velocity_max = 0.5000001
-gravity = Vector3(0, -0.1, 0)
+gravity = Vector3(0, -0.05, 0)
 scale_min = 0.5
 turbulence_noise_strength = 5.0
 turbulence_noise_speed = Vector3(10, 0, 10)
@@ -38,7 +40,7 @@ size = Vector2(0.01, 0.01)
 [node name="DustParticles" type="GPUParticles3D" unique_id=832185072]
 amount = 1000
 lifetime = 8.61
-speed_scale = 0.08
+speed_scale = 0.1
 randomness = 0.07
 process_material = SubResource("ParticleProcessMaterial_hh88o")
 draw_pass_1 = SubResource("QuadMesh_amjtg")
