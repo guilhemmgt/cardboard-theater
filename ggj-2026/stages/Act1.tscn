@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ru2s4b8adjo"]
+[gd_scene format=3 uid="uid://3feoqdak035q"]
 
 [ext_resource type="Script" uid="uid://p04yb5042qsm" path="res://stages/act_1.gd" id="1_nbsfb"]
 [ext_resource type="PackedScene" uid="uid://dpkayn65c5wf2" path="res://carton/3Dcardboards/wall/wall.tscn" id="1_v8n6q"]
@@ -1004,7 +1004,7 @@ tomato_basket = NodePath("../TomatoBasket")
 transform = Transform3D(-3.278823, 0, 0.087863214, 0, 3.28, 0, -0.087863214, 0, -3.278823, -0.278, 4.856266, 1.104)
 
 [node name="TomatoBasket" parent="." unique_id=735284322 node_paths=PackedStringArray("camera") instance=ExtResource("19_ujv0r")]
-transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, -0.68718904, 2.288871, -1.70381)
+transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, -0.7132276, 2.288871, -1.7572942)
 camera = NodePath("../Camera3D")
 
 [node name="Act1" type="AnimationPlayer" parent="." unique_id=1389752533]
