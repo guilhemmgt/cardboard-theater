@@ -1,0 +1,15 @@
+INIT
+ACTOR : MadKing : 0-4
+ACTOR : Knight : 0-0
+ACTOR : Dragon : 2-0
+ACTOR : Cow : 1-0
+
+SCENE
+0.1 : INCIDENT : WaitForClick : Horn : 3
+1.0 : ACTION : Move : Knight : 3 : 2
+2.0 : INCIDENT : Repair : Chandelier : 2
+5.0 : INCIDENT : Repair : Castle : 2
+6.0 : INCIDENT : Activate : Cow : 2
+7.0 : ACTION : Move : Dragon : 5 : 1
+9.0 : ACTION : Move : Knight : 0 : 2
+11.0 : INCIDENT : WaitForClick : Herse : 2
