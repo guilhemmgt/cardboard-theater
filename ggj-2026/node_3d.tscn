@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://d3uf356n1craj" path="res://ui/cursor/mouse_manager.gd" id="1_tereu"]
 [ext_resource type="Script" uid="uid://b77rw5elxerfm" path="res://failedScript.gd" id="2_jka67"]
 [ext_resource type="PackedScene" uid="uid://7bkl72rbjsk2" path="res://entities/incidents/repair/repair_incident.tscn" id="2_noarx"]
+[ext_resource type="PackedScene" uid="uid://wqndrrl2ra2q" path="res://entities/spectators/one_spector.tscn" id="3_cdqbm"]
 [ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="3_r3fl7"]
 [ext_resource type="PackedScene" uid="uid://crmmgpxf31kdn" path="res://entities/actors/actor_controller.tscn" id="4_jka67"]
 [ext_resource type="PackedScene" uid="uid://7hmyj02kii3d" path="res://entities/incidents/dialog/dialog_incident.tscn" id="4_jsk3o"]
@@ -11,8 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://d3t74t4c2wtyw" path="res://ui/signs/game_over.tscn" id="7_wc5p8"]
 [ext_resource type="PackedScene" uid="uid://3q7u47fq30rs" path="res://entities/incidents/activation/activation_incident.tscn" id="9_4arys"]
 [ext_resource type="PackedScene" uid="uid://dxch6vbu2k336" path="res://entities/intru/intru_control.tscn" id="10_6iypd"]
-
-[sub_resource type="Environment" id="Environment_6iypd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_color = Color(0.72428656, 0.29958177, 0.19783527, 1)
@@ -465,75 +464,26 @@ mesh = SubResource("CapsuleMesh_272bh")
 [node name="Spectators" type="Node3D" parent="TheatreScene" unique_id=806130277]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3041154, -0.37863255)
 
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="TheatreScene/Spectators" unique_id=1745814669]
-transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, -2.5280461, 0.33964872, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
+[node name="Spectator" parent="TheatreScene/Spectators" unique_id=1307589095 instance=ExtResource("3_cdqbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.789)
 
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="TheatreScene/Spectators" unique_id=57464366]
-transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, -1.6340213, 0.3529414, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
+[node name="Spectator2" parent="TheatreScene/Spectators" unique_id=1225781135 instance=ExtResource("3_cdqbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4412165, 0, 0.789)
 
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="TheatreScene/Spectators" unique_id=1596440797]
-transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, -0.78751826, 0.3529414, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
+[node name="Spectator3" parent="TheatreScene/Spectators" unique_id=1799858280 instance=ExtResource("3_cdqbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4977267, 0, 0.789)
 
-[node name="MeshInstance3D12" type="MeshInstance3D" parent="TheatreScene/Spectators" unique_id=1323093242]
-transform = Transform3D(0.6712459, 0, 0, 0, 0.94895613, 0, 0, 0, 0.28313547, 0.037874937, 0.3529414, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
+[node name="Spectator4" parent="TheatreScene/Spectators" unique_id=280282279 instance=ExtResource("3_cdqbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0543451, 0, 0.789)
 
-[node name="MeshInstance3D13" type="MeshInstance3D" parent="TheatreScene/Spectators" unique_id=929207664]
-transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, 0.84049463, 0.3529414, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
+[node name="Spectator5" parent="TheatreScene/Spectators" unique_id=552898575 instance=ExtResource("3_cdqbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3284997, 0, 0.789)
 
-[node name="MeshInstance3D14" type="MeshInstance3D" parent="TheatreScene/Spectators" unique_id=1486968777]
-transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, 1.7345195, 0.3529414, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
+[node name="Spectator6" parent="TheatreScene/Spectators" unique_id=1662687997 instance=ExtResource("3_cdqbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5115683, 0, 0.789)
 
-[node name="MeshInstance3D15" type="MeshInstance3D" parent="TheatreScene/Spectators" unique_id=418768920]
-transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, 2.5810225, 0.3529414, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="MeshInstance3D16" type="MeshInstance3D" parent="TheatreScene/Spectators" unique_id=1312930862]
-transform = Transform3D(0.39371368, 0, 0, 0, 0.20889418, 0, 0, 0, 0.28313547, 2.5810225, 1.3669574, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="MeshInstance3D17" type="MeshInstance3D" parent="TheatreScene/Spectators" unique_id=657810484]
-transform = Transform3D(0.39371368, 0, 0, 0, 0.20889418, 0, 0, 0, 0.28313547, 1.7204864, 1.3669574, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="MeshInstance3D18" type="MeshInstance3D" parent="TheatreScene/Spectators" unique_id=1702979331]
-transform = Transform3D(0.39371368, 0, 0, 0, 0.20889418, 0, 0, 0, 0.28313547, 0.81798923, 1.3669574, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="MeshInstance3D19" type="MeshInstance3D" parent="TheatreScene/Spectators" unique_id=1691428394]
-transform = Transform3D(0.39371368, 0, 0, 0, 0.20889418, 0, 0, 0, 0.28313547, 0.00027143955, 1.3669574, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="MeshInstance3D20" type="MeshInstance3D" parent="TheatreScene/Spectators" unique_id=642651703]
-transform = Transform3D(0.39371368, 0, 0, 0, 0.20889418, 0, 0, 0, 0.28313547, -0.736955, 1.3669574, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="MeshInstance3D21" type="MeshInstance3D" parent="TheatreScene/Spectators" unique_id=1203749790]
-transform = Transform3D(0.39371368, 0, 0, 0, 0.20889418, 0, 0, 0, 0.28313547, -1.688367, 1.3669574, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="MeshInstance3D22" type="MeshInstance3D" parent="TheatreScene/Spectators" unique_id=678083559]
-transform = Transform3D(0.39371368, 0, 0, 0, 0.20889418, 0, 0, 0, 0.28313547, -2.4744263, 1.3669574, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
+[node name="Spectator7" parent="TheatreScene/Spectators" unique_id=1108521688 instance=ExtResource("3_cdqbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.534163, 0, 0.789)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="TheatreScene" unique_id=1000414162]
 transform = Transform3D(0.62663096, -0.040813435, 0.7782467, -0.7793161, -0.03281719, 0.62577105, 0, -0.9986278, -0.05237083, 5.0872107, 4.850341, 1.1241331)
