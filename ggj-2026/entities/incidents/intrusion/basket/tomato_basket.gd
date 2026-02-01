@@ -1,8 +1,6 @@
 extends Node3D
 class_name TomatoBasket
 
-signal sprotched(pos: Vector3)
-
 @export var camera: Camera3D
 @export var tomato_scene: PackedScene
 @export var area: Area3D
@@ -36,13 +34,23 @@ func shoot(target_pos: Vector3):
 	var duration: float = (dist_to_target / tomato_speed) * tomato_safety_overshoot_coef
 	var tween: Tween = create_tween()
 	tween.bind_node(tomato_inst)
-	tween.tween_method(func(t: float): _bezier(tomato_inst, global_position, mid_pos, target_pos, t), 0.0, tomato_safety_overshoot_coef, duration)
+	tween.tween_method(
+		func(t: float):
+			var pos: Vector3 = _bezier(global_position, mid_pos, target_pos, t)
+			var next_pos: Vector3 = _bezier(global_position, mid_pos, target_pos, t + 0.01)
+			if pos.distance_to(next_pos) > 0.001:
+				tomato_inst.look_at(next_pos)
+			tomato_inst.global_position = pos
+			,
+		0.0, 
+		tomato_safety_overshoot_coef, 
+		duration)
 	
-func _bezier(obj: Node3D, p0: Vector3, p1: Vector3, p2: Vector3, t: float):
+func _bezier(p0: Vector3, p1: Vector3, p2: Vector3, t: float) -> Vector3:
 	var q0: Vector3 = p0.lerp(p1, t)
 	var q1: Vector3 = p1.lerp(p2, t)
-	if obj != null:
-		obj.global_position = q0.lerp(q1, t)
+	return q0.lerp(q1, t)
+		
 
 func _input(event: InputEvent) -> void:
 	if aiming and event.is_action_released("click"):
@@ -60,8 +68,10 @@ func _input(event: InputEvent) -> void:
 		var r_pos: Vector3 = raycast.get_collision_point()
 		#print(r_obj, r_pos)
 		if r_obj == area:
+			print("1")
 			dearm()
 			return
 		if r_obj == null:
+			print("2")
 			return
 		shoot(r_pos)
