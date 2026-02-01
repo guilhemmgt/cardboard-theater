@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://btaosis1u2l53"
-path="res://.godot/imported/absender1.ttf-7faae80da6bd5fedc175a5a1ece4690f.fontdata"
+uid="uid://ppe77egnpm2w"
+path="res://.godot/imported/Disket-Mono-Bold.ttf-12cddecc4a80a1c902d7ffa10de8c774.fontdata"
 
 [deps]
 
-source_file="res://entities/bulle/absender1.ttf"
-dest_files=["res://.godot/imported/absender1.ttf-7faae80da6bd5fedc175a5a1ece4690f.fontdata"]
+source_file="res://addons/dialogue_label/examples/dialogue_label/Disket-Mono-Bold.ttf"
+dest_files=["res://.godot/imported/Disket-Mono-Bold.ttf-12cddecc4a80a1c902d7ffa10de8c774.fontdata"]
 
 [params]
 

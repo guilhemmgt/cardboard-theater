@@ -12,18 +12,20 @@ func _ready() -> void:
 			repair_incident = child as RepairIncident
 			break
 
-	# events setup
-	print("[repair] Ready on: ", name, " - RepairIncident: ", repair_incident)
-	repair_incident.activated.connect(_on_incident_activated)
-	repair_incident.failed.connect(_on_incident_failed)
-	repair_incident.resolved.connect(_on_incident_resolved)
+	print("[failedScript] Ready on: ", name, " - RepairIncident: ", repair_incident)
+	repair_incident.activated.connect(_on_repair_incident_activated)
+	repair_incident.resolved.connect(func():
+		print("[failedScript] Resolved on: ", name)
+		animation_player.stop()
+	)
+	repair_incident.failed.connect(_on_repair_failed)
 
-func _on_incident_activated(_blocking: bool) -> void:
-	print("[repair] Activated on: ", name, " - Playing tremblement on AnimationPlayer: ", animation_player)
+
+func _on_repair_incident_activated(_blocking: bool) -> void:
+	print("[failedScript] Activated on: ", name, " - Playing tremblement on AnimationPlayer: ", animation_player)
 	animation_player.play("tremblement")
 
-func _on_incident_failed() -> void:
-	print("[intrusion] Failed on: ", name)
+func _on_repair_failed():
 	var angle : int = 5
 	var time_oscillation : float = 0.08
 	animation_player.stop()
@@ -35,7 +37,3 @@ func _on_incident_failed() -> void:
 		tween.chain().tween_property(self, "rotation_degrees", self.rotation_degrees + Vector3(0,0,angle), time_oscillation)
 		tween.chain().tween_property(self, "rotation_degrees", self.rotation_degrees + Vector3(0,0,-angle), time_oscillation)
 	tween.play()
-
-func _on_incident_resolved() -> void:
-	print("[intrusion] Resolved on: ", name)
-	animation_player.stop()
