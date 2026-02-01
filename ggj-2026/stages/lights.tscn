@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://b2rkyem5ixn6p"]
+
+[node name="Lights" type="Node3D" unique_id=1705911075]
+transform = Transform3D(-0.99999803, 0.0018779158, -0.0006346515, 0.0018191794, 0.99659187, 0.08247014, 0.00078736054, 0.08246882, -0.99659336, 0, 0, 0)
+
+[node name="LightLeft" type="SpotLight3D" parent="." unique_id=1504898289]
+transform = Transform3D(-0.5331028, 0.56306434, -0.6314743, -0.8030456, -0.101823546, 0.587154, 0.26630655, 0.8201161, 0.50644875, -5.454218, 2.2308981, 1.1769435)
+light_color = Color(1.129497, 1.1119101, 0.97466743, 1)
+light_energy = 4.0
+spot_range = 15.0
+spot_angle = 34.51
+
+[node name="LightRight" type="SpotLight3D" parent="." unique_id=700232664]
+transform = Transform3D(0.43423322, 0.68885237, 0.5804515, -0.8149626, 0.025898717, 0.5789346, 0.38376755, -0.72443885, 0.57263494, 5.4572835, 2.2609603, 0.5729649)
+light_color = Color(1.1338254, 1.1367571, 0.9688917, 1)
+light_energy = 4.0
+spot_range = 15.0
+spot_angle = 28.61
+
+[node name="ChandelierLight" type="SpotLight3D" parent="." unique_id=520014080]
+transform = Transform3D(-0.16940962, 0.97083664, 0.16963695, -0.08730729, -0.1862318, 0.978619, 0.981671, 0.15097693, 0.11631056, 0.14501134, 3.8875468, -4.326315)
+light_color = Color(1.0518116, 1.0518116, 0.44291607, 1)
+light_energy = 16.0
+spot_range = 8.433
+spot_attenuation = 1.4
+spot_angle = 28.69
+
+[node name="red_spot" type="SpotLight3D" parent="." unique_id=523710015]
+transform = Transform3D(-0.16962412, 0.97081965, 0.16951995, -0.2077322, -0.20336942, 0.9568115, 0.9633665, 0.12708355, 0.23616683, 3.5374644, 4.369322, -2.9207215)
+light_color = Color(3.2944162, 0.82927567, 0.82927567, 1)
+light_energy = 1.5
+light_indirect_energy = 6.0
+light_bake_mode = 0
+spot_range = 8.0
+spot_angle = 20.0
+
+[node name="red_spot_2" type="SpotLight3D" parent="." unique_id=729015296]
+transform = Transform3D(-0.07371373, 0.9958756, -0.052895885, -0.21080339, 0.03628214, 0.9768549, 0.97474515, 0.08315825, 0.20725948, -3.450982, 4.183649, -3.1640918)
+light_color = Color(3.2944162, 0.82927567, 0.82927567, 1)
+light_energy = 1.5
+light_indirect_energy = 6.0
+light_bake_mode = 0
+spot_range = 8.0
+spot_angle = 20.0
+
+[node name="orange_spot" type="SpotLight3D" parent="." unique_id=1832577801]
+transform = Transform3D(0.9892163, -0.10469122, 0.10242397, -0.07437299, 0.24338749, 0.9670735, -0.12617281, -0.96426255, 0.2329767, 1.5406462, 4.3084984, -2.8340986)
+light_color = Color(2.9669967, 1.3660103, 0, 1)
+light_energy = 1.5
+light_indirect_energy = 6.0
+light_bake_mode = 0
+spot_range = 8.0
+spot_angle = 20.0
+
+[node name="orange_spot_22" type="SpotLight3D" parent="." unique_id=768039840]
+transform = Transform3D(-0.99076205, 0.13481991, -0.014629272, -0.058624268, -0.3285278, 0.94267315, 0.12228498, 0.93482256, 0.3333966, -1.7380412, 4.3175898, -2.8565273)
+light_color = Color(2.9669967, 1.3660103, 0, 1)
+light_energy = 1.5
+light_indirect_energy = 6.0
+light_bake_mode = 0
+spot_range = 8.0
+spot_angle = 20.0
+
+[node name="yellow_spot" type="SpotLight3D" parent="." unique_id=1309152111]
+transform = Transform3D(0.9805871, -0.17948493, 0.078956835, -0.025177363, 0.28408536, 0.9584684, -0.1944611, -0.9418496, 0.27405143, 5.298688, 4.3292313, -2.8487554)
+light_color = Color(2.2101762, 1.902436, 0, 1)
+light_energy = 1.5
+light_indirect_energy = 6.0
+light_bake_mode = 0
+spot_range = 8.0
+spot_angle = 20.0
+
+[node name="yellow_spot_22" type="SpotLight3D" parent="." unique_id=564459674]
+transform = Transform3D(-0.9663121, 0.24641447, -0.074302256, -0.11919051, -0.17257759, 0.97775793, 0.22811078, 0.95367545, 0.19613406, -5.279572, 4.1839523, -2.9602742)
+light_color = Color(2.2101762, 1.902436, 0, 1)
+light_energy = 1.5
+light_indirect_energy = 6.0
+light_bake_mode = 0
+spot_range = 8.0
+spot_angle = 20.0
+
+[node name="BackLight" type="SpotLight3D" parent="." unique_id=1050655564]
+transform = Transform3D(0.99999803, 0.0019686911, 0.00023161742, -0.0018779533, 0.90347964, 0.42862698, 0.0006345725, -0.42862657, 0.90348154, -0.36997995, 1.4397671, 3.534828)
+light_color = Color(1.161201, 1.1413023, 1.1220638, 1)
+light_indirect_energy = 1.3
+spot_range = 16.624
+spot_attenuation = 0.2
+spot_angle = 40.62
