@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cpgk7wtoir7jk"]
+[gd_scene format=3 uid="uid://3feoqdak035q"]
 
 [ext_resource type="PackedScene" uid="uid://dpkayn65c5wf2" path="res://carton/3Dcardboards/wall/wall.tscn" id="1_v8n6q"]
 [ext_resource type="Texture2D" uid="uid://bu0jq5rop2wt3" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="1_vpjuu"]
@@ -26,6 +26,20 @@
 [ext_resource type="PackedScene" uid="uid://dq8y837y8ll4b" path="res://entities/incidents/intrusion/intrusion_incident.tscn" id="19_dc1uk"]
 [ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="19_ujv0r"]
 [ext_resource type="PackedScene" path="res://stages/lights.tscn" id="25_4l38f"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fie2r"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+energy_multiplier = 0.0
+
+[sub_resource type="Sky" id="Sky_nbsfb"]
+sky_material = SubResource("ProceduralSkyMaterial_fie2r")
+
+[sub_resource type="Environment" id="Environment_dc1uk"]
+background_mode = 2
+sky = SubResource("Sky_nbsfb")
+tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_color = Color(0.72428656, 0.29958177, 0.19783527, 1)
@@ -342,6 +356,9 @@ _data = {
 }
 
 [node name="TheatreScene" type="Node3D" unique_id=814067477]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1468097708]
+environment = SubResource("Environment_dc1uk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=276157703]
 transform = Transform3D(21.158024, 0, 0, 0, 0.44524917, 0, 0, 0, 3.6222339, -0.50124836, 0.16087198, 2.6273727)
