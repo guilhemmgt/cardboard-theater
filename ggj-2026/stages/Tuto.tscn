@@ -1,52 +1,62 @@
-[gd_scene format=3 uid="uid://bj48b6gyvkm4m"]
+[gd_scene format=3 uid="uid://c685eqfrwuvlb"]
 
-[ext_resource type="Texture2D" uid="uid://cktr80sscioby" path="res://carton/paper_0009_1k/paper_0009_color_1k.jpg" id="1_sde5m"]
-[ext_resource type="Texture2D" uid="uid://dt3sn75mgu24i" path="res://carton/Paper005_1K-PNG/Paper005_1K-PNG_NormalDX.png" id="2_ghdf1"]
-[ext_resource type="Texture2D" uid="uid://bu0jq5rop2wt3" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="2_upmff"]
-[ext_resource type="Texture2D" uid="uid://wjh0f7s58vqo" path="res://carton/Paper005_1K-PNG/Paper005_1K-PNG_Roughness.png" id="3_upmff"]
-[ext_resource type="Texture2D" uid="uid://b1rb783r5r7w7" path="res://entities/scenery/background/background.png" id="3_xgmc1"]
-[ext_resource type="PackedScene" uid="uid://c432atnphqs7w" path="res://carton/3Dcardboards/cow/cow.tscn" id="8_f8hok"]
-[ext_resource type="PackedScene" uid="uid://b8a0vav2gqvcg" path="res://carton/3Dcardboards/knight/knight.tscn" id="10_cynsf"]
-[ext_resource type="PackedScene" uid="uid://bmq3jlb1anrhf" path="res://carton/3Dcardboards/border/border.tscn" id="11_nimml"]
-[ext_resource type="PackedScene" uid="uid://cn7i0kbjp0mn7" path="res://carton/3Dcardboards/grass/border.tscn" id="12_26vcb"]
-[ext_resource type="PackedScene" uid="uid://j2lnjv8obup2" path="res://carton/3Dcardboards/goblin/gob_the_goblin.tscn" id="12_upmff"]
-[ext_resource type="PackedScene" uid="uid://dgixb4l7nrgd1" path="res://VFX/dust_particles.tscn" id="13_gs28s"]
-[ext_resource type="PackedScene" uid="uid://dycms7p36i6lc" path="res://carton/3Dcardboards/tree/greatest_tree.tscn" id="13_xgmc1"]
-[ext_resource type="Texture2D" uid="uid://hlxdsbmuyxjr" path="res://VFX/Textures/blur.png" id="14_h0a6w"]
-[ext_resource type="PackedScene" uid="uid://b02lqv1r0o35e" path="res://carton/3Dcardboards/princess/princess.tscn" id="14_sde5m"]
-[ext_resource type="PackedScene" uid="uid://ubi0bjcosamr" path="res://carton/3Dcardboards/nuage/nuage.tscn" id="15_blgwc"]
-[ext_resource type="PackedScene" uid="uid://b11xfxrnpmhje" path="res://carton/3Dcardboards/storm/storm.tscn" id="16_sde5m"]
-[ext_resource type="PackedScene" uid="uid://erkk1pr4hfnh" path="res://carton/3Dcardboards/thunder/thunder_1.tscn" id="17_blgwc"]
+[ext_resource type="Texture2D" uid="uid://cktr80sscioby" path="res://carton/paper_0009_1k/paper_0009_color_1k.jpg" id="1_ot0qx"]
+[ext_resource type="Texture2D" uid="uid://c4l4u5ou5j6f3" path="res://carton/paper_0009_1k/paper_0009_height_1k.png" id="2_crjyw"]
+[ext_resource type="Texture2D" uid="uid://dt4w8nooq6i5b" path="res://carton/paper_0009_1k/paper_0009_normal_directx_1k.png" id="3_60wr2"]
+[ext_resource type="Texture2D" uid="uid://e830h1qlky02" path="res://carton/paper_0009_1k/paper_0009_roughness_1k.jpg" id="4_etose"]
+[ext_resource type="Texture2D" uid="uid://bu0jq5rop2wt3" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="5_c4wg2"]
+[ext_resource type="PackedScene" uid="uid://bmq3jlb1anrhf" path="res://carton/3Dcardboards/border/border.tscn" id="6_erwgl"]
+[ext_resource type="PackedScene" uid="uid://dgixb4l7nrgd1" path="res://VFX/dust_particles.tscn" id="7_kdox0"]
+[ext_resource type="Texture2D" uid="uid://hlxdsbmuyxjr" path="res://VFX/Textures/blur.png" id="8_t4d0s"]
+[ext_resource type="PackedScene" uid="uid://bx7sb77iogb4g" path="res://carton/3Dcardboards/cible/cible.tscn" id="9_r48p1"]
+[ext_resource type="PackedScene" uid="uid://ubi0bjcosamr" path="res://carton/3Dcardboards/nuage/nuage.tscn" id="10_uajb4"]
+[ext_resource type="PackedScene" uid="uid://cypjg413etrtb" path="res://carton/Letters/LettersMain.tscn" id="11_xxbkb"]
+[ext_resource type="PackedScene" uid="uid://bn21pj7fdgghm" path="res://carton/3Dcardboards/dragon/dragon.tscn" id="12_uev2m"]
+[ext_resource type="PackedScene" uid="uid://c4amdjj53fb3d" path="res://carton/3Dcardboards/king/mad_king.tscn" id="13_8mdcs"]
+[ext_resource type="PackedScene" uid="uid://b8a0vav2gqvcg" path="res://carton/3Dcardboards/knight/knight.tscn" id="13_igjdo"]
+[ext_resource type="PackedScene" uid="uid://j2lnjv8obup2" path="res://carton/3Dcardboards/goblin/gob_the_goblin.tscn" id="16_crjyw"]
+[ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="16_kof78"]
+[ext_resource type="PackedScene" uid="uid://b02lqv1r0o35e" path="res://carton/3Dcardboards/princess/princess.tscn" id="17_60wr2"]
+[ext_resource type="PackedScene" uid="uid://dycms7p36i6lc" path="res://carton/3Dcardboards/tree/greatest_tree.tscn" id="17_ipuuw"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xgmc1"]
-albedo_texture = ExtResource("1_sde5m")
-roughness_texture = ExtResource("3_upmff")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2oluv"]
+albedo_texture = ExtResource("1_ot0qx")
+roughness_texture = ExtResource("4_etose")
 normal_enabled = true
-normal_texture = ExtResource("2_ghdf1")
-uv1_scale = Vector3(10, 10, 10)
+normal_texture = ExtResource("3_60wr2")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_crjyw")
+uv1_scale = Vector3(15, 15, 15)
 
 [sub_resource type="BoxMesh" id="BoxMesh_h2yge"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2dhj"]
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_ot0qx")
+uv1_scale = Vector3(15, 15, 15)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lquwl"]
 albedo_color = Color(0.7254902, 0.78431374, 0.78431374, 1)
-albedo_texture = ExtResource("2_upmff")
+albedo_texture = ExtResource("5_c4wg2")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
 albedo_color = Color(0.5568628, 1, 0.25490198, 1)
-albedo_texture = ExtResource("2_upmff")
+albedo_texture = ExtResource("5_c4wg2")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2yge"]
 albedo_color = Color(0.7254902, 0.4862745, 0.19607843, 1)
-albedo_texture = ExtResource("2_upmff")
+albedo_texture = ExtResource("5_c4wg2")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_272bh"]
-albedo_texture = ExtResource("2_upmff")
+albedo_texture = ExtResource("5_c4wg2")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
@@ -54,7 +64,7 @@ uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mycd"]
 albedo_color = Color(0.20392157, 0.05490196, 0.02745098, 1)
-albedo_texture = ExtResource("2_upmff")
+albedo_texture = ExtResource("5_c4wg2")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
@@ -64,7 +74,7 @@ uv1_world_triplanar = true
 transparency = 1
 diffuse_mode = 3
 albedo_color = Color(1, 1, 1, 0.16470589)
-albedo_texture = ExtResource("14_h0a6w")
+albedo_texture = ExtResource("8_t4d0s")
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
 billboard_mode = 3
@@ -82,7 +92,12 @@ size = Vector2(0.02, 0.02)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=276157703]
 transform = Transform3D(21.158024, 0, 0, 0, 0.44524917, 0, 0, 0, 3.6222339, -0.50124836, 0.16087198, 2.6273727)
-material_override = SubResource("StandardMaterial3D_xgmc1")
+material_override = SubResource("StandardMaterial3D_2oluv")
+mesh = SubResource("BoxMesh_h2yge")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1890188507]
+transform = Transform3D(21.158024, 0, 0, 0, -2.789886e-09, -6.731624, 0, 0.06382515, -2.9424865e-07, -0.50124836, 2.8963041, 3.873168)
+material_override = SubResource("StandardMaterial3D_h2dhj")
 mesh = SubResource("BoxMesh_h2yge")
 
 [node name="MeshInstance3D21" type="MeshInstance3D" parent="." unique_id=1058338370]
@@ -114,11 +129,6 @@ mesh = SubResource("BoxMesh_h2yge")
 transform = Transform3D(7.7982745, 0, 0, 0, 0.0033833408, -1.1078875, 0, 0.4425769, 0.008469399, 0, -0.68226266, 0.150311)
 material_override = SubResource("StandardMaterial3D_h2yge")
 mesh = SubResource("BoxMesh_h2yge")
-
-[node name="MeshInstance3D25" type="MeshInstance3D" parent="." unique_id=270090016]
-transform = Transform3D(1.2628009, 0, 0, 0, 3.924143, 0, 0, 0, 0.08636668, -6.9983706, 1.5482832, 1.8271389)
-material_override = SubResource("StandardMaterial3D_272bh")
-mesh = SubResource("BoxMesh_5vw27")
 
 [node name="MeshInstance3D27" type="MeshInstance3D" parent="." unique_id=1779286923]
 transform = Transform3D(2.6904607, 0, 0, 0, 1.1623489, 0, 0, 0, 0.08636668, 3.3757558, 4.216172, 1.617806)
@@ -245,79 +255,45 @@ spot_range = 8.433
 spot_attenuation = 0.62
 spot_angle = 28.69
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=955975264]
-transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -1.0358963, 6.5319805, 7.4405117)
-texture = ExtResource("3_xgmc1")
-
-[node name="Cow" parent="." unique_id=1879863676 instance=ExtResource("8_f8hok")]
-transform = Transform3D(-2.3, 0, -2.0107238e-07, 0, 2.3, 0, 2.0107238e-07, 0, -2.3, 5.329977, 1.4847078, 1.2895038)
-
-[node name="Knight" parent="." unique_id=1290083251 instance=ExtResource("10_cynsf")]
-transform = Transform3D(1.3, 0, 0, 0, 2, 0, 0, 0, 2, 2.0843973, 1.3890936, 2.5590363)
-
-[node name="Border" parent="." unique_id=195769391 instance=ExtResource("11_nimml")]
+[node name="Border" parent="." unique_id=195769391 instance=ExtResource("6_erwgl")]
 transform = Transform3D(11, 0, 0, 0, 6, 0, 0, 0, 6, -0.17333889, 2.1501837, 1.0046821)
 
-[node name="Grass" parent="." unique_id=265710641 instance=ExtResource("12_26vcb")]
-transform = Transform3D(10, 0, 0, 0, 0.8, 0, 0, 0, 1, 0.0072612762, 0.4955169, 1.2381096)
-
-[node name="Grass2" parent="." unique_id=2077987341 instance=ExtResource("12_26vcb")]
-transform = Transform3D(-15, 0, -1.509958e-07, 0, 0.8, 0, 2.264937e-06, 0, -1, -0.9927387, 0.4955169, 2.277623)
-
-[node name="Grass3" parent="." unique_id=561305763 instance=ExtResource("12_26vcb")]
-transform = Transform3D(17.999998, 0, 0, 0, 0.79999995, 0, 0, 0, 1, 0.87892485, 0.4955169, 3.8112237)
-
-[node name="DustParticles" parent="." unique_id=832185072 instance=ExtResource("13_gs28s")]
+[node name="DustParticles" parent="." unique_id=832185072 instance=ExtResource("7_kdox0")]
 transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 1, -0.17059416, 2.8956504, -0.15478265)
 amount = 500
 speed_scale = 0.05
 explosiveness = 0.8
 draw_pass_1 = SubResource("QuadMesh_15cu4")
 
-[node name="GobTheGoblin" parent="." unique_id=1319419001 instance=ExtResource("12_upmff")]
-transform = Transform3D(1.2, 0, 0, 0, 1.5, 0, 0, 0, 1, 0.80830026, 1.0972466, 1.6049213)
+[node name="Cible" parent="." unique_id=870559002 instance=ExtResource("9_r48p1")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.0286365, 1.1814232, 2.1620302)
 
-[node name="GreatestTree" parent="." unique_id=258667498 instance=ExtResource("13_xgmc1")]
-transform = Transform3D(1.4, 0, 0, 0, 2, 0, 0, 0, 2, 3.7336836, 1.206886, 2.2125804)
+[node name="Nuage" parent="." unique_id=2083094686 instance=ExtResource("10_uajb4")]
+transform = Transform3D(-2.4, 0, -9.452337e-08, 0, 1.2, 0, 3.6238995e-07, 0, -0.626, 2.1782875, 3.7982314, 1.6063027)
 
-[node name="GreatestTree2" parent="." unique_id=1292239610 instance=ExtResource("13_xgmc1")]
-transform = Transform3D(1.4, 0, 0, 0, 2, 0, 0, 0, 2, 3.3669157, 1.206886, 1.1674731)
+[node name="Nuage2" parent="." unique_id=1432318036 instance=ExtResource("10_uajb4")]
+transform = Transform3D(-1.9923894, 0.08715574, 4.563469e-08, 0.17431147, 0.9961947, 0, -1.7418022e-07, 7.619397e-09, -0.522, -3.860631, 3.881211, 1.7398045)
 
-[node name="GreatestTree3" parent="." unique_id=1843707211 instance=ExtResource("13_xgmc1")]
-transform = Transform3D(1.4, 0, 0, 0, 2, 0, 0, 0, 2, -3.7745447, 1.206886, 1.1674731)
+[node name="LettersMain" parent="." unique_id=1102856649 instance=ExtResource("11_xxbkb")]
+transform = Transform3D(-1.494292, 0.13073361, 1.3113416e-07, 0.13073361, 1.494292, 0, -1.3063516e-07, 1.1429095e-08, -1.5, -0.67975116, 2.8317337, 3.4409409)
 
-[node name="GreatestTree4" parent="." unique_id=719905290 instance=ExtResource("13_xgmc1")]
-transform = Transform3D(1.4, 0, 0, 0, 2, 0, 0, 0, 2, -3.7745447, 1.2142696, 2.1704972)
+[node name="TomatoBasket" parent="." unique_id=735284322 instance=ExtResource("16_kof78")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.7590992, 2.2677362, -1.5897349)
 
-[node name="GreatestTree7" parent="." unique_id=220486604 instance=ExtResource("13_xgmc1")]
-transform = Transform3D(1.4, 0, 0, 0, 2, 0, 0, 0, 2, 3.3480358, 1.2142696, 2.6024916)
+[node name="MadKing" parent="." unique_id=263734070 instance=ExtResource("13_8mdcs")]
+transform = Transform3D(-1.6, 0, -1.7484555e-07, 0, 2, 0, 1.3987645e-07, 0, -2, -6.0671506, 1.4055457, 0.91185474)
 
-[node name="GreatestTree5" parent="." unique_id=1236758290 instance=ExtResource("13_xgmc1")]
-transform = Transform3D(1.4, 0, 0, 0, 2, 0, 0, 0, 2, -3.3410344, 1.2142696, 3.2112343)
+[node name="MeshInstance3D5" parent="." unique_id=1290083251 instance=ExtResource("13_igjdo")]
+transform = Transform3D(1.3, 0, 0, 0, 2, 0, 0, 0, 2, -7.634951, 1.4978336, 1.3754578)
 
-[node name="GreatestTree8" parent="." unique_id=264068263 instance=ExtResource("13_xgmc1")]
-transform = Transform3D(1.3998135, 0, 0.032636207, 0, 2, 0, -0.022845345, 0, 1.9997337, -2.8244576, 1.2142696, 4.145281)
+[node name="Dragon" parent="." unique_id=521331207 instance=ExtResource("12_uev2m")]
+transform = Transform3D(3.4, 0, 0, 0, 3, 0, 0, 0, 3, 6.6112175, 1.7069583, 2.217055)
 
-[node name="GreatestTree9" parent="." unique_id=2136480893 instance=ExtResource("13_xgmc1")]
-transform = Transform3D(1.3998135, 0, 0.032636207, 0, 2, 0, -0.022845345, 0, 1.9997337, -1.6626267, 1.2142696, 4.145281)
+[node name="GobTheGoblin" parent="." unique_id=1319419001 instance=ExtResource("16_crjyw")]
+transform = Transform3D(1.2, 0, 0, 0, 1.5, 0, 0, 0, 1, 6.9065514, 1.2070124, 1.6513565)
 
-[node name="GreatestTree6" parent="." unique_id=1469875189 instance=ExtResource("13_xgmc1")]
-transform = Transform3D(1.4, 0, 0, 0, 2, 0, 0, 0, 2, -5.2626324, 1.2142696, 3.2112343)
+[node name="Princess" parent="." unique_id=837612745 instance=ExtResource("17_60wr2")]
+transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1, -7.7515354, 1.0917556, 0.9236679)
 
-[node name="Princess" parent="." unique_id=837612745 instance=ExtResource("14_sde5m")]
-transform = Transform3D(1.5, 0, 0, 0, 2, 0, 0, 0, 1, -1.3898164, 1.28499, 2.088852)
-
-[node name="Nuage" parent="." unique_id=2083094686 instance=ExtResource("15_blgwc")]
-transform = Transform3D(-1.8, 0, -7.881981e-08, 0, 1, 0, 2.7179243e-07, 0, -0.522, -0.3834846, 3.1341567, 1.0551085)
-
-[node name="Nuage2" parent="." unique_id=2029616266 instance=ExtResource("15_blgwc")]
-transform = Transform3D(-1.4, 0, -6.130429e-08, 0, 0.778, 0, 2.1139412e-07, 0, -0.406, 2.284942, 3.40423, 1.4480348)
-
-[node name="Nuage3" parent="." unique_id=2060752570 instance=ExtResource("15_blgwc")]
-transform = Transform3D(-1.2, 0, -5.2546536e-08, 0, 0.667, 0, 1.8119498e-07, 0, -0.348, -1.782075, 3.6395245, 1.4739671)
-
-[node name="Storm" parent="." unique_id=1160265304 instance=ExtResource("16_sde5m")]
-transform = Transform3D(2, 0, 0, 0, 1.333, 0, 0, 0, 2, 0.8839755, 3.648228, 1.1741438)
-
-[node name="Thunder1" parent="." unique_id=2065845154 instance=ExtResource("17_blgwc")]
-transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, 0.9358423, 3.1571815, 1.1963427)
+[node name="GreatestTree" parent="." unique_id=258667498 instance=ExtResource("17_ipuuw")]
+transform = Transform3D(1.4, 0, 0, 0, 2, 0, 0, 0, 2, 6.088828, 1.4199924, 1.4324803)
