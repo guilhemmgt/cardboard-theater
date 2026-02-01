@@ -21,6 +21,9 @@ albedo_texture = ExtResource("1_jtj84")
 normal_enabled = true
 normal_texture = ExtResource("2_880hy")
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jtj84"]
+data = PackedVector3Array(1, -1, 0, -1, -1, 0, 1, 1, 0, -1, -1, 0, -1, 1, 0, 1, 1, 0)
+
 [node name="GameOver" type="Node3D" unique_id=1945262765]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1246391323]
@@ -44,3 +47,8 @@ pixel_size = 0.002
 text = "Game Over"
 font_size = 80
 outline_size = 20
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=2050340744]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=2079879938]
+shape = SubResource("ConcavePolygonShape3D_jtj84")
