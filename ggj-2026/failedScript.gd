@@ -25,7 +25,8 @@ func _on_repair_incident_activated(_blocking: bool) -> void:
 	print("[failedScript] Activated on: ", name, " - Playing tremblement on AnimationPlayer: ", animation_player)
 	animation_player.play("tremblement")
 
-func _on_repair_failed():
+func _on_incident_failed() -> void:
+	print("[repair] Failed on: ", name)
 	var angle : int = 5
 	var time_oscillation : float = 0.08
 	animation_player.stop()
@@ -37,3 +38,7 @@ func _on_repair_failed():
 		tween.chain().tween_property(self, "rotation_degrees", self.rotation_degrees + Vector3(0,0,angle), time_oscillation)
 		tween.chain().tween_property(self, "rotation_degrees", self.rotation_degrees + Vector3(0,0,-angle), time_oscillation)
 	tween.play()
+
+func _on_incident_resolved() -> void:
+	print("[repair] Resolved on: ", name)
+	animation_player.stop()

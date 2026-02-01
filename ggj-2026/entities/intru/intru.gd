@@ -3,7 +3,7 @@ class_name Intru
 
 @onready var actor_node: Node = get_parent()
 @onready var actor_animation_player: AnimationPlayer = $AnimationPlayer
-@onready var orchestrator: Orchestrator = $"../../../Orchestrator"
+@export var orchestrator: Orchestrator
 
 var is_actor_moving: bool = false
 var plan_number: int = 1
