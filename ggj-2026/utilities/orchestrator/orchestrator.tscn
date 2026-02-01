@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bb42si1p0l8fq"]
+
+[ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="1_10dvw"]
+
+[node name="Orchestrator" type="Node" unique_id=932776283]
+script = ExtResource("1_10dvw")
+
+[node name="Plan1" type="Node" parent="." unique_id=1060826621]
+
+[node name="Marker3D" type="Marker3D" parent="Plan1" unique_id=1724698681]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.61984664, 0, 0)
+
+[node name="Marker3D2" type="Marker3D" parent="Plan1" unique_id=1519341543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5318268, 0, 0)
+
+[node name="Marker3D3" type="Marker3D" parent="Plan1" unique_id=863219744]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0508125, 0, 0)
+
+[node name="Marker3D4" type="Marker3D" parent="Plan1" unique_id=814518599]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.424989, 0, 0)
+
+[node name="Plan2" type="Node" parent="." unique_id=137186800]
+
+[node name="Plan3" type="Node" parent="." unique_id=204057427]
+
+[node name="Node" type="Node" parent="." unique_id=1906876023]

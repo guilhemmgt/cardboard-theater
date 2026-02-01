@@ -2,6 +2,7 @@
 extends Incident
 class_name ActivationIncident
 
+
 @export var shape: Shape3D
 @export var area: Area3D
 @export var collisionShape: CollisionShape3D
@@ -18,15 +19,17 @@ func apply_shape() -> void:
 func _ready() -> void:
 	super._ready()
 	collisionShape.shape = shape
+	collisionShape.disabled = true
 	area.input_event.connect(on_click)
+	blocking = true
 
 func activate(time: float):
 	super.activate(time)
 	collisionShape.disabled = false
 	
 func deactivate(success: bool):
-	super.deactivate(success)
 	collisionShape.disabled = true
+	super.deactivate(success)
 
 func on_click(_camera: Node, 
 			  event: InputEvent, 
@@ -35,3 +38,4 @@ func on_click(_camera: Node,
 			  _shape_idx: int):
 	if (event.is_action_pressed('click')):
 		deactivate(true)
+		
