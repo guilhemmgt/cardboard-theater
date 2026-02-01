@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cmoh5erhg8ftq" path="res://carton/3Dcardboards/horn/horn.tscn" id="7_1hxc7"]
 [ext_resource type="PackedScene" uid="uid://be0prrgukhrkt" path="res://carton/3Dcardboards/herse/herse.tscn" id="8_1027p"]
 [ext_resource type="PackedScene" uid="uid://3q7u47fq30rs" path="res://entities/incidents/activation/activation_incident.tscn" id="9_15cu4"]
+[ext_resource type="Script" uid="uid://f5bupmw43qcg" path="res://carton/3Dcardboards/herse/herse.gd" id="11_fie2r"]
 [ext_resource type="PackedScene" uid="uid://bn21pj7fdgghm" path="res://carton/3Dcardboards/dragon/dragon.tscn" id="11_r4qdm"]
 [ext_resource type="PackedScene" uid="uid://bmq3jlb1anrhf" path="res://carton/3Dcardboards/border/border.tscn" id="11_xg04f"]
 [ext_resource type="Script" uid="uid://b0g4fonj8fno0" path="res://utilities/txt_to_anim.gd" id="13_1027p"]
@@ -147,6 +148,44 @@ _data = {
 &"idle": SubResource("Animation_udkvd")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_nbsfb"]
+
+[sub_resource type="Animation" id="Animation_dc1uk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(5.0088763, 5.4482927, 3.9196062)]
+}
+
+[sub_resource type="Animation" id="Animation_8u0l0"]
+resource_name = "activate_herse"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(5.0088763, 5.4482927, 3.9196062), Vector3(5.0088763, 2.4724374, 3.9196062)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ag2c3"]
+_data = {
+&"RESET": SubResource("Animation_dc1uk"),
+&"activate_herse": SubResource("Animation_8u0l0")
+}
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_q661t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ujv0r"]
@@ -278,7 +317,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(11),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [2.0],
+"args": [20.0],
 "method": &"activate"
 }]
 }
@@ -509,8 +548,13 @@ transform = Transform3D(-13.1, 0, -7.54979e-07, 0, 5, 0, 1.978045e-06, 0, -5, -0
 
 [node name="HerseMesh" parent="IncidentsManager" unique_id=2104592546 instance=ExtResource("8_1027p")]
 transform = Transform3D(-3, 0, -7.54979e-07, 0, 5, 0, 4.5298742e-07, 0, -5, 5.0088763, 5.4482927, 3.9196062)
+script = ExtResource("11_fie2r")
 
 [node name="Herse" parent="IncidentsManager/HerseMesh" unique_id=1377364127 instance=ExtResource("9_15cu4")]
+shape = SubResource("BoxShape3D_nbsfb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="IncidentsManager/HerseMesh" unique_id=81473188]
+libraries/ = SubResource("AnimationLibrary_ag2c3")
 
 [node name="HornMesh" parent="IncidentsManager" unique_id=663205281 instance=ExtResource("7_1hxc7")]
 transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -4.9401636, 3.3980188, 2.3880968)
@@ -646,3 +690,5 @@ target_animation_player = NodePath("../Act1")
 
 [node name="Lights" parent="." unique_id=1705911075 instance=ExtResource("25_4l38f")]
 transform = Transform3D(-0.99999803, 0.0018779158, -0.0006346515, 0.0018191794, 0.99659187, 0.08247014, 0.00078736054, 0.08246882, -0.99659336, 0, 0.8696294, -1.9084275)
+
+[connection signal="resolved" from="IncidentsManager/HerseMesh/Herse" to="IncidentsManager/HerseMesh" method="_on_herse_resolved"]
