@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://qwqb057pjk8d"]
 
+[ext_resource type="Script" uid="uid://c21eyy30tnf12" path="res://stages/act_1/win.gd" id="1_4xy4s"]
 [ext_resource type="Shader" uid="uid://dy6ecpm6tdmku" path="res://carton/Cartons.tres" id="1_pdeli"]
 [ext_resource type="PackedScene" uid="uid://c3teht8qwha10" path="res://VFX/confettis.tscn" id="2_naxdd"]
 [ext_resource type="PackedScene" uid="uid://8tsya2b5yuvr" path="res://sounds/Scenes/applause.tscn" id="3_6njmk"]
@@ -70,6 +71,7 @@ _data = {
 }
 
 [node name="Win" type="Node3D" unique_id=920192457]
+script = ExtResource("1_4xy4s")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1509515393]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
