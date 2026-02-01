@@ -26,7 +26,7 @@
 [ext_resource type="Script" uid="uid://opxnqhgj6yr7" path="res://entities/intru/intru.gd" id="18_nbsfb"]
 [ext_resource type="PackedScene" uid="uid://dq8y837y8ll4b" path="res://entities/incidents/intrusion/intrusion_incident.tscn" id="19_dc1uk"]
 [ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="19_ujv0r"]
-[ext_resource type="PackedScene" path="res://stages/lights.tscn" id="25_4l38f"]
+[ext_resource type="PackedScene" uid="uid://b2rkyem5ixn6p" path="res://stages/lights.tscn" id="25_4l38f"]
 [ext_resource type="AudioStream" uid="uid://cb1ckd7b3kmcu" path="res://sounds/music/ggj2026.mp3" id="27_nbsfb"]
 
 [sub_resource type="Environment" id="Environment_fie2r"]
