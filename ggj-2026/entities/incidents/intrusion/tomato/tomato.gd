@@ -6,11 +6,15 @@ func _ready() -> void:
 	body_entered.connect(on_body_entered)
 
 func on_body_entered(body: Node3D):
+	print("tomata has hit" + body.name)
 	if body.get_parent() is TomatoBasket:
 		return
-	if body.get_parent() is IntrusionIncident:
-		var intrusion: IntrusionIncident = body.get_parent()
-		intrusion.deactivate(true)
+	if body.get_parent().get_parent():
+		for ch in body.get_parent().get_parent().get_children():
+			print(ch.name)
+			if ch is IntrusionIncident:
+				var intrusion: IntrusionIncident = ch
+				intrusion.deactivate(true)
 	# sprotch !!!
 	var decal: Decal = Decal.new()
 	decal.texture_albedo = sprotch_texture

@@ -1,29 +1,45 @@
 [gd_scene format=3 uid="uid://d3t74t4c2wtyw"]
 
-[ext_resource type="Texture2D" uid="uid://x2pn6wbu8itb" path="res://addons/kenney_prototype_textures/green/texture_08.png" id="1_oo8kp"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5eixk"]
-albedo_texture = ExtResource("1_oo8kp")
-uv1_triplanar = true
-uv1_world_triplanar = true
+[ext_resource type="Texture2D" uid="uid://cktr80sscioby" path="res://carton/paper_0009_1k/paper_0009_color_1k.jpg" id="1_jtj84"]
+[ext_resource type="Texture2D" uid="uid://dt4w8nooq6i5b" path="res://carton/paper_0009_1k/paper_0009_normal_directx_1k.png" id="2_880hy"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_u0541"]
-material = SubResource("StandardMaterial3D_5eixk")
 orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t6nr7"]
+albedo_texture = ExtResource("1_jtj84")
+normal_enabled = true
+normal_texture = ExtResource("2_880hy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_smys7"]
+albedo_texture = ExtResource("1_jtj84")
+normal_enabled = true
+normal_texture = ExtResource("2_880hy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t57hm"]
+albedo_texture = ExtResource("1_jtj84")
+normal_enabled = true
+normal_texture = ExtResource("2_880hy")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jtj84"]
+data = PackedVector3Array(1, -1, 0, -1, -1, 0, 1, 1, 0, -1, -1, 0, -1, 1, 0, 1, 1, 0)
 
 [node name="GameOver" type="Node3D" unique_id=1945262765]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1246391323]
 transform = Transform3D(0.556963, 0, 0, 0, 0.17587376, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("PlaneMesh_u0541")
+surface_material_override/0 = SubResource("StandardMaterial3D_t6nr7")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D" unique_id=218388302]
 transform = Transform3D(0.035412014, 0, 0, 0, 2.7175703, 0, 0, 0, 1, -0.844829, 2.7438712, -0.01627367)
 mesh = SubResource("PlaneMesh_u0541")
+surface_material_override/0 = SubResource("StandardMaterial3D_smys7")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1951528384]
 transform = Transform3D(0.035412014, 0, 0, 0, 2.7175703, 0, 0, 0, 1, 0.845, 2.743735, -0.016)
 mesh = SubResource("PlaneMesh_u0541")
+surface_material_override/0 = SubResource("StandardMaterial3D_t57hm")
 
 [node name="Label3D" type="Label3D" parent="MeshInstance3D" unique_id=1747887695]
 transform = Transform3D(1.7954513, 0, 0, 0, 5.685897, 0, 0, 0, 1, 0, 0, 0.005180061)
@@ -31,3 +47,8 @@ pixel_size = 0.002
 text = "Game Over"
 font_size = 80
 outline_size = 20
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=2050340744]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=2079879938]
+shape = SubResource("ConcavePolygonShape3D_jtj84")

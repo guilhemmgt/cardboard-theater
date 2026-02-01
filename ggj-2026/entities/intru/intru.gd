@@ -3,7 +3,7 @@ class_name Intru
 
 @onready var actor_node: Node = get_parent()
 @onready var actor_animation_player: AnimationPlayer = $AnimationPlayer
-@export var orchestrator: Orchestrator
+var orchestrator: Orchestrator
 
 var is_actor_moving: bool = false
 var plan_number: int = 1
@@ -13,7 +13,7 @@ var points_plan3: Array = []
 
 var animation_timer: Timer
 
-func _ready() -> void:
+func init() -> void:
 	if not orchestrator.is_point_ready:
 		await orchestrator.points_ready
 	points_plan1 = orchestrator.get_plan_points(1)

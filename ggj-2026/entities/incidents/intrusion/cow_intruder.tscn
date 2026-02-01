@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://htqngq48qjf0"]
+
+[ext_resource type="Script" uid="uid://cv71aefo6wn1s" path="res://entities/incidents/intrusion/intrusion_handler.gd" id="1_onk32"]
+[ext_resource type="PackedScene" uid="uid://c432atnphqs7w" path="res://carton/3Dcardboards/cow/cow.tscn" id="2_plkks"]
+[ext_resource type="AudioStream" uid="uid://yxolqfju8536" path="res://sounds/vache1.wav" id="3_jgamt"]
+[ext_resource type="Script" uid="uid://opxnqhgj6yr7" path="res://entities/intru/intru.gd" id="4_y3rfa"]
+[ext_resource type="PackedScene" uid="uid://dq8y837y8ll4b" path="res://entities/incidents/intrusion/intrusion_incident.tscn" id="5_jgamt"]
+
+[node name="CowIntruder" type="Node3D" unique_id=1562511606 node_paths=PackedStringArray("control")]
+script = ExtResource("1_onk32")
+control = NodePath("Intru")
+
+[node name="Cow" parent="." unique_id=1879863676 instance=ExtResource("2_plkks")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=327398156]
+stream = ExtResource("3_jgamt")
+
+[node name="SfxTimer" type="Timer" parent="." unique_id=312756681]
+one_shot = true
+
+[node name="ControlTimer" type="Timer" parent="." unique_id=1328209440]
+one_shot = true
+
+[node name="Intru" type="Node" parent="." unique_id=1794021098]
+script = ExtResource("4_y3rfa")
+metadata/_custom_type_script = "uid://opxnqhgj6yr7"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Intru" unique_id=1172066469]
+
+[node name="IntrusionIncident" parent="." unique_id=1502549711 instance=ExtResource("5_jgamt")]
