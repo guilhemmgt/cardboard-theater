@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://b77rw5elxerfm" path="res://failedScript.gd" id="2_jka67"]
 [ext_resource type="PackedScene" uid="uid://7bkl72rbjsk2" path="res://entities/incidents/repair/repair_incident.tscn" id="2_noarx"]
 [ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="3_cdqbm"]
-[ext_resource type="PackedScene" path="res://entities/spectators/one_spector.tscn" id="3_imku0"]
+[ext_resource type="PackedScene" uid="uid://wqndrrl2ra2q" path="res://entities/spectators/one_spector.tscn" id="3_imku0"]
 [ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="3_r3fl7"]
 [ext_resource type="PackedScene" uid="uid://crmmgpxf31kdn" path="res://entities/actors/actor_controller.tscn" id="4_jka67"]
 [ext_resource type="PackedScene" uid="uid://7hmyj02kii3d" path="res://entities/incidents/dialog/dialog_incident.tscn" id="4_jsk3o"]
@@ -622,7 +622,6 @@ failed_distance = 2.3
 
 [node name="nuage0" parent="IncidentsManager/nuage2" unique_id=2102664361 instance=ExtResource("2_noarx")]
 shape = SubResource("BoxShape3D_tereu")
-falling_on_break = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="IncidentsManager/nuage2" unique_id=815137503]
 libraries/ = SubResource("AnimationLibrary_wlxy5")

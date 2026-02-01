@@ -71,10 +71,8 @@ func _input(event: InputEvent) -> void:
 		#print(r_obj, r_pos)
 		drag.emit(false)
 		if r_obj == area:
-			print("1")
 			dearm()
 			return
 		if r_obj == null:
-			print("2")
 			return
 		shoot(r_pos)
