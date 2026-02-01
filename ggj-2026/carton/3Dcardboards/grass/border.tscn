@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://3p2eysrghmvy"]
+[gd_scene format=3 uid="uid://cn7i0kbjp0mn7"]
 
 [ext_resource type="ArrayMesh" uid="uid://dmwaw88xihd1p" path="res://carton/3Dcardboards/grass/grass.obj" id="1_16hk3"]
 [ext_resource type="Shader" uid="uid://dy6ecpm6tdmku" path="res://carton/Cartons.tres" id="2_0a4dp"]
