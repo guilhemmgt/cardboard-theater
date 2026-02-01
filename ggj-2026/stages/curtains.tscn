@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://c0337ps55fd1y"]
+
+[ext_resource type="PackedScene" uid="uid://d54151oehwue" path="res://carton/3Dcardboards/curtain/curtain.tscn" id="1_t11k3"]
+
+[sub_resource type="Animation" id="Animation_0qi33"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Curtain")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.47669572, 0, -0.032089084)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Curtain2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.4749057, 0, 0)
+
+[sub_resource type="Animation" id="Animation_sufge"]
+resource_name = "close"
+length = 2.0
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Curtain")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -2, 0, -0.03, 2, 1, -0.477, 0, -0.03)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Curtain2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(-0.03, 1, 2, 0, 0, 2, 1, 0.475, 0, 0)
+
+[sub_resource type="Animation" id="Animation_62lnd"]
+resource_name = "open"
+length = 2.0
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Curtain")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.47669572, 0, -0.032089084, 2, 1, -2, 0, -0.032)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Curtain2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.4749057, 0, 0, 2, 1, 2, 0, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0hwvk"]
+_data = {
+&"RESET": SubResource("Animation_0qi33"),
+&"close": SubResource("Animation_sufge"),
+&"open": SubResource("Animation_62lnd")
+}
+
+[node name="curtains" type="Node3D" unique_id=1413050651]
+
+[node name="Curtain" parent="." unique_id=394997416 instance=ExtResource("1_t11k3")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.47669572, 0, -0.032089084)
+
+[node name="Curtain2" parent="." unique_id=1705491349 instance=ExtResource("1_t11k3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4749057, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=451768667]
+libraries/ = SubResource("AnimationLibrary_0hwvk")
