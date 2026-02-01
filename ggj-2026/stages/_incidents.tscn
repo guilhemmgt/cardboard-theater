@@ -1,40 +1,42 @@
 [gd_scene format=3 uid="uid://d2jtustkq1pcn"]
 
 [ext_resource type="PackedScene" uid="uid://7bkl72rbjsk2" path="res://entities/incidents/repair/repair_incident.tscn" id="1_o280i"]
-[ext_resource type="Script" uid="uid://cns7qt0qmj6iy" path="res://stages/_incidents.gd" id="1_wupjw"]
-[ext_resource type="PackedScene" uid="uid://7hmyj02kii3d" path="res://entities/incidents/dialog/dialog_incident.tscn" id="2_0yc7w"]
-[ext_resource type="PackedScene" uid="uid://3q7u47fq30rs" path="res://entities/incidents/activation/activation_incident.tscn" id="4_swtja"]
+[ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="2_0yc7w"]
+[ext_resource type="Texture2D" uid="uid://bo3shs35v3l3w" path="res://entities/incidents/intrusion/tomato/sprotch.png" id="3_wupjw"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_wupjw"]
-radius = 1.0
+[sub_resource type="BoxMesh" id="BoxMesh_o280i"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ojhf4"]
-height = 4.0
+[sub_resource type="BoxShape3D" id="BoxShape3D_0yc7w"]
 
-[node name="Incidents" type="Node3D" unique_id=1914987216 node_paths=PackedStringArray("repair", "dialog", "activation", "whisper")]
-script = ExtResource("1_wupjw")
-repair = NodePath("RepairIncident")
-dialog = NodePath("DialogIncident")
-activation = NodePath("ActivationIncident")
-whisper = NodePath("Whisper")
+[node name="Incidents" type="Node3D" unique_id=1914987216]
 
 [node name="RepairIncident" parent="." unique_id=1978840276 instance=ExtResource("1_o280i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.62151015, 0, 0)
-shape = SubResource("SphereShape3D_wupjw")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=534233597]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.4881706)
 
-[node name="DialogIncident" parent="." unique_id=1025400322 instance=ExtResource("2_0yc7w")]
-text_to_write = "Demain des l'aube"
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2108700387]
+transform = Transform3D(0.7311989, 0, 2.4507737, 0, 2.636416, 0, -0.6821643, 0, 2.6269376, 2.876216, 0, -1.0816438)
+mesh = SubResource("BoxMesh_o280i")
 
-[node name="Whisper" type="RichTextLabel" parent="." unique_id=737406805]
-offset_right = 721.0
-offset_bottom = 351.0
-mouse_filter = 1
-theme_override_font_sizes/normal_font_size = 32
-bbcode_enabled = true
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=2004059348]
 
-[node name="ActivationIncident" parent="." unique_id=1377364127 instance=ExtResource("4_swtja")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9949161, 0, 0)
-shape = SubResource("CapsuleShape3D_ojhf4")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=2108716087]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000002, 0, 0, 0)
+shape = SubResource("BoxShape3D_0yc7w")
+
+[node name="TomatoBasket" parent="." unique_id=735284322 node_paths=PackedStringArray("camera") instance=ExtResource("2_0yc7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22484303, -0.29049122, 3.9372)
+camera = NodePath("../Camera3D")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1205141847]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -390, -469, -787)
+
+[node name="Decal" type="Decal" parent="." unique_id=1717137404]
+transform = Transform3D(-0.030571472, -0.079010025, -0.053130038, -0.094649374, 0.031278253, 0.007947939, 0.01033848, 0.052717056, -0.084344715, 2.6784108, 0.56963277, -0.5352344)
+texture_albedo = ExtResource("3_wupjw")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1368424738]
+transform = Transform3D(0.06789802, 0, -0.07341566, 0, 0.1, 0, 0.07341566, 0, 0.06789802, 1.8910372, -2.3841858e-07, -1.0897799)
+billboard = 1
+texture = ExtResource("3_wupjw")

@@ -21,6 +21,8 @@ func _ready() -> void:
 	super._ready()
 	collisionShape.shape = shape
 	area.input_event.connect(on_click)
+	collisionShape.disabled=true
+	blocking = false
 
 func activate(time: float):
 	super.activate(time)
@@ -28,8 +30,8 @@ func activate(time: float):
 	collisionShape.disabled = false
 	
 func deactivate(success: bool):
-	super.deactivate(success)
 	collisionShape.disabled = true
+	super.deactivate(success)
 
 func on_click(_camera: Node, 
 			  event: InputEvent, 

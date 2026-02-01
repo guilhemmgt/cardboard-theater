@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bqhlmj5ksct5d"]
+
+[ext_resource type="Script" uid="uid://cvu7pds4thrjw" path="res://entities/incidents/all/all_incident.gd" id="1_d1o7o"]
+
+[node name="AllIncident" type="Node3D" unique_id=1341367953 node_paths=PackedStringArray("_timer")]
+script = ExtResource("1_d1o7o")
+_timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="." unique_id=985202720]
+one_shot = true

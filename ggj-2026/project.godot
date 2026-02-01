@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GGJ2026"
-run/main_scene="uid://d21s2cs8s3lpd"
+run/main_scene="uid://b5cv4ybux4tk0"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -22,6 +22,10 @@ gdscript/warnings/unsafe_method_access=2
 gdscript/warnings/unsafe_cast=1
 gdscript/warnings/unsafe_call_argument=1
 
+[display]
+
+mouse_cursor/custom_image="uid://cv8er5i4lebj2"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg")
@@ -30,7 +34,9 @@ enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg")
 
 folder_colors={
 "res://entities/": "yellow",
+"res://sounds/": "purple",
 "res://stages/": "red",
+"res://ui/": "pink",
 "res://utilities/": "blue"
 }
 
@@ -43,6 +49,11 @@ import/blender/enabled=false
 click={
 "deadzone": 0.2,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(225, 18),"global_position":Vector2(229, 56),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+test={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194439,"key_label":0,"unicode":49,"location":0,"echo":false,"script":null)
 ]
 }
 
