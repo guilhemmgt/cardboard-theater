@@ -1,0 +1,355 @@
+[gd_scene format=3 uid="uid://d3pt6h88uyxa8"]
+
+[ext_resource type="Texture2D" uid="uid://cktr80sscioby" path="res://carton/paper_0009_1k/paper_0009_color_1k.jpg" id="1_ot0qx"]
+[ext_resource type="Texture2D" uid="uid://c4l4u5ou5j6f3" path="res://carton/paper_0009_1k/paper_0009_height_1k.png" id="2_crjyw"]
+[ext_resource type="Texture2D" uid="uid://dt4w8nooq6i5b" path="res://carton/paper_0009_1k/paper_0009_normal_directx_1k.png" id="3_60wr2"]
+[ext_resource type="Texture2D" uid="uid://e830h1qlky02" path="res://carton/paper_0009_1k/paper_0009_roughness_1k.jpg" id="4_etose"]
+[ext_resource type="Texture2D" uid="uid://bu0jq5rop2wt3" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="5_c4wg2"]
+[ext_resource type="PackedScene" uid="uid://bmq3jlb1anrhf" path="res://carton/3Dcardboards/border/border.tscn" id="6_erwgl"]
+[ext_resource type="PackedScene" uid="uid://dgixb4l7nrgd1" path="res://VFX/dust_particles.tscn" id="7_kdox0"]
+[ext_resource type="Texture2D" uid="uid://hlxdsbmuyxjr" path="res://VFX/Textures/blur.png" id="8_t4d0s"]
+[ext_resource type="PackedScene" uid="uid://bx7sb77iogb4g" path="res://carton/3Dcardboards/cible/cible.tscn" id="9_r48p1"]
+[ext_resource type="PackedScene" uid="uid://ubi0bjcosamr" path="res://carton/3Dcardboards/nuage/nuage.tscn" id="10_uajb4"]
+[ext_resource type="PackedScene" uid="uid://cypjg413etrtb" path="res://carton/Letters/LettersMain.tscn" id="11_xxbkb"]
+[ext_resource type="PackedScene" uid="uid://bn21pj7fdgghm" path="res://carton/3Dcardboards/dragon/dragon.tscn" id="12_uev2m"]
+[ext_resource type="PackedScene" uid="uid://c4amdjj53fb3d" path="res://carton/3Dcardboards/king/mad_king.tscn" id="13_8mdcs"]
+[ext_resource type="PackedScene" uid="uid://b8a0vav2gqvcg" path="res://carton/3Dcardboards/knight/knight.tscn" id="13_igjdo"]
+[ext_resource type="PackedScene" uid="uid://j2lnjv8obup2" path="res://carton/3Dcardboards/goblin/gob_the_goblin.tscn" id="16_crjyw"]
+[ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="16_kof78"]
+[ext_resource type="PackedScene" uid="uid://b02lqv1r0o35e" path="res://carton/3Dcardboards/princess/princess.tscn" id="17_60wr2"]
+[ext_resource type="PackedScene" uid="uid://dycms7p36i6lc" path="res://carton/3Dcardboards/tree/greatest_tree.tscn" id="17_ipuuw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2oluv"]
+albedo_texture = ExtResource("1_ot0qx")
+roughness_texture = ExtResource("4_etose")
+normal_enabled = true
+normal_texture = ExtResource("3_60wr2")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_crjyw")
+uv1_scale = Vector3(15, 15, 15)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h2yge"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2dhj"]
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_ot0qx")
+uv1_scale = Vector3(15, 15, 15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lquwl"]
+albedo_color = Color(0.7254902, 0.78431374, 0.78431374, 1)
+albedo_texture = ExtResource("5_c4wg2")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
+albedo_color = Color(0.5568628, 1, 0.25490198, 1)
+albedo_texture = ExtResource("5_c4wg2")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2yge"]
+albedo_color = Color(0.7254902, 0.4862745, 0.19607843, 1)
+albedo_texture = ExtResource("5_c4wg2")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_272bh"]
+albedo_texture = ExtResource("5_c4wg2")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_5vw27"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mycd"]
+albedo_color = Color(0.20392157, 0.05490196, 0.02745098, 1)
+albedo_texture = ExtResource("5_c4wg2")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_272bh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfg05"]
+transparency = 1
+diffuse_mode = 3
+albedo_color = Color(1, 1, 1, 0.16470589)
+albedo_texture = ExtResource("8_t4d0s")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+proximity_fade_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_15cu4"]
+material = SubResource("StandardMaterial3D_dfg05")
+size = Vector2(0.02, 0.02)
+
+[node name="TheatreScene" type="Node3D" unique_id=814067477]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=276157703]
+transform = Transform3D(21.158024, 0, 0, 0, 0.44524917, 0, 0, 0, 3.6222339, -0.50124836, 0.16087198, 2.6273727)
+material_override = SubResource("StandardMaterial3D_2oluv")
+mesh = SubResource("BoxMesh_h2yge")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1890188507]
+transform = Transform3D(21.158024, 0, 0, 0, -2.789886e-09, -6.731624, 0, 0.06382515, -2.9424865e-07, -0.50124836, 2.8963041, 3.873168)
+material_override = SubResource("StandardMaterial3D_h2dhj")
+mesh = SubResource("BoxMesh_h2yge")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="." unique_id=1058338370]
+transform = Transform3D(3.2394567, 0.00089019176, 0.00029776664, -0.0057952264, 0.51246315, 0.010860661, -0.0037341698, -0.023051415, 0.24145828, -0.00032825768, 1.9806701, -1.7192054)
+material_override = SubResource("StandardMaterial3D_lquwl")
+mesh = SubResource("BoxMesh_h2yge")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="." unique_id=1710820116]
+transform = Transform3D(0.07961764, 0, 0, 0, 0.5248944, 0.0013206045, 0, -0.023284541, 0.029769877, -0.26940632, 2.0489988, -1.6892407)
+material_override = SubResource("StandardMaterial3D_ig7tw")
+mesh = SubResource("BoxMesh_h2yge")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1911664294]
+transform = Transform3D(7.7982745, 0, 0, 0, 0.44063544, 0, 0, 0, 2.6391542, 0, -0.7945018, -0.54719734)
+material_override = SubResource("StandardMaterial3D_h2yge")
+mesh = SubResource("BoxMesh_h2yge")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="." unique_id=855875628]
+transform = Transform3D(7.7982745, 0, 0, 0, -0.02909198, 1.0536666, 0, -0.45655453, -0.06714038, 0, -0.5220783, -0.16311598)
+material_override = SubResource("StandardMaterial3D_h2yge")
+mesh = SubResource("BoxMesh_h2yge")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="." unique_id=245101343]
+transform = Transform3D(7.7982745, 0, 0, 0, -0.02909198, 1.0536666, 0, -0.45655453, -0.06714038, 0, -0.6188729, -1.8146915)
+material_override = SubResource("StandardMaterial3D_h2yge")
+mesh = SubResource("BoxMesh_h2yge")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1356373043]
+transform = Transform3D(7.7982745, 0, 0, 0, 0.0033833408, -1.1078875, 0, 0.4425769, 0.008469399, 0, -0.68226266, 0.150311)
+material_override = SubResource("StandardMaterial3D_h2yge")
+mesh = SubResource("BoxMesh_h2yge")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="." unique_id=1779286923]
+transform = Transform3D(2.6904607, 0, 0, 0, 1.1623489, 0, 0, 0, 0.08636668, 3.3757558, 4.216172, 1.617806)
+visible = false
+material_override = SubResource("StandardMaterial3D_272bh")
+mesh = SubResource("BoxMesh_5vw27")
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="." unique_id=838689635]
+transform = Transform3D(2.6904607, 0, 0, 0, 1.1623489, 0, 0, 0, 0.08636668, -3.0576644, 4.512533, 2.5478196)
+visible = false
+material_override = SubResource("StandardMaterial3D_272bh")
+mesh = SubResource("BoxMesh_5vw27")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="." unique_id=1846064952]
+transform = Transform3D(1.2628009, 0, 0, 0, 3.924143, 0, 0, 0, 0.08636668, 6.544452, 1.5482832, 1.8271389)
+visible = false
+material_override = SubResource("StandardMaterial3D_272bh")
+mesh = SubResource("BoxMesh_5vw27")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=806130277]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3041154, -0.37863255)
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Node3D" unique_id=1745814669]
+transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, -2.5280461, 0.33964872, 0.78881216)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Node3D" unique_id=57464366]
+transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, -1.6340213, 0.3529414, 0.78881216)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Node3D" unique_id=1596440797]
+transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, -0.78751826, 0.3529414, 0.78881216)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Node3D" unique_id=1323093242]
+transform = Transform3D(0.6712459, 0, 0, 0, 0.94895613, 0, 0, 0, 0.28313547, 0.037874937, 0.3529414, 0.78881216)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Node3D" unique_id=929207664]
+transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, 0.84049463, 0.3529414, 0.78881216)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Node3D" unique_id=1486968777]
+transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, 1.7345195, 0.3529414, 0.78881216)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Node3D" unique_id=418768920]
+transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, 2.5810225, 0.3529414, 0.78881216)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Node3D" unique_id=1312930862]
+transform = Transform3D(0.39371368, 0, 0, 0, 0.20889418, 0, 0, 0, 0.28313547, 2.5810225, 1.3669574, 0.78881216)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Node3D" unique_id=657810484]
+transform = Transform3D(0.39371368, 0, 0, 0, 0.20889418, 0, 0, 0, 0.28313547, 1.7204864, 1.3669574, 0.78881216)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Node3D" unique_id=1702979331]
+transform = Transform3D(0.39371368, 0, 0, 0, 0.20889418, 0, 0, 0, 0.28313547, 0.81798923, 1.3669574, 0.78881216)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Node3D" unique_id=1691428394]
+transform = Transform3D(0.39371368, 0, 0, 0, 0.20889418, 0, 0, 0, 0.28313547, 0.00027143955, 1.3669574, 0.78881216)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Node3D" unique_id=642651703]
+transform = Transform3D(0.39371368, 0, 0, 0, 0.20889418, 0, 0, 0, 0.28313547, -0.736955, 1.3669574, 0.78881216)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Node3D" unique_id=1203749790]
+transform = Transform3D(0.39371368, 0, 0, 0, 0.20889418, 0, 0, 0, 0.28313547, -1.688367, 1.3669574, 0.78881216)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="Node3D" unique_id=678083559]
+transform = Transform3D(0.39371368, 0, 0, 0, 0.20889418, 0, 0, 0, 0.28313547, -2.4744263, 1.3669574, 0.78881216)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=356183010]
+transform = Transform3D(-0.99999803, 0.0018779158, -0.0006346515, 0.0018191794, 0.99659187, 0.08247014, 0.00078736054, 0.08246882, -0.99659336, -0.3704396, 2.5399058, -2.0036309)
+
+[node name="Border" parent="." unique_id=195769391 instance=ExtResource("6_erwgl")]
+transform = Transform3D(11, 0, 0, 0, 6, 0, 0, 0, 6, -0.17333889, 2.1501837, 1.0046821)
+
+[node name="DustParticles" parent="." unique_id=832185072 instance=ExtResource("7_kdox0")]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 1, -0.17059416, 2.8956504, -0.15478265)
+amount = 500
+speed_scale = 0.05
+explosiveness = 0.8
+draw_pass_1 = SubResource("QuadMesh_15cu4")
+
+[node name="Cible" parent="." unique_id=870559002 instance=ExtResource("9_r48p1")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.0286365, 1.1814232, 2.1620302)
+
+[node name="Nuage" parent="." unique_id=2083094686 instance=ExtResource("10_uajb4")]
+transform = Transform3D(-2.4, 0, -9.452337e-08, 0, 1.2, 0, 3.6238995e-07, 0, -0.626, 2.1782875, 3.7982314, 1.6063027)
+
+[node name="Nuage2" parent="." unique_id=1432318036 instance=ExtResource("10_uajb4")]
+transform = Transform3D(-1.9923894, 0.08715574, 4.563469e-08, 0.17431147, 0.9961947, 0, -1.7418022e-07, 7.619397e-09, -0.522, -3.860631, 3.881211, 1.7398045)
+
+[node name="LettersMain" parent="." unique_id=1102856649 instance=ExtResource("11_xxbkb")]
+transform = Transform3D(-1.494292, 0.13073361, 1.3113416e-07, 0.13073361, 1.494292, 0, -1.3063516e-07, 1.1429095e-08, -1.5, -0.67975116, 2.8317337, 3.4409409)
+
+[node name="TomatoBasket" parent="." unique_id=735284322 instance=ExtResource("16_kof78")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.7590992, 2.2677362, -1.5897349)
+
+[node name="MadKing" parent="." unique_id=263734070 instance=ExtResource("13_8mdcs")]
+transform = Transform3D(-1.6, 0, -1.7484555e-07, 0, 2, 0, 1.3987645e-07, 0, -2, -6.0671506, 1.4055457, 0.91185474)
+
+[node name="MeshInstance3D5" parent="." unique_id=1290083251 instance=ExtResource("13_igjdo")]
+transform = Transform3D(1.3, 0, 0, 0, 2, 0, 0, 0, 2, -7.634951, 1.4978336, 1.3754578)
+
+[node name="Dragon" parent="." unique_id=521331207 instance=ExtResource("12_uev2m")]
+transform = Transform3D(3.4, 0, 0, 0, 3, 0, 0, 0, 3, 6.6112175, 1.7069583, 2.217055)
+
+[node name="GobTheGoblin" parent="." unique_id=1319419001 instance=ExtResource("16_crjyw")]
+transform = Transform3D(1.2, 0, 0, 0, 1.5, 0, 0, 0, 1, 6.9065514, 1.2070124, 1.6513565)
+
+[node name="Princess" parent="." unique_id=837612745 instance=ExtResource("17_60wr2")]
+transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1, -7.7515354, 1.0917556, 0.9236679)
+
+[node name="GreatestTree" parent="." unique_id=258667498 instance=ExtResource("17_ipuuw")]
+transform = Transform3D(1.4, 0, 0, 0, 2, 0, 0, 0, 2, 6.088828, 1.4199924, 1.4324803)
+
+[node name="Lights" type="Node3D" parent="." unique_id=1830752680]
+transform = Transform3D(-0.99999803, 0.0018779158, -0.0006346515, 0.0018191794, 0.99659187, 0.08247014, 0.00078736054, 0.08246882, -0.99659336, -0.3704396, 2.5399058, -2.0036309)
+
+[node name="LightLeft" type="SpotLight3D" parent="Lights" unique_id=646937114]
+transform = Transform3D(-0.5331028, 0.56306434, -0.6314743, -0.8030456, -0.101823546, 0.587154, 0.26630655, 0.8201161, 0.50644875, -5.454218, 2.2308981, 1.1769435)
+light_color = Color(1.129497, 1.1119101, 0.97466743, 1)
+light_energy = 4.0
+spot_range = 15.0
+spot_angle = 34.51
+
+[node name="LightRight" type="SpotLight3D" parent="Lights" unique_id=1034186830]
+transform = Transform3D(0.43423322, 0.68885237, 0.5804515, -0.8149626, 0.025898717, 0.5789346, 0.38376755, -0.72443885, 0.57263494, 5.4572835, 2.2609603, 0.5729649)
+light_color = Color(1.1338254, 1.1367571, 0.9688917, 1)
+light_energy = 4.0
+spot_range = 15.0
+spot_angle = 28.61
+
+[node name="ChandelierLight" type="SpotLight3D" parent="Lights" unique_id=1574968152]
+transform = Transform3D(-0.16940962, 0.97083664, 0.16963695, -0.08730729, -0.1862318, 0.978619, 0.981671, 0.15097693, 0.11631056, 0.14501134, 3.8875468, -4.326315)
+light_color = Color(1.0518116, 1.0518116, 0.44291607, 1)
+light_energy = 16.0
+spot_range = 8.433
+spot_attenuation = 1.4
+spot_angle = 28.69
+
+[node name="red_spot" type="SpotLight3D" parent="Lights" unique_id=1467891761]
+transform = Transform3D(-0.16962412, 0.97081965, 0.16951995, -0.2077322, -0.20336942, 0.9568115, 0.9633665, 0.12708355, 0.23616683, 3.5374644, 4.369322, -2.9207215)
+light_color = Color(3.2944162, 0.82927567, 0.82927567, 1)
+light_energy = 1.5
+light_indirect_energy = 6.0
+light_bake_mode = 0
+spot_range = 8.0
+spot_angle = 20.0
+
+[node name="red_spot_2" type="SpotLight3D" parent="Lights" unique_id=1533077744]
+transform = Transform3D(-0.07371373, 0.9958756, -0.052895885, -0.21080339, 0.03628214, 0.9768549, 0.97474515, 0.08315825, 0.20725948, -3.450982, 4.183649, -3.1640918)
+light_color = Color(3.2944162, 0.82927567, 0.82927567, 1)
+light_energy = 1.5
+light_indirect_energy = 6.0
+light_bake_mode = 0
+spot_range = 8.0
+spot_angle = 20.0
+
+[node name="orange_spot" type="SpotLight3D" parent="Lights" unique_id=1860060559]
+transform = Transform3D(0.9892163, -0.10469122, 0.10242397, -0.07437299, 0.24338749, 0.9670735, -0.12617281, -0.96426255, 0.2329767, 1.5406462, 4.3084984, -2.8340986)
+light_color = Color(2.9669967, 1.3660103, 0, 1)
+light_energy = 1.5
+light_indirect_energy = 6.0
+light_bake_mode = 0
+spot_range = 8.0
+spot_angle = 20.0
+
+[node name="orange_spot_22" type="SpotLight3D" parent="Lights" unique_id=2108813706]
+transform = Transform3D(-0.99076205, 0.13481991, -0.014629272, -0.058624268, -0.3285278, 0.94267315, 0.12228498, 0.93482256, 0.3333966, -1.7380412, 4.3175898, -2.8565273)
+light_color = Color(2.9669967, 1.3660103, 0, 1)
+light_energy = 1.5
+light_indirect_energy = 6.0
+light_bake_mode = 0
+spot_range = 8.0
+spot_angle = 20.0
+
+[node name="yellow_spot" type="SpotLight3D" parent="Lights" unique_id=211307469]
+transform = Transform3D(0.9805871, -0.17948493, 0.078956835, -0.025177363, 0.28408536, 0.9584684, -0.1944611, -0.9418496, 0.27405143, 5.298688, 4.3292313, -2.8487554)
+light_color = Color(2.2101762, 1.902436, 0, 1)
+light_energy = 1.5
+light_indirect_energy = 6.0
+light_bake_mode = 0
+spot_range = 8.0
+spot_angle = 20.0
+
+[node name="yellow_spot_22" type="SpotLight3D" parent="Lights" unique_id=831887186]
+transform = Transform3D(-0.9663121, 0.24641447, -0.074302256, -0.11919051, -0.17257759, 0.97775793, 0.22811078, 0.95367545, 0.19613406, -5.279572, 4.1839523, -2.9602742)
+light_color = Color(2.2101762, 1.902436, 0, 1)
+light_energy = 1.5
+light_indirect_energy = 6.0
+light_bake_mode = 0
+spot_range = 8.0
+spot_angle = 20.0
+
+[node name="BackLight" type="SpotLight3D" parent="Lights" unique_id=1544414982]
+transform = Transform3D(0.99999803, 0.0019686911, 0.00023161742, -0.0018779533, 0.90347964, 0.42862698, 0.0006345725, -0.42862657, 0.90348154, -0.36997995, 1.4397671, 3.534828)
+light_color = Color(1.161201, 1.1413023, 1.1220638, 1)
+light_indirect_energy = 1.3
+spot_range = 16.624
+spot_attenuation = 0.2
+spot_angle = 40.62

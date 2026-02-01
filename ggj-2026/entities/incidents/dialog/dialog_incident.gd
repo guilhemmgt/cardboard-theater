@@ -10,6 +10,9 @@ var _lower_text_to_write: String
 @export var color_error: Color
 var letters_written: int
 
+func _ready():
+	blocking=true
+
 func set_text_to_write(dialog: String):
 	text_to_write = dialog
 
