@@ -1,22 +1,23 @@
 extends Node3D
-class_name Bulle
-@onready var dialog_incident: DialogIncident = $DialogIncident
+class_name BulleIncident
+@onready var dialog_incident: DialogIncident
 @onready var goodletter: Label3D = $goodletter
 @onready var wrongletter: Label3D = $wrongletter
 @onready var waitedletter: Label3D = $waitedletter
 
 signal dialog_finished
 @onready var bulle_main: MeshInstance3D = $BulleMain
-@export var bubble_marker: Marker3D
+@export var bubble_marker: Node3D
 # Padding autour du texte (en unités 3D)
 @export var padding: Vector2 = Vector2(0.2, 0.1)
 @onready var bubble_handle: Node3D = $BulleMain/Node3D
 var debug_draw: Node2D = null
 
 func _ready() -> void:
-	dialog_incident.set_text_to_write("Welcome")
-	dialog_incident.activate(100)
-
+	for child in get_children():
+		if child is DialogIncident:
+			dialog_incident = child as DialogIncident
+			break
 func update_bubble_handle_position() -> void:
 	if not bubble_marker:
 		return
@@ -63,6 +64,10 @@ func update_bulle_size() -> void:
 	
 	bulle_main.scale.x = uniform_scale
 	bulle_main.scale.y = uniform_scale
+	if bubble_marker:
+		global_position.z = 0.8
+		global_position.x = bubble_marker.global_position.x - bulle_main.scale.x / 2 -0.5
+		global_position.y = bubble_marker.global_position.y + bulle_main.scale.y / 2 +1.0
 
 
 # Appeler cette fonction pour mettre à jour le texte et la taille de la bulle
@@ -74,23 +79,7 @@ func set_text(new_text: String) -> void:
 		print("Warning: waitedletter node is null")
 
 
-# Affiche le texte lettre par lettre avec un timing donné
-func start_dialog(text: String, duration: float) -> void:
-	if text.is_empty():
-		return
-	update_bubble_handle_position()
-	# Réinitialise le texte
-	waitedletter.text = ""
-	update_bulle_size()
-	
-	# Calcule le délai entre chaque lettre
-	var delay_per_letter = duration / float(text.length())
-	
-	# Affiche chaque lettre une par une avec await
-	for i in range(text.length()):
-		waitedletter.text += text[i]
-		update_bulle_size()
-		await get_tree().create_timer(delay_per_letter).timeout
+
 
 func auto_wrap(text: String, max_letters_per_line: int) -> String:
 	var words = text.split(" ")
@@ -118,6 +107,7 @@ func auto_wrap(text: String, max_letters_per_line: int) -> String:
 
 func _on_dialog_incident_write_letter(json: Dictionary) -> void:
 	print("Received dialog data: ", json)
+	visible = true
 	update_labels_from_dictionary(json)
 
 # Handle dictionary data to update all labels appropriately
@@ -154,3 +144,9 @@ func get_next_expected_letter(written: String, waited: String) -> String:
 			return "▍"  # Visual indicator for space
 		return next_letter
 	return ""  # No more letters expected
+
+
+func _on_dialog_incident_resolved() -> void:
+	await get_tree().create_timer(0.5).timeout
+	visible = false
+	global_position.z = -10.0
