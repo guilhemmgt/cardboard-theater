@@ -3,14 +3,13 @@ class_name Orchestrator
 
 signal points_ready
 
-@onready var game_over: Node3D = $"../GameOver"
+@onready var game_over: Node3D = $"../Scene/GameOver"
 @onready var plan1: Node = $Plan1
 @onready var plan2: Node = $Plan2
 @onready var plan3: Node = $Plan3
 @onready var incidents_manager: Node = $"../IncidentsManager"
 @export var animation_p: AnimationPlayer
 
-@export var action_array: Array[ActorAction] = []
 @export var actor_manager: ActorManager
 
 var points_plan1: Array = []
@@ -32,18 +31,16 @@ func _ready() -> void:
 	points_ready.emit()
 	is_point_ready = true
 
+	for incident in incidents_manager.get_children():
+		if incident is Incident:
+			incidents_nodes.append(incident)
+
 	for incident in incidents_nodes:
 		incident.resolved.connect(_on_event_success)
 		incident.failed.connect(_on_event_failure)
 		incident.activated.connect(_on_incident_activated)
 
-	read_actions()
-		
 
-func read_actions() -> void:
-	for action in action_array:
-		print("Action: %s" % action.action_type)
-		print("Parameters: %s" % action)
 
 func get_plan_points(plan_number: int) -> Array:
 	match plan_number:

@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://cmoh5erhg8ftq" path="res://carton/3Dcardboards/horn/horn.tscn" id="12_cc4j3"]
 [ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="22_b4xu0"]
 [ext_resource type="Script" uid="uid://d3uf356n1craj" path="res://ui/cursor/mouse_manager.gd" id="23_uel2o"]
-[ext_resource type="Script" uid="uid://bnhldnbowjgrs" path="res://entities/actors_actions/actor_action.gd" id="23_ws6au"]
 [ext_resource type="Script" uid="uid://b0g4fonj8fno0" path="res://utilities/txt_to_anim.gd" id="24_cshfc"]
 [ext_resource type="AnimationLibrary" uid="uid://ddal5gnqwjbdb" path="res://animations/scene_library.tres" id="25_sl14i"]
 [ext_resource type="AudioStream" uid="uid://cb1ckd7b3kmcu" path="res://sounds/music/ggj2026.mp3" id="25_yj2y1"]
@@ -142,14 +141,6 @@ _data = {
 &"RESET": SubResource("Animation_w48y1"),
 &"horn": SubResource("Animation_jekqu")
 }
-
-[sub_resource type="Resource" id="Resource_sl14i"]
-script = ExtResource("23_ws6au")
-actor_node_path = NodePath("../ActorManager/Actor1")
-target_plan_id = 1
-target_node_id = 2
-move_duration = 1.54
-metadata/_custom_type_script = "uid://bnhldnbowjgrs"
 
 [node name="TheatreScene" type="Node3D" unique_id=814067477]
 script = ExtResource("1_48gpw")
@@ -352,10 +343,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4621015, 3.5264204, 1.0956
 [node name="succ" type="AnimationPlayer" parent="IncidentsManager/Clairon" unique_id=275578662]
 libraries/ = SubResource("AnimationLibrary_w48y1")
 
-[node name="Orchestrator" type="Node" parent="." unique_id=392292513 node_paths=PackedStringArray("animation_p")]
+[node name="Orchestrator" type="Node" parent="." unique_id=392292513 node_paths=PackedStringArray("animation_p", "actor_manager")]
 script = ExtResource("22_b4xu0")
 animation_p = NodePath("../Act1")
-action_array = Array[ExtResource("23_ws6au")]([SubResource("Resource_sl14i")])
+actor_manager = NodePath("../ActorManager")
 
 [node name="Plan1" type="Node" parent="Orchestrator" unique_id=961782369]
 
