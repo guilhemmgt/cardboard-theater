@@ -1,38 +1,38 @@
 [gd_scene format=3 uid="uid://ru2s4b8adjo"]
 
-[ext_resource type="Script" uid="uid://p04yb5042qsm" path="res://stages/act_1.gd" id="1_nbsfb"]
-[ext_resource type="PackedScene" uid="uid://dpkayn65c5wf2" path="res://carton/3Dcardboards/wall/wall.tscn" id="1_v8n6q"]
-[ext_resource type="Texture2D" uid="uid://bu0jq5rop2wt3" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="1_vpjuu"]
-[ext_resource type="Texture2D" uid="uid://b1rb783r5r7w7" path="res://entities/scenery/background/background.png" id="4_r47ec"]
-[ext_resource type="Script" uid="uid://cldyre5xcua07" path="res://stages/actor_manager.gd" id="6_ag2c3"]
-[ext_resource type="PackedScene" uid="uid://dm7riayv01aoj" path="res://carton/3Dcardboards/chandelier/chandelier.tscn" id="6_r4qdm"]
-[ext_resource type="PackedScene" uid="uid://cmoh5erhg8ftq" path="res://carton/3Dcardboards/horn/horn.tscn" id="7_1hxc7"]
-[ext_resource type="PackedScene" uid="uid://be0prrgukhrkt" path="res://carton/3Dcardboards/herse/herse.tscn" id="8_1027p"]
-[ext_resource type="PackedScene" uid="uid://3q7u47fq30rs" path="res://entities/incidents/activation/activation_incident.tscn" id="9_15cu4"]
-[ext_resource type="Script" uid="uid://burtkkchfm8es" path="res://entities/actors/actor.gd" id="10_ag2c3"]
-[ext_resource type="Script" uid="uid://c71dul57206j7" path="res://entities/incidents/activation/activation_handler.gd" id="11_fie2r"]
-[ext_resource type="PackedScene" uid="uid://bn21pj7fdgghm" path="res://carton/3Dcardboards/dragon/dragon.tscn" id="11_r4qdm"]
-[ext_resource type="PackedScene" uid="uid://bmq3jlb1anrhf" path="res://carton/3Dcardboards/border/border.tscn" id="11_xg04f"]
-[ext_resource type="Script" uid="uid://b0g4fonj8fno0" path="res://utilities/txt_to_anim.gd" id="13_1027p"]
-[ext_resource type="AudioStream" uid="uid://bsbafa7i7i611" path="res://sounds/clairon.wav" id="14_8u0l0"]
-[ext_resource type="Script" uid="uid://cv71aefo6wn1s" path="res://entities/incidents/intrusion/intrusion_handler.gd" id="15_3bdd5"]
-[ext_resource type="Script" uid="uid://b77rw5elxerfm" path="res://entities/incidents/repair/repair_handler.gd" id="15_ujv0r"]
-[ext_resource type="PackedScene" uid="uid://7bkl72rbjsk2" path="res://entities/incidents/repair/repair_incident.tscn" id="16_2kc3f"]
-[ext_resource type="PackedScene" uid="uid://c432atnphqs7w" path="res://carton/3Dcardboards/cow/cow.tscn" id="16_4l38f"]
-[ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="16_7fwyp"]
-[ext_resource type="AudioStream" uid="uid://yxolqfju8536" path="res://sounds/vache1.wav" id="17_fie2r"]
-[ext_resource type="Script" uid="uid://d3uf356n1craj" path="res://ui/cursor/mouse_manager.gd" id="17_q661t"]
-[ext_resource type="PackedScene" uid="uid://d3t74t4c2wtyw" path="res://ui/signs/game_over.tscn" id="18_26mr1"]
-[ext_resource type="Script" uid="uid://opxnqhgj6yr7" path="res://entities/intru/intru.gd" id="18_nbsfb"]
-[ext_resource type="PackedScene" uid="uid://dq8y837y8ll4b" path="res://entities/incidents/intrusion/intrusion_incident.tscn" id="19_dc1uk"]
-[ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="19_ujv0r"]
-[ext_resource type="AudioStream" uid="uid://cb1ckd7b3kmcu" path="res://sounds/music/ggj2026.mp3" id="27_nbsfb"]
+[ext_resource type="Script" uid="uid://p04yb5042qsm" path="res://stages/act_1/act_1.gd" id="1_48gpw"]
+[ext_resource type="Texture2D" uid="uid://bu0jq5rop2wt3" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="2_ws6au"]
+[ext_resource type="PackedScene" uid="uid://bmq3jlb1anrhf" path="res://carton/3Dcardboards/border/border.tscn" id="3_sl14i"]
+[ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="4_jgeue"]
+[ext_resource type="PackedScene" uid="uid://d3t74t4c2wtyw" path="res://ui/signs/game_over.tscn" id="5_8gvx6"]
+[ext_resource type="Script" uid="uid://cldyre5xcua07" path="res://stages/actor_manager.gd" id="6_2etmi"]
+[ext_resource type="Script" uid="uid://burtkkchfm8es" path="res://entities/actors/actor.gd" id="7_g21jj"]
+[ext_resource type="PackedScene" uid="uid://bn21pj7fdgghm" path="res://carton/3Dcardboards/dragon/dragon.tscn" id="8_cegcp"]
+[ext_resource type="PackedScene" uid="uid://be0prrgukhrkt" path="res://carton/3Dcardboards/herse/herse.tscn" id="9_orseh"]
+[ext_resource type="Script" uid="uid://c71dul57206j7" path="res://entities/incidents/activation/activation_handler.gd" id="10_tgpng"]
+[ext_resource type="PackedScene" uid="uid://3q7u47fq30rs" path="res://entities/incidents/activation/activation_incident.tscn" id="11_kuiwp"]
+[ext_resource type="PackedScene" uid="uid://cmoh5erhg8ftq" path="res://carton/3Dcardboards/horn/horn.tscn" id="12_cc4j3"]
+[ext_resource type="AudioStream" uid="uid://bsbafa7i7i611" path="res://sounds/clairon.wav" id="13_a014n"]
+[ext_resource type="PackedScene" uid="uid://dm7riayv01aoj" path="res://carton/3Dcardboards/chandelier/chandelier.tscn" id="14_mn8hc"]
+[ext_resource type="Script" uid="uid://b77rw5elxerfm" path="res://entities/incidents/repair/repair_handler.gd" id="15_bklgd"]
+[ext_resource type="PackedScene" uid="uid://7bkl72rbjsk2" path="res://entities/incidents/repair/repair_incident.tscn" id="16_1d0rp"]
+[ext_resource type="Script" uid="uid://cv71aefo6wn1s" path="res://entities/incidents/intrusion/intrusion_handler.gd" id="17_q73ld"]
+[ext_resource type="PackedScene" uid="uid://c432atnphqs7w" path="res://carton/3Dcardboards/cow/cow.tscn" id="18_2iqbm"]
+[ext_resource type="AudioStream" uid="uid://yxolqfju8536" path="res://sounds/vache1.wav" id="19_1ko2e"]
+[ext_resource type="Script" uid="uid://opxnqhgj6yr7" path="res://entities/intru/intru.gd" id="20_70dxw"]
+[ext_resource type="PackedScene" uid="uid://dq8y837y8ll4b" path="res://entities/incidents/intrusion/intrusion_incident.tscn" id="21_fc8ma"]
+[ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="22_b4xu0"]
+[ext_resource type="Script" uid="uid://d3uf356n1craj" path="res://ui/cursor/mouse_manager.gd" id="23_uel2o"]
+[ext_resource type="Script" uid="uid://b0g4fonj8fno0" path="res://utilities/txt_to_anim.gd" id="24_cshfc"]
+[ext_resource type="AudioStream" uid="uid://cb1ckd7b3kmcu" path="res://sounds/music/ggj2026.mp3" id="25_yj2y1"]
+[ext_resource type="Texture2D" uid="uid://b1rb783r5r7w7" path="res://entities/scenery/background/background.png" id="26_s74tu"]
+[ext_resource type="PackedScene" uid="uid://dpkayn65c5wf2" path="res://carton/3Dcardboards/wall/wall.tscn" id="27_aa8rd"]
 
 [sub_resource type="Environment" id="Environment_fie2r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_color = Color(0.72428656, 0.29958177, 0.19783527, 1)
-albedo_texture = ExtResource("1_vpjuu")
+albedo_texture = ExtResource("2_ws6au")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
@@ -40,24 +40,24 @@ uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lquwl"]
 albedo_color = Color(0.7254902, 0.78431374, 0.78431374, 1)
-albedo_texture = ExtResource("1_vpjuu")
+albedo_texture = ExtResource("2_ws6au")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
 albedo_color = Color(0.5568628, 1, 0.25490198, 1)
-albedo_texture = ExtResource("1_vpjuu")
+albedo_texture = ExtResource("2_ws6au")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2yge"]
 albedo_color = Color(0.7254902, 0.4862745, 0.19607843, 1)
-albedo_texture = ExtResource("1_vpjuu")
+albedo_texture = ExtResource("2_ws6au")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_272bh"]
-albedo_texture = ExtResource("1_vpjuu")
+albedo_texture = ExtResource("2_ws6au")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
@@ -65,13 +65,13 @@ uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
 albedo_color = Color(0.7254902, 0.5647059, 0.19607843, 1)
-albedo_texture = ExtResource("1_vpjuu")
+albedo_texture = ExtResource("2_ws6au")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mycd"]
 albedo_color = Color(0.20392157, 0.05490196, 0.02745098, 1)
-albedo_texture = ExtResource("1_vpjuu")
+albedo_texture = ExtResource("2_ws6au")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
@@ -323,7 +323,7 @@ _data = {
 }
 
 [node name="TheatreScene" type="Node3D" unique_id=814067477]
-script = ExtResource("1_nbsfb")
+script = ExtResource("1_48gpw")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2029467546]
 environment = SubResource("Environment_fie2r")
@@ -404,14 +404,14 @@ transform = Transform3D(16.203173, 0, 0, 0, 1.1578108, 0, 0, 0, 0.1443747, 0.019
 material_override = SubResource("StandardMaterial3D_1bvp3")
 mesh = SubResource("BoxMesh_h2yge")
 
-[node name="Border" parent="Scene" unique_id=195769391 instance=ExtResource("11_xg04f")]
+[node name="Border" parent="Scene" unique_id=195769391 instance=ExtResource("3_sl14i")]
 transform = Transform3D(11, 0, 0, 0, 6, 0, 0, 0, 6, -0.17333889, 2.1501837, 1.0046821)
 
-[node name="TomatoBasket" parent="Scene" unique_id=735284322 node_paths=PackedStringArray("camera") instance=ExtResource("19_ujv0r")]
+[node name="TomatoBasket" parent="Scene" unique_id=735284322 node_paths=PackedStringArray("camera") instance=ExtResource("4_jgeue")]
 transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, -0.7132276, 2.288871, -1.7572942)
 camera = NodePath("../Camera3D")
 
-[node name="GameOver" parent="Scene" unique_id=1945262765 instance=ExtResource("18_26mr1")]
+[node name="GameOver" parent="Scene" unique_id=1945262765 instance=ExtResource("5_8gvx6")]
 transform = Transform3D(-3.278823, 0, 0.087863214, 0, 3.28, 0, -0.087863214, 0, -3.278823, -0.278, 4.856266, 1.104)
 
 [node name="Camera3D" type="Camera3D" parent="Scene" unique_id=356183010]
@@ -494,27 +494,27 @@ mesh = SubResource("CapsuleMesh_272bh")
 [node name="ActorManager" type="Node3D" parent="." unique_id=615534014]
 transform = Transform3D(1.3, 0, 0, 0, 2, 0, 0, 0, 2, -0.7928251, 1.3890936, 2)
 visible = false
-script = ExtResource("6_ag2c3")
+script = ExtResource("6_2etmi")
 
 [node name="Acteur" type="Node3D" parent="ActorManager" unique_id=1534694206]
-script = ExtResource("10_ag2c3")
+script = ExtResource("7_g21jj")
 plan_number = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ActorManager/Acteur" unique_id=1062595058]
 root_node = NodePath("")
 
-[node name="DragonMesh" parent="ActorManager/Acteur" unique_id=521331207 instance=ExtResource("11_r4qdm")]
+[node name="DragonMesh" parent="ActorManager/Acteur" unique_id=521331207 instance=ExtResource("8_cegcp")]
 transform = Transform3D(2.5389833, 0.55370784, 0, -0.407898, 1.4561816, 0, 0, 0, 1.4999998, 0, 0, 0)
 
 [node name="IncidentsManager" type="Node" parent="." unique_id=2140090368]
 
-[node name="HerseMesh" parent="IncidentsManager" unique_id=2104592546 node_paths=PackedStringArray("light") instance=ExtResource("8_1027p")]
+[node name="HerseMesh" parent="IncidentsManager" unique_id=2104592546 node_paths=PackedStringArray("light") instance=ExtResource("9_orseh")]
 transform = Transform3D(-3, 0, -7.54979e-07, 0, 5, 0, 4.5298742e-07, 0, -5, 5.0088763, 5.4482927, 3.9196062)
-script = ExtResource("11_fie2r")
+script = ExtResource("10_tgpng")
 anim_name = "activate_herse"
 light = NodePath("SpotLight3D")
 
-[node name="Herse" parent="IncidentsManager/HerseMesh" unique_id=1377364127 instance=ExtResource("9_15cu4")]
+[node name="Herse" parent="IncidentsManager/HerseMesh" unique_id=1377364127 instance=ExtResource("11_kuiwp")]
 shape = SubResource("BoxShape3D_nbsfb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="IncidentsManager/HerseMesh" unique_id=81473188]
@@ -524,13 +524,13 @@ libraries/ = SubResource("AnimationLibrary_ag2c3")
 transform = Transform3D(0.3333018, 0.004584253, -4.7606363e-12, -0.0027505518, 0.19998108, -4.1532186e-10, -2.852829e-12, 4.1532192e-10, 0.2, -1.1920929e-07, -0.45896018, 0.29360813)
 light_energy = 6.613
 
-[node name="HornMesh" parent="IncidentsManager" unique_id=663205281 node_paths=PackedStringArray("light") instance=ExtResource("7_1hxc7")]
+[node name="HornMesh" parent="IncidentsManager" unique_id=663205281 node_paths=PackedStringArray("light") instance=ExtResource("12_cc4j3")]
 transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -4.788638, 3.1954951, 2.3880968)
-script = ExtResource("11_fie2r")
+script = ExtResource("10_tgpng")
 anim_name = "tutut"
 light = NodePath("SpotLight3D")
 
-[node name="Horn" parent="IncidentsManager/HornMesh" unique_id=1453017866 instance=ExtResource("9_15cu4")]
+[node name="Horn" parent="IncidentsManager/HornMesh" unique_id=1453017866 instance=ExtResource("11_kuiwp")]
 shape = SubResource("BoxShape3D_q661t")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="IncidentsManager/HornMesh" unique_id=1936878484]
@@ -543,14 +543,14 @@ spot_angle = 70.3125
 libraries/ = SubResource("AnimationLibrary_71a8p")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="IncidentsManager/HornMesh" unique_id=19551692]
-stream = ExtResource("14_8u0l0")
+stream = ExtResource("13_a014n")
 
-[node name="ChandelierMesh" parent="IncidentsManager" unique_id=1891042531 instance=ExtResource("6_r4qdm")]
+[node name="ChandelierMesh" parent="IncidentsManager" unique_id=1891042531 instance=ExtResource("14_mn8hc")]
 transform = Transform3D(2, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -0.18339112, 4.1768627, 1.9875224)
-script = ExtResource("15_ujv0r")
+script = ExtResource("15_bklgd")
 failed_distance = 3.0
 
-[node name="Chandelier" parent="IncidentsManager/ChandelierMesh" unique_id=1978840276 instance=ExtResource("16_2kc3f")]
+[node name="Chandelier" parent="IncidentsManager/ChandelierMesh" unique_id=1978840276 instance=ExtResource("16_1d0rp")]
 shape = SubResource("BoxShape3D_ujv0r")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="IncidentsManager/ChandelierMesh" unique_id=832858280]
@@ -559,14 +559,14 @@ libraries/ = SubResource("AnimationLibrary_3bdd5")
 
 [node name="CowBordel" type="Node3D" parent="IncidentsManager" unique_id=1562511606 node_paths=PackedStringArray("orchestrator", "control")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.703862, 1.7938716, 0.0059695244)
-script = ExtResource("15_3bdd5")
+script = ExtResource("17_q73ld")
 orchestrator = NodePath("../../Orchestrator")
 control = NodePath("Intru")
 
-[node name="CowMesh" parent="IncidentsManager/CowBordel" unique_id=1879863676 instance=ExtResource("16_4l38f")]
+[node name="CowMesh" parent="IncidentsManager/CowBordel" unique_id=1879863676 instance=ExtResource("18_2iqbm")]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="IncidentsManager/CowBordel" unique_id=327398156]
-stream = ExtResource("17_fie2r")
+stream = ExtResource("19_1ko2e")
 
 [node name="SfxTimer" type="Timer" parent="IncidentsManager/CowBordel" unique_id=312756681]
 one_shot = true
@@ -575,17 +575,17 @@ one_shot = true
 one_shot = true
 
 [node name="Intru" type="Node" parent="IncidentsManager/CowBordel" unique_id=1794021098]
-script = ExtResource("18_nbsfb")
+script = ExtResource("20_70dxw")
 metadata/_custom_type_script = "uid://opxnqhgj6yr7"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="IncidentsManager/CowBordel/Intru" unique_id=1172066469]
 
-[node name="Cow" parent="IncidentsManager/CowBordel" unique_id=1502549711 instance=ExtResource("19_dc1uk")]
+[node name="Cow" parent="IncidentsManager/CowBordel" unique_id=1502549711 instance=ExtResource("21_fc8ma")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="IncidentsManager/CowBordel" unique_id=202065020]
 
 [node name="Orchestrator" type="Node" parent="." unique_id=392292513 node_paths=PackedStringArray("animation_p")]
-script = ExtResource("16_7fwyp")
+script = ExtResource("22_b4xu0")
 animation_p = NodePath("../Act1")
 
 [node name="Plan1" type="Node" parent="Orchestrator" unique_id=961782369]
@@ -651,7 +651,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.469459, 4.933939)
 [node name="Node" type="Node" parent="Orchestrator" unique_id=1894943545]
 
 [node name="MouseManager" type="Node" parent="." unique_id=1658592573 node_paths=PackedStringArray("tomato_basket")]
-script = ExtResource("17_q661t")
+script = ExtResource("23_uel2o")
 tomato_basket = NodePath("../Scene/TomatoBasket")
 
 [node name="Act1" type="AnimationPlayer" parent="." unique_id=1389752533]
@@ -659,12 +659,12 @@ libraries/ = SubResource("AnimationLibrary_26mr1")
 autoplay = &"scene0"
 
 [node name="GenerateurAction" type="Node" parent="." unique_id=936528559 node_paths=PackedStringArray("target_animation_player")]
-script = ExtResource("13_1027p")
+script = ExtResource("24_cshfc")
 source_file_path = "res://stages/act_1/script.txt"
 target_animation_player = NodePath("../Act1")
 
 [node name="SceneMusicPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1512042630]
-stream = ExtResource("27_nbsfb")
+stream = ExtResource("25_yj2y1")
 volume_db = -5.538
 autoplay = true
 
@@ -776,12 +776,12 @@ visible = false
 
 [node name="FondScene" type="Sprite3D" parent="Decors" unique_id=955975264]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -1.0358963, 5.0135946, 7.4405117)
-texture = ExtResource("4_r47ec")
+texture = ExtResource("26_s74tu")
 
-[node name="Horn2Mesh" parent="Decors" unique_id=31394489 instance=ExtResource("7_1hxc7")]
+[node name="Horn2Mesh" parent="Decors" unique_id=31394489 instance=ExtResource("12_cc4j3")]
 transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -4.7487593, 3.448996, 1.8712091)
 
-[node name="CastleMesh" parent="Decors" unique_id=1569451564 instance=ExtResource("1_v8n6q")]
+[node name="CastleMesh" parent="Decors" unique_id=1569451564 instance=ExtResource("27_aa8rd")]
 transform = Transform3D(-13.1, 0, -7.54979e-07, 0, 5, 0, 1.978045e-06, 0, -5, -0.6407337, 2.8829699, 3.817027)
 
 [connection signal="resolved" from="IncidentsManager/HerseMesh/Herse" to="IncidentsManager/HerseMesh" method="_on_herse_resolved"]
