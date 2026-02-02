@@ -6,8 +6,7 @@ class_name Spectator
 @export var anim_bubble: AnimationPlayer
 
 func _ready() -> void:
-	react(["empty","joy","sad","angry"].pick_random())
-	await get_tree().create_timer(randf_range(0,5)).timeout
+	await get_tree().create_timer(randf()*2).timeout
 	anim.play("idle")
 
 func react(reaction:String):
@@ -15,10 +14,12 @@ func react(reaction:String):
 	match reaction:
 		"empty":
 			sprite_bubble.frame = 0
-		"joy":
+		"cow":
 			sprite_bubble.frame = 1
-		"sad":
+		"guitar":
 			sprite_bubble.frame = 2
 		"angry":
 			sprite_bubble.frame= 3
 	
+func leave():
+	anim.play("leave")

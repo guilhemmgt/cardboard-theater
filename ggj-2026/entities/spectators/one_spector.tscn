@@ -3,9 +3,11 @@
 [ext_resource type="Script" uid="uid://bg1hokvr1x107" path="res://entities/spectators/one_spector.gd" id="1_5y0jg"]
 [ext_resource type="Texture2D" uid="uid://bu0jq5rop2wt3" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="1_rgyvn"]
 [ext_resource type="Texture2D" uid="uid://dtsw2v5kq3m0h" path="res://entities/spectators/reactions/sprite_0.png" id="3_nns7w"]
-[ext_resource type="Texture2D" uid="uid://0vr14irtde5o" path="res://entities/spectators/reactions/sprite_1.png" id="4_0gwn5"]
-[ext_resource type="Texture2D" uid="uid://dmc4dx5xqmcwq" path="res://entities/spectators/reactions/sprite_2.png" id="5_exf4q"]
-[ext_resource type="Texture2D" uid="uid://7fmla1w8ixli" path="res://entities/spectators/reactions/sprite_3.png" id="6_u1ujy"]
+[ext_resource type="Texture2D" uid="uid://cbg24h2i8goyj" path="res://entities/spectators/reactions/cow.svg" id="4_nns7w"]
+[ext_resource type="Texture2D" uid="uid://xssdpkbjkg5i" path="res://entities/spectators/reactions/guitare.svg" id="5_0gwn5"]
+[ext_resource type="Texture2D" uid="uid://be454emiryrdi" path="res://entities/spectators/reactions/angry.svg" id="6_exf4q"]
+[ext_resource type="PackedScene" uid="uid://d0b08xu72xnum" path="res://carton/3Dcardboards/bulle_main/bulle_main.tscn" id="7_exf4q"]
+[ext_resource type="PackedScene" uid="uid://cl7su7uskwgcj" path="res://carton/3Dcardboards/bulle_handle/bulle_handle.tscn" id="8_u1ujy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mycd"]
 albedo_color = Color(0.20392157, 0.05490196, 0.02745098, 1)
@@ -22,13 +24,13 @@ animations = [{
 "texture": ExtResource("3_nns7w")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_0gwn5")
+"texture": ExtResource("4_nns7w")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_exf4q")
+"texture": ExtResource("5_0gwn5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_u1ujy")
+"texture": ExtResource("6_exf4q")
 }],
 "loop": true,
 "name": &"default",
@@ -40,30 +42,78 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Bubble/AnimatedSprite3D:modulate")
+tracks/0/path = NodePath("Corps/Bubble/BulleMain:transparency")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Corps/Bubble/BulleHandle:transparency")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Corps/Bubble/AnimatedSprite3D:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_0gwn5"]
 resource_name = "react"
-length = 3.0
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Bubble/AnimatedSprite3D:modulate")
+tracks/0/path = NodePath("Corps/Bubble/BulleMain:transparency")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 0.6597539),
+"times": PackedFloat32Array(0, 0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [0.0, 0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Corps/Bubble/BulleHandle:transparency")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Corps/Bubble/AnimatedSprite3D:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0gwn5"]
@@ -104,17 +154,34 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 0.2, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_exf4q"]
+resource_name = "leave"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Corps:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -1), Vector3(-20, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ux6eq"]
 _data = {
 &"RESET": SubResource("Animation_rgyvn"),
-&"idle": SubResource("Animation_5y0jg")
+&"idle": SubResource("Animation_5y0jg"),
+&"leave": SubResource("Animation_exf4q")
 }
 
 [node name="Spectator" type="Node3D" unique_id=1307589095 node_paths=PackedStringArray("anim", "sprite_bubble", "anim_bubble")]
 script = ExtResource("1_5y0jg")
 anim = NodePath("AnimationPlayer")
-sprite_bubble = NodePath("Bubble/AnimatedSprite3D")
-anim_bubble = NodePath("Bubble/AnimationPlayerBubble")
+sprite_bubble = NodePath("Corps/Bubble/AnimatedSprite3D")
+anim_bubble = NodePath("Corps/Bubble/AnimationPlayerBubble")
 
 [node name="Corps" type="Node3D" parent="." unique_id=550212420]
 
@@ -128,19 +195,29 @@ transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, 0, 0.
 material_override = SubResource("StandardMaterial3D_7mycd")
 mesh = SubResource("CapsuleMesh_272bh")
 
-[node name="Bubble" type="Node3D" parent="." unique_id=429852781]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8818287, 0)
+[node name="Bubble" type="Node3D" parent="Corps" unique_id=429852781]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.96372104, 1.9776808, 0)
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Bubble" unique_id=327830787]
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Corps/Bubble" unique_id=327830787]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.3114375, 0.1)
+modulate = Color(1, 1, 1, 0)
 sprite_frames = SubResource("SpriteFrames_xat2g")
 frame = 1
 
-[node name="Timer" type="Timer" parent="Bubble" unique_id=392476505]
+[node name="BulleMain" parent="Corps/Bubble" unique_id=1791090360 instance=ExtResource("7_exf4q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25557625, 0)
+transparency = 1.0
+
+[node name="BulleHandle" parent="Corps/Bubble" unique_id=1391828836 instance=ExtResource("8_u1ujy")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.4887951, -0.28009558, 0)
+transparency = 1.0
+
+[node name="Timer" type="Timer" parent="Corps/Bubble" unique_id=392476505]
 wait_time = 2.0
 one_shot = true
 
-[node name="AnimationPlayerBubble" type="AnimationPlayer" parent="Bubble" unique_id=1800323067]
-root_node = NodePath("../..")
+[node name="AnimationPlayerBubble" type="AnimationPlayer" parent="Corps/Bubble" unique_id=1800323067]
+root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_0gwn5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1738551721]
