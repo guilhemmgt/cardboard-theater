@@ -105,6 +105,44 @@ _data = {
 &"idle": SubResource("Animation_jgeue")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_jekqu"]
+
+[sub_resource type="Animation" id="Animation_w48y1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Horn:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jekqu"]
+resource_name = "horn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Horn:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.48, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.29496065), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w48y1"]
+_data = {
+&"RESET": SubResource("Animation_w48y1"),
+&"horn": SubResource("Animation_jekqu")
+}
+
 [sub_resource type="Resource" id="Resource_sl14i"]
 script = ExtResource("23_ws6au")
 actor_node_path = NodePath("../ActorManager/Actor1")
@@ -296,13 +334,23 @@ transform = Transform3D(2.5389833, 0.55370784, 0, -0.407898, 1.4561816, 0, 0, 0,
 
 [node name="IncidentsManager" type="Node" parent="." unique_id=2140090368]
 
-[node name="Clairon" parent="IncidentsManager" unique_id=1468308414 instance=ExtResource("11_kuiwp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0382838, 0)
+[node name="Clairon" parent="IncidentsManager" unique_id=1377364127 node_paths=PackedStringArray("anim_player_sucess") instance=ExtResource("11_kuiwp")]
+anim_name = "horn"
+anim_player_sucess = NodePath("succ")
+
+[node name="CollisionShape3D" parent="IncidentsManager/Clairon/Area3D" parent_id_path=PackedInt32Array(1377364127, 1245094455) index="0" unique_id=1780399060]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3690434, 3.6141105, 0.8418863)
+shape = SubResource("BoxShape3D_jekqu")
 
 [node name="SpotLight3D" parent="IncidentsManager/Clairon" index="2" unique_id=725087263]
+transform = Transform3D(-0.9926458, 0, -0.12105519, 0, 1, 0, 0.12105519, 0, -0.9926458, -3.3697002, 3.4848428, 0.07530789)
 visible = false
 
 [node name="Horn" parent="IncidentsManager/Clairon" unique_id=663205281 instance=ExtResource("12_cc4j3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4621015, 3.5264204, 1.0956626)
+
+[node name="succ" type="AnimationPlayer" parent="IncidentsManager/Clairon" unique_id=275578662]
+libraries/ = SubResource("AnimationLibrary_w48y1")
 
 [node name="Orchestrator" type="Node" parent="." unique_id=392292513 node_paths=PackedStringArray("animation_p")]
 script = ExtResource("22_b4xu0")
@@ -381,7 +429,7 @@ autoplay = &"scene0"
 
 [node name="GenerateurAction" type="Node" parent="." unique_id=936528559 node_paths=PackedStringArray("animation_player")]
 script = ExtResource("24_cshfc")
-timeline_file = "res://tzest.json"
+timeline_file = "res://test.json"
 animation_player = NodePath("../Act1")
 
 [node name="SceneMusicPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1512042630]

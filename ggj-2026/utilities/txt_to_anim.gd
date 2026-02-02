@@ -85,15 +85,15 @@ func _process_command(anim: Animation, cmd_type: String, data: Dictionary) -> vo
 		
 		"INCIDENT_ACTIVATION":
 			var actor: String = data.get("actor", "")
-			_add_method_key(anim, actor, begin_time, "activate_incident", [duration])
+			_add_method_key(anim, actor, begin_time, "activate", [duration])
 		
 		"INCIDENT_BREAK":
 			var actor: String = data.get("actor", "")
-			_add_method_key(anim, actor, begin_time, "break_incident", [duration])
+			_add_method_key(anim, actor, begin_time, "activate", [duration])
 		
 		"INCIDENT_INTRU":
 			var intru: String = data.get("intru", "")
-			_add_method_key(anim, intru, begin_time, "trigger_intru", [duration])
+			_add_method_key(anim, intru, begin_time, "activate", [duration])
 		
 		"ANIMATION":
 			var actor: String = data.get("actor", "")
