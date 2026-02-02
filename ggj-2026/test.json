@@ -1,0 +1,34 @@
+{
+  "timeline": [
+	{
+	  "MOVE": {
+		"actor": "Actor1",
+		"begin_time": 0.0,
+		"plan": 0,
+		"noeud": 1,
+		"duration": 2.0
+	  }
+	},
+	{
+	  "INCIDENT_ACTIVATION": {
+		"actor": "Nom_objet",
+		"begin_time": 2.5,
+		"duration": 1.0
+	  }
+	},
+	{
+	  "INCIDENT_BREAK": {
+		"actor": "Nom_objet",
+		"begin_time": 4.0,
+		"duration": 1.0
+	  }
+	},
+	{
+	  "INCIDENT_INTRU": {
+		"intru": "Nom_Intru",
+		"begin_time": 5.5,
+		"duration": 1.0
+	  }
+	}
+  ]
+}

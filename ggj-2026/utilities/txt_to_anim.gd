@@ -1,226 +1,168 @@
 @tool
 extends Node
 
-# Références
-@export_file("*.txt") var source_file_path: String
-@export var target_animation_player: AnimationPlayer
+@export_file("*.json") var timeline_file
+@export var animation_player: AnimationPlayer
 
-# --- TON BOUTON ---
-# Cette ligne ne marche QUE si tout le reste du script est sans erreur.
-@export_tool_button("Générer Animation") var generate_button = _on_generate_pressed
+@export_tool_button("Générer Animation")
+var generate_button := generate_animation
 
-const COMMAND_MAPPING = {
-	"WaitForClick": "activate",
-	"Move": "move",
-	"Repair": "activate"
-}
+var tracks := {}
 
-# Mapping for INCIDENT commands
-const INCIDENT_COMMAND_MAPPING = {
-	"SetDialogIncident": "set_text_to_write",
-	"ActDialogIncident": "activate"
-}
+# -----------------------------------------------------
 
-
-# La fonction appelée par le bouton
-func _on_generate_pressed() -> void:
-	if not source_file_path or not FileAccess.file_exists(source_file_path):
-		printerr("ERREUR: Fichier introuvable.")
-		return
-	
-	if not target_animation_player:
-		printerr("ERREUR: AnimationPlayer manquant.")
+func generate_animation() -> void:
+	if not _validate():
 		return
 
-	print("Génération en cours...")
-	parse_and_create_animation()
+	tracks.clear()
+	var timeline = _load_json_timeline(timeline_file)
 
-func parse_and_create_animation() -> void:
-	var file = FileAccess.open(source_file_path, FileAccess.READ)
-	var content = file.get_as_text()
-	
-	# CORRECTION 1: On dit explicitement que c'est un tableau de Strings
-	var lines: PackedStringArray = content.split("\n")
-	
-	var anim = Animation.new()
+	var anim := Animation.new()
 	anim.resource_name = "scene_generated"
 	anim.length = 60.0
-	anim.loop_mode = Animation.LOOP_NONE
+
+	for entry in timeline:
+		_process_entry(anim, entry)
+
+	_apply_animation(anim)
+	print("✅ Animation générée avec %d entrées" % timeline.size())
+
+# -----------------------------------------------------
+
+func _validate() -> bool:
+	if not FileAccess.file_exists(timeline_file):
+		printerr("Timeline JSON manquante")
+		return false
+	if not animation_player:
+		printerr("AnimationPlayer manquant")
+		return false
+	return true
+
+# -----------------------------------------------------
+
+func _load_json_timeline(path: String) -> Array:
+	var file := FileAccess.open(path, FileAccess.READ)
+	if not file:
+		printerr("Impossible d'ouvrir le JSON :", path)
+		return []
+
+	var text := file.get_as_text()
+	file.close()
+
+	var json := JSON.new()
+	var error := json.parse(text)
+	if error != OK:
+		printerr("JSON invalide :", json.get_error_message())
+		return []
+
+	var result: Dictionary = json.data
+	var timeline_data: Array = result.get("timeline", [])
+	return timeline_data
+
+# -----------------------------------------------------
+
+func _process_entry(anim: Animation, entry) -> void:
+	if typeof(entry) != TYPE_DICTIONARY:
+		return
 	
-	var tracks_cache = {}
-	var current_section = ""
+	var entry_dict: Dictionary = entry
+	for entry_type in entry_dict.keys():
+		print("Processing entry type: %s" % entry_type)
+		var data: Dictionary = entry_dict[entry_type]
+		_process_command(anim, entry_type, data)
+
+func _process_command(anim: Animation, cmd_type: String, data: Dictionary) -> void:
+	var begin_time: float = data.get("begin_time", 0.0)
+	var duration: float = data.get("duration", 1.0)
 	
-	for line in lines:
-		line = line.strip_edges()
-		if line.is_empty() or line.begins_with("-------"):
-			continue
-			
-		if line == "INIT":
-			current_section = "INIT"
-			continue
-		elif line == "SCENE":
-			current_section = "SCENE"
-			continue
+	match cmd_type:
+		"MOVE":
+			var actor: String = data.get("actor", "")
+			var plan: int = int(data.get("plan", 0))
+			var noeud: int = int(data.get("noeud", 0))
+			_add_method_key(anim, actor, begin_time, "move_to", [plan, noeud, duration])
 		
-		# CORRECTION 2: Typage strict ici aussi
-		var parts: PackedStringArray = line.split(" : ")
+		"INCIDENT_ACTIVATION":
+			var actor: String = data.get("actor", "")
+			_add_method_key(anim, actor, begin_time, "activate_incident", [duration])
 		
-		if current_section == "SCENE":
-			if parts.size() < 4:
-				continue
-				
-			# CORRECTION 3: Conversion explicite String -> Float
-			var time_str: String = parts[0]
-			var time: float = time_str.to_float()
-			
-			var command_type: String = parts[1]
-			var command_raw: String = parts[2]
-			var target_name: String = parts[3]
-			
-			var args_raw: Array = []
-			if parts.size() > 4:
-				for i in range(4, parts.size()):
-					args_raw.append(parts[i])
-			
-			# Handle INCIDENT type commands (SetDialogIncident, ActDialogIncident)
-			# Format: time : INCIDENT : SetDialogIncident : NodeName : text
-			# Format: time : INCIDENT : ActDialogIncident : NodeName : duration
-			if command_type == "INCIDENT" and command_raw in INCIDENT_COMMAND_MAPPING:
-				# target_name is the node name (e.g., KingDialog)
-				var cache_key = "INCIDENT_" + target_name
-				
-				var incident_track_idx: int = -1
-				if cache_key in tracks_cache:
-					incident_track_idx = tracks_cache[cache_key]
-				else:
-					# Find the actual node path for target_name
-					var node_path = _find_path_for_node(target_name)
-					if node_path.is_empty():
-						continue
-					incident_track_idx = anim.add_track(Animation.TYPE_METHOD)
-					anim.track_set_path(incident_track_idx, node_path)
-					tracks_cache[cache_key] = incident_track_idx
-				
-				# Get method name from INCIDENT_COMMAND_MAPPING
-				var method_name = INCIDENT_COMMAND_MAPPING.get(command_raw, command_raw.to_lower())
-				var parsed_args = _parse_arguments(args_raw)
-				
-				var key_dict = {
-					"method": method_name,
-					"args": parsed_args
-				}
-				
-				anim.track_insert_key(incident_track_idx, time, key_dict)
-				continue
-			
-			# Handle ACTION : DIALOG commands
-			# Format: time : ACTION : DIALOG : NodeName : duration
-			if command_type == "ACTION" and command_raw == "DIALOG":
-				# target_name is the bulle node (e.g., KnightBulle)
-				var cache_key = "DIALOG_" + target_name
-				
-				var dialog_track_idx: int = -1
-				if cache_key in tracks_cache:
-					dialog_track_idx = tracks_cache[cache_key]
-				else:
-					var node_path = _find_path_for_node(target_name)
-					if node_path.is_empty():
-						continue
-					dialog_track_idx = anim.add_track(Animation.TYPE_METHOD)
-					anim.track_set_path(dialog_track_idx, node_path)
-					tracks_cache[cache_key] = dialog_track_idx
-				
-				# start_dialog takes (text, duration)
-				# Format: time : ACTION : DIALOG : Node : duration : text
-				# args_raw = [duration, text]
-				var dialog_text = ""
-				var dialog_duration = 1.0
-				
-				if args_raw.size() > 0:
-					dialog_duration = str(args_raw[0]).to_float()
-				if args_raw.size() > 1:
-					dialog_text = str(args_raw[1])
-				
-				var final_args = [dialog_text, dialog_duration]
-				
-				var key_dict = {
-					"method": "start_dialog",
-					"args": final_args
-				}
-				
-				anim.track_insert_key(dialog_track_idx, time, key_dict)
-				continue
-			
-			# Gestion Piste (normal commands)
-			var track_idx = -1
-			if target_name in tracks_cache:
-				track_idx = tracks_cache[target_name]
-			else:
-				var node_path = _find_path_for_node(target_name)
-				# Skip if node not found (empty path)
-				if node_path.is_empty():
-					continue
-				track_idx = anim.add_track(Animation.TYPE_METHOD)
-				anim.track_set_path(track_idx, node_path)
-				tracks_cache[target_name] = track_idx
-			
-			# Gestion Clé
-			var method_name = COMMAND_MAPPING.get(command_raw, command_raw.to_lower())
-			var parsed_args = _parse_arguments(args_raw)
-			
-			var key_dict = {
-				"method": method_name,
-				"args": parsed_args
-			}
-			
-			anim.track_insert_key(track_idx, time, key_dict)
-	
-	# Mise à jour AnimationPlayer
-	var lib = target_animation_player.get_animation_library("")
-	if lib == null:
-		lib = AnimationLibrary.new()
-		target_animation_player.add_animation_library("", lib)
+		"INCIDENT_BREAK":
+			var actor: String = data.get("actor", "")
+			_add_method_key(anim, actor, begin_time, "break_incident", [duration])
 		
-	if lib.has_animation("scene0"):
-		lib.remove_animation("scene0")
+		"INCIDENT_INTRU":
+			var intru: String = data.get("intru", "")
+			_add_method_key(anim, intru, begin_time, "trigger_intru", [duration])
+		
+		"ANIMATION":
+			var actor: String = data.get("actor", "")
+			_add_method_key(anim, actor, begin_time, "anim", [data.get("animation", ""), data.get("duration", 1.0)])
+		
+		_:
+			printerr("Type de commande inconnu: ", cmd_type)
+
+func _add_method_key(anim: Animation, target: String, time: float, method: String, args: Array) -> void:
+	if target.is_empty():
+		printerr("Target vide pour méthode: ", method)
+		return
 	
+	var track = _get_track(anim, target)
+	if track == -1:
+		printerr("Track introuvable pour: ", target)
+		return
+
+	anim.track_insert_key(track, time, {
+		"method": method,
+		"args": args
+	})
+
+# -----------------------------------------------------
+
+func _get_track(anim: Animation, target: String) -> int:
+	if target in tracks:
+		return tracks[target]
+
+	var node_path = _find_node_path(target)
+	if node_path.is_empty():
+		return -1
+
+	var idx = anim.add_track(Animation.TYPE_METHOD)
+	anim.track_set_path(idx, node_path)
+	tracks[target] = idx
+	return idx
+
+# -----------------------------------------------------
+
+func _apply_animation(anim: Animation) -> void:
+	# Créer le dossier si nécessaire
+	var dir = DirAccess.open("res://")
+	if not dir.dir_exists("animations"):
+		dir.make_dir("animations")
+	
+	var anim_path = "res://animations/scene0.tres"
+	var lib_path = "res://animations/scene_library.tres"
+	
+	# Utiliser take_over_path pour éviter les conflits de ressource
+	anim.take_over_path(anim_path)
+	ResourceSaver.save(anim, anim_path)
+	
+	# Créer une nouvelle library (évite les problèmes de cache)
+	var lib = AnimationLibrary.new()
 	lib.add_animation("scene0", anim)
-	print("Animation 'scene0' créée avec succès !")
-
-# CORRECTION 4 : C'est cette fonction qui faisait planter le bouton avant
-func _parse_arguments(args_string_array: Array) -> Array:
-	var final_args: Array = []
-	for raw_arg in args_string_array:
-		# TRÈS IMPORTANT: On force la variable en String
-		var arg_str: String = str(raw_arg)
-		
-		# Maintenant Godot accepte .split() car il sait que c'est du texte
-		if "-" in arg_str and arg_str.length() > 1:
-			var sub_parts = arg_str.split("-")
-			for sp in sub_parts:
-				var sp_str: String = str(sp)
-				if sp_str.is_valid_float():
-					final_args.append(sp_str.to_float())
-		elif arg_str.is_valid_float():
-			final_args.append(arg_str.to_float())
-		else:
-			final_args.append(arg_str)
-	return final_args
-
-func _find_path_for_node(target_name: String) -> NodePath:
-	if not target_animation_player:
-		printerr("AVERTISSEMENT: Noeud '%s' non trouvé (pas d'AnimationPlayer)." % target_name)
-		return NodePath()
+	lib.take_over_path(lib_path)
+	ResourceSaver.save(lib, lib_path)
 	
-	var root = target_animation_player.get_parent()
-	if not root:
-		printerr("AVERTISSEMENT: Noeud '%s' non trouvé (pas de parent root)." % target_name)
-		return NodePath()
-		
-	var node: Node = root.find_child(target_name, true, false)
+	# Assigner au player
+	if animation_player.has_animation_library(""):
+		animation_player.remove_animation_library("")
+	animation_player.add_animation_library("", lib)
 	
-	if node:
-		return root.get_path_to(node)
-	else:
-		printerr("AVERTISSEMENT: Noeud '%s' non trouvé dans la scène. Piste ignorée." % target_name)
-		return NodePath()
+	print("💾 Animation sauvegardée: ", anim_path)
+
+# -----------------------------------------------------
+
+func _find_node_path(name: String) -> NodePath:
+	var root = animation_player.get_parent()
+	var node = root.find_child(name, true, false)
+	return root.get_path_to(node) if node else NodePath()

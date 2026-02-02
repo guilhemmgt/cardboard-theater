@@ -8,9 +8,10 @@ signal points_ready
 @onready var plan2: Node = $Plan2
 @onready var plan3: Node = $Plan3
 @onready var incidents_manager: Node = $"../IncidentsManager"
-@export var animation_p : AnimationPlayer 
+@export var animation_p: AnimationPlayer
 
 @export var action_array: Array[ActorAction] = []
+@export var actor_manager: ActorManager
 
 var points_plan1: Array = []
 var points_plan2: Array = []
@@ -18,9 +19,9 @@ var points_plan3: Array = []
 
 # Pause system
 var is_paused: bool = false
-var registered_actors: Array[Actor] = []
 var incidents_nodes: Array[Incident] = []
 var is_point_ready: bool = false
+
 func _ready() -> void:
 	# Initialize plan points
 	points_plan1 = plan1.get_children()
@@ -30,14 +31,6 @@ func _ready() -> void:
 	# Emit signal to notify that points are ready
 	points_ready.emit()
 	is_point_ready = true
-	
-	# Find all RepairIncident nodes in incidents manager
-	for child in incidents_manager.get_children():
-		for incident in child.get_children():
-			if incident and incident is Incident:
-				var decor: Incident = incident as Incident
-				incidents_nodes.append(decor)
-	
 
 	for incident in incidents_nodes:
 		incident.resolved.connect(_on_event_success)
@@ -63,16 +56,6 @@ func get_plan_points(plan_number: int) -> Array:
 		_:
 			return []
 
-func register_actor(actor: Actor) -> void:
-	if actor not in registered_actors:
-		registered_actors.append(actor)
-		print("ActorController registered: %s" % actor.name)
-
-func unregister_actor(actor: Actor) -> void:
-	if actor in registered_actors:
-		registered_actors.erase(actor)
-		print("ActorController unregistered: %s" % actor.name)
-
 func get_pause_state() -> bool:
 	return is_paused
 
@@ -80,6 +63,7 @@ func _on_event_success() -> void:
 	print("Event resolved successfully")
 	if is_paused:
 		animation_p.play()
+		actor_manager.resume_all_actors()
 
 func _on_event_failure() -> void:
 	print("Event failed - game over")
@@ -90,6 +74,7 @@ func _on_event_failure() -> void:
 func _on_incident_activated(blocking: bool) -> void:
 	if blocking:
 		animation_p.pause()
+		actor_manager.pause_all_actors()
 		print("Blocking incident activated")
 	else:
 		print("Non-blocking incident activated")

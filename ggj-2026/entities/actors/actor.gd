@@ -2,7 +2,7 @@ extends Node
 class_name Actor
 
 @onready var actor_animation_player: AnimationPlayer = $AnimationPlayer
-
+@onready var actor_manager: ActorManager = get_parent()
 var is_actor_moving: bool = false
 
 # Références pour la pause
@@ -26,5 +26,18 @@ func anim(anim_name: String, anim_duration: float) -> void:
 	animation_timer.timeout.connect(on_animation_timer_timeout)
 	animation_timer.start()
 
+func pause_actor_timer() -> void:
+	if animation_timer:
+		animation_timer.paused = true
+
+func resume_actor_timer() -> void:
+	if animation_timer:
+		animation_timer.paused = false
+
 func on_animation_timer_timeout() -> void:
 	actor_animation_player.stop()
+
+func move_to(plan: int, node: int, duration: float) -> void:
+	var global_coordinates: Vector3 = actor_manager.get_node_coordinates(plan, node)
+	print("Moving myself : %s to %s in %s seconds" % [name, global_coordinates, duration])
+	move_to_coordinates(global_coordinates, duration)

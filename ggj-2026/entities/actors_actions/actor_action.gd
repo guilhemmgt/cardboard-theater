@@ -8,7 +8,7 @@ enum ActionType {
 }
 
 @export_node_path("Actor") var actor_node_path: NodePath
-
+@export var action_start_time: float = 0.0
 @export var action_type: ActionType = ActionType.MOVE:
 	set(value):
 		action_type = value
@@ -20,6 +20,7 @@ var move_duration: float = 1.0
 
 var anim_name: String = ""
 var anim_duration: float = 1.0
+
 
 func _get_property_list() -> Array:
 	var props: Array = []
