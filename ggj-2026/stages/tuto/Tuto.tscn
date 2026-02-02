@@ -61,14 +61,6 @@ albedo_texture = ExtResource("6_2kd4g")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mycd"]
-albedo_color = Color(0.20392157, 0.05490196, 0.02745098, 1)
-albedo_texture = ExtResource("6_2kd4g")
-uv1_triplanar = true
-uv1_world_triplanar = true
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_272bh"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfg05"]
 transparency = 1
 diffuse_mode = 3
@@ -193,79 +185,6 @@ transform = Transform3D(7.7982745, 0, 0, 0, 0.0033833408, -1.1078875, 0, 0.44257
 material_override = SubResource("StandardMaterial3D_h2yge")
 mesh = SubResource("BoxMesh_h2yge")
 
-[node name="Viewers" type="Node3D" parent="." unique_id=806130277]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3041154, -0.37863255)
-
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="Viewers" unique_id=1745814669]
-transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, -2.5280461, 0.33964872, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="Viewers" unique_id=57464366]
-transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, -1.6340213, 0.3529414, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="Viewers" unique_id=1596440797]
-transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, -0.78751826, 0.3529414, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="MeshInstance3D12" type="MeshInstance3D" parent="Viewers" unique_id=1323093242]
-transform = Transform3D(0.6712459, 0, 0, 0, 0.94895613, 0, 0, 0, 0.28313547, 0.037874937, 0.3529414, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="MeshInstance3D13" type="MeshInstance3D" parent="Viewers" unique_id=929207664]
-transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, 0.84049463, 0.3529414, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="MeshInstance3D14" type="MeshInstance3D" parent="Viewers" unique_id=1486968777]
-transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, 1.7345195, 0.3529414, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="MeshInstance3D15" type="MeshInstance3D" parent="Viewers" unique_id=418768920]
-transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, 2.5810225, 0.3529414, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="MeshInstance3D16" type="MeshInstance3D" parent="Viewers" unique_id=1312930862]
-transform = Transform3D(0.39371368, 0, 0, 0, 0.20889418, 0, 0, 0, 0.28313547, 2.5810225, 1.3669574, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="MeshInstance3D17" type="MeshInstance3D" parent="Viewers" unique_id=657810484]
-transform = Transform3D(0.39371368, 0, 0, 0, 0.20889418, 0, 0, 0, 0.28313547, 1.7204864, 1.3669574, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="MeshInstance3D18" type="MeshInstance3D" parent="Viewers" unique_id=1702979331]
-transform = Transform3D(0.39371368, 0, 0, 0, 0.20889418, 0, 0, 0, 0.28313547, 0.81798923, 1.3669574, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="MeshInstance3D19" type="MeshInstance3D" parent="Viewers" unique_id=1691428394]
-transform = Transform3D(0.39371368, 0, 0, 0, 0.20889418, 0, 0, 0, 0.28313547, 0.00027143955, 1.3669574, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="MeshInstance3D20" type="MeshInstance3D" parent="Viewers" unique_id=642651703]
-transform = Transform3D(0.39371368, 0, 0, 0, 0.20889418, 0, 0, 0, 0.28313547, -0.736955, 1.3669574, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="MeshInstance3D21" type="MeshInstance3D" parent="Viewers" unique_id=1203749790]
-transform = Transform3D(0.39371368, 0, 0, 0, 0.20889418, 0, 0, 0, 0.28313547, -1.688367, 1.3669574, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="MeshInstance3D22" type="MeshInstance3D" parent="Viewers" unique_id=678083559]
-transform = Transform3D(0.39371368, 0, 0, 0, 0.20889418, 0, 0, 0, 0.28313547, -2.4744263, 1.3669574, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
 [node name="Camera3D" type="Camera3D" parent="." unique_id=356183010]
 transform = Transform3D(-0.99999803, 0.0018779158, -0.0006346515, 0.0018191794, 0.99659187, 0.08247014, 0.00078736054, 0.08246882, -0.99659336, -0.3704396, 2.5399058, -2.0036309)
 
@@ -366,7 +285,6 @@ transform = Transform3D(-2.4, 0, -9.452337e-08, 0, 1.2, 0, 3.6238998e-07, 0, -0.
 transform = Transform3D(0.8333332, 0, 0, 0, 1.6666664, 0, 0, 0, 3.1948874, -0.35431206, -2.1806734, -0.8877437)
 
 [node name="Cible" parent="Actors/CibleMesh" unique_id=1767442541 instance=ExtResource("14_obc52")]
-plan_number = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/CibleMesh/Cible" unique_id=1324482817]
 libraries/ = SubResource("AnimationLibrary_erwgl")
@@ -375,7 +293,6 @@ libraries/ = SubResource("AnimationLibrary_erwgl")
 transform = Transform3D(0.6666666, 0, 0, 0, 1.6666665, 0, 0, 0, 3.1948879, 3.4355989, -1.9939046, 1.1093436)
 
 [node name="MadKing" parent="Actors/MadKingMesh" unique_id=930725947 instance=ExtResource("14_obc52")]
-plan_number = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/MadKingMesh/MadKing" unique_id=302942200]
 libraries/ = SubResource("AnimationLibrary_erwgl")
@@ -384,7 +301,6 @@ libraries/ = SubResource("AnimationLibrary_erwgl")
 transform = Transform3D(0.54166657, 0, 0, 0, 1.6666665, 0, 0, 0, 3.1948879, 4.088849, -1.916998, 0.36876416)
 
 [node name="Knight" parent="Actors/KnightMesh" unique_id=291110794 instance=ExtResource("14_obc52")]
-plan_number = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/KnightMesh/Knight" unique_id=1936527560]
 libraries/ = SubResource("AnimationLibrary_erwgl")
@@ -393,7 +309,6 @@ libraries/ = SubResource("AnimationLibrary_erwgl")
 transform = Transform3D(1.4166666, 0, 0, 0, 2.4999998, 0, 0, 0, 4.7923317, -1.8470539, -1.7427275, -0.9756439)
 
 [node name="Dragon" parent="Actors/DragonMesh" unique_id=377714922 instance=ExtResource("14_obc52")]
-plan_number = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/DragonMesh/Dragon" unique_id=807053134]
 libraries/ = SubResource("AnimationLibrary_erwgl")
@@ -402,7 +317,6 @@ libraries/ = SubResource("AnimationLibrary_erwgl")
 transform = Transform3D(0.49999997, 0, 0, 0, 1.2499999, 0, 0, 0, 1.5974439, -1.9701098, -2.159349, -0.07197213)
 
 [node name="GobTheGoblin" parent="Actors/GobTheGoblinMesh" unique_id=1321542998 instance=ExtResource("14_obc52")]
-plan_number = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/GobTheGoblinMesh/GobTheGoblin" unique_id=2020234696]
 libraries/ = SubResource("AnimationLibrary_erwgl")
@@ -411,7 +325,6 @@ libraries/ = SubResource("AnimationLibrary_erwgl")
 transform = Transform3D(0.41666663, 0, 0, 0, 1.2499999, 0, 0, 0, 1.5974439, 4.137426, -2.2553964, 1.0904732)
 
 [node name="Princess" parent="Actors/PrincessMesh" unique_id=163724264 instance=ExtResource("14_obc52")]
-plan_number = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/PrincessMesh/Princess" unique_id=1205569833]
 libraries/ = SubResource("AnimationLibrary_erwgl")
@@ -420,7 +333,6 @@ libraries/ = SubResource("AnimationLibrary_erwgl")
 transform = Transform3D(0.58333325, 0, 0, 0, 1.6666665, 0, 0, 0, 3.1948879, -1.6293918, -1.9818656, 0.27767062)
 
 [node name="GreatestTree" parent="Actors/GreatestTreeMesh" unique_id=14454687 instance=ExtResource("14_obc52")]
-plan_number = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/GreatestTreeMesh/GreatestTree" unique_id=942092565]
 libraries/ = SubResource("AnimationLibrary_erwgl")
