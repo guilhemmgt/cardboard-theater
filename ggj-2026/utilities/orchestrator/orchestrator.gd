@@ -17,7 +17,7 @@ var points_plan3: Array = []
 
 # Pause system
 var is_paused: bool = false
-var registered_actors: Array[ActorController] = []
+var registered_actors: Array[Actor] = []
 var incidents_nodes: Array[Incident] = []
 var is_point_ready: bool = false
 func _ready() -> void:
@@ -57,12 +57,12 @@ func get_plan_points(plan_number: int) -> Array:
 		_:
 			return []
 
-func register_actor(actor: ActorController) -> void:
+func register_actor(actor: Actor) -> void:
 	if actor not in registered_actors:
 		registered_actors.append(actor)
 		print("ActorController registered: %s" % actor.name)
 
-func unregister_actor(actor: ActorController) -> void:
+func unregister_actor(actor: Actor) -> void:
 	if actor in registered_actors:
 		registered_actors.erase(actor)
 		print("ActorController unregistered: %s" % actor.name)

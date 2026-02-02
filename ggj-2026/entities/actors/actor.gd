@@ -1,9 +1,8 @@
 extends Node
-class_name ActorController
+class_name Actor
 
 @onready var actor_node: Node = get_parent()
 @onready var actor_animation_player: AnimationPlayer = $AnimationPlayer
-@onready var orchestrator: Orchestrator = $"../../../Orchestrator"
 
 var is_actor_moving: bool = false
 var is_paused: bool = false
