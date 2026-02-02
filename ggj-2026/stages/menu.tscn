@@ -1,17 +1,21 @@
 [gd_scene format=3 uid="uid://csb1hvxvdxbcr"]
 
 [ext_resource type="PackedScene" uid="uid://dlevpco8snw5k" path="res://ui/button/bouton.tscn" id="1_1mqmr"]
+[ext_resource type="Material" uid="uid://ctqhsf2gopi7n" path="res://carton/cardboard.tres" id="2_27a35"]
 
 [node name="Menu" type="Node3D" unique_id=324641818]
 
 [node name="Button" parent="." unique_id=834246769 instance=ExtResource("1_1mqmr")]
 transform = Transform3D(0.08210469, 0, 0, 0, 0.7444232, 0, 0, 0, 1.885254, 0, 1, 0)
+material_override = ExtResource("2_27a35")
 
 [node name="Button2" parent="." unique_id=1952704829 instance=ExtResource("1_1mqmr")]
 transform = Transform3D(0.08210469, 0, 0, 0, 0.7444232, 0, 0, 0, 1.885254, 0, 0.047635794, 0)
+material_override = ExtResource("2_27a35")
 
 [node name="Button3" parent="." unique_id=722182244 instance=ExtResource("1_1mqmr")]
 transform = Transform3D(0.08210469, 0, 0, 0, 0.7444232, 0, 0, 0, 1.885254, 0, 1.9101591, 0)
+material_override = ExtResource("2_27a35")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2079122670]
 transform = Transform3D(-0.019808233, 0, 0.9998038, 0, 1, 0, -0.9998038, 0, -0.019808233, 2.7939744, 0.6890521, 0)
