@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dlevpco8snw5k"]
 
+[ext_resource type="Material" uid="uid://ctqhsf2gopi7n" path="res://carton/cardboard.tres" id="1_y8qu1"]
 [ext_resource type="Script" uid="uid://dhcr03f3m0kiw" path="res://ui/button/buttonUI.gd" id="1_y084j"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_noarx"]
@@ -62,10 +63,14 @@ _data = {
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a202f"]
 
-[node name="Button" type="MeshInstance3D" unique_id=834246769]
+[node name="Button" type="MeshInstance3D" unique_id=834246769 node_paths=PackedStringArray("_area", "_label")]
 transform = Transform3D(0.08210469, 0, 0, 0, 0.7444232, 0, 0, 0, 1.885254, 0, 0, 0)
+material_override = ExtResource("1_y8qu1")
 mesh = SubResource("BoxMesh_noarx")
 script = ExtResource("1_y084j")
+_area = NodePath("Area3D")
+_label = NodePath("Label3D")
+text = "ToWrite"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1729891233]
 libraries/ = SubResource("AnimationLibrary_jka67")
@@ -75,6 +80,10 @@ transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0.019411
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=325102232]
 shape = SubResource("BoxShape3D_a202f")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1281603326]
+transform = Transform3D(-0.0048954072, -0.0064841714, 0.9999668, 0.0035771441, 0.9999719, 0.0065017184, -0.99998134, 0.0036088522, -0.0048720757, 0.5040617, 0.008521088, 0)
+text = "To Write"
 
 [connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]
 [connection signal="mouse_exited" from="Area3D" to="." method="_on_area_3d_mouse_exited"]

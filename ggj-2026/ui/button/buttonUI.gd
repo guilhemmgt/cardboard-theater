@@ -1,16 +1,19 @@
+@tool
 extends MeshInstance3D
 class_name ButtonUI
 
+signal button_clicked
+
+@export var _area : Area3D
+@export var _label : Label3D
+@export  var text : String 
 
 var random_offset: float
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	pass # Replace with function body.
+	_area.input_event.connect(_on_click)
+	_label.text = text
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func turn_with_elasticity(duration: float,degrees: float = 2.0) -> void:
 	var tween: Tween = create_tween()
@@ -31,3 +34,8 @@ func _on_area_3d_mouse_entered() -> void:
 
 func _on_area_3d_mouse_exited() -> void:
 	reset_with_elasticity(0.5)
+
+
+func _on_click(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+	if event.is_action_released("click"):
+		button_clicked.emit()
