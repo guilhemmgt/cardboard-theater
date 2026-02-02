@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bmq3jlb1anrhf" path="res://carton/3Dcardboards/border/border.tscn" id="3_sl14i"]
 [ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="4_jgeue"]
 [ext_resource type="PackedScene" uid="uid://d3t74t4c2wtyw" path="res://ui/signs/game_over.tscn" id="5_8gvx6"]
-[ext_resource type="Script" uid="uid://cldyre5xcua07" path="res://stages/actor_manager.gd" id="6_2etmi"]
+[ext_resource type="Script" uid="uid://cldyre5xcua07" path="res://entities/actors/actor_manager.gd" id="6_2etmi"]
 [ext_resource type="Script" uid="uid://burtkkchfm8es" path="res://entities/actors/actor.gd" id="7_g21jj"]
 [ext_resource type="PackedScene" uid="uid://bn21pj7fdgghm" path="res://carton/3Dcardboards/dragon/dragon.tscn" id="8_cegcp"]
 [ext_resource type="PackedScene" uid="uid://be0prrgukhrkt" path="res://carton/3Dcardboards/herse/herse.tscn" id="9_orseh"]
@@ -329,7 +329,6 @@ script = ExtResource("1_48gpw")
 environment = SubResource("Environment_fie2r")
 
 [node name="Scene" type="Node3D" parent="." unique_id=370260049]
-visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Scene" unique_id=276157703]
 transform = Transform3D(21.158024, 0, 0, 0, 0.44524917, 0, 0, 0, 3.6222339, -0.50124836, 0.16087198, 2.6273727)
@@ -419,7 +418,6 @@ transform = Transform3D(-0.99999803, 0.0018779158, -0.0006346515, 0.0018191794, 
 
 [node name="spectateur" type="Node3D" parent="." unique_id=806130277]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3041154, -0.37863255)
-visible = false
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="spectateur" unique_id=1745814669]
 transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, -2.5280461, 0.33964872, 0.78881216)
@@ -493,7 +491,6 @@ mesh = SubResource("CapsuleMesh_272bh")
 
 [node name="ActorManager" type="Node3D" parent="." unique_id=615534014]
 transform = Transform3D(1.3, 0, 0, 0, 2, 0, 0, 0, 2, -0.7928251, 1.3890936, 2)
-visible = false
 script = ExtResource("6_2etmi")
 
 [node name="Acteur" type="Node3D" parent="ActorManager" unique_id=1534694206]
@@ -671,7 +668,6 @@ autoplay = true
 [node name="DialogManager" type="Node" parent="." unique_id=1332470380]
 
 [node name="Lights" type="Node3D" parent="." unique_id=537995971]
-visible = false
 
 [node name="LightLeft" type="SpotLight3D" parent="Lights" unique_id=1504898289]
 transform = Transform3D(0.5314247, -0.563775, 0.6322544, -0.77931625, -0.03281703, 0.625771, -0.33204535, -0.8252762, -0.45679873, 5.45765, 3.1800647, -2.9016764)
@@ -772,7 +768,6 @@ spot_range = 7.5137596
 spot_angle = 43.361313
 
 [node name="Decors" type="Node3D" parent="." unique_id=2065833678]
-visible = false
 
 [node name="FondScene" type="Sprite3D" parent="Decors" unique_id=955975264]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -1.0358963, 5.0135946, 7.4405117)
