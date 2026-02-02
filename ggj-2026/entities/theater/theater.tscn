@@ -1,0 +1,274 @@
+[gd_scene format=3 uid="uid://db6l51gxty1ec"]
+
+[ext_resource type="Script" uid="uid://vlp37ghm0u3" path="res://entities/theater/theater.gd" id="1_5k1p7"]
+[ext_resource type="Texture2D" uid="uid://cktr80sscioby" path="res://carton/paper_0009_1k/paper_0009_color_1k.jpg" id="2_umf7y"]
+[ext_resource type="PackedScene" uid="uid://bmq3jlb1anrhf" path="res://carton/3Dcardboards/border/border.tscn" id="3_qqqc6"]
+[ext_resource type="PackedScene" uid="uid://d54151oehwue" path="res://carton/3Dcardboards/curtain/curtain.tscn" id="4_dpkxa"]
+[ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="5_asdu4"]
+[ext_resource type="Texture2D" uid="uid://bu0jq5rop2wt3" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="6_yt3pu"]
+[ext_resource type="AudioStream" uid="uid://cb1ckd7b3kmcu" path="res://sounds/music/ggj2026.mp3" id="12_06l2k"]
+
+[sub_resource type="Environment" id="Environment_fie2r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_06h8b"]
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("2_umf7y")
+uv1_scale = Vector3(15, 15, 15)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cu7i0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c1sqk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cvug1"]
+albedo_texture = ExtResource("2_umf7y")
+
+[sub_resource type="BoxMesh" id="BoxMesh_h2yge"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o4pr5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v8qa1"]
+albedo_texture = ExtResource("2_umf7y")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mycd"]
+albedo_color = Color(0.20392157, 0.05490196, 0.02745098, 1)
+albedo_texture = ExtResource("6_yt3pu")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_272bh"]
+
+[node name="Theater" type="Node3D" unique_id=814067477]
+script = ExtResource("1_5k1p7")
+curtains_anim_duration = 2.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2029467546]
+environment = SubResource("Environment_fie2r")
+
+[node name="Scene" type="Node3D" parent="." unique_id=370260049]
+
+[node name="Background" type="MeshInstance3D" parent="Scene" unique_id=1194040714]
+transform = Transform3D(21.158024, 0, 0, 0, -2.789886e-09, -6.731624, 0, 0.06382515, -2.9424865e-07, -0.50124836, 2.8963041, 3.873168)
+material_override = SubResource("StandardMaterial3D_06h8b")
+mesh = SubResource("BoxMesh_cu7i0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Scene/Background" unique_id=1491653456]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scene/Background/StaticBody3D" unique_id=1754339856]
+shape = SubResource("BoxShape3D_c1sqk")
+
+[node name="Floor" type="MeshInstance3D" parent="Scene" unique_id=276157703]
+transform = Transform3D(21.158024, 0, 0, 0, 0.44524917, 0, 0, 0, 3.6222339, 0, 0.161, 2.627)
+material_override = SubResource("StandardMaterial3D_cvug1")
+mesh = SubResource("BoxMesh_h2yge")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Scene/Floor" unique_id=897770053]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scene/Floor/StaticBody3D" unique_id=1092895621]
+shape = SubResource("BoxShape3D_o4pr5")
+
+[node name="Frame" parent="Scene" unique_id=195769391 instance=ExtResource("3_qqqc6")]
+transform = Transform3D(11, 0, 0, 0, 6, 0, 0, 0, 6, 0.22639132, 2.15, 1.005)
+
+[node name="Curtains" type="Node3D" parent="Scene" unique_id=170338980]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15, 0.9595464)
+
+[node name="curtain_left" parent="Scene/Curtains" unique_id=394997416 instance=ExtResource("4_dpkxa")]
+transform = Transform3D(-4, 0, -6.039832e-07, 0, 4, 0, 6.039832e-07, 0, -4, 6, 0, 0.057)
+
+[node name="curtain_right" parent="Scene/Curtains" unique_id=1730475326 instance=ExtResource("4_dpkxa")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -6, 0, 0.157)
+
+[node name="Desk" type="MeshInstance3D" parent="Scene" unique_id=1058338370]
+transform = Transform3D(3.2394567, 0.00089019176, 0.00029776664, -0.0057952264, 0.51246315, 0.010860661, -0.0037341698, -0.023051415, 0.24145828, -0.00032825768, 1.9806701, -1.7192054)
+material_override = SubResource("StandardMaterial3D_v8qa1")
+mesh = SubResource("BoxMesh_h2yge")
+
+[node name="TomatoBasket" parent="Scene/Desk" unique_id=735284322 node_paths=PackedStringArray("camera") instance=ExtResource("5_asdu4")]
+transform = Transform3D(-0.15434617, -0.00027611543, 0.00017794369, -0.0016914185, 0.97370684, 0.043798875, -0.0025487624, 0.09295306, -2.0665665, -0.11072514, 0.6023197, -0.10195494)
+camera = NodePath("../Camera3D")
+
+[node name="Camera3D" type="Camera3D" parent="Scene/Desk" unique_id=356183010]
+transform = Transform3D(-0.30869302, 3.6434358e-09, 0.00011317387, 9.088003e-05, 1.9335588, 0.24790068, -0.001504428, 0.52613676, -4.103725, -0.00010620721, 1.1141949, -1.0731091)
+
+[node name="Spectators" type="Node3D" parent="." unique_id=806130277]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3041154, -0.37863255)
+
+[node name="spectator_01" type="MeshInstance3D" parent="Spectators" unique_id=1745814669]
+transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, -2.5280461, 0.33964872, 0.78881216)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="spectator_01_head" type="MeshInstance3D" parent="Spectators/spectator_01" unique_id=678083559]
+transform = Transform3D(0.5865418, 0, 0, 0, 0.22013055, 0, 0, 0, 1, 0.07988119, 1.0825675, 0)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="spectator_02" type="MeshInstance3D" parent="Spectators" unique_id=57464366]
+transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, -1.6340213, 0.3529414, 0.78881216)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="spectator_02_head" type="MeshInstance3D" parent="Spectators/spectator_02" unique_id=1203749790]
+transform = Transform3D(0.5865418, 0, 0, 0, 0.22013055, 0, 0, 0, 1, -0.08096266, 1.0685598, 0)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="spectator_03" type="MeshInstance3D" parent="Spectators" unique_id=1596440797]
+transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, -0.78751826, 0.3529414, 0.78881216)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="spectator_03_head" type="MeshInstance3D" parent="Spectators/spectator_03" unique_id=642651703]
+transform = Transform3D(0.5865418, 0, 0, 0, 0.22013055, 0, 0, 0, 1, 0.075327516, 1.0685598, 0)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="spectator_04" type="MeshInstance3D" parent="Spectators" unique_id=1323093242]
+transform = Transform3D(0.6712459, 0, 0, 0, 0.94895613, 0, 0, 0, 0.28313547, 0.037874937, 0.3529414, 0.78881216)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="spectator_04_head" type="MeshInstance3D" parent="Spectators/spectator_04" unique_id=1691428394]
+transform = Transform3D(0.58654165, 0, 0, 0, 0.22013049, 0, 0, 0, 0.99999994, -0.056020454, 1.0685595, 0)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="spectator_05" type="MeshInstance3D" parent="Spectators" unique_id=929207664]
+transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, 0.84049463, 0.3529414, 0.78881216)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="spectator_05_head" type="MeshInstance3D" parent="Spectators/spectator_05" unique_id=1702979331]
+transform = Transform3D(0.5865418, 0, 0, 0, 0.22013055, 0, 0, 0, 1, -0.03352785, 1.0685598, 0)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="spectator_06" type="MeshInstance3D" parent="Spectators" unique_id=1486968777]
+transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, 1.7345195, 0.3529414, 0.78881216)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="spectator_06_head" type="MeshInstance3D" parent="Spectators/spectator_06" unique_id=657810484]
+transform = Transform3D(0.5865418, 0, 0, 0, 0.22013055, 0, 0, 0, 1, -0.020905972, 1.0685598, 0)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="spectator_07" type="MeshInstance3D" parent="Spectators" unique_id=418768920]
+transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, 2.5810225, 0.3529414, 0.78881216)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="spectator_07_head" type="MeshInstance3D" parent="Spectators/spectator_07" unique_id=1312930862]
+transform = Transform3D(0.5865418, 0, 0, 0, 0.22013055, 0, 0, 0, 1, 0, 1.0685598, 0)
+material_override = SubResource("StandardMaterial3D_7mycd")
+mesh = SubResource("CapsuleMesh_272bh")
+
+[node name="Lights" type="Node3D" parent="." unique_id=537995971]
+
+[node name="LightLeft" type="SpotLight3D" parent="Lights" unique_id=1504898289]
+transform = Transform3D(0.5314247, -0.563775, 0.6322544, -0.77931625, -0.03281703, 0.625771, -0.33204535, -0.8252762, -0.45679873, 5.45765, 3.1800647, -2.9016764)
+light_color = Color(1.129497, 1.1119101, 0.97466743, 1)
+light_energy = 4.0
+spot_range = 15.0
+spot_angle = 34.51
+
+[node name="LightRight" type="SpotLight3D" parent="Lights" unique_id=700232664]
+transform = Transform3D(-0.43600634, -0.68834263, -0.57972664, -0.7797458, -0.032681003, 0.62524277, -0.4493273, 0.7246492, -0.52248317, -5.4533906, 3.1800642, -2.2886848)
+light_color = Color(1.1338254, 1.1367571, 0.9688917, 1)
+light_energy = 4.0
+spot_range = 15.0
+spot_angle = 28.61
+
+[node name="ChandelierLight" type="SpotLight3D" parent="Lights" unique_id=520014080]
+transform = Transform3D(0.1686223, -0.9712803, -0.16787267, -0.006359375, -0.1713799, 0.9851845, -0.9856602, -0.16505653, -0.035075206, -0.13496487, 4.3873987, 2.7238648)
+light_color = Color(1.0518116, 1.0518116, 0.44291607, 1)
+light_energy = 16.0
+spot_range = 8.433
+spot_attenuation = 1.4
+spot_angle = 28.69
+
+[node name="red_spot" type="SpotLight3D" parent="Lights" unique_id=523710015]
+transform = Transform3D(0.1686223, -0.9712803, -0.16787267, -0.12788382, -0.19042961, 0.9733357, -0.97734964, -0.1426579, -0.1563217, -3.5273986, 4.989623, 1.3654623)
+light_color = Color(3.2944162, 0.82927567, 0.82927567, 1)
+light_energy = 1.5
+light_indirect_energy = 6.0
+light_bake_mode = 0
+spot_range = 8.0
+spot_angle = 20.0
+
+[node name="red_spot_2" type="SpotLight3D" parent="Lights" unique_id=729015296]
+transform = Transform3D(0.0726991, -0.9958584, 0.0545987, -0.12983169, 0.04482824, 0.9905222, -0.98886734, -0.07909871, -0.126035, 3.4608402, 4.771799, 1.587189)
+light_color = Color(3.2944162, 0.82927567, 0.82927567, 1)
+light_energy = 1.5
+light_indirect_energy = 6.0
+light_bake_mode = 0
+spot_range = 8.0
+spot_angle = 20.0
+
+[node name="orange_spot" type="SpotLight3D" parent="Lights" unique_id=1832577801]
+transform = Transform3D(-0.9892741, 0.10576006, -0.10075555, -0.08272545, 0.16284466, 0.98317754, 0.12038842, 0.9809671, -0.15234895, -1.5307536, 4.9325185, 1.272546)
+light_color = Color(2.9669967, 1.3660103, 0, 1)
+light_energy = 1.5
+light_indirect_energy = 6.0
+light_bake_mode = 0
+spot_range = 8.0
+spot_angle = 20.0
+
+[node name="orange_spot_22" type="SpotLight3D" parent="Lights" unique_id=768039840]
+transform = Transform3D(0.99057245, -0.13602988, 0.016187914, -0.050141986, -0.25006792, 0.9669291, -0.12748317, -0.9586251, -0.25453117, 1.7479587, 4.9337645, 1.293067)
+light_color = Color(2.9669967, 1.3660103, 0, 1)
+light_energy = 1.5
+light_indirect_energy = 6.0
+light_bake_mode = 0
+spot_range = 8.0
+spot_angle = 20.0
+
+[node name="yellow_spot" type="SpotLight3D" parent="Lights" unique_id=1309152111]
+transform = Transform3D(-0.98050904, 0.18061581, -0.07733069, -0.039344925, 0.20511618, 0.9779465, 0.19249438, 0.96192795, -0.19401194, -5.288739, 4.958808, 1.291822)
+light_color = Color(2.2101762, 1.902436, 0, 1)
+light_energy = 1.5
+light_indirect_energy = 6.0
+light_bake_mode = 0
+spot_range = 8.0
+spot_angle = 20.0
+
+[node name="yellow_spot_22" type="SpotLight3D" parent="Lights" unique_id=564459674]
+transform = Transform3D(0.9659416, -0.2473433, 0.07601378, -0.101729855, -0.0928914, 0.9904657, -0.23792401, -0.9644649, -0.11488987, 5.2892976, 4.7855835, 1.3826509)
+light_color = Color(2.2101762, 1.902436, 0, 1)
+light_energy = 1.5
+light_indirect_energy = 6.0
+light_bake_mode = 0
+spot_range = 8.0
+spot_angle = 20.0
+
+[node name="BackLight" type="SpotLight3D" parent="Lights" unique_id=1050655564]
+transform = Transform3D(-1, -8.37268e-11, -8.745542e-08, -4.3946784e-08, 0.86505514, 0.50167686, 7.561175e-08, 0.50167686, -0.86505514, 0.37043962, 2.5953343, -5.312769)
+light_color = Color(1.161201, 1.1413023, 1.1220638, 1)
+light_indirect_energy = 1.3
+spot_range = 16.624
+spot_attenuation = 0.2
+spot_angle = 40.62
+
+[node name="LightLeftTop" type="SpotLight3D" parent="Lights" unique_id=1000414162]
+transform = Transform3D(0.62663096, -0.040813435, 0.7782467, -0.7793161, -0.03281719, 0.62577105, 0, -0.9986278, -0.05237083, 5.0872107, 4.850341, 1.1241331)
+light_color = Color(1.1638972, 1.1638972, 0.4616239, 1)
+light_energy = 4.0
+spot_range = 7.5137596
+spot_angle = 43.361313
+
+[node name="LightRightTop" type="SpotLight3D" parent="Lights" unique_id=811234208]
+transform = Transform3D(-0.62577516, 0.008702377, -0.779955, -0.7797459, -0.03268105, 0.6252427, -0.020048652, 0.999428, 0.02723663, -5.8238297, 4.850341, 1.1241331)
+light_color = Color(1.1638972, 1.1638972, 0.4616239, 1)
+light_energy = 4.0
+spot_range = 7.5137596
+spot_angle = 43.361313
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=636979102]
+stream = ExtResource("12_06l2k")
+volume_db = -5.538
+autoplay = true
+
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="." unique_id=522851725]
+max_polyphony = 20
