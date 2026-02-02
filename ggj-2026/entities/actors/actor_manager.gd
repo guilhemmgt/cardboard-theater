@@ -1,13 +1,12 @@
 extends Node3D
 
 var actors: Array[Actor] = []
-@onready var orchestrator: Orchestrator = get_node("/root/Orchestrator")
+@onready var orchestrator: Orchestrator = $"../Orchestrator"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for child in get_children():
 		if child is Actor:
 			actors.append(child as Actor)
-			print("Actor found: %s" % child.name)
 	if not orchestrator.is_point_ready:
 		await orchestrator.points_ready
 
@@ -48,3 +47,11 @@ func get_target_global_position_by_id(target_plan_id: int, target_node_id: int) 
 			if target_node_id >= 0 and target_node_id < points_plan3.size():
 				target_global_position = points_plan3[target_node_id].global_position
 	return target_global_position
+
+func pause_all_actors() -> void:
+	for actor in actors:
+		#pause actor timer
+		if actor.animation_timer and actor.animation_timer.is_stopped() == false:
+			actor.animation_timer.stop()
+		else:
+			pass

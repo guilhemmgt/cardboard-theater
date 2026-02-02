@@ -1,6 +1,6 @@
 extends Node3D
 
-const WIN = preload("res://stages/act_1/win.tscn")
+const WIN = preload("res://stages/IntroOutro/win.tscn")
 
 
 func _on_act_1_animation_finished(anim_name: StringName) -> void:

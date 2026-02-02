@@ -8,7 +8,6 @@ var is_actor_moving: bool = false
 # Références pour la pause
 var current_tween: Tween
 var paused_animation: String = ""
-var was_animation_playing: bool = false
 var animation_timer: Timer
 
 func move_to_coordinates(target_global_position: Vector3, move_duration: float) -> void:

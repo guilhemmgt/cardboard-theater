@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://dq8y837y8ll4b" path="res://entities/incidents/intrusion/intrusion_incident.tscn" id="21_fc8ma"]
 [ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="22_b4xu0"]
 [ext_resource type="Script" uid="uid://d3uf356n1craj" path="res://ui/cursor/mouse_manager.gd" id="23_uel2o"]
+[ext_resource type="Script" uid="uid://bnhldnbowjgrs" path="res://entities/actors_actions/actor_action.gd" id="23_ws6au"]
 [ext_resource type="Script" uid="uid://b0g4fonj8fno0" path="res://utilities/txt_to_anim.gd" id="24_cshfc"]
 [ext_resource type="AudioStream" uid="uid://cb1ckd7b3kmcu" path="res://sounds/music/ggj2026.mp3" id="25_yj2y1"]
 [ext_resource type="Texture2D" uid="uid://b1rb783r5r7w7" path="res://entities/scenery/background/background.png" id="26_s74tu"]
@@ -250,6 +251,14 @@ _data = {
 &"RESET": SubResource("Animation_2kc3f"),
 &"tremblement": SubResource("Animation_7q86g")
 }
+
+[sub_resource type="Resource" id="Resource_sl14i"]
+script = ExtResource("23_ws6au")
+actor_node_path = NodePath("../ActorManager/Acteur")
+target_plan_id = 1
+target_node_id = 2
+move_duration = 1.54
+metadata/_custom_type_script = "uid://bnhldnbowjgrs"
 
 [sub_resource type="Animation" id="Animation_32htg"]
 resource_name = "scene_generated"
@@ -495,7 +504,6 @@ script = ExtResource("6_2etmi")
 
 [node name="Acteur" type="Node3D" parent="ActorManager" unique_id=1534694206]
 script = ExtResource("7_g21jj")
-plan_number = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ActorManager/Acteur" unique_id=1062595058]
 root_node = NodePath("")
@@ -584,6 +592,7 @@ metadata/_custom_type_script = "uid://opxnqhgj6yr7"
 [node name="Orchestrator" type="Node" parent="." unique_id=392292513 node_paths=PackedStringArray("animation_p")]
 script = ExtResource("22_b4xu0")
 animation_p = NodePath("../Act1")
+action_array = Array[ExtResource("23_ws6au")]([SubResource("Resource_sl14i")])
 
 [node name="Plan1" type="Node" parent="Orchestrator" unique_id=961782369]
 

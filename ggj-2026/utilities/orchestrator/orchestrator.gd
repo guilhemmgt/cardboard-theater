@@ -2,7 +2,6 @@ extends Node
 class_name Orchestrator
 
 signal points_ready
-signal pause_state_changed(is_paused: bool)
 
 @onready var game_over: Node3D = $"../GameOver"
 @onready var plan1: Node = $Plan1
@@ -10,6 +9,8 @@ signal pause_state_changed(is_paused: bool)
 @onready var plan3: Node = $Plan3
 @onready var incidents_manager: Node = $"../IncidentsManager"
 @export var animation_p : AnimationPlayer 
+
+@export var action_array: Array[ActorAction] = []
 
 var points_plan1: Array = []
 var points_plan2: Array = []
@@ -37,14 +38,19 @@ func _ready() -> void:
 				var decor: Incident = incident as Incident
 				incidents_nodes.append(decor)
 	
-	
-	# Connect signals for all incident nodes
-	print("Incidents found: %d" % incidents_nodes.size())
+
 	for incident in incidents_nodes:
 		incident.resolved.connect(_on_event_success)
 		incident.failed.connect(_on_event_failure)
 		incident.activated.connect(_on_incident_activated)
+
+	read_actions()
 		
+
+func read_actions() -> void:
+	for action in action_array:
+		print("Action: %s" % action.action_type)
+		print("Parameters: %s" % action)
 
 func get_plan_points(plan_number: int) -> Array:
 	match plan_number:
@@ -67,28 +73,6 @@ func unregister_actor(actor: Actor) -> void:
 		registered_actors.erase(actor)
 		print("ActorController unregistered: %s" % actor.name)
 
-func pause_all_actors() -> void:
-	is_paused = true
-	print("Pausing all actors")
-	for actor in registered_actors:
-		if is_instance_valid(actor):
-			actor.set_paused(true)
-	pause_state_changed.emit(true)
-
-func resume_all_actors() -> void:
-	is_paused = false
-	print("Resuming all actors")
-	for actor in registered_actors:
-		if is_instance_valid(actor):
-			actor.set_paused(false)
-	pause_state_changed.emit(false)
-
-func toggle_pause() -> void:
-	if is_paused:
-		resume_all_actors()
-	else:
-		pause_all_actors()
-
 func get_pause_state() -> bool:
 	return is_paused
 
@@ -97,19 +81,15 @@ func _on_event_success() -> void:
 	if is_paused:
 		animation_p.play()
 
-		resume_all_actors()
-
 func _on_event_failure() -> void:
 	print("Event failed - game over")
 	await get_tree().create_timer(2.0).timeout
-	#game_over.visible = true
 	var tween = create_tween()
 	tween.tween_property(game_over, "global_position:y", 2.203, 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 func _on_incident_activated(blocking: bool) -> void:
 	if blocking:
 		animation_p.pause()
-		pause_all_actors()
 		print("Blocking incident activated")
 	else:
 		print("Non-blocking incident activated")

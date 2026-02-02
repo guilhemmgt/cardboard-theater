@@ -11,9 +11,6 @@ class_name ActivationIncident
 func apply_shape() -> void:
 	if collisionShape:
 		collisionShape.shape = shape
-		print("shape applied")
-	else :
-		print("no collision shape")
 
 
 func _ready() -> void:

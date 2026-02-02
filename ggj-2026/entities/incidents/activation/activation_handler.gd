@@ -13,24 +13,20 @@ func _ready() -> void:
 			break
 
 	# events setup
-	print("[activation] Ready on: ", name, " - ActivationHandler: ", activation_incident)
 	activation_incident.activated.connect(_on_incident_activated)
 	activation_incident.failed.connect(_on_incident_failed)
 	activation_incident.resolved.connect(_on_incident_resolved)
 	light.visible = false
 	
 func _on_incident_activated(_blocking: bool) -> void:
-	print("[activation] Activated on: ", name)
 	light.visible=true
 	animation_player.play("light_blink")
 
 func _on_incident_failed() -> void:
-	print("[activation] Failed on: ", name)
 	animation_player.stop()
 	light.visible=false
 
 func _on_incident_resolved() -> void:
-	print("[activation] Resolved on: ", name)
 	animation_player.stop()
 	light.visible=false
 	if anim_name == null:
