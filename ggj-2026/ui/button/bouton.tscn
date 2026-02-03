@@ -64,6 +64,16 @@ _data = {
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a202f"]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5yfjs"]
+spread = 47.375
+initial_velocity_min = 0.5
+initial_velocity_max = 1.0
+scale_min = 0.01
+scale_max = 0.03
+
+[sub_resource type="SphereMesh" id="SphereMesh_so3rh"]
+material = ExtResource("1_y8qu1")
+
 [node name="Button" type="MeshInstance3D" unique_id=834246769 node_paths=PackedStringArray("_area", "_label")]
 transform = Transform3D(0.08210469, 0, 0, 0, 0.7444232, 0, 0, 0, 1.885254, 0, 0, 0)
 material_override = ExtResource("1_y8qu1")
@@ -90,6 +100,14 @@ outline_modulate = Color(0, 0, 0, 0.49803922)
 text = "ToWrite"
 font = ExtResource("3_5yfjs")
 font_size = 110
+
+[node name="CartonParticle" type="GPUParticles3D" parent="." unique_id=97677059]
+transform = Transform3D(1, 0, 0, 0, 0.9999997, 0, 0, 0, 0.99999976, 3.94938, 0, 0.3566351)
+emitting = false
+amount = 15
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_5yfjs")
+draw_pass_1 = SubResource("SphereMesh_so3rh")
 
 [connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]
 [connection signal="mouse_exited" from="Area3D" to="." method="_on_area_3d_mouse_exited"]

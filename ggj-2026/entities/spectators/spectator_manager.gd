@@ -14,6 +14,10 @@ const ONE_SPECTOR = preload("uid://wqndrrl2ra2q")
 var spectators_array : Array[Spectator]
 var spectators_array_ready_size: int
 
+@export_group("Leave anim")
+@export var min_time_between : float
+@export var max_time_between : float
+
 func _ready() -> void:
 	for ch in get_children():
 		if ch is Spectator:
@@ -42,10 +46,11 @@ func update_life(current_life:int, max_life:int):
 	print("num spectators leave : ",number_spectators_to_leave)
 	if current_life == 0:
 		number_spectators_to_leave = spectators_array.size()
-			
+	
 	for i in range(number_spectators_to_leave):
 		var leaving_spectator : Spectator = spectators_array.pick_random()
 		leaving_spectator.leave()
 		spectators_array.erase(leaving_spectator)
+		await get_tree().create_timer(randf_range(min_time_between, max_time_between)).timeout
 		
 	

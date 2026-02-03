@@ -2,71 +2,36 @@
 
 [ext_resource type="Script" uid="uid://bpswj8fvo7fgh" path="res://entities/spectators/spectator_manager.gd" id="1_xtwus"]
 [ext_resource type="PackedScene" uid="uid://wqndrrl2ra2q" path="res://entities/spectators/one_spector.tscn" id="2_vo3an"]
-[ext_resource type="Script" uid="uid://bg1hokvr1x107" path="res://entities/spectators/one_spector.gd" id="3_vo3an"]
 
-[node name="Spectators" type="Node" unique_id=1081804810]
+[node name="Spectators" type="Node3D" unique_id=369372739]
 script = ExtResource("1_xtwus")
 space_between_spectator = 1.2
 number_spectators_wanted = 8
+min_time_between = null
+max_time_between = null
 
-[node name="@Node3D@30704" type="Node3D" parent="." unique_id=1307589095 node_paths=PackedStringArray("anim", "sprite_bubble", "anim_bubble") instance=ExtResource("2_vo3an")]
-script = ExtResource("3_vo3an")
-anim = NodePath("AnimationPlayer")
-sprite_bubble = NodePath("Corps/Bubble/AnimatedSprite3D")
-anim_bubble = NodePath("Corps/Bubble/AnimationPlayerBubble")
+[node name="@Node3D@30704" parent="." unique_id=1307589095 instance=ExtResource("2_vo3an")]
 
-[node name="@Node3D@30705" type="Node3D" parent="." unique_id=1319805039 node_paths=PackedStringArray("anim", "sprite_bubble", "anim_bubble") instance=ExtResource("2_vo3an")]
+[node name="@Node3D@30705" parent="." unique_id=1319805039 instance=ExtResource("2_vo3an")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 0, 0)
-script = ExtResource("3_vo3an")
-anim = NodePath("AnimationPlayer")
-sprite_bubble = NodePath("Corps/Bubble/AnimatedSprite3D")
-anim_bubble = NodePath("Corps/Bubble/AnimationPlayerBubble")
 
-[node name="@Node3D@30706" type="Node3D" parent="." unique_id=735467939 node_paths=PackedStringArray("anim", "sprite_bubble", "anim_bubble") instance=ExtResource("2_vo3an")]
+[node name="@Node3D@30706" parent="." unique_id=735467939 instance=ExtResource("2_vo3an")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0, 0)
-script = ExtResource("3_vo3an")
-anim = NodePath("AnimationPlayer")
-sprite_bubble = NodePath("Corps/Bubble/AnimatedSprite3D")
-anim_bubble = NodePath("Corps/Bubble/AnimationPlayerBubble")
 
-[node name="@Node3D@30707" type="Node3D" parent="." unique_id=1615976499 node_paths=PackedStringArray("anim", "sprite_bubble", "anim_bubble") instance=ExtResource("2_vo3an")]
+[node name="@Node3D@30707" parent="." unique_id=1615976499 instance=ExtResource("2_vo3an")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6, 0, 0)
-script = ExtResource("3_vo3an")
-anim = NodePath("AnimationPlayer")
-sprite_bubble = NodePath("Corps/Bubble/AnimatedSprite3D")
-anim_bubble = NodePath("Corps/Bubble/AnimationPlayerBubble")
 
-[node name="@Node3D@30708" type="Node3D" parent="." unique_id=1927650966 node_paths=PackedStringArray("anim", "sprite_bubble", "anim_bubble") instance=ExtResource("2_vo3an")]
+[node name="@Node3D@30708" parent="." unique_id=1927650966 instance=ExtResource("2_vo3an")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 0, 0)
-script = ExtResource("3_vo3an")
-anim = NodePath("AnimationPlayer")
-sprite_bubble = NodePath("Corps/Bubble/AnimatedSprite3D")
-anim_bubble = NodePath("Corps/Bubble/AnimationPlayerBubble")
 
-[node name="@Node3D@30709" type="Node3D" parent="." unique_id=279740447 node_paths=PackedStringArray("anim", "sprite_bubble", "anim_bubble") instance=ExtResource("2_vo3an")]
+[node name="@Node3D@30709" parent="." unique_id=279740447 instance=ExtResource("2_vo3an")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0, 0)
-script = ExtResource("3_vo3an")
-anim = NodePath("AnimationPlayer")
-sprite_bubble = NodePath("Corps/Bubble/AnimatedSprite3D")
-anim_bubble = NodePath("Corps/Bubble/AnimationPlayerBubble")
 
-[node name="@Node3D@30710" type="Node3D" parent="." unique_id=361169112 node_paths=PackedStringArray("anim", "sprite_bubble", "anim_bubble") instance=ExtResource("2_vo3an")]
+[node name="@Node3D@30710" parent="." unique_id=361169112 instance=ExtResource("2_vo3an")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 0, 0)
-script = ExtResource("3_vo3an")
-anim = NodePath("AnimationPlayer")
-sprite_bubble = NodePath("Corps/Bubble/AnimatedSprite3D")
-anim_bubble = NodePath("Corps/Bubble/AnimationPlayerBubble")
 
-[node name="@Node3D@30711" type="Node3D" parent="." unique_id=522873530 node_paths=PackedStringArray("anim", "sprite_bubble", "anim_bubble") instance=ExtResource("2_vo3an")]
+[node name="@Node3D@30711" parent="." unique_id=522873530 instance=ExtResource("2_vo3an")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 0, 0)
-script = ExtResource("3_vo3an")
-anim = NodePath("AnimationPlayer")
-sprite_bubble = NodePath("Corps/Bubble/AnimatedSprite3D")
-anim_bubble = NodePath("Corps/Bubble/AnimationPlayerBubble")
 
-[node name="@Node3D@30712" type="Node3D" parent="." unique_id=935282014 node_paths=PackedStringArray("anim", "sprite_bubble", "anim_bubble") instance=ExtResource("2_vo3an")]
+[node name="@Node3D@30712" parent="." unique_id=935282014 instance=ExtResource("2_vo3an")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 0, 0)
-script = ExtResource("3_vo3an")
-anim = NodePath("AnimationPlayer")
-sprite_bubble = NodePath("Corps/Bubble/AnimatedSprite3D")
-anim_bubble = NodePath("Corps/Bubble/AnimationPlayerBubble")

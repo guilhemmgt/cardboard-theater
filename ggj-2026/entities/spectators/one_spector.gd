@@ -6,8 +6,7 @@ class_name Spectator
 @export var anim_bubble: AnimationPlayer
 
 func _ready() -> void:
-	await get_tree().create_timer(randf()*2).timeout
-	anim.play("idle")
+	anim.play("idle", -1, randf_range(0.8, 1.2), bool(randi()%2))
 
 func react(reaction:String):
 	anim_bubble.play("react")
