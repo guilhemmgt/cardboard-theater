@@ -1,8 +1,8 @@
 {
 	"timeline": [
 		{
-			"INCIDENT_BREAK": {
-				"actor": "RepairIncident",
+			"INCIDENT_INTRU": {
+				"actor": "CowIncident",
 				"begin_time": 2.5,
 				"duration": 1.0
 			}

@@ -9,3 +9,5 @@ signal toggle_curtains ## Open/close the curtains
 signal curtains_opening_started ## The curtains are closed but are about to open
 signal curtains_opened ## The curtains are fully opened
 signal curtains_closed ## The curtains are fully closed
+
+signal ask_to_move(node: Node3D, duration: float, plan: int, pos: int)

@@ -75,7 +75,7 @@ func _process_entry(anim: Animation, entry) -> void:
 func _process_command(anim: Animation, cmd_type: String, data: Dictionary) -> void:
 	var begin_time: float = data.get("begin_time", 0.0)
 	var duration: float = data.get("duration", 1.0)
-	
+
 	match cmd_type:
 		"MOVE":
 			var actor: String = data.get("actor", "")
