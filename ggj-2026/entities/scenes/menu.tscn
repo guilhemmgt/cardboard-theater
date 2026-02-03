@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://o82m05ah8w86"]
+
+[ext_resource type="PackedScene" uid="uid://bx7sb77iogb4g" path="res://carton/3Dcardboards/cible/cible.tscn" id="1_tdrc3"]
+[ext_resource type="PackedScene" uid="uid://ubi0bjcosamr" path="res://carton/3Dcardboards/nuage/nuage.tscn" id="2_tn8mj"]
+[ext_resource type="PackedScene" uid="uid://cypjg413etrtb" path="res://carton/Letters/LettersMain.tscn" id="3_34voo"]
+[ext_resource type="PackedScene" uid="uid://bn21pj7fdgghm" path="res://carton/3Dcardboards/dragon/dragon.tscn" id="4_jaqyd"]
+[ext_resource type="PackedScene" uid="uid://b8a0vav2gqvcg" path="res://carton/3Dcardboards/knight/knight.tscn" id="5_i7ewm"]
+[ext_resource type="PackedScene" uid="uid://cn7i0kbjp0mn7" path="res://carton/3Dcardboards/grass/border.tscn" id="6_hhemq"]
+[ext_resource type="PackedScene" uid="uid://d72scnyrgy0p" path="res://carton/3Dcardboards/crazy/intruder_crazy.tscn" id="7_ls1ps"]
+[ext_resource type="PackedScene" uid="uid://dycms7p36i6lc" path="res://carton/3Dcardboards/tree/greatest_tree.tscn" id="8_1g62v"]
+[ext_resource type="PackedScene" uid="uid://dlevpco8snw5k" path="res://ui/button/bouton.tscn" id="9_jaqyd"]
+[ext_resource type="Texture2D" uid="uid://cktr80sscioby" path="res://carton/paper_0009_1k/paper_0009_color_1k.jpg" id="10_i7ewm"]
+[ext_resource type="Texture2D" uid="uid://dt4w8nooq6i5b" path="res://carton/paper_0009_1k/paper_0009_normal_directx_1k.png" id="11_hhemq"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ls1ps"]
+size = Vector2(1, 2)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1g62v"]
+albedo_texture = ExtResource("10_i7ewm")
+normal_enabled = true
+normal_scale = 2.37
+normal_texture = ExtResource("11_hhemq")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[node name="Menu" type="Node3D" unique_id=814067477]
+
+[node name="Cible" parent="." unique_id=870559002 instance=ExtResource("1_tdrc3")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.5344777, 1.1814232, 2.1620302)
+
+[node name="Nuage" parent="." unique_id=2083094686 instance=ExtResource("2_tn8mj")]
+transform = Transform3D(-2.4, 0, -9.452337e-08, 0, 1.2, 0, 3.6238995e-07, 0, -0.626, 1.6151732, 3.7982314, 1.6063027)
+
+[node name="Nuage2" parent="." unique_id=1432318036 instance=ExtResource("2_tn8mj")]
+transform = Transform3D(-1.9923894, 0.08715574, 4.563469e-08, 0.17431147, 0.9961947, 0, -1.7418022e-07, 7.619397e-09, -0.522, -3.577897, 2.5045135, 1.7398045)
+
+[node name="LettersMain" parent="." unique_id=1102856649 instance=ExtResource("3_34voo")]
+transform = Transform3D(-1.494292, 0.13073361, 1.3113416e-07, 0.13073361, 1.494292, 0, -1.3063516e-07, 1.1429095e-08, -1.5, -0.24286532, 3.241723, 3.4409409)
+
+[node name="Dragon" parent="." unique_id=521331207 instance=ExtResource("4_jaqyd")]
+transform = Transform3D(3.4, 0, 0, 0, 3, 0, 0, 0, 3, 3.733747, 1.2552674, 2.1661835)
+
+[node name="MeshInstance3D5" parent="." unique_id=1290083251 instance=ExtResource("5_i7ewm")]
+transform = Transform3D(1.3, 0, 0, 0, 2, 0, 0, 0, 2, -3.102317, 1.2623341, 1.3345469)
+
+[node name="Grass" parent="." unique_id=265710641 instance=ExtResource("6_hhemq")]
+transform = Transform3D(10, 0, 0, 0, 0.8, 0, 0, 0, 1, -0.37279153, 0.8669193, 2.2686226)
+
+[node name="Grass2" parent="." unique_id=1728235388 instance=ExtResource("6_hhemq")]
+transform = Transform3D(10, 0, 0, 0, 0.8, 0, 0, 0, 1, -0.37279153, 0.70095086, 0.9296212)
+
+[node name="IntruderCrazy" parent="." unique_id=1374366765 instance=ExtResource("7_ls1ps")]
+transform = Transform3D(1.6, 0, 0, 0, 2, 0, 0, 0, 2, -1.091897, 1.218476, 1.962796)
+
+[node name="GreatestTree" parent="." unique_id=258667498 instance=ExtResource("8_1g62v")]
+transform = Transform3D(1.4, 0, 0, 0, 2, 0, 0, 0, 2, 3.9942365, 1.3239874, 1.6169491)
+
+[node name="CreditsButton" parent="." unique_id=834246769 instance=ExtResource("9_jaqyd")]
+transform = Transform3D(0.0008391579, 0, 1.3398597, 0, 0.529, 0, -0.057993926, 0, 0.019387443, -1.870667, 1.8163846, 1.1529043)
+text = "Credits"
+
+[node name="Post" type="MeshInstance3D" parent="CreditsButton" unique_id=1508316564]
+transform = Transform3D(-0.07634926, 0, 17.24002, 0, 5.137183, 0, -0.26296058, 0, -0.00937773, 0.083208084, -5.2467794, -0.046254516)
+mesh = SubResource("PlaneMesh_ls1ps")
+surface_material_override/0 = SubResource("StandardMaterial3D_1g62v")
+
+[node name="QuitButton" parent="." unique_id=763163492 instance=ExtResource("9_jaqyd")]
+transform = Transform3D(0.0008391579, 0, 1.3398597, 0, 0.529, 0, -0.057993926, 0, 0.019387443, 2.2640731, 1.8733858, 1.1555107)
+text = "Quit"
+
+[node name="Post" type="MeshInstance3D" parent="QuitButton" unique_id=671716641]
+transform = Transform3D(-0.07634926, 0, 17.24002, 0, 5.137183, 0, -0.26296058, 0, -0.00937773, 0.14129639, -4.690796, -0.006930709)
+mesh = SubResource("PlaneMesh_ls1ps")
+surface_material_override/0 = SubResource("StandardMaterial3D_1g62v")
+
+[node name="PlayButton" parent="." unique_id=643307507 instance=ExtResource("9_jaqyd")]
+transform = Transform3D(0.0010561815, 0, 1.681824, 0, 0.664, 0, -0.072992355, 0, 0.024335582, 0.17857951, 1.9394405, 1.147182)
+text = "Play"
+
+[node name="Post" type="MeshInstance3D" parent="PlayButton" unique_id=1803706604]
+transform = Transform3D(-0.060661044, 0, 13.697549, 0, 4.0927253, 0, -0.20949292, 0, -0.0074709607, -0.006518364, -3.8365743, -0.019551255)
+mesh = SubResource("PlaneMesh_ls1ps")
+surface_material_override/0 = SubResource("StandardMaterial3D_1g62v")
