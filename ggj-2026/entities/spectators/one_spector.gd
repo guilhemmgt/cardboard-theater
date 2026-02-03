@@ -19,6 +19,13 @@ func react(reaction:String):
 			sprite_bubble.frame = 2
 		"angry":
 			sprite_bubble.frame= 3
-	
+
+
+
 func leave():
 	anim.play("leave")
+
+
+func _on_sprouch() -> void:
+	react("angry")
+	anim.play("tomato_hit")
