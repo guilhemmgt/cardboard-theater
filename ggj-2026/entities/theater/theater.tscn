@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://bu0jq5rop2wt3" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="6_yt3pu"]
 [ext_resource type="PackedScene" uid="uid://dgixb4l7nrgd1" path="res://VFX/dust_particles.tscn" id="7_na8pb"]
 [ext_resource type="Texture2D" uid="uid://hlxdsbmuyxjr" path="res://VFX/Textures/blur.png" id="8_03i3v"]
-[ext_resource type="AudioStream" uid="uid://cb1ckd7b3kmcu" path="res://sounds/music/ggj2026.mp3" id="12_06l2k"]
 
 [sub_resource type="Environment" id="Environment_fie2r"]
 
@@ -101,7 +100,6 @@ transform = Transform3D(11, 0, 0, 0, 6, 0, 0, 0, 6, 0.22639132, 2.15, 1.005)
 
 [node name="Curtains" parent="Scene" unique_id=683152403 instance=ExtResource("6_na8pb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15, 0.9595464)
-trigger_animation = false
 
 [node name="Desk" type="MeshInstance3D" parent="Scene" unique_id=1058338370]
 transform = Transform3D(3.2394567, 0.00089019176, 0.00029776664, -0.0057952264, 0.51246315, 0.010860661, -0.0037341698, -0.023051415, 0.24145828, -0.00032825768, 1.9806701, -1.7192054)
@@ -287,11 +285,3 @@ light_color = Color(1.1638972, 1.1638972, 0.4616239, 1)
 light_energy = 4.0
 spot_range = 7.5137596
 spot_angle = 43.361313
-
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=636979102]
-stream = ExtResource("12_06l2k")
-volume_db = -5.538
-autoplay = true
-
-[node name="SfxPlayer" type="AudioStreamPlayer" parent="." unique_id=522851725]
-max_polyphony = 20

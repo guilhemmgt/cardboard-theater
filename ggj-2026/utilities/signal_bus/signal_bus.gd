@@ -2,7 +2,7 @@ extends Node
 
 # UI signals
 signal toggle_music ## Mute/unmute the music
-signal toggle_sfx ## Mute/unmute the SFXs
+signal play_sfx(stream: AudioStream) ## Play a SFX
 
 # Theater signals
 signal toggle_curtains ## Open/close the curtains

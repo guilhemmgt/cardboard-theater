@@ -1,8 +1,21 @@
 [gd_scene format=3 uid="uid://ckspp2o3odaam"]
 
+[ext_resource type="Script" uid="uid://b0q6jva73fkqk" path="res://stages/audio_players.gd" id="1_7iyax"]
 [ext_resource type="PackedScene" uid="uid://db6l51gxty1ec" path="res://entities/theater/theater.tscn" id="1_72s8x"]
+[ext_resource type="AudioStream" uid="uid://cb1ckd7b3kmcu" path="res://sounds/music/ggj2026.mp3" id="2_43f5m"]
 
 [node name="Main" type="Node3D" unique_id=62694581]
+
+[node name="AudioPlayers" type="Node" parent="." unique_id=1975551628]
+script = ExtResource("1_7iyax")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="AudioPlayers" unique_id=1033084366]
+stream = ExtResource("2_43f5m")
+volume_db = -5.538
+autoplay = true
+
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="AudioPlayers" unique_id=461661915]
+max_polyphony = 20
 
 [node name="Theater" parent="." unique_id=814067477 instance=ExtResource("1_72s8x")]
 
