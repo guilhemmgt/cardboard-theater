@@ -23,25 +23,29 @@ uv1_world_triplanar = true
 script = ExtResource("1_64rjh")
 
 [node name="CreditsButton" parent="." unique_id=834246769 instance=ExtResource("1_1mqmr")]
-transform = Transform3D(0.08210469, 0, 0, 0, 0.7444232, 0, 0, 0, 1.885254, 1.0278888, 2.2154834, -0.38140488)
+transform = Transform3D(0.0011879104, 0, 1.8850571, 0, 0.7444231, 0, -0.0820961, 0, 0.027276315, 0.13334584, 2.3687587, 0.11092961)
 text = "Credits"
 
 [node name="QuitButton" parent="." unique_id=1952704829 instance=ExtResource("1_1mqmr")]
-transform = Transform3D(0.08210469, 0, 0, 0, 0.7444232, 0, 0, 0, 1.885254, 1.0278888, 1.2631192, -0.38140488)
+transform = Transform3D(0.0011879104, 0, 1.8850571, 0, 0.7444231, 0, -0.0820961, 0, 0.027276315, 0.13334584, 1.4163946, 0.11092961)
 text = "Quit"
 
 [node name="PlayButton" parent="." unique_id=722182244 instance=ExtResource("1_1mqmr")]
-transform = Transform3D(0.08210469, 0, 0, 0, 0.7444232, 0, 0, 0, 1.885254, 1.0278888, 3.1256425, -0.38140488)
+transform = Transform3D(0.0011879104, 0, 1.8850571, 0, 0.7444231, 0, -0.0820961, 0, 0.027276315, 0.13334584, 3.2789178, 0.11092961)
 text = "Play"
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1147256875]
-transform = Transform3D(-0.35239488, 0, -1.5099579e-07, 0, 2.71757, 0, 5.3210147e-08, 0, -0.99999994, 1.0278888, 0.57815707, -0.38140488)
+transform = Transform3D(-0.3523943, 0, 0.0019022562, 0, 2.7175696, 0, -0.0006703399, 0, -0.9999982, 0.13334584, 0.73143244, 0.11092961)
 mesh = SubResource("PlaneMesh_eegco")
 surface_material_override/0 = SubResource("StandardMaterial3D_pacmv")
 
 [node name="Theater" parent="." unique_id=814067477 instance=ExtResource("5_eegco")]
 
 [node name="Thumbnail" parent="." unique_id=1262551922 instance=ExtResource("6_pacmv")]
+
+[node name="Camera3D2" type="Camera3D" parent="." unique_id=1989557829]
+transform = Transform3D(-0.9999881, -0.0009955058, 0.0047797984, -0.0006319588, 0.99714816, 0.07546666, -0.004841294, 0.075462736, -0.9971369, 0.009541333, 2.5335333, -1.8634976)
+current = true
 
 [connection signal="button_clicked" from="CreditsButton" to="." method="_on_credits_button_clicked"]
 [connection signal="button_clicked" from="QuitButton" to="." method="_on_quit_button_clicked"]

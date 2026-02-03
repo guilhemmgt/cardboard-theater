@@ -48,7 +48,6 @@ func _on_click(camera: Node, event: InputEvent, event_position: Vector3, normal:
 	if event.is_action_released("click"):
 		button_clicked.emit()
 	if _is_hover and event is InputEventMouseMotion:
-		print(event)
 		carton_particle.emitting = true
 		particle_countdown.start(0.02)
 		#Project mouse onto the plane of the button
