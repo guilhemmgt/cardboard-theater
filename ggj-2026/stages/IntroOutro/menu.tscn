@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://csb1hvxvdxbcr"]
 
 [ext_resource type="PackedScene" uid="uid://dlevpco8snw5k" path="res://ui/button/bouton.tscn" id="1_1mqmr"]
-[ext_resource type="Script" path="res://stages/IntroOutro/menu_manager.gd" id="1_64rjh"]
+[ext_resource type="Script" uid="uid://ddijc5m4ssyqb" path="res://stages/IntroOutro/menu_manager.gd" id="1_64rjh"]
 [ext_resource type="Texture2D" uid="uid://cktr80sscioby" path="res://carton/paper_0009_1k/paper_0009_color_1k.jpg" id="3_reopu"]
 [ext_resource type="Texture2D" uid="uid://dt4w8nooq6i5b" path="res://carton/paper_0009_1k/paper_0009_normal_directx_1k.png" id="4_fpjr8"]
+[ext_resource type="PackedScene" uid="uid://db6l51gxty1ec" path="res://entities/theater/theater.tscn" id="5_eegco"]
+[ext_resource type="PackedScene" uid="uid://dec3kfxsp30fa" path="res://entities/scenes/thumbnail.tscn" id="6_pacmv"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_eegco"]
+size = Vector2(1, 2)
 orientation = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pacmv"]
@@ -20,24 +23,25 @@ uv1_world_triplanar = true
 script = ExtResource("1_64rjh")
 
 [node name="CreditsButton" parent="." unique_id=834246769 instance=ExtResource("1_1mqmr")]
-transform = Transform3D(0.08210469, 0, 0, 0, 0.7444232, 0, 0, 0, 1.885254, 0, 0.8087318, 0)
+transform = Transform3D(0.08210469, 0, 0, 0, 0.7444232, 0, 0, 0, 1.885254, 1.0278888, 2.2154834, -0.38140488)
 text = "Credits"
 
 [node name="QuitButton" parent="." unique_id=1952704829 instance=ExtResource("1_1mqmr")]
-transform = Transform3D(0.08210469, 0, 0, 0, 0.7444232, 0, 0, 0, 1.885254, 0, -0.14363241, 0)
+transform = Transform3D(0.08210469, 0, 0, 0, 0.7444232, 0, 0, 0, 1.885254, 1.0278888, 1.2631192, -0.38140488)
 text = "Quit"
 
 [node name="PlayButton" parent="." unique_id=722182244 instance=ExtResource("1_1mqmr")]
-transform = Transform3D(0.08210469, 0, 0, 0, 0.7444232, 0, 0, 0, 1.885254, 0, 1.7188909, 0)
+transform = Transform3D(0.08210469, 0, 0, 0, 0.7444232, 0, 0, 0, 1.885254, 1.0278888, 3.1256425, -0.38140488)
 text = "Play"
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=2079122670]
-transform = Transform3D(-0.019808233, 0, 0.9998038, 0, 1, 0, -0.9998038, 0, -0.019808233, 2.7939744, 0.6890521, 0)
-
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1147256875]
-transform = Transform3D(0.005135456, 0, 0.9998938, 0, 2.71757, 0, -0.35235745, 0, 0.014573013, -0.052520752, -0.23869109, -0.016)
+transform = Transform3D(-0.35239488, 0, -1.5099579e-07, 0, 2.71757, 0, 5.3210147e-08, 0, -0.99999994, 1.0278888, 0.57815707, -0.38140488)
 mesh = SubResource("PlaneMesh_eegco")
 surface_material_override/0 = SubResource("StandardMaterial3D_pacmv")
+
+[node name="Theater" parent="." unique_id=814067477 instance=ExtResource("5_eegco")]
+
+[node name="Thumbnail" parent="." unique_id=1262551922 instance=ExtResource("6_pacmv")]
 
 [connection signal="button_clicked" from="CreditsButton" to="." method="_on_credits_button_clicked"]
 [connection signal="button_clicked" from="QuitButton" to="." method="_on_quit_button_clicked"]
