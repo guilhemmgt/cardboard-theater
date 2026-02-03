@@ -1,19 +1,10 @@
-extends AnimationPlayer
+extends Node
 class_name Orchestrator
 
-signal points_ready
-
 @onready var game_over: Node3D = $"../Scene/GameOver"
-@onready var plan1: Node = $Plan1
-@onready var plan2: Node = $Plan2
-@onready var plan3: Node = $Plan3
-@onready var incidents_manager: Node = $"../IncidentsManager"
+@export var incidents_manager: Node
 
 @export var actor_manager: ActorManager
-
-var points_plan1: Array = []
-var points_plan2: Array = []
-var points_plan3: Array = []
 
 # Pause system
 var is_paused: bool = false
@@ -21,14 +12,6 @@ var incidents_nodes: Array[Incident] = []
 var is_point_ready: bool = false
 
 func _ready() -> void:
-	# Initialize plan points
-	points_plan1 = plan1.get_children()
-	points_plan2 = plan2.get_children()
-	points_plan3 = plan3.get_children()
-	
-	# Emit signal to notify that points are ready
-	points_ready.emit()
-	is_point_ready = true
 
 	for incident in incidents_manager.get_children():
 		if incident is Incident:
@@ -39,26 +22,12 @@ func _ready() -> void:
 		incident.failed.connect(_on_event_failure)
 		incident.activated.connect(_on_incident_activated)
 
-
-
-func get_plan_points(plan_number: int) -> Array:
-	match plan_number:
-		1:
-			return points_plan1
-		2:
-			return points_plan2
-		3:
-			return points_plan3
-		_:
-			return []
-
 func get_pause_state() -> bool:
 	return is_paused
 
 func _on_event_success() -> void:
 	print("Event resolved successfully")
 	if is_paused:
-		play()
 		actor_manager.resume_all_actors()
 
 func _on_event_failure() -> void:
@@ -69,7 +38,6 @@ func _on_event_failure() -> void:
 
 func _on_incident_activated(blocking: bool) -> void:
 	if blocking:
-		pause()
 		actor_manager.pause_all_actors()
 		print("Blocking incident activated")
 	else:

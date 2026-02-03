@@ -92,7 +92,7 @@ func _process_command(anim: Animation, cmd_type: String, data: Dictionary) -> vo
 			_add_method_key(anim, actor, begin_time, "activate", [duration])
 		
 		"INCIDENT_INTRU":
-			var intru: String = data.get("intru", "")
+			var intru: String = data.get("actor", "")
 			_add_method_key(anim, intru, begin_time, "activate", [duration])
 		
 		"ANIMATION":
