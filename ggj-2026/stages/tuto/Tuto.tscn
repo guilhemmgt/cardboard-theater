@@ -440,7 +440,5 @@ tomato_basket = NodePath("../TomatoBasket")
 root_node = NodePath("../Orchestrator")
 libraries/ = SubResource("AnimationLibrary_uajb4")
 
-[node name="Node" type="Node" parent="." unique_id=350821453 node_paths=PackedStringArray("target_animation_player")]
+[node name="Node" type="Node" parent="." unique_id=350821453]
 script = ExtResource("24_ij7ef")
-source_file_path = "res://stages/tuto/script.txt"
-target_animation_player = NodePath("../Tuto_anim")

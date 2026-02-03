@@ -14,14 +14,15 @@ normal_texture = ExtResource("2_880hy")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_smys7"]
 albedo_texture = ExtResource("1_jtj84")
 normal_enabled = true
+normal_scale = 2.37
 normal_texture = ExtResource("2_880hy")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t57hm"]
-albedo_texture = ExtResource("1_jtj84")
-normal_enabled = true
-normal_texture = ExtResource("2_880hy")
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="FontFile" id="FontFile_jtj84"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -60,7 +61,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_smys7")
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1951528384]
 transform = Transform3D(0.035412014, 0, 0, 0, 2.7175703, 0, 0, 0, 1, 0.845, 2.743735, -0.016)
 mesh = SubResource("PlaneMesh_u0541")
-surface_material_override/0 = SubResource("StandardMaterial3D_t57hm")
+surface_material_override/0 = SubResource("StandardMaterial3D_smys7")
 
 [node name="Label3D" type="Label3D" parent="MeshInstance3D" unique_id=1747887695]
 transform = Transform3D(1.7954513, 0, 0, 0, 5.685897, 0, 0, 0, 1, 0, 0, 0.005180061)

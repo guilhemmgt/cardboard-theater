@@ -2,6 +2,7 @@
 
 [ext_resource type="Material" uid="uid://ctqhsf2gopi7n" path="res://carton/cardboard.tres" id="1_y8qu1"]
 [ext_resource type="Script" uid="uid://dhcr03f3m0kiw" path="res://ui/button/buttonUI.gd" id="1_y084j"]
+[ext_resource type="FontFile" uid="uid://cpeq42uqxplp" path="res://ui/font/drawersketches.ttf" id="3_5yfjs"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_noarx"]
 
@@ -81,9 +82,14 @@ transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0.019411
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=325102232]
 shape = SubResource("BoxShape3D_a202f")
 
-[node name="Label3D" type="Label3D" parent="." unique_id=1281603326]
-transform = Transform3D(-0.0048954072, -0.0064841714, 0.9999668, 0.0035771441, 0.9999719, 0.0065017184, -0.99998134, 0.0036088522, -0.0048720757, 0.5040617, 0.008521088, 0)
-text = "To Write"
+[node name="Label3D" type="Label3D" parent="." unique_id=88919816]
+transform = Transform3D(-0.0026317865, -0.0064883707, 0.9998694, 0.0019230841, 1.0006193, 0.006501085, -0.5375932, 0.0036111888, -0.004871601, 0.5040617, 0.0085210875, 0)
+shaded = true
+modulate = Color(1, 1, 0.25490198, 0.7176471)
+outline_modulate = Color(0, 0, 0, 0.49803922)
+text = "ToWrite"
+font = ExtResource("3_5yfjs")
+font_size = 110
 
 [connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]
 [connection signal="mouse_exited" from="Area3D" to="." method="_on_area_3d_mouse_exited"]
