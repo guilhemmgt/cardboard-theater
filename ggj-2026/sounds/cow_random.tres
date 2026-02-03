@@ -1,0 +1,10 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://de3qngfy35081"]
+
+[ext_resource type="AudioStream" uid="uid://yxolqfju8536" path="res://sounds/vache1.wav" id="1_o2hft"]
+[ext_resource type="AudioStream" uid="uid://sl7prj8hnyms" path="res://sounds/vache2.wav" id="2_qhrg0"]
+
+[resource]
+random_pitch = 1.587401
+streams_count = 2
+stream_0/stream = ExtResource("1_o2hft")
+stream_1/stream = ExtResource("2_qhrg0")
