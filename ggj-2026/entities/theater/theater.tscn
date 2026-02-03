@@ -101,13 +101,11 @@ transform = Transform3D(11, 0, 0, 0, 6, 0, 0, 0, 6, 0.22639132, 2.15, 1.005)
 [node name="Curtains" type="Node3D" parent="Scene" unique_id=170338980]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15, 0.9595464)
 
-[node name="curtain_left" parent="Scene/Curtains" unique_id=394997416 instance=ExtResource("4_dpkxa")]
-transform = Transform3D(-4, 0, -6.039832e-07, 0, 4, 0, 6.039832e-07, 0, -4, 6, 0, 0.057)
-mesh = null
+[node name="CurtainLeft" parent="Scene/Curtains" unique_id=394997416 instance=ExtResource("4_dpkxa")]
+transform = Transform3D(-4, 0, 3.496911e-07, 0, 4, 0, -3.496911e-07, 0, -4, 6, 0, 0.05699998)
 
-[node name="curtain_right" parent="Scene/Curtains" unique_id=1730475326 instance=ExtResource("4_dpkxa")]
+[node name="CurtainRight" parent="Scene/Curtains" unique_id=1538052620 instance=ExtResource("4_dpkxa")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -6, 0, 0.157)
-mesh = null
 
 [node name="Desk" type="MeshInstance3D" parent="Scene" unique_id=1058338370]
 transform = Transform3D(3.2394567, 0.00089019176, 0.00029776664, -0.0057952264, 0.51246315, 0.010860661, -0.0037341698, -0.023051415, 0.24145828, -0.00032825768, 1.9806701, -1.7192054)

@@ -5,8 +5,8 @@ extends Node3D
 @onready var _musicPlayer: AudioStreamPlayer = $MusicPlayer
 @onready var _sfxPlayer: AudioStreamPlayer = $SfxPlayer
 
-@onready var _curtain_left: Node3D = $Scene/Scene/Curtains/curtain_left
-@onready var _curtain_right: Node3D = $Scene/Scene/Curtains/curtain_right
+@onready var _curtain_left: Node3D = $Scene/Scene/Curtains/CurtainLeft
+@onready var _curtain_right: Node3D = $Scene/Scene/Curtains/CurtainRight
 
 var _curtains_open: bool = true
 func set_curtains(open: bool):
