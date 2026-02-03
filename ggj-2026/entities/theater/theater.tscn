@@ -81,9 +81,10 @@ shader_parameter/Vector2Parameter = Vector2(1.4, 1.4)
 shader_parameter/Vector2Parameter2 = Vector2(0.5, 0.5)
 shader_parameter/Texture2DParameter = ExtResource("18_l37eo")
 
-[node name="Theater" type="Node3D" unique_id=814067477 node_paths=PackedStringArray("plans")]
+[node name="Theater" type="Node3D" unique_id=814067477 node_paths=PackedStringArray("plans", "debug_curtains_node")]
 script = ExtResource("1_5k1p7")
 plans = NodePath("Plans")
+debug_curtains_node = NodePath("Scene/Curtains")
 
 [node name="Plans" type="Node" parent="." unique_id=1007513137]
 
@@ -190,9 +191,8 @@ transform = Transform3D(3.2394567, 0.00089019176, 0.00029776664, -0.0057952264, 
 material_override = SubResource("StandardMaterial3D_v8qa1")
 mesh = SubResource("BoxMesh_h2yge")
 
-[node name="TomatoBasket" parent="Scene/Desk" unique_id=735284322 node_paths=PackedStringArray("camera") instance=ExtResource("5_asdu4")]
+[node name="TomatoBasket" parent="Scene/Desk" unique_id=735284322 instance=ExtResource("5_asdu4")]
 transform = Transform3D(-0.15434617, -0.0002761154, 0.00017794369, -0.0016914184, 0.97370684, 0.043798868, -0.0025487621, 0.09295306, -2.0665662, -0.09551869, 0.60248613, -0.101703644)
-camera = NodePath("")
 
 [node name="Spectators" type="Node3D" parent="." unique_id=806130277]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3041154, -0.37863255)
