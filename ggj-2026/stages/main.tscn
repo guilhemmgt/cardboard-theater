@@ -12,6 +12,8 @@
 script = ExtResource("4_0oqm6")
 metadata/_custom_type_script = "uid://bukq7d3xlecfq"
 
+[node name="Node" type="Node" parent="." unique_id=891845626]
+
 [node name="GenerateurAction" type="Node" parent="." unique_id=359567483 node_paths=PackedStringArray("animation_player")]
 script = ExtResource("4_fejr8")
 timeline_file = "res://test copy.json"
