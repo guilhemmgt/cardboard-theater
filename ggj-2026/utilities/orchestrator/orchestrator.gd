@@ -1,4 +1,4 @@
-extends Node
+extends AnimationPlayer
 class_name Orchestrator
 
 signal points_ready
@@ -8,7 +8,6 @@ signal points_ready
 @onready var plan2: Node = $Plan2
 @onready var plan3: Node = $Plan3
 @onready var incidents_manager: Node = $"../IncidentsManager"
-@export var animation_p: AnimationPlayer
 
 @export var actor_manager: ActorManager
 
@@ -59,7 +58,7 @@ func get_pause_state() -> bool:
 func _on_event_success() -> void:
 	print("Event resolved successfully")
 	if is_paused:
-		animation_p.play()
+		play()
 		actor_manager.resume_all_actors()
 
 func _on_event_failure() -> void:
@@ -70,7 +69,7 @@ func _on_event_failure() -> void:
 
 func _on_incident_activated(blocking: bool) -> void:
 	if blocking:
-		animation_p.pause()
+		pause()
 		actor_manager.pause_all_actors()
 		print("Blocking incident activated")
 	else:
