@@ -36,6 +36,10 @@ func create_spectators() -> void:
 			ch.owner = self
 			ch.global_position.x = i*space_between_spectator*(2*left-1)
 
+func enter_room():
+	for sp in spectators_array:
+		sp.come()
+
 func react_to_intruder(intruder_name: String):
 	for _i in range(randi_range(min_spectator_to_react, max_spectator_to_react)):
 		var speaking_spectator : Spectator = spectators_array.pick_random() 

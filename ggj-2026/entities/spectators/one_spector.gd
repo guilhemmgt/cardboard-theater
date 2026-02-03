@@ -25,6 +25,9 @@ func react(reaction:String):
 func leave():
 	anim.play("leave")
 
+func come():
+	anim.play_backwards("leave")
+
 
 func _on_sprouch() -> void:
 	react("angry")
