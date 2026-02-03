@@ -2,6 +2,7 @@ extends Node3D
 @onready var spectators: SpectatorManager = $Spectators
 
 func _ready() -> void:
+	spectators.enter_room()
 	await get_tree().create_timer(2).timeout
 	for i in range(3):
 		spectators.react_to_intruder(["cow", "guitar", "angry"].pick_random())
