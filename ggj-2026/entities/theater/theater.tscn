@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://vlp37ghm0u3" path="res://entities/theater/theater.gd" id="1_5k1p7"]
 [ext_resource type="Texture2D" uid="uid://cktr80sscioby" path="res://carton/paper_0009_1k/paper_0009_color_1k.jpg" id="2_umf7y"]
 [ext_resource type="PackedScene" uid="uid://bmq3jlb1anrhf" path="res://carton/3Dcardboards/border/border.tscn" id="3_qqqc6"]
-[ext_resource type="PackedScene" uid="uid://d54151oehwue" path="res://carton/3Dcardboards/curtain/curtain.tscn" id="4_dpkxa"]
 [ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="5_asdu4"]
+[ext_resource type="PackedScene" uid="uid://c13lnr6kybksr" path="res://entities/scenery/curtains/curtains.tscn" id="6_na8pb"]
 [ext_resource type="Texture2D" uid="uid://bu0jq5rop2wt3" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="6_yt3pu"]
 [ext_resource type="PackedScene" uid="uid://dgixb4l7nrgd1" path="res://VFX/dust_particles.tscn" id="7_na8pb"]
 [ext_resource type="Texture2D" uid="uid://hlxdsbmuyxjr" path="res://VFX/Textures/blur.png" id="8_03i3v"]
@@ -49,6 +49,7 @@ albedo_texture = ExtResource("2_umf7y")
 [sub_resource type="BoxShape3D" id="BoxShape3D_o4pr5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v8qa1"]
+albedo_color = Color(0.7, 0.7, 0.7, 1)
 albedo_texture = ExtResource("2_umf7y")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mycd"]
@@ -98,14 +99,9 @@ shape = SubResource("BoxShape3D_o4pr5")
 [node name="Frame" parent="Scene" unique_id=195769391 instance=ExtResource("3_qqqc6")]
 transform = Transform3D(11, 0, 0, 0, 6, 0, 0, 0, 6, 0.22639132, 2.15, 1.005)
 
-[node name="Curtains" type="Node3D" parent="Scene" unique_id=170338980]
+[node name="Curtains" parent="Scene" unique_id=683152403 instance=ExtResource("6_na8pb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15, 0.9595464)
-
-[node name="CurtainLeft" parent="Scene/Curtains" unique_id=394997416 instance=ExtResource("4_dpkxa")]
-transform = Transform3D(-4, 0, 3.496911e-07, 0, 4, 0, -3.496911e-07, 0, -4, 6, 0, 0.05699998)
-
-[node name="CurtainRight" parent="Scene/Curtains" unique_id=1538052620 instance=ExtResource("4_dpkxa")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -6, 0, 0.157)
+trigger_animation = false
 
 [node name="Desk" type="MeshInstance3D" parent="Scene" unique_id=1058338370]
 transform = Transform3D(3.2394567, 0.00089019176, 0.00029776664, -0.0057952264, 0.51246315, 0.010860661, -0.0037341698, -0.023051415, 0.24145828, -0.00032825768, 1.9806701, -1.7192054)

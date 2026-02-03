@@ -1,9 +1,6 @@
 [gd_scene format=3 uid="uid://ckspp2o3odaam"]
 
 [ext_resource type="PackedScene" uid="uid://db6l51gxty1ec" path="res://entities/theater/theater.tscn" id="1_72s8x"]
-[ext_resource type="PackedScene" uid="uid://cvp3k2e3wbm3f" path="res://entities/scenes/tutorial.tscn" id="2_0oqm6"]
-[ext_resource type="PackedScene" uid="uid://dec3kfxsp30fa" path="res://entities/scenes/thumbnail.tscn" id="2_43f5m"]
-[ext_resource type="PackedScene" uid="uid://bjou7rgyje3hi" path="res://entities/scenes/act_2.tscn" id="3_7iyax"]
 
 [node name="Main" type="Node3D" unique_id=62694581]
 
@@ -11,12 +8,3 @@
 
 [node name="ScenesParent" type="Node3D" parent="." unique_id=1917959928]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.124498844)
-
-[node name="Node3D" parent="ScenesParent" unique_id=1751269213 instance=ExtResource("2_0oqm6")]
-visible = false
-
-[node name="Thumbnail" parent="ScenesParent" unique_id=808495893 instance=ExtResource("2_43f5m")]
-visible = false
-
-[node name="Act2" parent="ScenesParent" unique_id=1765736365 instance=ExtResource("3_7iyax")]
-visible = false
