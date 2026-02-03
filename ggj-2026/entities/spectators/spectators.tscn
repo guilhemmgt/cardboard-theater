@@ -7,8 +7,6 @@
 script = ExtResource("1_xtwus")
 space_between_spectator = 1.2
 number_spectators_wanted = 8
-min_time_between = null
-max_time_between = null
 
 [node name="@Node3D@30704" parent="." unique_id=1307589095 instance=ExtResource("2_vo3an")]
 
