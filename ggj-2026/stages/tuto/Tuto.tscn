@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="21_7qaj4"]
 [ext_resource type="PackedScene" uid="uid://d3t74t4c2wtyw" path="res://ui/signs/game_over.tscn" id="22_fevyo"]
 [ext_resource type="Script" uid="uid://d3uf356n1craj" path="res://ui/cursor/mouse_manager.gd" id="23_xnqy8"]
-[ext_resource type="Script" uid="uid://b0g4fonj8fno0" path="res://utilities/txt_to_anim.gd" id="24_ij7ef"]
+[ext_resource type="Script" uid="uid://b0g4fonj8fno0" path="res://utilities/orchestrator/txt_to_anim.gd" id="24_ij7ef"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2oluv"]
 albedo_texture = ExtResource("1_fnqgj")
