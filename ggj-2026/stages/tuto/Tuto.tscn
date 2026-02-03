@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="21_7qaj4"]
 [ext_resource type="PackedScene" uid="uid://d3t74t4c2wtyw" path="res://ui/signs/game_over.tscn" id="22_fevyo"]
 [ext_resource type="Script" uid="uid://d3uf356n1craj" path="res://ui/cursor/mouse_manager.gd" id="23_xnqy8"]
-[ext_resource type="Script" uid="uid://b0g4fonj8fno0" path="res://utilities/orchestrator/txt_to_anim.gd" id="24_ij7ef"]
+[ext_resource type="Script" path="res://utilities/orchestrator/txt_to_anim.gd" id="24_ij7ef"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2oluv"]
 albedo_texture = ExtResource("1_fnqgj")
@@ -156,8 +156,7 @@ draw_pass_1 = SubResource("QuadMesh_15cu4")
 [node name="Intruders" type="Node3D" parent="." unique_id=242803189]
 transform = Transform3D(-2.4, 0, -9.452337e-08, 0, 1.2, 0, 3.6238998e-07, 0, -0.626, 2.1782875, 3.7982314, 1.6063027)
 
-[node name="Orchestrator" parent="." unique_id=932776283 node_paths=PackedStringArray("animation_p") instance=ExtResource("12_728au")]
-animation_p = NodePath("../Tuto_anim")
+[node name="Orchestrator" parent="." unique_id=932776283 instance=ExtResource("12_728au")]
 
 [node name="Plan4" type="Node" parent="Orchestrator" unique_id=1167947758]
 
