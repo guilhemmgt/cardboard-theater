@@ -60,7 +60,7 @@ uv1_world_triplanar = true
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_272bh"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfg05"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0dkpx"]
 transparency = 1
 diffuse_mode = 3
 albedo_color = Color(1, 1, 1, 0.16470589)
@@ -75,7 +75,7 @@ particles_anim_loop = false
 proximity_fade_enabled = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_15cu4"]
-material = SubResource("StandardMaterial3D_dfg05")
+material = SubResource("StandardMaterial3D_0dkpx")
 size = Vector2(0.02, 0.02)
 
 [node name="TheatreScene" type="Node3D" unique_id=814067477]

@@ -9,17 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bmq3jlb1anrhf" path="res://carton/3Dcardboards/border/border.tscn" id="7_wdnxp"]
 [ext_resource type="PackedScene" uid="uid://dgixb4l7nrgd1" path="res://VFX/dust_particles.tscn" id="8_5ijox"]
 [ext_resource type="Texture2D" uid="uid://hlxdsbmuyxjr" path="res://VFX/Textures/blur.png" id="9_x7m5x"]
-[ext_resource type="PackedScene" uid="uid://ubi0bjcosamr" path="res://carton/3Dcardboards/nuage/nuage.tscn" id="10_sva6q"]
-[ext_resource type="PackedScene" uid="uid://cypjg413etrtb" path="res://carton/Letters/LettersMain.tscn" id="11_67i5y"]
+[ext_resource type="PackedScene" uid="uid://cvp3k2e3wbm3f" path="res://entities/scenes/tutorial.tscn" id="10_aicjp"]
 [ext_resource type="PackedScene" uid="uid://bb42si1p0l8fq" path="res://utilities/orchestrator/orchestrator.tscn" id="12_728au"]
-[ext_resource type="PackedScene" uid="uid://bx7sb77iogb4g" path="res://carton/3Dcardboards/cible/cible.tscn" id="13_07jng"]
-[ext_resource type="PackedScene" uid="uid://crmmgpxf31kdn" path="res://entities/actors/actor_controller.tscn" id="14_obc52"]
-[ext_resource type="PackedScene" uid="uid://c4amdjj53fb3d" path="res://carton/3Dcardboards/king/mad_king.tscn" id="15_mebso"]
-[ext_resource type="PackedScene" uid="uid://b8a0vav2gqvcg" path="res://carton/3Dcardboards/knight/knight.tscn" id="16_rot5n"]
-[ext_resource type="PackedScene" uid="uid://bn21pj7fdgghm" path="res://carton/3Dcardboards/dragon/dragon.tscn" id="17_g18i3"]
-[ext_resource type="PackedScene" uid="uid://j2lnjv8obup2" path="res://carton/3Dcardboards/goblin/gob_the_goblin.tscn" id="18_h04pg"]
-[ext_resource type="PackedScene" uid="uid://b02lqv1r0o35e" path="res://carton/3Dcardboards/princess/princess.tscn" id="19_pjrln"]
-[ext_resource type="PackedScene" uid="uid://dycms7p36i6lc" path="res://carton/3Dcardboards/tree/greatest_tree.tscn" id="20_pmxw2"]
 [ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="21_7qaj4"]
 [ext_resource type="PackedScene" uid="uid://d3t74t4c2wtyw" path="res://ui/signs/game_over.tscn" id="22_fevyo"]
 [ext_resource type="Script" uid="uid://d3uf356n1craj" path="res://ui/cursor/mouse_manager.gd" id="23_xnqy8"]
@@ -78,44 +69,6 @@ proximity_fade_enabled = true
 [sub_resource type="QuadMesh" id="QuadMesh_15cu4"]
 material = SubResource("StandardMaterial3D_dfg05")
 size = Vector2(0.02, 0.02)
-
-[sub_resource type="Animation" id="Animation_jka67"]
-resource_name = "tremblement"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_i5arm"]
-resource_name = "idle"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.75, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.17453292), Vector3(0, 0, 0.17453292), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_erwgl"]
-_data = {
-&"RESET": SubResource("Animation_jka67"),
-&"idle": SubResource("Animation_i5arm")
-}
 
 [sub_resource type="Animation" id="Animation_r48p1"]
 resource_name = "scene_generated"
@@ -198,20 +151,10 @@ speed_scale = 0.05
 explosiveness = 0.8
 draw_pass_1 = SubResource("QuadMesh_15cu4")
 
-[node name="Nuages" type="Node3D" parent="." unique_id=87758542]
-transform = Transform3D(11, 0, 0, 0, 6, 0, 0, 0, 6, -0.17333889, 2.1501837, 1.0046821)
-
-[node name="Nuage" parent="Nuages" unique_id=2083094686 instance=ExtResource("10_sva6q")]
-transform = Transform3D(-0.21818183, 0, -8.593034e-09, 0, 0.20000002, 0, 6.039833e-08, 0, -0.10433333, 0.21378422, 0.27467462, 0.10027011)
-
-[node name="Nuage2" parent="Nuages" unique_id=1432318036 instance=ExtResource("10_sva6q")]
-transform = Transform3D(-0.18112631, 0.007923249, 4.148608e-09, 0.029051913, 0.16603246, 0, -2.9030037e-08, 1.2698995e-09, -0.087000005, -0.33520836, 0.28850457, 0.1225204)
+[node name="Node3D" parent="." unique_id=1751269213 instance=ExtResource("10_aicjp")]
 
 [node name="Intruders" type="Node3D" parent="." unique_id=242803189]
 transform = Transform3D(-2.4, 0, -9.452337e-08, 0, 1.2, 0, 3.6238998e-07, 0, -0.626, 2.1782875, 3.7982314, 1.6063027)
-
-[node name="LettersMain" parent="." unique_id=1102856649 instance=ExtResource("11_67i5y")]
-transform = Transform3D(-1.494292, 0.13073361, 1.3113416e-07, 0.13073361, 1.494292, 0, -1.3063516e-07, 1.1429095e-08, -1.5, -0.67975116, 2.8317337, 3.4409409)
 
 [node name="Orchestrator" parent="." unique_id=932776283 node_paths=PackedStringArray("animation_p") instance=ExtResource("12_728au")]
 animation_p = NodePath("../Tuto_anim")
@@ -280,62 +223,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.469459, 4.933939)
 
 [node name="Actors" type="Node3D" parent="." unique_id=1317440409]
 transform = Transform3D(-2.4, 0, -9.452337e-08, 0, 1.2, 0, 3.6238998e-07, 0, -0.626, 2.1782875, 3.7982314, 1.6063027)
-
-[node name="CibleMesh" parent="Actors" unique_id=870559002 instance=ExtResource("13_07jng")]
-transform = Transform3D(0.8333332, 0, 0, 0, 1.6666664, 0, 0, 0, 3.1948874, -0.35431206, -2.1806734, -0.8877437)
-
-[node name="Cible" parent="Actors/CibleMesh" unique_id=1767442541 instance=ExtResource("14_obc52")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/CibleMesh/Cible" unique_id=1324482817]
-libraries/ = SubResource("AnimationLibrary_erwgl")
-
-[node name="MadKingMesh" parent="Actors" unique_id=263734070 instance=ExtResource("15_mebso")]
-transform = Transform3D(0.6666666, 0, 0, 0, 1.6666665, 0, 0, 0, 3.1948879, 3.4355989, -1.9939046, 1.1093436)
-
-[node name="MadKing" parent="Actors/MadKingMesh" unique_id=930725947 instance=ExtResource("14_obc52")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/MadKingMesh/MadKing" unique_id=302942200]
-libraries/ = SubResource("AnimationLibrary_erwgl")
-
-[node name="KnightMesh" parent="Actors" unique_id=1290083251 instance=ExtResource("16_rot5n")]
-transform = Transform3D(0.54166657, 0, 0, 0, 1.6666665, 0, 0, 0, 3.1948879, 4.088849, -1.916998, 0.36876416)
-
-[node name="Knight" parent="Actors/KnightMesh" unique_id=291110794 instance=ExtResource("14_obc52")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/KnightMesh/Knight" unique_id=1936527560]
-libraries/ = SubResource("AnimationLibrary_erwgl")
-
-[node name="DragonMesh" parent="Actors" unique_id=521331207 instance=ExtResource("17_g18i3")]
-transform = Transform3D(1.4166666, 0, 0, 0, 2.4999998, 0, 0, 0, 4.7923317, -1.8470539, -1.7427275, -0.9756439)
-
-[node name="Dragon" parent="Actors/DragonMesh" unique_id=377714922 instance=ExtResource("14_obc52")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/DragonMesh/Dragon" unique_id=807053134]
-libraries/ = SubResource("AnimationLibrary_erwgl")
-
-[node name="GobTheGoblinMesh" parent="Actors" unique_id=1319419001 instance=ExtResource("18_h04pg")]
-transform = Transform3D(0.49999997, 0, 0, 0, 1.2499999, 0, 0, 0, 1.5974439, -1.9701098, -2.159349, -0.07197213)
-
-[node name="GobTheGoblin" parent="Actors/GobTheGoblinMesh" unique_id=1321542998 instance=ExtResource("14_obc52")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/GobTheGoblinMesh/GobTheGoblin" unique_id=2020234696]
-libraries/ = SubResource("AnimationLibrary_erwgl")
-
-[node name="PrincessMesh" parent="Actors" unique_id=837612745 instance=ExtResource("19_pjrln")]
-transform = Transform3D(0.41666663, 0, 0, 0, 1.2499999, 0, 0, 0, 1.5974439, 4.137426, -2.2553964, 1.0904732)
-
-[node name="Princess" parent="Actors/PrincessMesh" unique_id=163724264 instance=ExtResource("14_obc52")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/PrincessMesh/Princess" unique_id=1205569833]
-libraries/ = SubResource("AnimationLibrary_erwgl")
-
-[node name="GreatestTreeMesh" parent="Actors" unique_id=258667498 instance=ExtResource("20_pmxw2")]
-transform = Transform3D(0.58333325, 0, 0, 0, 1.6666665, 0, 0, 0, 3.1948879, -1.6293918, -1.9818656, 0.27767062)
-
-[node name="GreatestTree" parent="Actors/GreatestTreeMesh" unique_id=14454687 instance=ExtResource("14_obc52")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Actors/GreatestTreeMesh/GreatestTree" unique_id=942092565]
-libraries/ = SubResource("AnimationLibrary_erwgl")
 
 [node name="Lights" type="Node3D" parent="." unique_id=1705911075]
 transform = Transform3D(-0.99999803, 0.0018779158, -0.0006346515, 0.0018191794, 0.99659187, 0.08247014, 0.00078736054, 0.08246882, -0.99659336, 0, 2.8698053, -1.8980364)
