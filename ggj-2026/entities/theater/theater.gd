@@ -1,3 +1,4 @@
+@tool
 extends Node
 class_name Theater
 
@@ -6,6 +7,8 @@ class_name Theater
 # 3x6=18 markers
 
 @export var plans: Node
+
+@export var debug_curtains_node: Node
 
 var _markers: Array[Array]
 
@@ -18,3 +21,8 @@ func _ready() -> void:
 
 func get_marker(plan: int, pos: int) -> Vector3:
 	return _markers[plan][pos]
+
+@export var debug_curtains: bool:
+	set(value):
+		debug_curtains = value
+		debug_curtains_node.call('debug_set_curtains', value)

@@ -28,4 +28,6 @@ func leave():
 
 func _on_sprouch() -> void:
 	react("angry")
-	anim.play("tomato_hit")
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "position", position+Vector3(0, 0.3, 0), 0.7).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+	tween.chain().tween_property(self, "position", position-Vector3(0, 0.3, 0), 0.3)

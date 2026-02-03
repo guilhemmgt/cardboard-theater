@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://e774ghilc1kl"]
+
+[ext_resource type="Script" uid="uid://clxdfemabrq5b" path="res://test_spectat.gd" id="1_j0f6r"]
+[ext_resource type="PackedScene" uid="uid://4ybk6pv7q7id" path="res://entities/spectators/spectators.tscn" id="2_jp8s3"]
+[ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="3_jp8s3"]
+
+[node name="TestSpectat" type="Node3D" unique_id=976546549]
+script = ExtResource("1_j0f6r")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2109089636]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3269701, 4.796582)
+
+[node name="Spectators" parent="." unique_id=1081804810 instance=ExtResource("2_jp8s3")]
+max_time_between = 1.0
+
+[node name="TomatoBasket" parent="." unique_id=735284322 node_paths=PackedStringArray("camera") instance=ExtResource("3_jp8s3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.8082702)
+camera = NodePath("../Camera3D")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2025831598]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5258863, 0)
