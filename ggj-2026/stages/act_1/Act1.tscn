@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cmoh5erhg8ftq" path="res://carton/3Dcardboards/horn/horn.tscn" id="12_cc4j3"]
 [ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="22_b4xu0"]
 [ext_resource type="Script" uid="uid://d3uf356n1craj" path="res://ui/cursor/mouse_manager.gd" id="23_uel2o"]
-[ext_resource type="Script" uid="uid://b0g4fonj8fno0" path="res://utilities/txt_to_anim.gd" id="24_cshfc"]
+[ext_resource type="Script" uid="uid://b0g4fonj8fno0" path="res://utilities/orchestrator/txt_to_anim.gd" id="24_cshfc"]
 [ext_resource type="AnimationLibrary" uid="uid://ddal5gnqwjbdb" path="res://animations/scene_library.tres" id="25_sl14i"]
 [ext_resource type="AudioStream" uid="uid://cb1ckd7b3kmcu" path="res://sounds/music/ggj2026.mp3" id="25_yj2y1"]
 [ext_resource type="Texture2D" uid="uid://b1rb783r5r7w7" path="res://entities/scenery/background/background.png" id="26_s74tu"]
@@ -286,9 +286,8 @@ transform = Transform3D(2.5389833, 0.55370784, 0, -0.407898, 1.4561816, 0, 0, 0,
 
 [node name="IncidentsManager" type="Node" parent="." unique_id=2140090368]
 
-[node name="Orchestrator" type="Node" parent="." unique_id=392292513 node_paths=PackedStringArray("animation_p", "actor_manager")]
+[node name="Orchestrator" type="Node" parent="." unique_id=392292513 node_paths=PackedStringArray("actor_manager")]
 script = ExtResource("22_b4xu0")
-animation_p = NodePath("../Act1")
 actor_manager = NodePath("../ActorManager")
 
 [node name="Plan1" type="Node" parent="Orchestrator" unique_id=961782369]

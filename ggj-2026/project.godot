@@ -15,6 +15,10 @@ run/main_scene="uid://3feoqdak035q"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://1ubkffcsbrtx"
 
+[autoload]
+
+SignalBus="*uid://1wvnh3rt8h6n"
+
 [debug]
 
 gdscript/warnings/unsafe_property_access=2
