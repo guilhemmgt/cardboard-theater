@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://ckspp2o3odaam"]
 
-[ext_resource type="Script" path="res://stages/audio_players.gd" id="1_7iyax"]
+[ext_resource type="Script" uid="uid://b0q6jva73fkqk" path="res://stages/audio_players.gd" id="1_7iyax"]
 [ext_resource type="PackedScene" uid="uid://db6l51gxty1ec" path="res://entities/theater/theater.tscn" id="1_72s8x"]
+[ext_resource type="Script" uid="uid://diiwyqemjac5n" path="res://utilities/mover.gd" id="2_5sjox"]
 [ext_resource type="AudioStream" uid="uid://cb1ckd7b3kmcu" path="res://sounds/music/ggj2026.mp3" id="2_43f5m"]
 [ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="4_0oqm6"]
-[ext_resource type="Script" path="res://utilities/orchestrator/txt_to_anim.gd" id="4_fejr8"]
+[ext_resource type="Script" uid="uid://b0g4fonj8fno0" path="res://utilities/orchestrator/txt_to_anim.gd" id="4_fejr8"]
 
 [node name="Main" type="Node3D" unique_id=62694581]
 
@@ -12,7 +13,9 @@
 script = ExtResource("4_0oqm6")
 metadata/_custom_type_script = "uid://bukq7d3xlecfq"
 
-[node name="Node" type="Node" parent="." unique_id=891845626]
+[node name="Mover" type="Node" parent="." unique_id=891845626 node_paths=PackedStringArray("theater")]
+script = ExtResource("2_5sjox")
+theater = NodePath("../Theater")
 
 [node name="GenerateurAction" type="Node" parent="." unique_id=359567483 node_paths=PackedStringArray("animation_player")]
 script = ExtResource("4_fejr8")
