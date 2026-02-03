@@ -4,6 +4,7 @@ class_name ButtonUI
 
 signal button_clicked
 @onready var carton_particle: GPUParticles3D = $CartonParticle
+@onready var spot_light_3d: SpotLight3D = $SpotLight3D
 
 @export var _area: Area3D
 @export var _label: Label3D
@@ -36,11 +37,12 @@ func _on_area_3d_mouse_entered() -> void:
 	random_offset = randf_range(-0.2, 0.2)
 	turn_with_elasticity(0.5, 3.0 + random_offset)
 	_is_hover = true
+	spot_light_3d.visible=true
 func _on_area_3d_mouse_exited() -> void:
 	reset_with_elasticity(0.5)
 	_is_hover = false
 	carton_particle.emitting = false
-	
+	spot_light_3d.visible=false
 func _on_particle_countdown_timeout() -> void:
 	carton_particle.emitting = false
 	
