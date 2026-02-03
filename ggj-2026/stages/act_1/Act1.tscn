@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://cldyre5xcua07" path="res://entities/actors/actor_manager.gd" id="6_2etmi"]
 [ext_resource type="Script" uid="uid://burtkkchfm8es" path="res://entities/actors/actor.gd" id="7_g21jj"]
 [ext_resource type="PackedScene" uid="uid://bn21pj7fdgghm" path="res://carton/3Dcardboards/dragon/dragon.tscn" id="8_cegcp"]
-[ext_resource type="PackedScene" uid="uid://3q7u47fq30rs" path="res://entities/incidents/activation/activation_incident.tscn" id="11_kuiwp"]
 [ext_resource type="PackedScene" uid="uid://cmoh5erhg8ftq" path="res://carton/3Dcardboards/horn/horn.tscn" id="12_cc4j3"]
 [ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="22_b4xu0"]
 [ext_resource type="Script" uid="uid://d3uf356n1craj" path="res://ui/cursor/mouse_manager.gd" id="23_uel2o"]
@@ -102,44 +101,6 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_sl14i"),
 &"idle": SubResource("Animation_jgeue")
-}
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_jekqu"]
-
-[sub_resource type="Animation" id="Animation_w48y1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Horn:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_jekqu"]
-resource_name = "horn"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Horn:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.48, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.29496065), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_w48y1"]
-_data = {
-&"RESET": SubResource("Animation_w48y1"),
-&"horn": SubResource("Animation_jekqu")
 }
 
 [node name="TheatreScene" type="Node3D" unique_id=814067477]
@@ -325,24 +286,6 @@ transform = Transform3D(2.5389833, 0.55370784, 0, -0.407898, 1.4561816, 0, 0, 0,
 
 [node name="IncidentsManager" type="Node" parent="." unique_id=2140090368]
 
-[node name="Clairon" parent="IncidentsManager" unique_id=1377364127 node_paths=PackedStringArray("anim_player_sucess") instance=ExtResource("11_kuiwp")]
-anim_name = "horn"
-anim_player_sucess = NodePath("succ")
-
-[node name="CollisionShape3D" parent="IncidentsManager/Clairon/Area3D" parent_id_path=PackedInt32Array(1377364127, 1245094455) index="0" unique_id=1780399060]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3690434, 3.6141105, 0.8418863)
-shape = SubResource("BoxShape3D_jekqu")
-
-[node name="SpotLight3D" parent="IncidentsManager/Clairon" index="2" unique_id=725087263]
-transform = Transform3D(-0.9926458, 0, -0.12105519, 0, 1, 0, 0.12105519, 0, -0.9926458, -3.3697002, 3.4848428, 0.07530789)
-visible = false
-
-[node name="Horn" parent="IncidentsManager/Clairon" unique_id=663205281 instance=ExtResource("12_cc4j3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4621015, 3.5264204, 1.0956626)
-
-[node name="succ" type="AnimationPlayer" parent="IncidentsManager/Clairon" unique_id=275578662]
-libraries/ = SubResource("AnimationLibrary_w48y1")
-
 [node name="Orchestrator" type="Node" parent="." unique_id=392292513 node_paths=PackedStringArray("animation_p", "actor_manager")]
 script = ExtResource("22_b4xu0")
 animation_p = NodePath("../Act1")
@@ -420,7 +363,7 @@ autoplay = &"scene0"
 
 [node name="GenerateurAction" type="Node" parent="." unique_id=936528559 node_paths=PackedStringArray("animation_player")]
 script = ExtResource("24_cshfc")
-timeline_file = "res://test.json"
+timeline_file = "res://test copy.json"
 animation_player = NodePath("../Act1")
 
 [node name="SceneMusicPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1512042630]
@@ -543,5 +486,3 @@ transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -4.7487593, 3.448996, 1
 transform = Transform3D(-13.1, 0, -7.54979e-07, 0, 5, 0, 1.978045e-06, 0, -5, -0.6407337, 2.8829699, 3.817027)
 
 [connection signal="animation_finished" from="Act1" to="." method="_on_act_1_animation_finished"]
-
-[editable path="IncidentsManager/Clairon"]

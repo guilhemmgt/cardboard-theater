@@ -1,4 +1,4 @@
-extends Node
+extends Node3D
 class_name Incident
 
 # DO NOT USE THIS CLASS DIRECTLY, USE ITS IMPLEMENTATIONS
@@ -18,7 +18,7 @@ func _ready() -> void:
 func activate(time: float):
 	if _activated:
 		push_error("Already activated.")
-	print("Event activated on node: " + str(self)+"with time" + str(time))
+	print("Event activated on node: " + str(self) + "with time" + str(time))
 	_activated = true
 	activated.emit(blocking)
 	_timer.stop()

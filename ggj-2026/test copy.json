@@ -1,0 +1,11 @@
+{
+	"timeline": [
+		{
+			"INCIDENT_BREAK": {
+				"actor": "RepairIncident",
+				"begin_time": 2.5,
+				"duration": 1.0
+			}
+		}
+	]
+}
