@@ -64,6 +64,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_1g62v")
 [node name="CreditsButton" parent="." unique_id=834246769 instance=ExtResource("9_jaqyd")]
 transform = Transform3D(0.0008391579, 0, 1.3398597, 0, 0.529, 0, -0.057993926, 0, 0.019387443, -1.870667, 1.8163846, 1.1529043)
 text = "Credits"
+mouse_speed_threshold = null
 
 [node name="Post" type="MeshInstance3D" parent="." unique_id=671716641]
 transform = Transform3D(-0.35239437, 0, 0.0019022571, 0, 2.7175698, 0, -0.0006703399, 0, -0.9999983, 2.2549055, -0.6080452, 1.147182)
@@ -73,6 +74,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_1g62v")
 [node name="QuitButton" parent="." unique_id=763163492 instance=ExtResource("9_jaqyd")]
 transform = Transform3D(0.0008391579, 0, 1.3398597, 0, 0.529, 0, -0.057993926, 0, 0.019387443, 2.2640731, 1.8733858, 1.1555107)
 text = "Quit"
+mouse_speed_threshold = null
 
 [node name="Post3" type="MeshInstance3D" parent="." unique_id=1803706604]
 transform = Transform3D(-0.35239428, 0, 0.0019022571, 0, 2.7175696, 0, -0.00067033945, 0, -0.99999815, 0.14569086, -0.60804486, 1.147182)
@@ -82,3 +84,4 @@ surface_material_override/0 = SubResource("StandardMaterial3D_1g62v")
 [node name="PlayButton" parent="." unique_id=643307507 instance=ExtResource("9_jaqyd")]
 transform = Transform3D(0.0010561815, 0, 1.681824, 0, 0.664, 0, -0.072992355, 0, 0.024335582, 0.17857951, 1.9394405, 1.147182)
 text = "Play"
+mouse_speed_threshold = null

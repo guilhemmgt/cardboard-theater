@@ -9,18 +9,24 @@ signal button_clicked
 @export var _area: Area3D
 @export var _label: Label3D
 @export var text: String
-
+@export var mouse_speed_threshold: float = 5
 var random_offset: float
 
 var _is_hover: bool = false
-var particle_countdown: Timer
+
+var mouse_speed: float = 0.0
+var mouse_pos: Vector2
 func _ready() -> void:
 	_area.input_event.connect(_on_click)
 	_label.text = text
-	particle_countdown = Timer.new()
-	particle_countdown.one_shot = true
-	particle_countdown.timeout.connect(_on_particle_countdown_timeout)
-	add_child(particle_countdown)
+
+func _process(delta: float) -> void:
+	var current_mouse_pos = get_viewport().get_mouse_position()
+	mouse_speed = (current_mouse_pos - mouse_pos).length()
+	mouse_pos = current_mouse_pos
+	if mouse_speed < mouse_speed_threshold:
+		carton_particle.emitting = false
+
 
 func turn_with_elasticity(duration: float, degrees: float = 2.0) -> void:
 	var tween: Tween = create_tween()
@@ -37,21 +43,23 @@ func _on_area_3d_mouse_entered() -> void:
 	random_offset = randf_range(-0.2, 0.2)
 	turn_with_elasticity(0.5, 3.0 + random_offset)
 	_is_hover = true
-	spot_light_3d.visible=true
+	spot_light_3d.visible = true
 func _on_area_3d_mouse_exited() -> void:
 	reset_with_elasticity(0.5)
 	_is_hover = false
 	carton_particle.emitting = false
-	spot_light_3d.visible=false
+	spot_light_3d.visible = false
 func _on_particle_countdown_timeout() -> void:
 	carton_particle.emitting = false
 	
+func _on_start_particle_countdown_timeout() -> void:
+	carton_particle.emitting = true
+
 func _on_click(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event.is_action_released("click"):
 		button_clicked.emit()
-	if _is_hover and event is InputEventMouseMotion:
+	if _is_hover and event is InputEventMouseMotion and mouse_speed > mouse_speed_threshold:
 		carton_particle.emitting = true
-		particle_countdown.start(0.02)
 		#Project mouse onto the plane of the button
 		var mouse_pos = get_viewport().get_mouse_position()
 		var camerav = get_viewport().get_camera_3d()
