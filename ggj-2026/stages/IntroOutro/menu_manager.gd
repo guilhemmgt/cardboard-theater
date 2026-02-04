@@ -1,6 +1,9 @@
 extends Node3D
 
+@export var camera : Camera3D
 
+func _ready() -> void:
+	GeneralNodes.set_camera(camera)
 func _on_play_button_clicked() -> void:
 	pass # Replace with function body.
 

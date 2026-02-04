@@ -2,7 +2,7 @@ extends Node3D
 class_name TomatoBasket
 signal drag(is_dragging: bool)
 
-@export var camera: Camera3D
+@onready var camera: Camera3D
 @export var tomato_scene: PackedScene
 @export var area: Area3D
 @export var raycast: RayCast3D
@@ -19,6 +19,7 @@ func _ready():
 			aim()
 			drag.emit(true)
 	)
+	camera = await GeneralNodes.get_camera()
 
 func dearm():
 	aiming = false
