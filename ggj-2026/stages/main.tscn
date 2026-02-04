@@ -7,8 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://cb1ckd7b3kmcu" path="res://sounds/music/ggj2026.mp3" id="2_43f5m"]
 [ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="4_0oqm6"]
 [ext_resource type="Script" uid="uid://b0g4fonj8fno0" path="res://utilities/orchestrator/txt_to_anim.gd" id="4_fejr8"]
-[ext_resource type="PackedScene" uid="uid://o82m05ah8w86" path="res://entities/scenes/menu.tscn" id="7_byaf2"]
 [ext_resource type="Script" uid="uid://cldyre5xcua07" path="res://entities/actors/actor_manager.gd" id="7_85ei1"]
+[ext_resource type="PackedScene" uid="uid://o82m05ah8w86" path="res://entities/scenes/menu.tscn" id="7_byaf2"]
 [ext_resource type="Script" uid="uid://burtkkchfm8es" path="res://entities/actors/actor.gd" id="8_lnxn1"]
 [ext_resource type="PackedScene" uid="uid://bn21pj7fdgghm" path="res://carton/3Dcardboards/dragon/dragon.tscn" id="9_06h8b"]
 [ext_resource type="PackedScene" uid="uid://dq8y837y8ll4b" path="res://entities/incidents/intrusion/intrusion_incident.tscn" id="10_lnxn1"]
@@ -108,10 +108,13 @@ transform = Transform3D(2.5389833, 0.55370784, 0, -0.407898, 1.4561816, 0, 0, 0,
 
 [node name="CowIncident" parent="IncidentsManager" unique_id=1502549711 instance=ExtResource("10_lnxn1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.566022, 1.509382, 2.2435179)
+control_min_delay = 2.0
+control_max_delay = 3.0
 
 [node name="Cow" parent="IncidentsManager/CowIncident" unique_id=1879863676 instance=ExtResource("11_06h8b")]
 
 [node name="Act1" type="AnimationPlayer" parent="." unique_id=786224321]
 libraries/ = ExtResource("1_cu7i0")
+autoplay = &"scene0"
 
 [editable path="IncidentsManager/CowIncident"]

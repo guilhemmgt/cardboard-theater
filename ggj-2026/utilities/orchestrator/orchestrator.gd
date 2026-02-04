@@ -1,7 +1,6 @@
 extends Node
 class_name Orchestrator
 
-@onready var game_over: Node3D = $"../Scene/GameOver"
 @export var incidents_manager: Node
 
 @export var actor_manager: ActorManager
@@ -34,7 +33,7 @@ func _on_event_failure() -> void:
 	print("Event failed - game over")
 	await get_tree().create_timer(2.0).timeout
 	var tween = create_tween()
-	tween.tween_property(game_over, "global_position:y", 2.203, 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	#tween.tween_property(game_over, "global_position:y", 2.203, 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 func _on_incident_activated(blocking: bool) -> void:
 	if blocking:

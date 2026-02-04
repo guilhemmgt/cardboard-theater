@@ -43,7 +43,7 @@ func debug_set_curtains(open: bool):
 		return
 	# teleport
 	var to_x: float = opened_x if open else closed_x
-	_left.position.x = to_x
-	_right.position.x = -to_x
+	#_left.position.x = to_x
+	#_right.position.x = -to_x
 	# after
 	_open = not _open

@@ -9,18 +9,25 @@ class_name IntrusionIncident
 @export var control_min_delay: float = 1.0
 @export var control_max_delay: float = 4.0
 
+@export var is_left_oriented: bool = true
+
+var current_node: int = 0
+var is_current_node_initialized: bool = false
 
 func _ready() -> void:
+	super._ready()
 	blocking = false
 	sfx_timer.timeout.connect(_on_sfx_timer_timeout)
 	control_timer.timeout.connect(_on_control_timer_timeout)
 
-func _activate(_blocking: bool) -> void:
+func activate(time: float):
+	super.activate(time)
 	print("Activated on: ", name)
 	_on_sfx_timer_timeout()
 	_on_control_timer_timeout()
 
-func _deactivate(success: bool) -> void:
+func deactivate(success: bool) -> void:
+	super.deactivate(success)
 	print("Deactivated on: ", name)
 	if success:
 		_on_incident_resolved()
@@ -53,5 +60,16 @@ func _on_sfx_timer_timeout():
 func _on_control_timer_timeout():
 	if not _activated:
 		return
-	SignalBus.ask_to_move.emit(self, randf_range(control_min_delay, control_max_delay), 1, randi_range(1, 4))
+	print("asking to move")
+	#pick random different node
+	var new_node: int 
+	if not is_current_node_initialized:
+		new_node = randi_range(0, 3)
+		is_current_node_initialized = true
+	else:
+		new_node = randi_range(0, 3)
+		while current_node == new_node:
+			new_node = randi_range(0, 3)
+		current_node = new_node
+	SignalBus.ask_to_move.emit(self, randf_range(control_min_delay, control_max_delay), 0, new_node)
 	start_random_timer(control_timer, control_min_delay, control_max_delay)

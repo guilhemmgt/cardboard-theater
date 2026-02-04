@@ -56,12 +56,17 @@ transform = Transform3D(1.6, 0, 0, 0, 2, 0, 0, 0, 2, -1.091897, 1.218476, 1.9627
 [node name="GreatestTree" parent="." unique_id=258667498 instance=ExtResource("8_1g62v")]
 transform = Transform3D(1.4, 0, 0, 0, 2, 0, 0, 0, 2, 3.9942365, 1.3239874, 1.6169491)
 
+[node name="Post2" type="MeshInstance3D" parent="." unique_id=1508316564]
+transform = Transform3D(-0.35239437, 0, 0.0019022571, 0, 2.7175698, 0, -0.0006703399, 0, -0.9999983, -1.9325718, -0.95916176, 1.147182)
+mesh = SubResource("PlaneMesh_ls1ps")
+surface_material_override/0 = SubResource("StandardMaterial3D_1g62v")
+
 [node name="CreditsButton" parent="." unique_id=834246769 instance=ExtResource("9_jaqyd")]
 transform = Transform3D(0.0008391579, 0, 1.3398597, 0, 0.529, 0, -0.057993926, 0, 0.019387443, -1.870667, 1.8163846, 1.1529043)
 text = "Credits"
 
-[node name="Post" type="MeshInstance3D" parent="CreditsButton" unique_id=1508316564]
-transform = Transform3D(-0.07634926, 0, 17.24002, 0, 5.137183, 0, -0.26296058, 0, -0.00937773, 0.083208084, -5.2467794, -0.046254516)
+[node name="Post" type="MeshInstance3D" parent="." unique_id=671716641]
+transform = Transform3D(-0.35239437, 0, 0.0019022571, 0, 2.7175698, 0, -0.0006703399, 0, -0.9999983, 2.2549055, -0.6080452, 1.147182)
 mesh = SubResource("PlaneMesh_ls1ps")
 surface_material_override/0 = SubResource("StandardMaterial3D_1g62v")
 
@@ -69,16 +74,11 @@ surface_material_override/0 = SubResource("StandardMaterial3D_1g62v")
 transform = Transform3D(0.0008391579, 0, 1.3398597, 0, 0.529, 0, -0.057993926, 0, 0.019387443, 2.2640731, 1.8733858, 1.1555107)
 text = "Quit"
 
-[node name="Post" type="MeshInstance3D" parent="QuitButton" unique_id=671716641]
-transform = Transform3D(-0.07634926, 0, 17.24002, 0, 5.137183, 0, -0.26296058, 0, -0.00937773, 0.14129639, -4.690796, -0.006930709)
+[node name="Post3" type="MeshInstance3D" parent="." unique_id=1803706604]
+transform = Transform3D(-0.35239428, 0, 0.0019022571, 0, 2.7175696, 0, -0.00067033945, 0, -0.99999815, 0.14569086, -0.60804486, 1.147182)
 mesh = SubResource("PlaneMesh_ls1ps")
 surface_material_override/0 = SubResource("StandardMaterial3D_1g62v")
 
 [node name="PlayButton" parent="." unique_id=643307507 instance=ExtResource("9_jaqyd")]
 transform = Transform3D(0.0010561815, 0, 1.681824, 0, 0.664, 0, -0.072992355, 0, 0.024335582, 0.17857951, 1.9394405, 1.147182)
 text = "Play"
-
-[node name="Post" type="MeshInstance3D" parent="PlayButton" unique_id=1803706604]
-transform = Transform3D(-0.060661044, 0, 13.697549, 0, 4.0927253, 0, -0.20949292, 0, -0.0074709607, -0.006518364, -3.8365743, -0.019551255)
-mesh = SubResource("PlaneMesh_ls1ps")
-surface_material_override/0 = SubResource("StandardMaterial3D_1g62v")
