@@ -6,6 +6,9 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_noarx"]
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5yfjs"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_a202f"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5yfjs"]
@@ -27,6 +30,12 @@ _area = NodePath("Area3D")
 _label = NodePath("Label3D")
 text = "ToWrite"
 
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=1207988370]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=608332854]
+shape = SubResource("ConvexPolygonShape3D_5yfjs")
+
 [node name="Area3D" type="Area3D" parent="." unique_id=1522299017]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0.019411922, 0)
 
@@ -46,7 +55,7 @@ font_size = 110
 transform = Transform3D(1, 0, 0, 0, 0.9999997, 0, 0, 0, 0.99999976, 3.94938, 0, 0.3566351)
 emitting = false
 amount = 15
-lifetime = 0.09999999999999999
+lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_5yfjs")
 draw_pass_1 = SubResource("SphereMesh_so3rh")
 
