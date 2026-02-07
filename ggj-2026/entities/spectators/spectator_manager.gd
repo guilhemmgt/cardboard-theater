@@ -40,6 +40,14 @@ func enter_room():
 	for sp in spectators_array:
 		sp.come()
 
+func leave_room():
+	for sp in spectators_array:
+		sp.leave()
+		
+func instant_leave_room():
+	for sp in spectators_array:
+		sp.instant_leave()
+
 func react_to_intruder(intruder_name: String):
 	for _i in range(randi_range(min_spectator_to_react, max_spectator_to_react)):
 		var speaking_spectator : Spectator = spectators_array.pick_random() 

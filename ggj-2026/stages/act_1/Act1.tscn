@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cmoh5erhg8ftq" path="res://carton/3Dcardboards/horn/horn.tscn" id="12_cc4j3"]
 [ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="22_b4xu0"]
 [ext_resource type="Script" uid="uid://d3uf356n1craj" path="res://ui/cursor/mouse_manager.gd" id="23_uel2o"]
-[ext_resource type="Script" path="res://utilities/orchestrator/txt_to_anim.gd" id="24_cshfc"]
+[ext_resource type="Script" uid="uid://b0g4fonj8fno0" path="res://utilities/orchestrator/txt_to_anim.gd" id="24_cshfc"]
 [ext_resource type="AnimationLibrary" uid="uid://ddal5gnqwjbdb" path="res://animations/scene_library.tres" id="25_sl14i"]
 [ext_resource type="AudioStream" uid="uid://cb1ckd7b3kmcu" path="res://sounds/music/ggj2026.mp3" id="25_yj2y1"]
 [ext_resource type="Texture2D" uid="uid://b1rb783r5r7w7" path="res://entities/scenery/background/background.png" id="26_s74tu"]
@@ -187,9 +187,8 @@ mesh = SubResource("BoxMesh_h2yge")
 [node name="Border" parent="Scene" unique_id=195769391 instance=ExtResource("3_sl14i")]
 transform = Transform3D(11, 0, 0, 0, 6, 0, 0, 0, 6, -0.17333889, 2.1501837, 1.0046821)
 
-[node name="TomatoBasket" parent="Scene" unique_id=735284322 node_paths=PackedStringArray("camera") instance=ExtResource("4_jgeue")]
+[node name="TomatoBasket" parent="Scene" unique_id=735284322 instance=ExtResource("4_jgeue")]
 transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, -0.7132276, 2.288871, -1.7572942)
-camera = NodePath("../Camera3D")
 
 [node name="GameOver" parent="Scene" unique_id=1945262765 instance=ExtResource("5_8gvx6")]
 transform = Transform3D(-3.278823, 0, 0.087863214, 0, 3.28, 0, -0.087863214, 0, -3.278823, -0.278, 4.856266, 1.104)
@@ -352,9 +351,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.469459, 4.933939)
 
 [node name="Node" type="Node" parent="Orchestrator" unique_id=1894943545]
 
-[node name="MouseManager" type="Node" parent="." unique_id=1658592573 node_paths=PackedStringArray("tomato_basket")]
+[node name="MouseManager" type="Node" parent="." unique_id=1658592573]
 script = ExtResource("23_uel2o")
-tomato_basket = NodePath("../Scene/TomatoBasket")
 
 [node name="Act1" type="AnimationPlayer" parent="." unique_id=1389752533]
 libraries/ = ExtResource("25_sl14i")

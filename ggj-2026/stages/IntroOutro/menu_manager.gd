@@ -1,4 +1,7 @@
 extends Node3D
+class_name MenuManager
+
+signal play_button_clicked
 
 @export var camera : Camera3D
 @export var play_button : ButtonUI
@@ -12,7 +15,7 @@ func _ready() -> void:
 	quit_button.button_clicked.connect(_on_quit_button_clicked)
 	
 func _on_play_button_clicked() -> void:
-	pass # Replace with function body.
+	play_button_clicked.emit()
 
 
 func _on_quit_button_clicked() -> void:

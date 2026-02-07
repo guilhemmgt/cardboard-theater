@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://bmq3jlb1anrhf" path="res://carton/3Dcardboards/border/border.tscn" id="3_qqqc6"]
 [ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="5_asdu4"]
 [ext_resource type="PackedScene" uid="uid://c13lnr6kybksr" path="res://entities/scenery/curtains/curtains.tscn" id="6_na8pb"]
-[ext_resource type="Texture2D" uid="uid://bu0jq5rop2wt3" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="6_yt3pu"]
 [ext_resource type="PackedScene" uid="uid://dgixb4l7nrgd1" path="res://VFX/dust_particles.tscn" id="7_na8pb"]
 [ext_resource type="Texture2D" uid="uid://hlxdsbmuyxjr" path="res://VFX/Textures/blur.png" id="8_03i3v"]
+[ext_resource type="PackedScene" uid="uid://4ybk6pv7q7id" path="res://entities/spectators/spectators.tscn" id="8_dpkxa"]
 [ext_resource type="PackedScene" uid="uid://dggf4moa1wla2" path="res://stages/food kenney/donut-chocolate.glb" id="9_na8pb"]
 [ext_resource type="Shader" uid="uid://dy6ecpm6tdmku" path="res://carton/Cartons.tres" id="11_jjpgy"]
 [ext_resource type="ArrayMesh" uid="uid://dg04rjyqgcp7x" path="res://carton/Letters/r.obj" id="14_cawt5"]
@@ -58,14 +58,6 @@ albedo_texture = ExtResource("2_umf7y")
 albedo_color = Color(0.7, 0.7, 0.7, 1)
 albedo_texture = ExtResource("2_umf7y")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mycd"]
-albedo_color = Color(0.20392157, 0.05490196, 0.02745098, 1)
-albedo_texture = ExtResource("6_yt3pu")
-uv1_triplanar = true
-uv1_world_triplanar = true
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_272bh"]
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rrpbx"]
 render_priority = 0
 shader = ExtResource("11_jjpgy")
@@ -81,10 +73,11 @@ shader_parameter/Vector2Parameter = Vector2(1.4, 1.4)
 shader_parameter/Vector2Parameter2 = Vector2(0.5, 0.5)
 shader_parameter/Texture2DParameter = ExtResource("18_l37eo")
 
-[node name="Theater" type="Node3D" unique_id=814067477 node_paths=PackedStringArray("plans", "tomato_basket", "debug_curtains_node")]
+[node name="Theater" type="Node3D" unique_id=814067477 node_paths=PackedStringArray("plans", "tomato_basket", "spectators", "debug_curtains_node")]
 script = ExtResource("1_5k1p7")
 plans = NodePath("Plans")
 tomato_basket = NodePath("Scene/Desk/TomatoBasket")
+spectators = NodePath("Spectators")
 debug_curtains_node = NodePath("Scene/Curtains")
 
 [node name="Plans" type="Node" parent="." unique_id=1007513137]
@@ -195,78 +188,9 @@ mesh = SubResource("BoxMesh_h2yge")
 [node name="TomatoBasket" parent="Scene/Desk" unique_id=735284322 instance=ExtResource("5_asdu4")]
 transform = Transform3D(-0.15434617, -0.0002761154, 0.00017794369, -0.0016914184, 0.97370684, 0.043798868, -0.0025487621, 0.09295306, -2.0665662, -0.09551869, 0.60248613, -0.101703644)
 
-[node name="Spectators" type="Node3D" parent="." unique_id=806130277]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3041154, -0.37863255)
-
-[node name="spectator_01" type="MeshInstance3D" parent="Spectators" unique_id=1745814669]
-transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, -2.5280461, 0.33964872, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="spectator_01_head" type="MeshInstance3D" parent="Spectators/spectator_01" unique_id=678083559]
-transform = Transform3D(0.5865418, 0, 0, 0, 0.22013055, 0, 0, 0, 1, 0.07988119, 1.0825675, 0)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="spectator_02" type="MeshInstance3D" parent="Spectators" unique_id=57464366]
-transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, -1.6340213, 0.3529414, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="spectator_02_head" type="MeshInstance3D" parent="Spectators/spectator_02" unique_id=1203749790]
-transform = Transform3D(0.5865418, 0, 0, 0, 0.22013055, 0, 0, 0, 1, -0.08096266, 1.0685598, 0)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="spectator_03" type="MeshInstance3D" parent="Spectators" unique_id=1596440797]
-transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, -0.78751826, 0.3529414, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="spectator_03_head" type="MeshInstance3D" parent="Spectators/spectator_03" unique_id=642651703]
-transform = Transform3D(0.5865418, 0, 0, 0, 0.22013055, 0, 0, 0, 1, 0.075327516, 1.0685598, 0)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="spectator_04" type="MeshInstance3D" parent="Spectators" unique_id=1323093242]
-transform = Transform3D(0.6712459, 0, 0, 0, 0.94895613, 0, 0, 0, 0.28313547, 0.037874937, 0.3529414, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="spectator_04_head" type="MeshInstance3D" parent="Spectators/spectator_04" unique_id=1691428394]
-transform = Transform3D(0.58654165, 0, 0, 0, 0.22013049, 0, 0, 0, 0.99999994, -0.056020454, 1.0685595, 0)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="spectator_05" type="MeshInstance3D" parent="Spectators" unique_id=929207664]
-transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, 0.84049463, 0.3529414, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="spectator_05_head" type="MeshInstance3D" parent="Spectators/spectator_05" unique_id=1702979331]
-transform = Transform3D(0.5865418, 0, 0, 0, 0.22013055, 0, 0, 0, 1, -0.03352785, 1.0685598, 0)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="spectator_06" type="MeshInstance3D" parent="Spectators" unique_id=1486968777]
-transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, 1.7345195, 0.3529414, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="spectator_06_head" type="MeshInstance3D" parent="Spectators/spectator_06" unique_id=657810484]
-transform = Transform3D(0.5865418, 0, 0, 0, 0.22013055, 0, 0, 0, 1, -0.020905972, 1.0685598, 0)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="spectator_07" type="MeshInstance3D" parent="Spectators" unique_id=418768920]
-transform = Transform3D(0.6712458, 0, 0, 0, 0.948956, 0, 0, 0, 0.28313547, 2.5810225, 0.3529414, 0.78881216)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
-
-[node name="spectator_07_head" type="MeshInstance3D" parent="Spectators/spectator_07" unique_id=1312930862]
-transform = Transform3D(0.5865418, 0, 0, 0, 0.22013055, 0, 0, 0, 1, 0, 1.0685598, 0)
-material_override = SubResource("StandardMaterial3D_7mycd")
-mesh = SubResource("CapsuleMesh_272bh")
+[node name="Spectators" parent="." unique_id=369372739 instance=ExtResource("8_dpkxa")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.12690187, -0.35271525, 0.4581504)
+number_spectators_wanted = 6
 
 [node name="Lights" type="Node3D" parent="." unique_id=537995971]
 

@@ -6,7 +6,7 @@
 [node name="Spectators" type="Node3D" unique_id=369372739]
 script = ExtResource("1_xtwus")
 space_between_spectator = 1.2
-number_spectators_wanted = 8
+number_spectators_wanted = 6
 
 [node name="@Node3D@30704" parent="." unique_id=1307589095 instance=ExtResource("2_vo3an")]
 

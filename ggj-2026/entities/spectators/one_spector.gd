@@ -7,6 +7,7 @@ class_name Spectator
 
 func _ready() -> void:
 	anim.play("idle", -1, randf_range(0.8, 1.2), bool(randi()%2))
+	anim.animation_finished.connect(idle)
 
 func react(reaction:String):
 	anim_bubble.play("react")
@@ -25,8 +26,17 @@ func react(reaction:String):
 func leave():
 	anim.play("leave")
 
+func instant_leave():
+	anim.play("leave", -1, 100)
+
 func come():
 	anim.play_backwards("leave")
+	await anim.animation_finished
+	idle("come")
+	
+func idle(anim_playing: String):
+	if anim_playing != "leave":
+		anim.play("idle")
 
 
 func _on_sprouch() -> void:

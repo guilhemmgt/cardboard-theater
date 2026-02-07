@@ -106,6 +106,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector3(0.96372104, 1.9776808, 0)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Corps/Bubble/BulleMain/StaticBody3D/CollisionShape3D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Corps/Bubble/BulleHandle/StaticBody3D/CollisionShape3D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_0gwn5"]
 resource_name = "react"
@@ -168,7 +192,31 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.56666666, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0.96372104, 1.9776808, 0), Vector3(1, 1.978, 0), Vector3(1.099, 3, 0)]
+"values": [Vector3(0.65276706, 1.8953463, 0), Vector3(0.7, 1.978, 0), Vector3(0.72, 2.531, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Corps/Bubble/BulleMain/StaticBody3D/CollisionShape3D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Corps/Bubble/BulleHandle/StaticBody3D/CollisionShape3D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0gwn5"]
@@ -211,7 +259,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_exf4q"]
 resource_name = "leave"
-length = 6.0
+length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -219,10 +267,10 @@ tracks/0/path = NodePath("Corps:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 6),
+"times": PackedFloat32Array(0, 0.5, 5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, -1), Vector3(-20, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.3), Vector3(-20, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_u1ujy"]
@@ -281,7 +329,7 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_u1ujy")
 
 [node name="Bubble" type="Node3D" parent="Corps" unique_id=429852781]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.96372104, 1.9776808, 0)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.96372104, 1.9776808, 0)
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Corps/Bubble" unique_id=327830787]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.2763244, 0.06460605)
@@ -294,9 +342,15 @@ frame = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25557625, 0)
 transparency = 1.0
 
+[node name="CollisionShape3D" parent="Corps/Bubble/BulleMain/StaticBody3D" parent_id_path=PackedInt32Array(1791090360, 1796264086) index="0" unique_id=1930742093]
+disabled = true
+
 [node name="BulleHandle" parent="Corps/Bubble" unique_id=1391828836 instance=ExtResource("8_u1ujy")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.4887951, -0.28009558, 0)
 transparency = 1.0
+
+[node name="CollisionShape3D" parent="Corps/Bubble/BulleHandle/StaticBody3D" parent_id_path=PackedInt32Array(1391828836, 540082155) index="0" unique_id=1432696124]
+disabled = true
 
 [node name="Timer" type="Timer" parent="Corps/Bubble" unique_id=392476505]
 wait_time = 2.0
@@ -311,3 +365,6 @@ libraries/ = SubResource("AnimationLibrary_ux6eq")
 
 [connection signal="sprouch" from="Corps/MeshInstance3D22/StaticBody3D" to="." method="_on_sprouch"]
 [connection signal="sprouch" from="Corps/MeshInstance3D7/StaticBody3D" to="." method="_on_sprouch"]
+
+[editable path="Corps/Bubble/BulleMain"]
+[editable path="Corps/Bubble/BulleHandle"]

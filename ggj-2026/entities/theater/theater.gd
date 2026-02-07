@@ -8,12 +8,14 @@ class_name Theater
 
 @export var plans: Node
 @export var tomato_basket : TomatoBasket
+@export var spectators: SpectatorManager
 
 @export var debug_curtains_node: Node
 
 var _markers: Array[Array]
 
 func _ready() -> void:
+	make_spectators_instant_leave()
 	for plan in plans.get_children():
 		var plan_positions: Array = []
 		for pos: Marker3D in plan.get_children():
@@ -22,6 +24,15 @@ func _ready() -> void:
 
 func get_marker(plan: int, pos: int) -> Vector3:
 	return _markers[plan][pos]
+
+func make_spectators_enter():
+	spectators.enter_room()
+	
+func make_spectators_leave():
+	spectators.leave_room()
+
+func make_spectators_instant_leave():
+	spectators.instant_leave_room()
 
 @export var debug_curtains: bool:
 	set(value):
