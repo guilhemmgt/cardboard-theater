@@ -4,10 +4,13 @@ const MOUSE_IDLE = preload("uid://cv8er5i4lebj2")
 const MOUSE_ACTION = preload("uid://djb7775gil4aa")
 const MOUSE_TOMATO = preload("uid://bw3jfo8dydjdb")
 
-@export var tomato_basket : TomatoBasket
+@export var theater : Theater
 
 func _ready() -> void:
-	tomato_basket.drag.connect(drag)
+	if (theater):
+		theater.tomato_basket.drag.connect(drag)
+	else:
+		push_warning("No theater given in MouseManagerr : could not find TomatoBasket")
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):

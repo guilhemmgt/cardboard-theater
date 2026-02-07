@@ -1,4 +1,4 @@
 extends StaticBody3D
-class_name SpectatorBody
+class_name SprouchBody
 
 signal sprouch

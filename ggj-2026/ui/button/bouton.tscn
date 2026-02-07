@@ -3,13 +3,10 @@
 [ext_resource type="Material" uid="uid://ctqhsf2gopi7n" path="res://carton/cardboard.tres" id="1_y8qu1"]
 [ext_resource type="Script" uid="uid://dhcr03f3m0kiw" path="res://ui/button/buttonUI.gd" id="1_y084j"]
 [ext_resource type="FontFile" uid="uid://cpeq42uqxplp" path="res://ui/font/drawersketches.ttf" id="3_5yfjs"]
+[ext_resource type="Script" uid="uid://ca7h4oj1n4ax" path="res://entities/sprouch_body.gd" id="3_so3rh"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_noarx"]
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5yfjs"]
-points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_a202f"]
+size = Vector3(0.082, 0.744, 1.885)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5yfjs"]
 spread = 47.375
@@ -21,29 +18,33 @@ scale_max = 0.03
 [sub_resource type="SphereMesh" id="SphereMesh_so3rh"]
 material = ExtResource("1_y8qu1")
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5yfjs"]
+points = PackedVector3Array(0.06372222, 0.3909762, 0.9574603, -0.055960312, -0.38696027, -0.9574603, 0.06372222, -0.38696027, -0.9574603, -0.055960312, -0.38696027, 0.9574603, -0.055960312, 0.3909762, -0.9574603, 0.06372222, 0.3909762, -0.9574603, 0.06372222, -0.38696027, 0.9574603, -0.055960312, 0.3909762, 0.9574603)
+
 [node name="Button" type="MeshInstance3D" unique_id=834246769 node_paths=PackedStringArray("_area", "_label")]
-transform = Transform3D(0.08210469, 0, 0, 0, 0.7444232, 0, 0, 0, 1.885254, 0, 0, 0)
 material_override = ExtResource("1_y8qu1")
 mesh = SubResource("BoxMesh_noarx")
 script = ExtResource("1_y084j")
-_area = NodePath("Area3D")
+_area = NodePath("ButtonBody")
 _label = NodePath("Label3D")
 text = "ToWrite"
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=1207988370]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+[node name="CartonParticle" type="GPUParticles3D" parent="." unique_id=97677059]
+transform = Transform3D(0.045, 0, 0, 0, 0.15, 0, 0, 0, 0.3, 0.010430634, 0, -0.008481532)
+emitting = false
+amount = 15
+lifetime = 0.1
+process_material = SubResource("ParticleProcessMaterial_5yfjs")
+draw_pass_1 = SubResource("SphereMesh_so3rh")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=608332854]
+[node name="ButtonBody" type="StaticBody3D" parent="." unique_id=1263172996]
+script = ExtResource("3_so3rh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ButtonBody" unique_id=737241461]
 shape = SubResource("ConvexPolygonShape3D_5yfjs")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=1522299017]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0.019411922, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=325102232]
-shape = SubResource("BoxShape3D_a202f")
-
 [node name="Label3D" type="Label3D" parent="." unique_id=88919816]
-transform = Transform3D(-0.0026317865, -0.0064883707, 0.9998694, 0.0019230841, 1.0006193, 0.006501085, -0.5375932, 0.0036111888, -0.004871601, 0.5040617, 0.0085210875, 0)
+transform = Transform3D(-0.0026317865, -0.0064883707, 0.9998694, 0.0019230841, 1.0006193, 0.006501085, -0.5375932, 0.0036111888, -0.004871601, 0.044008583, 0.0085210875, 0)
 shaded = true
 modulate = Color(1, 1, 0.25490198, 0.7176471)
 outline_modulate = Color(0, 0, 0, 0.49803922)
@@ -51,21 +52,9 @@ text = "ToWrite"
 font = ExtResource("3_5yfjs")
 font_size = 110
 
-[node name="CartonParticle" type="GPUParticles3D" parent="." unique_id=97677059]
-transform = Transform3D(1, 0, 0, 0, 0.9999997, 0, 0, 0, 0.99999976, 3.94938, 0, 0.3566351)
-emitting = false
-amount = 15
-lifetime = 0.1
-process_material = SubResource("ParticleProcessMaterial_5yfjs")
-draw_pass_1 = SubResource("SphereMesh_so3rh")
-
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=493396680]
-transform = Transform3D(-4.9428062, 0, 0.48478863, 0, 1.3433219, 0, -11.131516, 0, -0.21526414, 27.983015, 0, 0)
-visible = false
+transform = Transform3D(-0.40582755, 0, 0.91394967, 0, 1, 0, -0.91394967, 0, -0.40582755, 2.6008575, 0, -0.9095042)
 light_color = Color(1, 1, 0.67058825, 1)
 light_energy = 2.005
 spot_range = 3.0119123
 spot_angle = 29.723783
-
-[connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]
-[connection signal="mouse_exited" from="Area3D" to="." method="_on_area_3d_mouse_exited"]

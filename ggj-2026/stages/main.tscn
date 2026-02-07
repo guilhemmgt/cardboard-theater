@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ckspp2o3odaam"]
 
-[ext_resource type="Script" path="res://stages/audio_players.gd" id="1_7iyax"]
+[ext_resource type="Script" uid="uid://d3uf356n1craj" path="res://ui/cursor/mouse_manager.gd" id="1_1k4el"]
+[ext_resource type="Script" uid="uid://b0q6jva73fkqk" path="res://stages/audio_players.gd" id="1_7iyax"]
 [ext_resource type="PackedScene" uid="uid://db6l51gxty1ec" path="res://entities/theater/theater.tscn" id="1_72s8x"]
 [ext_resource type="AnimationLibrary" uid="uid://ddal5gnqwjbdb" path="res://animations/scene_library.tres" id="1_cu7i0"]
 [ext_resource type="Script" uid="uid://diiwyqemjac5n" path="res://utilities/mover.gd" id="2_5sjox"]
@@ -52,6 +53,10 @@ _data = {
 
 [node name="Main" type="Node3D" unique_id=62694581]
 
+[node name="MouseManager" type="Node" parent="." unique_id=1472423455 node_paths=PackedStringArray("theater")]
+script = ExtResource("1_1k4el")
+theater = NodePath("../Theater")
+
 [node name="Orchestrator" type="Node" parent="." unique_id=2052362070 node_paths=PackedStringArray("incidents_manager", "actor_manager")]
 script = ExtResource("4_0oqm6")
 incidents_manager = NodePath("../IncidentsManager")
@@ -83,7 +88,8 @@ debug_curtains = true
 [node name="ScenesParent" type="Node3D" parent="." unique_id=1917959928]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.124498844)
 
-[node name="Menu" parent="ScenesParent" unique_id=360770404 instance=ExtResource("7_byaf2")]
+[node name="Menu" parent="ScenesParent" unique_id=360770404 node_paths=PackedStringArray("camera") instance=ExtResource("7_byaf2")]
+camera = NodePath("../../Camera3D")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1756881860]
 transform = Transform3D(-0.9999881, -0.0009955054, 0.0047797984, -0.0006319588, 0.9971481, 0.07546666, -0.004841294, 0.07546273, -0.99713683, 0.009541333, 2.5335333, -1.9963292)

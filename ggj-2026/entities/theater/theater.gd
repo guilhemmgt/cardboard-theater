@@ -7,6 +7,7 @@ class_name Theater
 # 3x6=18 markers
 
 @export var plans: Node
+@export var tomato_basket : TomatoBasket
 
 @export var debug_curtains_node: Node
 

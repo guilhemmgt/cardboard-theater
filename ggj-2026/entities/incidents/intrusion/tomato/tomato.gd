@@ -4,19 +4,25 @@ const SLAPSH : AudioStream = preload("uid://dtnrhf2cox0sr")
 
 @export var sprotch_texture: Texture
 @export var sprotch_sound: AudioStreamPlayer3D
+var body_touch : bool
 
 func _ready() -> void:
+	body_touch = false
 	body_entered.connect(on_body_entered)
 
-
-
 func on_body_entered(body: Node3D):
+	if (body_touch):
+		return
+	
 	print("tomata has hit" + body.name)
-	if body is SpectatorBody:
-		var spectator_body : SpectatorBody = body
-		spectator_body.sprouch.emit()
+	body_touch = true
+	
+	if body is SprouchBody:
+		var sprouch_body : SprouchBody = body
+		sprouch_body.sprouch.emit()
 	if body.get_parent() is TomatoBasket:
 		return
+		
 	if body.get_parent().get_parent():
 		for ch in body.get_parent().get_parent().get_children():
 			print(ch.name)

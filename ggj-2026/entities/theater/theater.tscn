@@ -81,9 +81,10 @@ shader_parameter/Vector2Parameter = Vector2(1.4, 1.4)
 shader_parameter/Vector2Parameter2 = Vector2(0.5, 0.5)
 shader_parameter/Texture2DParameter = ExtResource("18_l37eo")
 
-[node name="Theater" type="Node3D" unique_id=814067477 node_paths=PackedStringArray("plans", "debug_curtains_node")]
+[node name="Theater" type="Node3D" unique_id=814067477 node_paths=PackedStringArray("plans", "tomato_basket", "debug_curtains_node")]
 script = ExtResource("1_5k1p7")
 plans = NodePath("Plans")
+tomato_basket = NodePath("Scene/Desk/TomatoBasket")
 debug_curtains_node = NodePath("Scene/Curtains")
 
 [node name="Plans" type="Node" parent="." unique_id=1007513137]
