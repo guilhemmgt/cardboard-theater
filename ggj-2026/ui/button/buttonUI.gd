@@ -66,8 +66,8 @@ func _on_click(camera: Node, event: InputEvent, event_position: Vector3, normal:
 	if event.is_action_pressed("click"):
 		_clicking = true
 	if _clicking:
-		_clicking = false
 		if event.is_action_released("click"):
+			_clicking = false
 			button_clicked.emit()
 	if _is_hover and event is InputEventMouseMotion and mouse_speed > mouse_speed_threshold:
 		carton_particle.emitting = true
