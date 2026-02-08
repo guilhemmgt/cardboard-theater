@@ -62,7 +62,7 @@ func _on_particle_countdown_timeout() -> void:
 func _on_start_particle_countdown_timeout() -> void:
 	carton_particle.emitting = true
 
-func _on_click(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+func _on_click(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event.is_action_pressed("click"):
 		_clicking = true
 	if _clicking:
@@ -72,8 +72,8 @@ func _on_click(camera: Node, event: InputEvent, event_position: Vector3, normal:
 	if _is_hover and event is InputEventMouseMotion and mouse_speed > mouse_speed_threshold:
 		carton_particle.emitting = true
 		#Project mouse onto the plane of the button
-		var mouse_pos = get_viewport().get_mouse_position()
-		var camerav = get_viewport().get_camera_3d()
+		var mouse_pos : Vector2 = get_viewport().get_mouse_position()
+		var camerav : Camera3D = get_viewport().get_camera_3d()
 		
 		var ray_origin := camerav.project_ray_origin(mouse_pos)
 		var ray_dir := camerav.project_ray_normal(mouse_pos)

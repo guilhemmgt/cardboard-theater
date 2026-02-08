@@ -334,7 +334,6 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.96372104, 1.9776808, 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Corps/Bubble" unique_id=327830787]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.2763244, 0.06460605)
 modulate = Color(1, 1, 1, 0)
-billboard = 2
 sprite_frames = SubResource("SpriteFrames_xat2g")
 frame = 3
 
