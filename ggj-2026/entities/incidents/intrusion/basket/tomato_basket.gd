@@ -13,11 +13,19 @@ signal drag(is_dragging: bool)
 
 var aiming : bool
 
+var is_mouse_in_area : bool
+
 func _ready():
 	area.input_event.connect(func(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int):
 		if event.is_action_pressed('click'):
 			aim()
 			drag.emit(true)
+	)
+	area.mouse_entered.connect(func():
+		is_mouse_in_area = true
+	)
+	area.mouse_exited.connect(func():
+		is_mouse_in_area = false
 	)
 	camera = await GeneralNodes.get_camera()
 
@@ -64,15 +72,11 @@ func _input(event: InputEvent) -> void:
 		var ray_end: Vector3 = ray_origin + camera.project_ray_normal(mouse_pos) * 1000
 		raycast.global_position = ray_origin
 		raycast.look_at(ray_end)
-		#print("ray end", ray_end)
-		#print("ray global pos", raycast.global_position)
-		#print("ray global rot", raycast.global_rotation_degrees)
 		await get_tree().process_frame
 		var r_obj = raycast.get_collider()
 		var r_pos: Vector3 = raycast.get_collision_point()
-		#print(r_obj, r_pos)
 		drag.emit(false)
-		if r_obj == area:
+		if is_mouse_in_area == true:
 			dearm()
 			return
 		if r_obj == null:
