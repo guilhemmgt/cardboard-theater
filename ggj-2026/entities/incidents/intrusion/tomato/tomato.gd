@@ -16,6 +16,7 @@ func on_body_entered(body: Node3D):
 	
 	print("tomata has hit" + body.name)
 	body_touch = true
+	self.visible = false
 	
 	if body is SprouchBody:
 		var sprouch_body : SprouchBody = body
