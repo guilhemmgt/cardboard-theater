@@ -188,9 +188,21 @@ mesh = SubResource("BoxMesh_h2yge")
 [node name="TomatoBasket" parent="Scene/Desk" unique_id=735284322 instance=ExtResource("5_asdu4")]
 transform = Transform3D(-0.15434617, -0.0002761154, 0.00017794369, -0.0016914184, 0.97370684, 0.043798868, -0.0025487621, 0.09295306, -2.0665662, -0.09551869, 0.60248613, -0.101703644)
 
+[node name="donut-chocolate2" parent="Scene/Desk" unique_id=615103896 instance=ExtResource("9_na8pb")]
+transform = Transform3D(0.18675888, -0.00033409972, -0.00021528364, 0.0020466247, 1.1781853, -0.052996647, 0.0030836253, 0.11247321, 2.5005457, 0.12468494, 0.5043931, 0.27257347)
+
+[node name="R" type="MeshInstance3D" parent="Scene/Desk" unique_id=1111624313]
+transform = Transform3D(0.06127779, -0.073049314, -0.008144494, 0.06168916, -0.015254503, 0.600959, -0.9763841, -0.8278766, 0.07921254, -0.030656796, 0.5193944, 0.20614386)
+mesh = ExtResource("14_cawt5")
+surface_material_override/0 = SubResource("ShaderMaterial_rrpbx")
+
+[node name="D" type="MeshInstance3D" parent="Scene/Desk" unique_id=924261987]
+transform = Transform3D(0.095694624, 0.00011120545, -0.00017061166, 0.0010486837, 0.02399401, 0.6038321, 0.0015800394, -1.2815554, 0.05092146, 0.03754733, 0.52269316, 0.17306614)
+mesh = ExtResource("17_gku0j")
+surface_material_override/0 = SubResource("ShaderMaterial_6o8mw")
+
 [node name="Spectators" parent="." unique_id=369372739 instance=ExtResource("8_dpkxa")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.12690187, -0.35271525, 0.4581504)
-number_spectators_wanted = 6
 
 [node name="Lights" type="Node3D" parent="." unique_id=537995971]
 
@@ -298,16 +310,3 @@ light_color = Color(1.1638972, 1.1638972, 0.4616239, 1)
 light_energy = 4.0
 spot_range = 7.5137596
 spot_angle = 43.361313
-
-[node name="donut-chocolate2" parent="." unique_id=615103896 instance=ExtResource("9_na8pb")]
-transform = Transform3D(0.605, 0, 0, 0, 0.605, 0, 0, 0, 0.605, 0.40411335, 2.2413907, -1.6654829)
-
-[node name="R" type="MeshInstance3D" parent="." unique_id=1111624313]
-transform = Transform3D(0.19827095, -0.23690017, -0.025825178, 0.020654127, -0.01638532, 0.30887684, -0.2374069, -0.19927329, 0.005303983, -0.09911587, 2.2492568, -1.6812886)
-mesh = ExtResource("14_cawt5")
-surface_material_override/0 = SubResource("ShaderMaterial_rrpbx")
-
-[node name="D" type="MeshInstance3D" parent="." unique_id=924261987]
-transform = Transform3D(0.31, 0, 0, 0, -0.0016231383, 0.30999574, 0, -0.30999574, -0.0016231383, 0.12182152, 2.2501934, -1.6896062)
-mesh = ExtResource("17_gku0j")
-surface_material_override/0 = SubResource("ShaderMaterial_6o8mw")
