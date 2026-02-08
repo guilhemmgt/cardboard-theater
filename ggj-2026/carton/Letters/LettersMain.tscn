@@ -103,6 +103,30 @@ normal_enabled = true
 normal_texture = ExtResource("4_yi6tr")
 uv1_scale = Vector3(10, 10, 10)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g5vfe"]
+render_priority = 0
+shader = ExtResource("2_8ix5t")
+shader_parameter/Vector2Parameter = Vector2(1.4, 1.4)
+shader_parameter/Vector2Parameter2 = Vector2(0.5, 0.5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_dfh4s"]
+material = SubResource("ShaderMaterial_g5vfe")
+top_radius = 0.03
+bottom_radius = 0.03
+height = 4.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_axn1u"]
+material = SubResource("ShaderMaterial_g5vfe")
+top_radius = 0.03
+bottom_radius = 0.03
+height = 2.82
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_yi6tr"]
+material = SubResource("ShaderMaterial_g5vfe")
+top_radius = 0.02
+bottom_radius = 0.02
+height = 2.82
+
 [node name="LettersMain" type="Node3D" unique_id=1102856649]
 
 [node name="CARDBOARD" type="Node3D" parent="." unique_id=706758635]
@@ -193,5 +217,21 @@ surface_material_override/0 = SubResource("ShaderMaterial_7ny8s")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=911763002]
 transform = Transform3D(7.3437624, 0, 0, 0, 1.9070039, 0, 0, 0, 0.16407633, 0, 0, -0.264071)
+visible = false
 mesh = SubResource("BoxMesh_457og")
 surface_material_override/0 = SubResource("StandardMaterial3D_dd4wd")
+
+[node name="Baton" type="MeshInstance3D" parent="." unique_id=1882304614]
+transform = Transform3D(0.024684519, -1.5578296, 0, 2.5714211, 0.014954481, 0, 0, 0, 1.4999996, -0.08689189, 0.47261643, -0.119978875)
+visible = false
+mesh = SubResource("CylinderMesh_dfh4s")
+
+[node name="Baton2" type="MeshInstance3D" parent="." unique_id=2015215797]
+transform = Transform3D(-0.055110797, -1.5575436, 0, 2.5709486, -0.03338745, 0, 0, 0, 1.4999995, -0.0037727356, -0.48405105, -0.119978875)
+visible = false
+mesh = SubResource("CylinderMesh_axn1u")
+
+[node name="Baton3" type="MeshInstance3D" parent="." unique_id=2116146104]
+transform = Transform3D(-2.5713685, -0.01797245, 0, 0.029666074, -1.5577978, 0, 0, 0, 1.4999996, -0.0037727356, 1.5272846, -0.119978875)
+visible = false
+mesh = SubResource("CylinderMesh_yi6tr")

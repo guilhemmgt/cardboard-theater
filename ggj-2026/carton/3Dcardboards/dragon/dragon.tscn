@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://dy6ecpm6tdmku" path="res://carton/Cartons.tres" id="2_ldtul"]
 [ext_resource type="Texture2D" uid="uid://dduch48fxaj24" path="res://carton/3Dcardboards/dragon/red_dragon_main.png" id="3_utyv1"]
 [ext_resource type="Texture2D" uid="uid://dt4w8nooq6i5b" path="res://carton/paper_0009_1k/paper_0009_normal_directx_1k.png" id="4_nv8bp"]
+[ext_resource type="PackedScene" uid="uid://bipa1lx3wul37" path="res://entities/characters/baton.tscn" id="5_ldtul"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ws5sg"]
 render_priority = 0
@@ -25,3 +26,6 @@ surface_material_override/0 = SubResource("ShaderMaterial_ws5sg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=335534831]
 shape = SubResource("ConcavePolygonShape3D_pskkv")
+
+[node name="Baton" parent="." unique_id=1882304614 instance=ExtResource("5_ldtul")]
+transform = Transform3D(2.5715396, 0, 0, 0, 1.5579016, 0, 0, 0, 1.4999998, 0, -0.31146938, -0.006023273)

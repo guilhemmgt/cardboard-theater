@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://dlevpco8snw5k" path="res://ui/button/bouton.tscn" id="9_jaqyd"]
 [ext_resource type="Texture2D" uid="uid://cktr80sscioby" path="res://carton/paper_0009_1k/paper_0009_color_1k.jpg" id="10_i7ewm"]
 [ext_resource type="Texture2D" uid="uid://dt4w8nooq6i5b" path="res://carton/paper_0009_1k/paper_0009_normal_directx_1k.png" id="11_hhemq"]
+[ext_resource type="Texture2D" uid="uid://b1rb783r5r7w7" path="res://entities/scenery/background/background.png" id="13_ls1ps"]
+[ext_resource type="PackedScene" uid="uid://c432atnphqs7w" path="res://carton/3Dcardboards/cow/cow.tscn" id="14_1g62v"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ls1ps"]
 size = Vector2(0.3, 5)
@@ -39,36 +41,6 @@ script = ExtResource("1_i7ewm")
 play_button = NodePath("PlayButton")
 credits_button = NodePath("CreditsButton")
 quit_button = NodePath("QuitButton")
-
-[node name="Cible" parent="." unique_id=870559002 instance=ExtResource("1_tdrc3")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.5344777, 1.1814232, 2.1620302)
-
-[node name="Nuage" parent="." unique_id=2083094686 instance=ExtResource("2_tn8mj")]
-transform = Transform3D(-2.4, 0, -9.452337e-08, 0, 1.2, 0, 3.6238995e-07, 0, -0.626, 1.6151732, 3.7982314, 1.6063027)
-
-[node name="Nuage2" parent="." unique_id=1432318036 instance=ExtResource("2_tn8mj")]
-transform = Transform3D(-1.9923894, 0.08715574, 4.563469e-08, 0.17431147, 0.9961947, 0, -1.7418022e-07, 7.619397e-09, -0.522, -3.577897, 2.5045135, 1.7398045)
-
-[node name="LettersMain" parent="." unique_id=1102856649 instance=ExtResource("3_34voo")]
-transform = Transform3D(-1.494292, 0.13073361, 1.3113416e-07, 0.13073361, 1.494292, 0, -1.3063516e-07, 1.1429095e-08, -1.5, -0.24286532, 3.241723, 3.4409409)
-
-[node name="Dragon" parent="." unique_id=521331207 instance=ExtResource("4_jaqyd")]
-transform = Transform3D(3.4, 0, 0, 0, 3, 0, 0, 0, 3, 3.733747, 1.2552674, 2.1661835)
-
-[node name="MeshInstance3D5" parent="." unique_id=1290083251 instance=ExtResource("5_i7ewm")]
-transform = Transform3D(1.3, 0, 0, 0, 2, 0, 0, 0, 2, -3.102317, 1.2623341, 1.3345469)
-
-[node name="Grass" parent="." unique_id=265710641 instance=ExtResource("6_hhemq")]
-transform = Transform3D(10, 0, 0, 0, 0.8, 0, 0, 0, 1, -0.37279153, 0.8669193, 2.2686226)
-
-[node name="Grass2" parent="." unique_id=1728235388 instance=ExtResource("6_hhemq")]
-transform = Transform3D(10, 0, 0, 0, 0.8, 0, 0, 0, 1, -0.37279153, 0.70095086, 0.9296212)
-
-[node name="IntruderCrazy" parent="." unique_id=1374366765 instance=ExtResource("7_ls1ps")]
-transform = Transform3D(1.6, 0, 0, 0, 2, 0, 0, 0, 2, -1.091897, 1.218476, 1.962796)
-
-[node name="GreatestTree" parent="." unique_id=258667498 instance=ExtResource("8_1g62v")]
-transform = Transform3D(1.4, 0, 0, 0, 2, 0, 0, 0, 2, 3.9942365, 1.3239874, 1.6169491)
 
 [node name="Post2" type="MeshInstance3D" parent="." unique_id=1508316564]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.9325718, -0.95916176, 1.147182)
@@ -111,3 +83,52 @@ text = "Quit"
 [node name="PlayButton" parent="." unique_id=643307507 instance=ExtResource("9_jaqyd")]
 transform = Transform3D(0.014468241, 0, 0.99989533, 0, 1, 0, -0.99989533, 0, 0.014468241, 0.17857951, 1.9394405, 1.147182)
 text = "Play"
+
+[node name="Cible" parent="." unique_id=870559002 instance=ExtResource("1_tdrc3")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.1786852, 1.6004493, 2.2293332)
+
+[node name="Nuage" parent="." unique_id=2083094686 instance=ExtResource("2_tn8mj")]
+transform = Transform3D(-2.4, 0, -9.452337e-08, 0, 1.2, 0, 3.6238995e-07, 0, -0.626, 4.9688635, 3.7982314, 2.3769097)
+
+[node name="Nuage2" parent="." unique_id=1175446920 instance=ExtResource("2_tn8mj")]
+transform = Transform3D(-1.9923894, 0.08715574, 4.563469e-08, 0.17431147, 0.9961947, 0, -1.7418022e-07, 7.619397e-09, -0.522, -3.6257076, 3.2203412, 1.3229113)
+
+[node name="Dragon" parent="." unique_id=521331207 instance=ExtResource("4_jaqyd")]
+transform = Transform3D(2.663, 0, 0, 0, 2.35, 0, 0, 0, 2.35, 3.8491879, 2.062935, 2.3732672)
+
+[node name="MeshInstance3D5" parent="." unique_id=1290083251 instance=ExtResource("5_i7ewm")]
+transform = Transform3D(1.03, 0, 0, 0, 1.585, 0, 0, 0, 1.585, 1.5301108, 1.7765934, 2.2317479)
+
+[node name="Grass2" parent="." unique_id=265710641 instance=ExtResource("6_hhemq")]
+transform = Transform3D(10, 0, 0, 0, 0.8, 0, 0, 0, 1, 0.32947993, 0.7103294, 1.0053465)
+
+[node name="Grass5" parent="." unique_id=1355157476 instance=ExtResource("6_hhemq")]
+transform = Transform3D(10, 0, 0, 0, 0.8, 0, 0, 0, 1, 3.1093473, 0.70095086, 1.8437526)
+
+[node name="Grass6" parent="." unique_id=2087053449 instance=ExtResource("6_hhemq")]
+transform = Transform3D(10, 0, 0, 0, 0.8, 0, 0, 0, 1, -2.6500561, 0.70095086, 1.8839602)
+
+[node name="Grass7" parent="." unique_id=830964853 instance=ExtResource("6_hhemq")]
+transform = Transform3D(10, 0, 0, 0, 0.8, 0, 0, 0, 1, 3.167223, 0.70095086, 3.0610044)
+
+[node name="Grass8" parent="." unique_id=396863961 instance=ExtResource("6_hhemq")]
+transform = Transform3D(10, 0, 0, 0, 0.8, 0, 0, 0, 1, -2.5921803, 0.70095086, 3.101212)
+
+[node name="IntruderCrazy" parent="." unique_id=1374366765 instance=ExtResource("7_ls1ps")]
+transform = Transform3D(1.6, 0, 0, 0, 2, 0, 0, 0, 2, -3.9834876, 1.719929, 1.5459027)
+
+[node name="GreatestTree" parent="." unique_id=258667498 instance=ExtResource("8_1g62v")]
+transform = Transform3D(1.4, 0, 0, 0, 2, 0, 0, 0, 2, -4.011456, 1.9060879, 3.2987747)
+
+[node name="GreatestTree2" parent="." unique_id=603471796 instance=ExtResource("8_1g62v")]
+transform = Transform3D(1.4, 0, 0, 0, 2, 0, 0, 0, 2, 5.1322136, 1.9060879, 3.2987747)
+
+[node name="LettersMain" parent="." unique_id=1102856649 instance=ExtResource("3_34voo")]
+transform = Transform3D(-1.494292, 0.13073361, 1.3113416e-07, 0.13073361, 1.494292, 0, -1.3063516e-07, 1.1429095e-08, -1.5, 0.36592102, 3.7534642, 3.3291109)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=16177506]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 1.0922277, 6.5319805, 3.4553173)
+texture = ExtResource("13_ls1ps")
+
+[node name="Cow" parent="." unique_id=1879863676 instance=ExtResource("14_1g62v")]
+transform = Transform3D(1.54, 0, 0, 0, 1.54, 0, 0, 0, 1.54, 0.75368965, 1.3852214, 3.1938174)
