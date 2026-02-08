@@ -11,7 +11,6 @@ signal play_button_clicked
 func _ready() -> void:
 	SignalBus.init_curtains.emit(false)
 	SignalBus.toggle_curtains.emit()
-	GeneralNodes.set_camera(camera)
 	play_button.button_clicked.connect(_on_play_button_clicked)
 	credits_button.button_clicked.connect(_on_credits_button_clicked)
 	quit_button.button_clicked.connect(_on_quit_button_clicked)
