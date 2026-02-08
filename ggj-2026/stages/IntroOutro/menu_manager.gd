@@ -19,6 +19,8 @@ func _on_play_button_clicked() -> void:
 
 
 func _on_quit_button_clicked() -> void:
+	SignalBus.toggle_curtains.emit()
+	await SignalBus.curtains_closed
 	get_tree().quit()
 
 
