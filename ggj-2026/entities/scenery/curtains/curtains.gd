@@ -13,6 +13,12 @@ var closed_x: float = 1.925  # hardcodé comme un bourrin
 
 func _ready() -> void:
 	SignalBus.toggle_curtains.connect(func(): set_curtains(not _open))
+	SignalBus.init_curtains.connect(init_curtains)
+
+func init_curtains(open: bool):
+	_left.position.x = opened_x if open else closed_x
+	_right.position.x = - (opened_x if open else closed_x)
+	_open = open
 
 func set_curtains(open: bool):
 	# defense

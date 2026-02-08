@@ -9,6 +9,8 @@ signal play_button_clicked
 @export var quit_button : ButtonUI
 
 func _ready() -> void:
+	SignalBus.init_curtains.emit(false)
+	SignalBus.toggle_curtains.emit()
 	GeneralNodes.set_camera(camera)
 	play_button.button_clicked.connect(_on_play_button_clicked)
 	credits_button.button_clicked.connect(_on_credits_button_clicked)
