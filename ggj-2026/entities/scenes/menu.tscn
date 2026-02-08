@@ -22,13 +22,27 @@ orientation = 2
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1g62v"]
 albedo_texture = ExtResource("10_i7ewm")
 normal_enabled = true
-normal_scale = 2.37
+normal_scale = 11.27
 normal_texture = ExtResource("11_hhemq")
 uv1_triplanar = true
 uv1_world_triplanar = true
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jaqyd"]
 points = PackedVector3Array(0.1656566, 2.5126262, -0.012626263, -0.16262627, -2.5126262, -0.012626263, -0.16262627, 2.5126262, -0.012626263, 0.1656566, -2.5126262, -0.012626263)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ls1ps"]
+load_path = "res://.godot/imported/paper_0009_color_1k.jpg-c19a8a5bb58e136e6e388f24c7cc6063.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1g62v"]
+load_path = "res://.godot/imported/paper_0009_normal_directx_1k.png-e0f1516355d5fde08e394ea98189b9eb.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1igi2"]
+albedo_texture = SubResource("CompressedTexture2D_ls1ps")
+normal_enabled = true
+normal_scale = 11.27
+normal_texture = SubResource("CompressedTexture2D_1g62v")
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_i7ewm"]
 points = PackedVector3Array(0.1656566, 2.5126262, -0.012626263, -0.16262627, -2.5126262, -0.012626263, -0.16262627, 2.5126262, -0.012626263, 0.1656566, -2.5126262, -0.012626263)
@@ -55,7 +69,7 @@ shape = SubResource("ConvexPolygonShape3D_jaqyd")
 [node name="Post" type="MeshInstance3D" parent="." unique_id=671716641]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.2549055, -0.6080452, 1.147182)
 mesh = SubResource("PlaneMesh_ls1ps")
-surface_material_override/0 = SubResource("StandardMaterial3D_1g62v")
+surface_material_override/0 = SubResource("StandardMaterial3D_1igi2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Post" unique_id=1591278208]
 

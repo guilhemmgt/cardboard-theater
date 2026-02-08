@@ -1,15 +1,11 @@
 [gd_scene format=3 uid="uid://db6l51gxty1ec"]
 
 [ext_resource type="Script" uid="uid://vlp37ghm0u3" path="res://entities/theater/theater.gd" id="1_5k1p7"]
-[ext_resource type="Texture2D" uid="uid://cktr80sscioby" path="res://carton/paper_0009_1k/paper_0009_color_1k.jpg" id="2_umf7y"]
 [ext_resource type="PackedScene" uid="uid://bmq3jlb1anrhf" path="res://carton/3Dcardboards/border/border.tscn" id="3_qqqc6"]
 [ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="5_asdu4"]
-[ext_resource type="Texture2D" uid="uid://dt4w8nooq6i5b" path="res://carton/paper_0009_1k/paper_0009_normal_directx_1k.png" id="5_sbh30"]
-[ext_resource type="Material" uid="uid://b7m2u0l3plbek" path="res://carton/better_paper_carton.tres" id="5_yt3pu"]
-[ext_resource type="Texture2D" uid="uid://c4l4u5ou5j6f3" path="res://carton/paper_0009_1k/paper_0009_height_1k.png" id="6_jjpgy"]
+[ext_resource type="Material" path="res://carton/better_paper_carton.tres" id="5_yt3pu"]
 [ext_resource type="PackedScene" uid="uid://c13lnr6kybksr" path="res://entities/scenery/curtains/curtains.tscn" id="6_na8pb"]
 [ext_resource type="PackedScene" uid="uid://dgixb4l7nrgd1" path="res://VFX/dust_particles.tscn" id="7_na8pb"]
-[ext_resource type="Texture2D" uid="uid://e830h1qlky02" path="res://carton/paper_0009_1k/paper_0009_roughness_1k.jpg" id="8_2jpvf"]
 [ext_resource type="Texture2D" uid="uid://hlxdsbmuyxjr" path="res://VFX/Textures/blur.png" id="8_03i3v"]
 [ext_resource type="PackedScene" uid="uid://4ybk6pv7q7id" path="res://entities/spectators/spectators.tscn" id="8_dpkxa"]
 [ext_resource type="PackedScene" uid="uid://dggf4moa1wla2" path="res://stages/food kenney/donut-chocolate.glb" id="9_na8pb"]
@@ -39,120 +35,6 @@ proximity_fade_enabled = true
 [sub_resource type="QuadMesh" id="QuadMesh_2bxar"]
 material = SubResource("StandardMaterial3D_dfg05")
 size = Vector2(0.02, 0.02)
-
-[sub_resource type="Shader" id="Shader_ke1vp"]
-code = "// NOTE: Shader automatically converted from Godot Engine 4.6.stable's StandardMaterial3D.
-
-shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_schlick_ggx;
-
-uniform vec4 albedo : source_color;
-uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
-uniform ivec2 albedo_texture_size;
-uniform float point_size : hint_range(0.1, 128.0, 0.1);
-
-uniform float roughness : hint_range(0.0, 1.0);
-uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
-uniform vec4 metallic_texture_channel;
-uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
-
-uniform float specular : hint_range(0.0, 1.0, 0.01);
-uniform float metallic : hint_range(0.0, 1.0, 0.01);
-
-uniform sampler2D texture_normal : hint_roughness_normal, filter_linear_mipmap, repeat_enable;
-uniform float normal_scale : hint_range(-16.0, 16.0);
-
-uniform sampler2D texture_bent_normal : hint_roughness_normal, filter_linear_mipmap, repeat_enable;
-
-uniform sampler2D texture_heightmap : hint_default_black, filter_linear_mipmap, repeat_enable;
-uniform float heightmap_scale : hint_range(-16.0, 16.0, 0.001);
-uniform int heightmap_min_layers : hint_range(1, 64);
-uniform int heightmap_max_layers : hint_range(1, 64);
-uniform vec2 heightmap_flip;
-varying vec3 uv1_triplanar_pos;
-
-uniform float uv1_blend_sharpness : hint_range(0.0, 150.0, 0.001);
-varying vec3 uv1_power_normal;
-
-uniform vec3 uv1_scale;
-uniform vec3 uv1_offset;
-uniform vec3 uv2_scale;
-uniform vec3 uv2_offset;
-
-void vertex() {
-	vec3 normal = MODEL_NORMAL_MATRIX * NORMAL;
-
-	TANGENT = vec3(0.0, 0.0, -1.0) * abs(normal.x);
-	TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.y);
-	TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.z);
-	TANGENT = inverse(MODEL_NORMAL_MATRIX) * normalize(TANGENT);
-
-	BINORMAL = vec3(0.0, 1.0, 0.0) * abs(normal.x);
-	BINORMAL += vec3(0.0, 0.0, -1.0) * abs(normal.y);
-	BINORMAL += vec3(0.0, 1.0, 0.0) * abs(normal.z);
-	BINORMAL = inverse(MODEL_NORMAL_MATRIX) * normalize(BINORMAL);
-
-	// UV1 Triplanar: Enabled (with World Triplanar)
-	uv1_power_normal = pow(abs(normal), vec3(uv1_blend_sharpness));
-	uv1_triplanar_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz * uv1_scale + uv1_offset;
-	uv1_power_normal /= dot(uv1_power_normal, vec3(1.0));
-	uv1_triplanar_pos *= vec3(1.0, -1.0, 1.0);
-}
-
-vec4 triplanar_texture(sampler2D p_sampler, vec3 p_weights, vec3 p_triplanar_pos) {
-	vec4 samp = vec4(0.0);
-	samp += texture(p_sampler, p_triplanar_pos.xy) * p_weights.z;
-	samp += texture(p_sampler, p_triplanar_pos.xz) * p_weights.y;
-	samp += texture(p_sampler, p_triplanar_pos.zy * vec2(-1.0, 1.0)) * p_weights.x;
-	return samp;
-}
-
-void fragment() {
-	vec4 albedo_tex = triplanar_texture(texture_albedo, uv1_power_normal, uv1_triplanar_pos);
-	ALBEDO = albedo.rgb * albedo_tex.rgb;
-
-	float metallic_tex = dot(triplanar_texture(texture_metallic, uv1_power_normal, uv1_triplanar_pos), metallic_texture_channel);
-	METALLIC = metallic_tex * metallic;
-	SPECULAR = specular;
-
-	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
-	float roughness_tex = dot(triplanar_texture(texture_roughness, uv1_power_normal, uv1_triplanar_pos), roughness_texture_channel);
-	ROUGHNESS = roughness_tex * roughness;
-
-	// Normal Map: Enabled
-	NORMAL_MAP = triplanar_texture(texture_normal, uv1_power_normal, uv1_triplanar_pos).rgb;
-	NORMAL_MAP_DEPTH = normal_scale;
-
-	// Bent Normal Map: Enabled
-	BENT_NORMAL_MAP = triplanar_texture(texture_bent_normal, uv1_power_normal, uv1_triplanar_pos).rgb;
-}
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sbh30"]
-render_priority = 0
-shader = SubResource("Shader_ke1vp")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/texture_albedo = ExtResource("2_umf7y")
-shader_parameter/albedo_texture_size = Vector2i(1024, 1024)
-shader_parameter/point_size = 1.0
-shader_parameter/roughness = 1.0
-shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
-shader_parameter/texture_roughness = ExtResource("8_2jpvf")
-shader_parameter/specular = 0.5
-shader_parameter/metallic = 0.0
-shader_parameter/texture_normal = ExtResource("16_pxleb")
-shader_parameter/normal_scale = 3.35
-shader_parameter/texture_bent_normal = ExtResource("5_sbh30")
-shader_parameter/texture_heightmap = ExtResource("6_jjpgy")
-shader_parameter/heightmap_scale = 5.0
-shader_parameter/heightmap_min_layers = 8
-shader_parameter/heightmap_max_layers = 32
-shader_parameter/heightmap_flip = Vector2(1, 1)
-shader_parameter/uv1_blend_sharpness = 1.0
-shader_parameter/uv1_scale = Vector3(0.285, 0.285, 0.285)
-shader_parameter/uv1_offset = Vector3(0, 0, 0)
-shader_parameter/uv2_scale = Vector3(1, 1, 1)
-shader_parameter/uv2_offset = Vector3(0, 0, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_cu7i0"]
 
@@ -260,7 +142,7 @@ draw_pass_1 = SubResource("QuadMesh_2bxar")
 
 [node name="Background" type="MeshInstance3D" parent="Scene" unique_id=1194040714]
 transform = Transform3D(20, 0, 0, 0, -4.371139e-08, -10, 0, 1, -4.371139e-07, 0, 3, 7)
-material_override = SubResource("ShaderMaterial_sbh30")
+material_override = ExtResource("5_yt3pu")
 mesh = SubResource("BoxMesh_cu7i0")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Scene/Background" unique_id=1491653456]
@@ -270,7 +152,7 @@ shape = SubResource("BoxShape3D_c1sqk")
 
 [node name="Floor" type="MeshInstance3D" parent="Scene" unique_id=276157703]
 transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 3)
-material_override = SubResource("ShaderMaterial_sbh30")
+material_override = ExtResource("5_yt3pu")
 mesh = SubResource("BoxMesh_h2yge")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Scene/Floor" unique_id=897770053]
@@ -279,7 +161,7 @@ mesh = SubResource("BoxMesh_h2yge")
 shape = SubResource("BoxShape3D_o4pr5")
 
 [node name="Frame" parent="Scene" unique_id=195769391 instance=ExtResource("3_qqqc6")]
-transform = Transform3D(11, 0, 0, 0, 6, 0, 0, 0, 0.9446722, 0.22639132, 2.15, 0.8249284)
+transform = Transform3D(11, 0, 0, 0, 6, 0, 0, 0, 6, 0.22639132, 2.15, 1.005)
 
 [node name="Curtains" parent="Scene" unique_id=683152403 instance=ExtResource("6_na8pb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15, 0.9595464)

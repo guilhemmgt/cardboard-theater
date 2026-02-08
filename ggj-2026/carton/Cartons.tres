@@ -1,7 +1,6 @@
 [gd_resource type="VisualShader" format=3 uid="uid://dy6ecpm6tdmku"]
 
 [ext_resource type="Texture2D" uid="uid://dthsikmo58ciq" path="res://carton/paper_0009_1k/paper_0009_normal_opengl_1k.png" id="1_0x6xp"]
-[ext_resource type="Texture2D" uid="uid://c4l4u5ou5j6f3" path="res://carton/paper_0009_1k/paper_0009_height_1k.png" id="2_5861b"]
 [ext_resource type="Texture2D" uid="uid://cktr80sscioby" path="res://carton/paper_0009_1k/paper_0009_color_1k.jpg" id="3_tnnqg"]
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_w4b0e"]
@@ -34,9 +33,6 @@ parameter_name = "Texture2DParameter2"
 texture_type = 2
 texture_repeat = 2
 
-[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_3dum0"]
-texture = ExtResource("2_5861b")
-
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_a77nb"]
 output_port_for_preview = 0
 expanded_output_ports = [0]
@@ -51,12 +47,6 @@ default_value = Vector2(1.4, 1.4)
 parameter_name = "Vector2Parameter2"
 default_value_enabled = true
 default_value = Vector2(0.5, 0.5)
-
-[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_5861b"]
-output_port_for_preview = 0
-input_name = "uv"
-
-[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_tnnqg"]
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_0x6xp"]
 output_port_for_preview = 0
@@ -111,16 +101,10 @@ nodes/fragment/15/node = SubResource("VisualShaderNodeTexture_hqecs")
 nodes/fragment/15/position = Vector2(1540, 1180)
 nodes/fragment/16/node = SubResource("VisualShaderNodeTexture2DParameter_qmj8r")
 nodes/fragment/16/position = Vector2(960, 1240)
-nodes/fragment/17/node = SubResource("VisualShaderNodeTexture_3dum0")
-nodes/fragment/17/position = Vector2(1020, 1570)
 nodes/fragment/18/node = SubResource("VisualShaderNodeInput_a77nb")
 nodes/fragment/18/position = Vector2(1190, 820)
 nodes/fragment/19/node = SubResource("VisualShaderNodeVec2Parameter_0x6xp")
 nodes/fragment/19/position = Vector2(-230, 660)
 nodes/fragment/20/node = SubResource("VisualShaderNodeVec2Parameter_5861b")
 nodes/fragment/20/position = Vector2(0, 930)
-nodes/fragment/21/node = SubResource("VisualShaderNodeInput_5861b")
-nodes/fragment/21/position = Vector2(1320, 1420)
-nodes/fragment/22/node = SubResource("VisualShaderNodeUVFunc_tnnqg")
-nodes/fragment/22/position = Vector2(1380, 1700)
-nodes/fragment/connections = PackedInt32Array(5, 0, 6, 0, 3, 0, 7, 0, 8, 0, 10, 2, 7, 0, 10, 0, 10, 4, 11, 0, 10, 0, 11, 1, 10, 4, 12, 0, 12, 0, 13, 0, 6, 0, 13, 1, 11, 0, 14, 0, 13, 0, 14, 1, 14, 0, 0, 0, 16, 0, 15, 2, 18, 0, 15, 0, 15, 0, 0, 9, 19, 0, 7, 1, 20, 0, 7, 2, 22, 0, 0, 22)
+nodes/fragment/connections = PackedInt32Array(5, 0, 6, 0, 3, 0, 7, 0, 8, 0, 10, 2, 7, 0, 10, 0, 10, 4, 11, 0, 10, 0, 11, 1, 10, 4, 12, 0, 12, 0, 13, 0, 6, 0, 13, 1, 11, 0, 14, 0, 13, 0, 14, 1, 14, 0, 0, 0, 16, 0, 15, 2, 18, 0, 15, 0, 15, 0, 0, 9, 19, 0, 7, 1, 20, 0, 7, 2)
