@@ -15,4 +15,7 @@ signal init_curtains(open : bool) ## Set curtains position instantly (open/close
 
 signal ask_to_move(node: Node3D, duration: float, plan: int, pos: int)
 
+# Act signals
+signal act_start
+
 @warning_ignore_restore("unused_signal")

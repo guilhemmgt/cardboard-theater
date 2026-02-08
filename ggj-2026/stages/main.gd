@@ -9,6 +9,7 @@ var _menu : MenuManager
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	menu()
+	SignalBus.act_start.connect(func():print("hereeeee"))
 
 func menu():
 	_menu = MENU.instantiate()
@@ -16,6 +17,7 @@ func menu():
 	_menu.play_button_clicked.connect(play)
 
 func play():
+	SignalBus.act_start.emit()
 	if (_menu):
 		_menu.queue_free()
 	theater.make_spectators_enter()
