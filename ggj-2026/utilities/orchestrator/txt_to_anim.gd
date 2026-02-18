@@ -99,6 +99,9 @@ func _process_command(anim: Animation, cmd_type: String, data: Dictionary) -> vo
 			var actor: String = data.get("actor", "")
 			_add_method_key(anim, actor, begin_time, "anim", [data.get("animation", ""), data.get("duration", 1.0)])
 		
+		"AUDIO":
+			var audio_file: String = data.get("audio_file", "")
+			_add_method_key(anim, "AudioReplicPlayer", begin_time, "play_audio", [audio_file])
 		_:
 			printerr("Type de commande inconnu: ", cmd_type)
 
