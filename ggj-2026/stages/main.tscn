@@ -17,9 +17,8 @@ script = ExtResource("1_v8qa1")
 scenes_parent = NodePath("ScenesParent")
 theater = NodePath("Theater")
 
-[node name="MouseManager" type="Node" parent="." unique_id=1472423455 node_paths=PackedStringArray("theater")]
+[node name="MouseManager" type="Node" parent="." unique_id=1472423455]
 script = ExtResource("1_1k4el")
-theater = NodePath("../Theater")
 
 [node name="Orchestrator" type="Node" parent="." unique_id=2052362070 node_paths=PackedStringArray("incidents_manager", "actor_manager")]
 script = ExtResource("4_0oqm6")

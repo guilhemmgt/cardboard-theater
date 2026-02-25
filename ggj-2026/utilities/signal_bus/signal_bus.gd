@@ -15,6 +15,10 @@ signal init_curtains(open : bool) ## Set curtains position instantly (open/close
 
 signal ask_to_move(node: Node3D, duration: float, plan: int, pos: int)
 
+# Tomato
+signal tomato_picked ## A tomato was picked, the player is now aiming
+signal tomato_released ## The tomato was either put down in the basket, or thrown at something
+
 # Act signals
 signal act_start
 
