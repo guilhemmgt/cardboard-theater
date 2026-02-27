@@ -33,6 +33,7 @@ func set_curtains(open: bool):
 	var duration: float = abs(to_x - _left.position.x) / animation_speed
 	var tween: Tween = create_tween()
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
+	tween.set_parallel(true)
 	tween.tween_property(_left, "position:x", to_x, duration)
 	tween.tween_property(_right, "position:x", -to_x, duration)
 	# after the tween...
