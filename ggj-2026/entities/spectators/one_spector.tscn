@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://bg1hokvr1x107" path="res://entities/spectators/one_spector.gd" id="1_5y0jg"]
 [ext_resource type="Texture2D" uid="uid://bu0jq5rop2wt3" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="1_rgyvn"]
 [ext_resource type="Texture2D" uid="uid://dtsw2v5kq3m0h" path="res://entities/spectators/reactions/sprite_0.png" id="3_nns7w"]
-[ext_resource type="Script" uid="uid://ca7h4oj1n4ax" path="res://entities/sprouch_body.gd" id="3_u1ujy"]
 [ext_resource type="Texture2D" uid="uid://cbg24h2i8goyj" path="res://entities/spectators/reactions/cow.svg" id="4_nns7w"]
 [ext_resource type="Texture2D" uid="uid://xssdpkbjkg5i" path="res://entities/spectators/reactions/guitare.svg" id="5_0gwn5"]
 [ext_resource type="Texture2D" uid="uid://be454emiryrdi" path="res://entities/spectators/reactions/angry.svg" id="6_exf4q"]
@@ -296,11 +295,12 @@ _data = {
 &"tomato_hit": SubResource("Animation_u1ujy")
 }
 
-[node name="Spectator" type="Node3D" unique_id=1307589095 node_paths=PackedStringArray("anim", "sprite_bubble", "anim_bubble")]
+[node name="Spectator" type="Node3D" unique_id=1307589095 node_paths=PackedStringArray("anim", "sprite_bubble", "anim_bubble", "bodies")]
 script = ExtResource("1_5y0jg")
 anim = NodePath("AnimationPlayer")
 sprite_bubble = NodePath("Corps/Bubble/AnimatedSprite3D")
 anim_bubble = NodePath("Corps/Bubble/AnimationPlayerBubble")
+bodies = [NodePath("Corps/MeshInstance3D22/StaticBody3D"), NodePath("Corps/MeshInstance3D7/StaticBody3D")]
 
 [node name="Corps" type="Node3D" parent="." unique_id=550212420]
 
@@ -310,7 +310,6 @@ material_override = SubResource("StandardMaterial3D_7mycd")
 mesh = SubResource("CapsuleMesh_272bh")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Corps/MeshInstance3D22" unique_id=1439825944]
-script = ExtResource("3_u1ujy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Corps/MeshInstance3D22/StaticBody3D" unique_id=79579119]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
@@ -322,7 +321,6 @@ material_override = SubResource("StandardMaterial3D_7mycd")
 mesh = SubResource("CapsuleMesh_272bh")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Corps/MeshInstance3D7" unique_id=1174425342]
-script = ExtResource("3_u1ujy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Corps/MeshInstance3D7/StaticBody3D" unique_id=2000593300]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0, 0)
@@ -361,9 +359,6 @@ libraries/ = SubResource("AnimationLibrary_0gwn5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1738551721]
 libraries/ = SubResource("AnimationLibrary_ux6eq")
-
-[connection signal="sprouch" from="Corps/MeshInstance3D22/StaticBody3D" to="." method="_on_sprouch"]
-[connection signal="sprouch" from="Corps/MeshInstance3D7/StaticBody3D" to="." method="_on_sprouch"]
 
 [editable path="Corps/Bubble/BulleMain"]
 [editable path="Corps/Bubble/BulleHandle"]

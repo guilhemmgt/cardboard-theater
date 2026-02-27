@@ -4,10 +4,15 @@ class_name Spectator
 @export var anim: AnimationPlayer
 @export var sprite_bubble : AnimatedSprite3D
 @export var anim_bubble: AnimationPlayer
+@export var bodies: Array[StaticBody3D]
 
 func _ready() -> void:
 	anim.play("idle", -1, randf_range(0.8, 1.2), bool(randi()%2))
 	anim.animation_finished.connect(idle)
+	SignalBus.tomato_hit.connect(func(body: Node3D, pos: Vector3):
+		if bodies.has(body):
+			_on_sprouch()
+	)
 
 func react(reaction:String):
 	anim_bubble.play("react")

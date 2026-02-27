@@ -6,7 +6,7 @@ signal button_clicked
 @onready var carton_particle: GPUParticles3D = $CartonParticle
 @onready var spot_light_3d: SpotLight3D = $SpotLight3D
 
-@export var _area: SprouchBody
+@export var _area: StaticBody3D
 @export var _label: Label3D
 @export var text: String
 @export var mouse_speed_threshold: float = 5
@@ -22,7 +22,10 @@ func _ready() -> void:
 	_area.input_event.connect(_on_click)
 	_area.mouse_entered.connect(_on_mouse_entered)
 	_area.mouse_exited.connect(_on_mouse_exited)
-	_area.sprouch.connect(button_clicked.emit)
+	SignalBus.tomato_hit.connect(func(body: Node3D, pos: Vector3):
+		if body == _area:
+			button_clicked.emit()
+	)
 	_label.text = text
 
 func _process(_delta: float) -> void:

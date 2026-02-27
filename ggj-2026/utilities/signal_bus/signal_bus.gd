@@ -17,7 +17,8 @@ signal ask_to_move(node: Node3D, duration: float, plan: int, pos: int)
 
 # Tomato
 signal tomato_picked ## A tomato was picked, the player is now aiming
-signal tomato_released ## The tomato was either put down in the basket, or thrown at something
+signal tomato_released ## A tomato was either put down in the basket, or thrown at something
+signal tomato_hit(body : Node3D, point : Vector3) ## A tomato has hit a body
 
 # Act signals
 signal act_start

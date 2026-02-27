@@ -3,7 +3,6 @@
 [ext_resource type="Material" uid="uid://ctqhsf2gopi7n" path="res://carton/cardboard.tres" id="1_y8qu1"]
 [ext_resource type="Script" uid="uid://dhcr03f3m0kiw" path="res://ui/button/buttonUI.gd" id="1_y084j"]
 [ext_resource type="FontFile" uid="uid://cpeq42uqxplp" path="res://ui/font/drawersketches.ttf" id="3_5yfjs"]
-[ext_resource type="Script" uid="uid://ca7h4oj1n4ax" path="res://entities/sprouch_body.gd" id="3_so3rh"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_noarx"]
 size = Vector3(0.082, 0.744, 1.885)
@@ -37,8 +36,7 @@ lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_5yfjs")
 draw_pass_1 = SubResource("SphereMesh_so3rh")
 
-[node name="ButtonBody" type="StaticBody3D" parent="." unique_id=1263172996]
-script = ExtResource("3_so3rh")
+[node name="ButtonBody" type="StaticBody3D" parent="." unique_id=1877798271]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ButtonBody" unique_id=737241461]
 shape = SubResource("ConvexPolygonShape3D_5yfjs")

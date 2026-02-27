@@ -4,33 +4,32 @@ const SLAPSH : AudioStream = preload("uid://dtnrhf2cox0sr")
 
 @export var sprotch_texture: Texture
 @export var sprotch_sound: AudioStreamPlayer3D
-var body_touch : bool
+var _sprotched_already : bool = false
 
 func _ready() -> void:
-	body_touch = false
-	body_entered.connect(on_body_entered)
+	body_entered.connect(_on_body_entered)
 
-func on_body_entered(body: Node3D):
-	if (body_touch):
+func _on_body_entered(body: Node3D):
+	if (_sprotched_already):
 		return
+	_sprotched_already = true
 	
-	print("tomata has hit" + body.name)
-	body_touch = true
-	self.visible = false
-	
-	if body is SprouchBody:
-		var sprouch_body : SprouchBody = body
-		sprouch_body.sprouch.emit()
+	# Signal
+	SignalBus.tomato_hit.emit(body, global_position)
+
+	# Ignore the basket
 	if body.get_parent() is TomatoBasket:
 		return
 		
+	# HACK Very shitty way to kill an intruder
 	if body.get_parent().get_parent():
 		for ch in body.get_parent().get_parent().get_children():
 			print(ch.name)
 			if ch is IntrusionIncident:
 				var intrusion: IntrusionIncident = ch
 				intrusion.deactivate(true)
-	# sprotch !!!
+	
+	# Instantiate SPROTCH sprite
 	var decal: TomatoDecal = TomatoDecal.new()
 	decal.texture_albedo = sprotch_texture	
 	decal.size = Vector3(0.2, 1, 0.2) / body.get_parent_node_3d().scale
@@ -40,8 +39,11 @@ func on_body_entered(body: Node3D):
 	var up : Vector3 = Vector3.UP if abs(normal.y) < 0.9 else Vector3.RIGHT
 	decal.look_at(global_position + normal, up)
 	decal.rotate_object_local(Vector3.RIGHT, PI/2)
+	
+	# SFX
 	sprotch_sound.play()
-	print("sproch_sound")
-	# good bye tomato
+	
+	# Disappear, then destroy when SFX is done
+	self.visible = false
 	await sprotch_sound.finished
-	queue_free()
+	queue_free() # good bye tomato
