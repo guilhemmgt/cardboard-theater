@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://3sjgbm880njl"]
 
-[ext_resource type="Script" uid="uid://cv71aefo6wn1s" path="res://entities/incidents/intrusion/intrusion_handler.gd" id="1_onk32"]
-[ext_resource type="PackedScene" uid="uid://c432atnphqs7w" path="res://carton/3Dcardboards/cow/cow.tscn" id="2_plkks"]
+[ext_resource type="Script" path="res://entities/incidents/intrusion/intrusion_handler.gd" id="1_onk32"]
+[ext_resource type="PackedScene" uid="uid://c432atnphqs7w" path="res://entities/characters/cow/cow.tscn" id="2_plkks"]
 [ext_resource type="PackedScene" uid="uid://c7bxmad57rhk4" path="res://sounds/Scenes/vache.tscn" id="3_jgamt"]
 [ext_resource type="Script" uid="uid://opxnqhgj6yr7" path="res://entities/intru/intru.gd" id="4_y3rfa"]
 [ext_resource type="PackedScene" uid="uid://dq8y837y8ll4b" path="res://entities/incidents/intrusion/intrusion_incident.tscn" id="5_jgamt"]

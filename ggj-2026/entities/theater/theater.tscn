@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://db6l51gxty1ec"]
 
 [ext_resource type="Script" uid="uid://vlp37ghm0u3" path="res://entities/theater/theater.gd" id="1_5k1p7"]
-[ext_resource type="PackedScene" uid="uid://bmq3jlb1anrhf" path="res://carton/3Dcardboards/border/border.tscn" id="3_qqqc6"]
+[ext_resource type="PackedScene" uid="uid://bmq3jlb1anrhf" path="res://entities/theater/frame/frame.tscn" id="3_qqqc6"]
 [ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/tomato_related/basket/tomato_basket.tscn" id="5_asdu4"]
 [ext_resource type="Material" uid="uid://b7m2u0l3plbek" path="res://carton/better_paper_carton.tres" id="5_yt3pu"]
-[ext_resource type="PackedScene" uid="uid://c13lnr6kybksr" path="res://entities/scenery/curtains/curtains.tscn" id="6_na8pb"]
+[ext_resource type="PackedScene" uid="uid://c13lnr6kybksr" path="res://entities/theater/curtains/curtains.tscn" id="6_na8pb"]
 [ext_resource type="PackedScene" uid="uid://dgixb4l7nrgd1" path="res://VFX/dust_particles.tscn" id="7_na8pb"]
 [ext_resource type="Texture2D" uid="uid://hlxdsbmuyxjr" path="res://VFX/Textures/blur.png" id="8_03i3v"]
 [ext_resource type="PackedScene" uid="uid://4ybk6pv7q7id" path="res://entities/spectators/spectators.tscn" id="8_dpkxa"]

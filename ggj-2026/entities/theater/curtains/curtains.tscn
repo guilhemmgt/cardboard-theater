@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c13lnr6kybksr"]
+
+[ext_resource type="Script" uid="uid://i1x54hkjj43h" path="res://entities/theater/curtains/curtains.gd" id="1_mv4ih"]
+[ext_resource type="PackedScene" uid="uid://d54151oehwue" path="res://entities/theater/curtains/curtain.tscn" id="1_ub0ks"]
+
+[node name="Curtains" type="Node3D" unique_id=683152403]
+script = ExtResource("1_mv4ih")
+animation_speed = 2.0
+
+[node name="CurtainLeft" parent="." unique_id=394997416 instance=ExtResource("1_ub0ks")]
+transform = Transform3D(-4, 0, -3.496911e-07, 0, 4, 0, 3.496911e-07, 0, -4, 6, 0, -0.12)
+
+[node name="CurtainRight" parent="." unique_id=1055890786 instance=ExtResource("1_ub0ks")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -6, 0, 0)

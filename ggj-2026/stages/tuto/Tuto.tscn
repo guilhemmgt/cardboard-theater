@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://e830h1qlky02" path="res://carton/paper_0009_1k/paper_0009_roughness_1k.jpg" id="4_hx5re"]
 [ext_resource type="Shader" uid="uid://dy6ecpm6tdmku" path="res://carton/Cartons.tres" id="5_nryua"]
 [ext_resource type="Texture2D" uid="uid://bu0jq5rop2wt3" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="6_2kd4g"]
-[ext_resource type="PackedScene" uid="uid://bmq3jlb1anrhf" path="res://carton/3Dcardboards/border/border.tscn" id="7_wdnxp"]
+[ext_resource type="PackedScene" uid="uid://bmq3jlb1anrhf" path="res://entities/theater/frame/frame.tscn" id="7_wdnxp"]
 [ext_resource type="PackedScene" uid="uid://dgixb4l7nrgd1" path="res://VFX/dust_particles.tscn" id="8_5ijox"]
 [ext_resource type="Texture2D" uid="uid://hlxdsbmuyxjr" path="res://VFX/Textures/blur.png" id="9_x7m5x"]
 [ext_resource type="PackedScene" uid="uid://cvp3k2e3wbm3f" path="res://entities/scenes/tutorial.tscn" id="10_aicjp"]
