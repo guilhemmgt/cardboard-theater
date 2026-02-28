@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dgixb4l7nrgd1" path="res://VFX/dust_particles.tscn" id="7_na8pb"]
 [ext_resource type="Texture2D" uid="uid://hlxdsbmuyxjr" path="res://VFX/Textures/blur.png" id="8_03i3v"]
 [ext_resource type="PackedScene" uid="uid://4ybk6pv7q7id" path="res://entities/spectators/spectators.tscn" id="8_dpkxa"]
-[ext_resource type="PackedScene" uid="uid://dggf4moa1wla2" path="res://stages/food kenney/donut-chocolate.glb" id="9_na8pb"]
+[ext_resource type="PackedScene" uid="uid://dggf4moa1wla2" path="res://addons/kenney_food_kit/donut-chocolate.glb" id="9_na8pb"]
 [ext_resource type="Shader" uid="uid://dy6ecpm6tdmku" path="res://carton/Cartons.tres" id="11_jjpgy"]
 [ext_resource type="ArrayMesh" uid="uid://dg04rjyqgcp7x" path="res://carton/Letters/r.obj" id="14_cawt5"]
 [ext_resource type="Texture2D" uid="uid://g3ttwkjqv1u3" path="res://carton/Letters/r.png" id="15_06l2k"]
@@ -174,7 +174,7 @@ mesh = SubResource("BoxMesh_h2yge")
 [node name="TomatoBasket" parent="Scene/Desk" unique_id=735284322 instance=ExtResource("5_asdu4")]
 transform = Transform3D(-0.15434617, -0.0002761154, 0.00017794369, -0.0016914184, 0.97370684, 0.043798868, -0.0025487621, 0.09295306, -2.0665662, -0.09551869, 0.60248613, -0.101703644)
 
-[node name="donut-chocolate2" parent="Scene/Desk" unique_id=615103896 instance=ExtResource("9_na8pb")]
+[node name="donut-chocolate2" parent="Scene/Desk" unique_id=87849275 instance=ExtResource("9_na8pb")]
 transform = Transform3D(0.18675888, -0.00033409972, -0.00021528364, 0.0020466247, 1.1781853, -0.052996647, 0.0030836253, 0.11247321, 2.5005457, 0.12468494, 0.5043931, 0.27257347)
 
 [node name="R" type="MeshInstance3D" parent="Scene/Desk" unique_id=1111624313]
