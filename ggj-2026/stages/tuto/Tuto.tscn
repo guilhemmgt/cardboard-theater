@@ -11,10 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://hlxdsbmuyxjr" path="res://VFX/Textures/blur.png" id="9_x7m5x"]
 [ext_resource type="PackedScene" uid="uid://cvp3k2e3wbm3f" path="res://entities/scenes/tutorial.tscn" id="10_aicjp"]
 [ext_resource type="PackedScene" uid="uid://bb42si1p0l8fq" path="res://utilities/orchestrator/orchestrator.tscn" id="12_728au"]
-[ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="21_7qaj4"]
+[ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/tomato_related/basket/tomato_basket.tscn" id="21_7qaj4"]
 [ext_resource type="PackedScene" uid="uid://d3t74t4c2wtyw" path="res://ui/signs/game_over.tscn" id="22_fevyo"]
 [ext_resource type="Script" uid="uid://d3uf356n1craj" path="res://ui/cursor/mouse_manager.gd" id="23_xnqy8"]
-[ext_resource type="Script" path="res://utilities/orchestrator/txt_to_anim.gd" id="24_ij7ef"]
+[ext_resource type="Script" uid="uid://b0g4fonj8fno0" path="res://utilities/orchestrator/txt_to_anim.gd" id="24_ij7ef"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2oluv"]
 albedo_texture = ExtResource("1_fnqgj")

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cjkahk7g7q2ef"]
 
-[ext_resource type="Script" uid="uid://gmuk8jh0epoa" path="res://entities/incidents/intrusion/basket/tomato_basket.gd" id="1_hymqw"]
-[ext_resource type="PackedScene" uid="uid://dj578e75m5t8u" path="res://entities/incidents/intrusion/tomato/tomato.tscn" id="2_ligaw"]
-[ext_resource type="ArrayMesh" uid="uid://bmudt6tkcu4so" path="res://entities/incidents/intrusion/tomato/tomato.obj" id="3_ligaw"]
+[ext_resource type="Script" uid="uid://gmuk8jh0epoa" path="res://entities/tomato_related/basket/tomato_basket.gd" id="1_hymqw"]
+[ext_resource type="PackedScene" uid="uid://dj578e75m5t8u" path="res://entities/tomato_related/tomato/tomato.tscn" id="2_ligaw"]
+[ext_resource type="ArrayMesh" uid="uid://bmudt6tkcu4so" path="res://entities/tomato_related/tomato/tomato.obj" id="3_ligaw"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ykba1"]
 radius = 0.21358466

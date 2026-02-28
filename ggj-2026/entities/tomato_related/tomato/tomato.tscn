@@ -1,17 +1,16 @@
 [gd_scene format=3 uid="uid://dj578e75m5t8u"]
 
-[ext_resource type="Script" uid="uid://cgvqcqncq0xc5" path="res://entities/incidents/intrusion/tomato/tomato.gd" id="1_h2yse"]
-[ext_resource type="Texture2D" uid="uid://ok2wqda3nmuk" path="res://entities/incidents/intrusion/tomato/sprotch2.png" id="2_8dqgf"]
-[ext_resource type="ArrayMesh" uid="uid://bmudt6tkcu4so" path="res://entities/incidents/intrusion/tomato/tomato.obj" id="2_h2yse"]
+[ext_resource type="Script" uid="uid://cgvqcqncq0xc5" path="res://entities/tomato_related/tomato/tomato.gd" id="1_h2yse"]
+[ext_resource type="Texture2D" uid="uid://ok2wqda3nmuk" path="res://entities/tomato_related/tomato/sprotch.png" id="2_8dqgf"]
+[ext_resource type="ArrayMesh" uid="uid://bmudt6tkcu4so" path="res://entities/tomato_related/tomato/tomato.obj" id="2_h2yse"]
 [ext_resource type="PackedScene" uid="uid://ia6j10vokamw" path="res://sounds/Scenes/splash.tscn" id="4_su5a0"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jkkfl"]
 radius = 0.09456536
 
-[node name="Tomato" type="Area3D" unique_id=1597748282 node_paths=PackedStringArray("sprotch_sound")]
+[node name="Tomato" type="Area3D" unique_id=1597748282]
 script = ExtResource("1_h2yse")
 sprotch_texture = ExtResource("2_8dqgf")
-sprotch_sound = NodePath("Splash")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=574171625]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.0027697012, 0.0005584061)

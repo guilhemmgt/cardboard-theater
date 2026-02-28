@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://p04yb5042qsm" path="res://stages/act_1/act_1.gd" id="1_48gpw"]
 [ext_resource type="Texture2D" uid="uid://bu0jq5rop2wt3" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="2_ws6au"]
 [ext_resource type="PackedScene" uid="uid://bmq3jlb1anrhf" path="res://carton/3Dcardboards/border/border.tscn" id="3_sl14i"]
-[ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="4_jgeue"]
+[ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/tomato_related/basket/tomato_basket.tscn" id="4_jgeue"]
 [ext_resource type="PackedScene" uid="uid://d3t74t4c2wtyw" path="res://ui/signs/game_over.tscn" id="5_8gvx6"]
 [ext_resource type="Script" uid="uid://cldyre5xcua07" path="res://entities/actors/actor_manager.gd" id="6_2etmi"]
 [ext_resource type="Script" uid="uid://burtkkchfm8es" path="res://entities/actors/actor.gd" id="7_g21jj"]

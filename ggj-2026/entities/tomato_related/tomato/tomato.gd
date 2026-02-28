@@ -1,10 +1,8 @@
 extends Area3D
 
-const SLAPSH : AudioStream = preload("uid://dtnrhf2cox0sr")
-
+@onready var sprotch_player: AudioStreamPlayer3D = $Splash
 @export var sprotch_texture: Texture
-@export var sprotch_sound: AudioStreamPlayer3D
-var _sprotched_already : bool = false
+var _sprotched_already: bool = false
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
@@ -41,9 +39,9 @@ func _on_body_entered(body: Node3D):
 	decal.rotate_object_local(Vector3.RIGHT, PI/2)
 	
 	# SFX
-	sprotch_sound.play()
+	sprotch_player.play()
 	
 	# Disappear, then destroy when SFX is done
 	self.visible = false
-	await sprotch_sound.finished
+	await sprotch_player.finished
 	queue_free() # good bye tomato

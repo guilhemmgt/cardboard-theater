@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ok2wqda3nmuk"
-path.s3tc="res://.godot/imported/sprotch2.png-ff5501617c1d9316c379e096cfce5ce6.s3tc.ctex"
+path.s3tc="res://.godot/imported/sprotch.png-c9291e589a0d25b856e3fecdb39ce573.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://entities/incidents/intrusion/tomato/sprotch2.png"
-dest_files=["res://.godot/imported/sprotch2.png-ff5501617c1d9316c379e096cfce5ce6.s3tc.ctex"]
+source_file="res://entities/tomato_related/tomato/sprotch.png"
+dest_files=["res://.godot/imported/sprotch.png-c9291e589a0d25b856e3fecdb39ce573.s3tc.ctex"]
 
 [params]
 

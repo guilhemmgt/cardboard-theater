@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://clxdfemabrq5b" path="res://test_spectat.gd" id="1_j0f6r"]
 [ext_resource type="PackedScene" uid="uid://4ybk6pv7q7id" path="res://entities/spectators/spectators.tscn" id="2_jp8s3"]
-[ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="3_jp8s3"]
+[ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/tomato_related/basket/tomato_basket.tscn" id="3_jp8s3"]
 
 [node name="TestSpectat" type="Node3D" unique_id=976546549]
 script = ExtResource("1_j0f6r")

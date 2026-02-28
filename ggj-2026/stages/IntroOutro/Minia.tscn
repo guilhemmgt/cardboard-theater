@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b8a0vav2gqvcg" path="res://carton/3Dcardboards/knight/knight.tscn" id="13_rbcsa"]
 [ext_resource type="PackedScene" uid="uid://cn7i0kbjp0mn7" path="res://carton/3Dcardboards/grass/border.tscn" id="14_y14fg"]
 [ext_resource type="PackedScene" uid="uid://d72scnyrgy0p" path="res://carton/3Dcardboards/crazy/intruder_crazy.tscn" id="15_gvsvp"]
-[ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/incidents/intrusion/basket/tomato_basket.tscn" id="16_o6jqp"]
+[ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/tomato_related/basket/tomato_basket.tscn" id="16_o6jqp"]
 [ext_resource type="PackedScene" uid="uid://dycms7p36i6lc" path="res://carton/3Dcardboards/tree/greatest_tree.tscn" id="17_2hc5w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2oluv"]
