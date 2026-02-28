@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dlevpco8snw5k"]
 
 [ext_resource type="Material" uid="uid://ctqhsf2gopi7n" path="res://carton/cardboard.tres" id="1_y8qu1"]
-[ext_resource type="Script" uid="uid://dhcr03f3m0kiw" path="res://ui/button/buttonUI.gd" id="1_y084j"]
+[ext_resource type="Script" uid="uid://dhcr03f3m0kiw" path="res://ui/button/button_ui.gd" id="1_y084j"]
 [ext_resource type="FontFile" uid="uid://cpeq42uqxplp" path="res://ui/font/drawersketches.ttf" id="3_5yfjs"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_noarx"]
@@ -20,13 +20,11 @@ material = ExtResource("1_y8qu1")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5yfjs"]
 points = PackedVector3Array(0.06372222, 0.3909762, 0.9574603, -0.055960312, -0.38696027, -0.9574603, 0.06372222, -0.38696027, -0.9574603, -0.055960312, -0.38696027, 0.9574603, -0.055960312, 0.3909762, -0.9574603, 0.06372222, 0.3909762, -0.9574603, 0.06372222, -0.38696027, 0.9574603, -0.055960312, 0.3909762, 0.9574603)
 
-[node name="Button" type="MeshInstance3D" unique_id=834246769 node_paths=PackedStringArray("_area", "_label")]
+[node name="Button" type="MeshInstance3D" unique_id=834246769]
 material_override = ExtResource("1_y8qu1")
 mesh = SubResource("BoxMesh_noarx")
 script = ExtResource("1_y084j")
-_area = NodePath("ButtonBody")
-_label = NodePath("Label3D")
-text = "ToWrite"
+_mouse_speed_threshold = null
 
 [node name="CartonParticle" type="GPUParticles3D" parent="." unique_id=97677059]
 transform = Transform3D(0.045, 0, 0, 0, 0.15, 0, 0, 0, 0.3, 0.010430634, 0, -0.008481532)

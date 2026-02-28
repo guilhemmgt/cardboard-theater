@@ -1,5 +1,11 @@
 extends Node
 
+# Signals are either :
+# - requests : the emitter requests the execution of an action
+#                named with active voice : "do_something"
+# - reports  : the emitter reports the execution of an action
+#                named with passive voice : "something_done"
+
 @warning_ignore_start("unused_signal")
 
 # UI signals
