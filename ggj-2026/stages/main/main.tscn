@@ -3,16 +3,11 @@
 [ext_resource type="Script" uid="uid://d3uf356n1craj" path="res://ui/cursor/mouse_manager.gd" id="1_1k4el"]
 [ext_resource type="Script" uid="uid://b0q6jva73fkqk" path="res://stages/main/audio_players.gd" id="1_7iyax"]
 [ext_resource type="PackedScene" uid="uid://db6l51gxty1ec" path="res://entities/theater/theater.tscn" id="1_72s8x"]
-[ext_resource type="AnimationLibrary" uid="uid://ddal5gnqwjbdb" path="res://stages/main/animations/scene_library.tres" id="1_cu7i0"]
-[ext_resource type="Script" uid="uid://d4nf05nbgyri8" path="res://stages/main/main.gd" id="1_v8qa1"]
-[ext_resource type="Script" uid="uid://diiwyqemjac5n" path="res://utilities/mover.gd" id="2_5sjox"]
-[ext_resource type="AudioStream" uid="uid://cb1ckd7b3kmcu" path="res://stages/main/main_theme.mp3" id="2_43f5m"]
-[ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="4_0oqm6"]
-[ext_resource type="Script" uid="uid://b0g4fonj8fno0" path="res://utilities/orchestrator/txt_to_anim.gd" id="4_fejr8"]
-[ext_resource type="Script" uid="uid://cldyre5xcua07" path="res://entities/actors/actor_manager.gd" id="7_85ei1"]
-[ext_resource type="Script" uid="uid://cyxrop2yxhieu" path="res://entities/camera/camera.gd" id="8_cu7i0"]
-[ext_resource type="PackedScene" uid="uid://o82m05ah8w86" path="res://stages/scenes/menu/menu.tscn" id="9_cu7i0"]
-[ext_resource type="PackedScene" uid="uid://d7q75ia1fgbf" path="res://stages/scenes/act_1/Act1.tscn" id="10_1k4el"]
+[ext_resource type="Script" uid="uid://d4nf05nbgyri8" path="res://stages/main.gd" id="1_v8qa1"]
+[ext_resource type="AudioStream" uid="uid://cb1ckd7b3kmcu" path="res://sounds/music/ggj2026.mp3" id="2_43f5m"]
+[ext_resource type="Script" uid="uid://cyxrop2yxhieu" path="res://entities/camera.gd" id="8_cu7i0"]
+[ext_resource type="PackedScene" uid="uid://o82m05ah8w86" path="res://entities/scenes/menu.tscn" id="9_cu7i0"]
+[ext_resource type="PackedScene" uid="uid://d7q75ia1fgbf" path="res://stages/act_1/act1.tscn" id="10_1k4el"]
 
 [node name="Main" type="Node3D" unique_id=62694581 node_paths=PackedStringArray("scenes_parent", "theater")]
 script = ExtResource("1_v8qa1")
@@ -21,20 +16,6 @@ theater = NodePath("Theater")
 
 [node name="MouseManager" type="Node" parent="." unique_id=1472423455]
 script = ExtResource("1_1k4el")
-
-[node name="Orchestrator" type="Node" parent="." unique_id=2052362070 node_paths=PackedStringArray("incidents_manager", "actor_manager")]
-script = ExtResource("4_0oqm6")
-incidents_manager = NodePath("../IncidentsManager")
-actor_manager = NodePath("../ActorManager")
-
-[node name="Mover" type="Node" parent="." unique_id=891845626 node_paths=PackedStringArray("theater")]
-script = ExtResource("2_5sjox")
-theater = NodePath("../Theater")
-
-[node name="GenerateurAction" type="Node" parent="." unique_id=359567483 node_paths=PackedStringArray("animation_player")]
-script = ExtResource("4_fejr8")
-timeline_file = "res://test copy.json"
-animation_player = NodePath("../Act1")
 
 [node name="AudioPlayers" type="Node" parent="." unique_id=1975551628]
 script = ExtResource("1_7iyax")
@@ -57,19 +38,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.124498844)
 visible = false
 
 [node name="act1" parent="ScenesParent" unique_id=1394700224 instance=ExtResource("10_1k4el")]
-visible = false
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1756881860]
 transform = Transform3D(-0.9999881, -0.0009955054, 0.0047797984, -0.0006319588, 0.9971481, 0.07546666, -0.004841294, 0.07546273, -0.99713683, 0.009541333, 2.5335333, -1.9963292)
 current = true
 script = ExtResource("8_cu7i0")
-
-[node name="ActorManager" type="Node3D" parent="." unique_id=731266771]
-transform = Transform3D(1.3, 0, 0, 0, 2, 0, 0, 0, 2, -0.7928251, 1.3890936, 2)
-script = ExtResource("7_85ei1")
-
-[node name="IncidentsManager" type="Node3D" parent="." unique_id=611625093]
-
-[node name="Act1" type="AnimationPlayer" parent="." unique_id=786224321]
-libraries/ = ExtResource("1_cu7i0")
-autoplay = &"scene0"

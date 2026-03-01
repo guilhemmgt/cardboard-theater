@@ -1,11 +1,20 @@
 [gd_scene format=3 uid="uid://d7q75ia1fgbf"]
 
-[ext_resource type="Material" uid="uid://b7m2u0l3plbek" path="res://addons/carton/better_paper_carton.tres" id="6_pko0v"]
-[ext_resource type="PackedScene" uid="uid://ubi0bjcosamr" path="res://entities/decors/clouds/cloud_1/cloud.tscn" id="6_vfdue"]
-[ext_resource type="PackedScene" uid="uid://cn7i0kbjp0mn7" path="res://entities/decors/grass/grass.tscn" id="9_m5fv5"]
-[ext_resource type="PackedScene" uid="uid://cmoh5erhg8ftq" path="res://entities/decors/horn/horn.tscn" id="11_pko0v"]
-[ext_resource type="PackedScene" uid="uid://dpkayn65c5wf2" path="res://entities/decors/wall/wall.tscn" id="12_q5veb"]
-[ext_resource type="Texture2D" uid="uid://b1rb783r5r7w7" path="res://entities/decors/background/background.png" id="13_75rtk"]
+[ext_resource type="Material" uid="uid://b7m2u0l3plbek" path="res://carton/better_paper_carton.tres" id="6_pko0v"]
+[ext_resource type="PackedScene" uid="uid://ubi0bjcosamr" path="res://entities/decor/clouds/cloud_1/cloud.tscn" id="6_vfdue"]
+[ext_resource type="Script" uid="uid://cldyre5xcua07" path="res://entities/actors/actor_manager.gd" id="7_24phf"]
+[ext_resource type="PackedScene" uid="uid://7bkl72rbjsk2" path="res://entities/incidents/repair/repair_incident.tscn" id="8_c53p4"]
+[ext_resource type="PackedScene" uid="uid://cn7i0kbjp0mn7" path="res://entities/decor/grass/grass.tscn" id="9_m5fv5"]
+[ext_resource type="Script" uid="uid://b0g4fonj8fno0" path="res://utilities/orchestrator/txt_to_anim.gd" id="9_mx2m4"]
+[ext_resource type="AnimationLibrary" uid="uid://ddal5gnqwjbdb" path="res://animations/scene_library.tres" id="10_ef8o1"]
+[ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="11_bobrk"]
+[ext_resource type="PackedScene" uid="uid://cmoh5erhg8ftq" path="res://entities/decor/horn/horn.tscn" id="11_pko0v"]
+[ext_resource type="Script" uid="uid://diiwyqemjac5n" path="res://utilities/mover.gd" id="12_ba7jx"]
+[ext_resource type="PackedScene" uid="uid://dpkayn65c5wf2" path="res://entities/decor/wall/wall.tscn" id="12_q5veb"]
+[ext_resource type="Texture2D" uid="uid://b1rb783r5r7w7" path="res://entities/decor/background/background.png" id="13_75rtk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c53p4"]
+size = Vector3(1, 1, 0.2006836)
 
 [node name="act1" type="Node3D" unique_id=814067477]
 
@@ -44,9 +53,46 @@ texture = ExtResource("13_75rtk")
 
 [node name="Horn2Mesh" parent="Decors" unique_id=663205281 instance=ExtResource("11_pko0v")]
 transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -4.7487593, 3.448996, 1.8712091)
+visible = false
 
 [node name="Horn2Mesh" parent="Decors/Horn2Mesh" unique_id=616767032 instance=ExtResource("11_pko0v")]
 transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -4.7487593, 3.448996, 1.8712091)
 
 [node name="CastleMesh" parent="Decors" unique_id=1569451564 instance=ExtResource("12_q5veb")]
 transform = Transform3D(-14.79, 0, -8.5237133e-07, 0, 5.645, 0, 2.2332279e-06, 0, -5.645, 0.26240087, 2.8829699, 3.817027)
+
+[node name="ActorManager" type="Node3D" parent="." unique_id=466327350]
+transform = Transform3D(1.3, 0, 0, 0, 2, 0, 0, 0, 2, -0.7928251, 1.3890936, 2)
+script = ExtResource("7_24phf")
+
+[node name="IncidentsManager" type="Node3D" parent="." unique_id=947991996]
+
+[node name="Clairon" parent="IncidentsManager" unique_id=1908609802 instance=ExtResource("8_c53p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7305264, 3.6333258, 1.860429)
+
+[node name="CollisionShape3D" parent="IncidentsManager/Clairon/Area3D" parent_id_path=PackedInt32Array(1908609802, 245994403) index="0" unique_id=1933543471]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.021659374)
+shape = SubResource("BoxShape3D_c53p4")
+
+[node name="Horn" parent="IncidentsManager/Clairon" unique_id=2138029699 instance=ExtResource("11_pko0v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5380206, 0, 0)
+
+[node name="GenerateurAction" type="Node" parent="." unique_id=1316480028 node_paths=PackedStringArray("animation_player")]
+script = ExtResource("9_mx2m4")
+timeline_file = "res://test.json"
+animation_player = NodePath("../Act1")
+
+[node name="Act1" type="AnimationPlayer" parent="." unique_id=887369996]
+libraries/ = ExtResource("10_ef8o1")
+autoplay = &"scene0"
+
+[node name="Orchestrator" type="Node" parent="." unique_id=843205800 node_paths=PackedStringArray("incidents_manager", "actor_manager")]
+script = ExtResource("11_bobrk")
+incidents_manager = NodePath("../IncidentsManager")
+actor_manager = NodePath("../ActorManager")
+
+[node name="Mover" type="Node" parent="." unique_id=1355920691 node_paths=PackedStringArray("theater")]
+script = ExtResource("12_ba7jx")
+theater = NodePath("")
+
+[editable path="IncidentsManager/Clairon"]
