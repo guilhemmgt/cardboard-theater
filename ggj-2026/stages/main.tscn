@@ -11,8 +11,8 @@
 [ext_resource type="Script" uid="uid://b0g4fonj8fno0" path="res://utilities/orchestrator/txt_to_anim.gd" id="4_fejr8"]
 [ext_resource type="Script" uid="uid://cldyre5xcua07" path="res://entities/actors/actor_manager.gd" id="7_85ei1"]
 [ext_resource type="Script" uid="uid://cyxrop2yxhieu" path="res://entities/camera/camera.gd" id="8_cu7i0"]
-[ext_resource type="PackedScene" uid="uid://o82m05ah8w86" path="res://entities/scenes/menu/menu.tscn" id="9_cu7i0"]
-[ext_resource type="PackedScene" uid="uid://d7q75ia1fgbf" path="res://entities/scenes/act_1/Act1.tscn" id="10_1k4el"]
+[ext_resource type="PackedScene" uid="uid://o82m05ah8w86" path="res://stages/scenes/menu/menu.tscn" id="9_cu7i0"]
+[ext_resource type="PackedScene" uid="uid://d7q75ia1fgbf" path="res://stages/scenes/act_1/Act1.tscn" id="10_1k4el"]
 
 [node name="Main" type="Node3D" unique_id=62694581 node_paths=PackedStringArray("scenes_parent", "theater")]
 script = ExtResource("1_v8qa1")

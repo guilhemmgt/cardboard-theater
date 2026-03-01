@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bmq3jlb1anrhf" path="res://entities/theater/frame/frame.tscn" id="7_ro3c6"]
 [ext_resource type="PackedScene" uid="uid://dgixb4l7nrgd1" path="res://entities/theater/dust_vfx/dust_vfx.tscn" id="8_git50"]
 [ext_resource type="Texture2D" uid="uid://hlxdsbmuyxjr" path="res://entities/theater/dust_vfx/Textures/blur.png" id="9_nhr7c"]
-[ext_resource type="PackedScene" uid="uid://cvp3k2e3wbm3f" path="res://entities/scenes/tutorial/tutorial.tscn" id="10_571bv"]
+[ext_resource type="PackedScene" uid="uid://cvp3k2e3wbm3f" path="res://stages/scenes/tutorial/tutorial.tscn" id="10_571bv"]
 [ext_resource type="PackedScene" uid="uid://bb42si1p0l8fq" path="res://utilities/orchestrator/orchestrator.tscn" id="11_j57ju"]
 [ext_resource type="PackedScene" uid="uid://cjkahk7g7q2ef" path="res://entities/tomato_related/basket/tomato_basket.tscn" id="12_s8oul"]
 [ext_resource type="PackedScene" uid="uid://d3t74t4c2wtyw" path="res://entities/diegetic_ui/game_over/game_over.tscn" id="13_8k43j"]
