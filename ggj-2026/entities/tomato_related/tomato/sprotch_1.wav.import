@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dtnrhf2cox0sr"
-path="res://.godot/imported/slapsh.wav-f67fe182f206b8795f2a2b02cdf14c64.sample"
+path="res://.godot/imported/sprotch_1.wav-cf0717e3afad92aa6bc48773e49dc859.sample"
 
 [deps]
 
-source_file="res://sounds/slapsh.wav"
-dest_files=["res://.godot/imported/slapsh.wav-f67fe182f206b8795f2a2b02cdf14c64.sample"]
+source_file="res://entities/tomato_related/tomato/sprotch_1.wav"
+dest_files=["res://.godot/imported/sprotch_1.wav-cf0717e3afad92aa6bc48773e49dc859.sample"]
 
 [params]
 

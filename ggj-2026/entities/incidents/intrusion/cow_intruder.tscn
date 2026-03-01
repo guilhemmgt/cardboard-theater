@@ -1,18 +1,24 @@
 [gd_scene format=3 uid="uid://3sjgbm880njl"]
 
-[ext_resource type="Script" path="res://entities/incidents/intrusion/intrusion_handler.gd" id="1_onk32"]
+[ext_resource type="AudioStream" uid="uid://yxolqfju8536" path="res://entities/incidents/intrusion/vache1.wav" id="2_jgamt"]
 [ext_resource type="PackedScene" uid="uid://c432atnphqs7w" path="res://entities/characters/cow/cow.tscn" id="2_plkks"]
-[ext_resource type="PackedScene" uid="uid://c7bxmad57rhk4" path="res://sounds/Scenes/vache.tscn" id="3_jgamt"]
+[ext_resource type="AudioStream" uid="uid://sl7prj8hnyms" path="res://entities/incidents/intrusion/vache2.wav" id="3_y3rfa"]
 [ext_resource type="Script" uid="uid://opxnqhgj6yr7" path="res://entities/intru/intru.gd" id="4_y3rfa"]
 [ext_resource type="PackedScene" uid="uid://dq8y837y8ll4b" path="res://entities/incidents/intrusion/intrusion_incident.tscn" id="5_jgamt"]
 
-[node name="CowIntruder" type="Node3D" unique_id=1562511606 node_paths=PackedStringArray("control")]
-script = ExtResource("1_onk32")
-control = NodePath("Intru")
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ga4m3"]
+random_pitch = 1.3348398
+streams_count = 2
+stream_0/stream = ExtResource("2_jgamt")
+stream_1/stream = ExtResource("3_y3rfa")
+
+[node name="CowIntruder" type="Node3D" unique_id=1562511606]
 
 [node name="Cow" parent="." unique_id=1879863676 instance=ExtResource("2_plkks")]
 
-[node name="AudioStreamPlayer3D" parent="." unique_id=1079889871 instance=ExtResource("3_jgamt")]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1079889871]
+stream = SubResource("AudioStreamRandomizer_ga4m3")
+volume_db = -10.0
 
 [node name="SfxTimer" type="Timer" parent="." unique_id=312756681]
 one_shot = true

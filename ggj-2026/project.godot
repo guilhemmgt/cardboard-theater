@@ -41,7 +41,6 @@ folder_colors={
 "res://addons/": "red",
 "res://entities/": "orange",
 "res://globals/": "yellow",
-"res://sounds/": "purple",
 "res://stages/": "green",
 "res://ui/": "teal",
 "res://utilities/": "blue"

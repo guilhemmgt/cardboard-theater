@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://8tsya2b5yuvr"]
-
-[ext_resource type="AudioStream" uid="uid://ckxywdv8fvjfd" path="res://sounds/applause-cheer-236786.mp3" id="1_kqvnu"]
-
-[node name="Applause" type="AudioStreamPlayer3D" unique_id=771132437]
-stream = ExtResource("1_kqvnu")

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://yxolqfju8536"
-path="res://.godot/imported/vache1.wav-c921b3b1e7365299f81a35cdc1838d20.sample"
+path="res://.godot/imported/vache1.wav-241702d2e90770cebb7a301bc763d945.sample"
 
 [deps]
 
-source_file="res://sounds/vache1.wav"
-dest_files=["res://.godot/imported/vache1.wav-c921b3b1e7365299f81a35cdc1838d20.sample"]
+source_file="res://entities/incidents/intrusion/vache1.wav"
+dest_files=["res://.godot/imported/vache1.wav-241702d2e90770cebb7a301bc763d945.sample"]
 
 [params]
 

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c21eyy30tnf12" path="res://entities/diegetic_ui/win/win.gd" id="1_4xy4s"]
 [ext_resource type="Shader" uid="uid://dy6ecpm6tdmku" path="res://addons/carton/Cartons.tres" id="1_pdeli"]
 [ext_resource type="PackedScene" uid="uid://c3teht8qwha10" path="res://entities/diegetic_ui/win/confettis.tscn" id="2_naxdd"]
-[ext_resource type="PackedScene" uid="uid://8tsya2b5yuvr" path="res://sounds/Scenes/applause.tscn" id="3_6njmk"]
+[ext_resource type="AudioStream" uid="uid://ckxywdv8fvjfd" path="res://entities/diegetic_ui/win/applause.mp3" id="4_p47pq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_naxdd"]
 render_priority = 0
@@ -111,5 +111,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.011490136)
 modulate = Color(0.91881675, 0.91881675, 0.9188166, 1)
 text = "by 7F old"
 
-[node name="Applause" parent="." unique_id=771132437 instance=ExtResource("3_6njmk")]
+[node name="Applause" type="AudioStreamPlayer3D" parent="." unique_id=771132437]
+stream = ExtResource("4_p47pq")
 autoplay = true

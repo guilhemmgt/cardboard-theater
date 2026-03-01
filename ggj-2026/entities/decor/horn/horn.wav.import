@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bsbafa7i7i611"
-path="res://.godot/imported/clairon.wav-104a3b961dd3046ade6fe02fe6ba8215.sample"
+path="res://.godot/imported/horn.wav-c946a1eb3e457a6785d9c1f57aca5651.sample"
 
 [deps]
 
-source_file="res://sounds/clairon.wav"
-dest_files=["res://.godot/imported/clairon.wav-104a3b961dd3046ade6fe02fe6ba8215.sample"]
+source_file="res://entities/decor/horn/horn.wav"
+dest_files=["res://.godot/imported/horn.wav-c946a1eb3e457a6785d9c1f57aca5651.sample"]
 
 [params]
 

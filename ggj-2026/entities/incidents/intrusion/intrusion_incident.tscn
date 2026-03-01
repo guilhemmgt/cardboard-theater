@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dq8y837y8ll4b"]
 
 [ext_resource type="Script" uid="uid://gc4exw5prjyg" path="res://entities/incidents/intrusion/intrusion_incident.gd" id="1_r7iy7"]
-[ext_resource type="AudioStream" uid="uid://yxolqfju8536" path="res://sounds/vache1.wav" id="3_44x5u"]
+[ext_resource type="AudioStream" uid="uid://yxolqfju8536" path="res://entities/incidents/intrusion/vache1.wav" id="3_44x5u"]
 
 [node name="IntrusionIncident" type="Node3D" unique_id=1502549711 node_paths=PackedStringArray("_timer")]
 script = ExtResource("1_r7iy7")

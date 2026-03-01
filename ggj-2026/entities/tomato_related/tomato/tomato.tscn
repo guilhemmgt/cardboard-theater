@@ -3,10 +3,19 @@
 [ext_resource type="Script" uid="uid://cgvqcqncq0xc5" path="res://entities/tomato_related/tomato/tomato.gd" id="1_h2yse"]
 [ext_resource type="Texture2D" uid="uid://ok2wqda3nmuk" path="res://entities/tomato_related/tomato/sprotch.png" id="2_8dqgf"]
 [ext_resource type="ArrayMesh" uid="uid://bmudt6tkcu4so" path="res://entities/tomato_related/tomato/tomato.obj" id="2_h2yse"]
-[ext_resource type="PackedScene" uid="uid://ia6j10vokamw" path="res://sounds/Scenes/splash.tscn" id="4_su5a0"]
+[ext_resource type="AudioStream" uid="uid://dtnrhf2cox0sr" path="res://entities/tomato_related/tomato/sprotch_1.wav" id="4_5rayo"]
+[ext_resource type="AudioStream" uid="uid://bpdtqq2uxwx6o" path="res://entities/tomato_related/tomato/sprotch_2.wav" id="5_w2tyf"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jkkfl"]
 radius = 0.09456536
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qr2da"]
+playback_mode = 1
+random_pitch = 1.3348398
+random_volume_offset_db = 5.0
+streams_count = 2
+stream_0/stream = ExtResource("4_5rayo")
+stream_1/stream = ExtResource("5_w2tyf")
 
 [node name="Tomato" type="Area3D" unique_id=1597748282]
 script = ExtResource("1_h2yse")
@@ -19,4 +28,5 @@ shape = SubResource("SphereShape3D_jkkfl")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1690907839]
 mesh = ExtResource("2_h2yse")
 
-[node name="Splash" parent="." unique_id=762724798 instance=ExtResource("4_su5a0")]
+[node name="Splash" type="AudioStreamPlayer3D" parent="." unique_id=762724798]
+stream = SubResource("AudioStreamRandomizer_qr2da")
