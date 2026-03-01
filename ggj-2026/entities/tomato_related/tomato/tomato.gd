@@ -4,8 +4,10 @@ extends Area3D
 @export var sprotch_texture: Texture
 var _sprotched_already: bool = false
 
+
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
+
 
 func _on_body_entered(body: Node3D):
 	if (_sprotched_already):
@@ -22,7 +24,6 @@ func _on_body_entered(body: Node3D):
 	# HACK Very shitty way to kill an intruder
 	if body.get_parent().get_parent():
 		for ch in body.get_parent().get_parent().get_children():
-			print(ch.name)
 			if ch is IntrusionIncident:
 				var intrusion: IntrusionIncident = ch
 				intrusion.deactivate(true)

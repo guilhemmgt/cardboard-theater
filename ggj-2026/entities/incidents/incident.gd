@@ -13,7 +13,6 @@ var _activated: bool
 var blocking: bool = false
 
 func _ready() -> void:
-	print(_timer)
 	_timer.timeout.connect(func(): deactivate(false))
 
 func activate(time: float):

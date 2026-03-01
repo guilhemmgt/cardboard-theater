@@ -15,6 +15,7 @@ func activate(time: float):
 		incident.activate(time)
 		print(incident.name)
 
+
 func deactivate(success: bool):
 	super.deactivate(success)
 	for incident in incidents:
@@ -23,7 +24,8 @@ func deactivate(success: bool):
 		print("All incident resolved ")
 	else :
 		print("At least one incident not resolved")
-	
+
+
 func one_success():
 	resolved_count+=1
 	print("One resolved")

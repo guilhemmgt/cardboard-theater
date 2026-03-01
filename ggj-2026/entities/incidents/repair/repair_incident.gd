@@ -11,11 +11,13 @@ var clicks_done: int
 var tween: Tween
 @export var failed_distance: float = 0.1
 
+
 func _ready() -> void:
 	super._ready()
 	area.input_event.connect(on_click)
 	collisionShape.disabled = true
 	blocking = false
+
 
 func activate(time: float):
 	super.activate(time)
@@ -23,7 +25,8 @@ func activate(time: float):
 	collisionShape.disabled = false
 	print("[repair] Activated on: ", name)
 	animation_player.play("tremblement")
-	
+
+
 func deactivate(success: bool):
 	collisionShape.disabled = true
 	super.deactivate(success)
@@ -44,13 +47,13 @@ func deactivate(success: bool):
 			tween.chain().tween_property(self, "rotation_degrees", self.rotation_degrees + Vector3(0, 0, -angle), time_oscillation)
 		tween.play()
 
+
 func on_click(_camera: Node,
 			  event: InputEvent,
 			  _event_position: Vector3,
 			  _normal: Vector3,
 			  _shape_idx: int):
 	if (event.is_action_pressed('click')):
-		print("coucou")
 		clicks_done += 1
 		if clicks_done >= clicks_required:
 			deactivate(true)

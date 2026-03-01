@@ -12,7 +12,6 @@ func activate(time: float):
 		_current_incident = incidents.pick_random()
 		_current_incident.resolved.connect(deactivate_success)
 		_current_incident.activate(time)
-		print(_current_incident.name)
 
 func deactivate(success: bool):
 	super.deactivate(success)

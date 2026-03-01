@@ -14,17 +14,20 @@ class_name IntrusionIncident
 var current_node: int = 0
 var is_current_node_initialized: bool = false
 
+
 func _ready() -> void:
 	super._ready()
 	blocking = false
 	sfx_timer.timeout.connect(_on_sfx_timer_timeout)
 	control_timer.timeout.connect(_on_control_timer_timeout)
 
+
 func activate(time: float):
 	super.activate(time)
 	print("Activated on: ", name)
 	_on_sfx_timer_timeout()
 	_on_control_timer_timeout()
+
 
 func deactivate(success: bool) -> void:
 	super.deactivate(success)
@@ -34,11 +37,13 @@ func deactivate(success: bool) -> void:
 	else:
 		_on_incident_failed()
 
+
 func _on_incident_failed() -> void:
 	var tween: Tween = create_tween()
 	tween.tween_property(self, "position", self.position - Vector3(0, 10, 0), 1.0)
 	tween.play()
 	tween.finished.connect(func(): queue_free())
+
 
 func _on_incident_resolved() -> void:
 	var tween: Tween = create_tween()
@@ -46,16 +51,19 @@ func _on_incident_resolved() -> void:
 	tween.play()
 	tween.finished.connect(func(): queue_free())
 
+
 func start_random_timer(t: Timer, min_delay: float, max_delay: float) -> void:
 	t.stop()
 	t.wait_time = randf_range(min_delay, max_delay)
 	t.start()
+
 
 func _on_sfx_timer_timeout():
 	if not _activated:
 		return
 	sfx_player.play()
 	start_random_timer(sfx_timer, sfx_min_delay, sfx_max_delay)
+
 
 func _on_control_timer_timeout():
 	if not _activated:
