@@ -1,6 +1,6 @@
 [gd_resource type="AnimationLibrary" format=3 uid="uid://ddal5gnqwjbdb"]
 
-[ext_resource type="Animation" uid="uid://br8bp6bi8ceyu" path="res://idk/animations/scene0.tres" id="1_fnl22"]
+[ext_resource type="Animation" uid="uid://br8bp6bi8ceyu" path="res://stages/main/animations/scene0.tres" id="1_fnl22"]
 
 [resource]
 _data = {
