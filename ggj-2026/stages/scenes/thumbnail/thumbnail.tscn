@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dec3kfxsp30fa"]
 
 [ext_resource type="PackedScene" uid="uid://bx7sb77iogb4g" path="res://entities/characters/target_guy/target_guy.tscn" id="9_i5cqs"]
-[ext_resource type="PackedScene" uid="uid://ubi0bjcosamr" path="res://entities/decor/clouds/cloud_1/cloud.tscn" id="10_mx3k5"]
+[ext_resource type="PackedScene" uid="uid://ubi0bjcosamr" path="res://entities/decors/clouds/cloud_1/cloud.tscn" id="10_mx3k5"]
 [ext_resource type="PackedScene" uid="uid://cypjg413etrtb" path="res://entities/diegetic_ui/game_title/game_title.tscn" id="11_favep"]
 [ext_resource type="PackedScene" uid="uid://bn21pj7fdgghm" path="res://entities/characters/dragon/dragon.tscn" id="12_dkh0a"]
 [ext_resource type="PackedScene" uid="uid://b8a0vav2gqvcg" path="res://entities/characters/knight/knight.tscn" id="13_lo2jb"]
-[ext_resource type="PackedScene" uid="uid://cn7i0kbjp0mn7" path="res://entities/decor/grass/grass.tscn" id="14_vsnbe"]
+[ext_resource type="PackedScene" uid="uid://cn7i0kbjp0mn7" path="res://entities/decors/grass/grass.tscn" id="14_vsnbe"]
 [ext_resource type="PackedScene" uid="uid://d72scnyrgy0p" path="res://entities/characters/rockstar/rockstar.tscn" id="15_b1i77"]
 [ext_resource type="PackedScene" uid="uid://dycms7p36i6lc" path="res://entities/characters/tree_guy/tree_guy.tscn" id="17_wq53j"]
 

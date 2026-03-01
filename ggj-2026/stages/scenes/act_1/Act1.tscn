@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://d7q75ia1fgbf"]
 
-[ext_resource type="Material" uid="uid://b7m2u0l3plbek" path="res://carton/better_paper_carton.tres" id="6_pko0v"]
-[ext_resource type="PackedScene" uid="uid://ubi0bjcosamr" path="res://entities/decor/clouds/cloud_1/cloud.tscn" id="6_vfdue"]
-[ext_resource type="PackedScene" uid="uid://cn7i0kbjp0mn7" path="res://entities/decor/grass/grass.tscn" id="9_m5fv5"]
-[ext_resource type="PackedScene" uid="uid://cmoh5erhg8ftq" path="res://entities/decor/horn/horn.tscn" id="11_pko0v"]
-[ext_resource type="PackedScene" uid="uid://dpkayn65c5wf2" path="res://entities/decor/wall/wall.tscn" id="12_q5veb"]
-[ext_resource type="Texture2D" uid="uid://b1rb783r5r7w7" path="res://entities/decor/background/background.png" id="13_75rtk"]
+[ext_resource type="Material" uid="uid://b7m2u0l3plbek" path="res://addons/carton/better_paper_carton.tres" id="6_pko0v"]
+[ext_resource type="PackedScene" uid="uid://ubi0bjcosamr" path="res://entities/decors/clouds/cloud_1/cloud.tscn" id="6_vfdue"]
+[ext_resource type="PackedScene" uid="uid://cn7i0kbjp0mn7" path="res://entities/decors/grass/grass.tscn" id="9_m5fv5"]
+[ext_resource type="PackedScene" uid="uid://cmoh5erhg8ftq" path="res://entities/decors/horn/horn.tscn" id="11_pko0v"]
+[ext_resource type="PackedScene" uid="uid://dpkayn65c5wf2" path="res://entities/decors/wall/wall.tscn" id="12_q5veb"]
+[ext_resource type="Texture2D" uid="uid://b1rb783r5r7w7" path="res://entities/decors/background/background.png" id="13_75rtk"]
 
 [node name="act1" type="Node3D" unique_id=814067477]
 

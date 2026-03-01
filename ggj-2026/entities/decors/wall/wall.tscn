@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dpkayn65c5wf2"]
+
+[ext_resource type="Shader" uid="uid://dy6ecpm6tdmku" path="res://addons/carton/Cartons.tres" id="1_emfkn"]
+[ext_resource type="Texture2D" uid="uid://bmhkfiq6h2dma" path="res://entities/decors/wall/wall.png" id="2_nrcyw"]
+[ext_resource type="Texture2D" uid="uid://dthsikmo58ciq" path="res://addons/carton/paper_0009_1k/paper_0009_normal_opengl_1k.png" id="3_nrcyw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q1j3k"]
+render_priority = 0
+shader = ExtResource("1_emfkn")
+shader_parameter/Vector2Parameter = Vector2(1, 1)
+shader_parameter/Vector2Parameter2 = Vector2(0.5, 0.5)
+shader_parameter/Texture2DParameter = ExtResource("2_nrcyw")
+shader_parameter/Texture2DParameter2 = ExtResource("3_nrcyw")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nrcyw"]
+size = Vector3(1, 1, 0.10583496)
+
+[node name="Wall" type="CSGCombiner3D" unique_id=1569451564]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1988218954]
+size = Vector3(1, 1, 0.09716797)
+material = SubResource("ShaderMaterial_q1j3k")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="." unique_id=525922124]
+transform = Transform3D(-1, 0, -1.6268178e-08, 0, 1, 0, 8.742278e-08, 0, -0.18608627, -0.29319483, -1.111, -0.057190415)
+operation = 2
+polygon = PackedVector2Array(0.062090665, 1.3060428, 0.09934467, 1.3493042, 0.14610404, 1.3502011, 0.29521614, 1.2924241, 0.22933865, 0.15994757, -0.0071730614, 0.09124839, 0.039144695, 1.2087915)
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="." unique_id=612947128]
+transform = Transform3D(-1, 0, -1.6268178e-08, 0, 1, 0, 8.742278e-08, 0, -0.18608627, 0.031904705, -1.0761701, -0.10555583)
+operation = 2
+polygon = PackedVector2Array(0.1162536, 1.1698558, 0.13629127, 1.2218816, 0.19713542, 1.180269, 0.20880799, 1.1290807, 0.2154958, 0.98601365, 0.10629962, 0.9804883, 0.107211694, 1.071307)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=303285588]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1482948915]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2559398e-15, 0, 0.00079345703)
+shape = SubResource("BoxShape3D_nrcyw")

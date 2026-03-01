@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cvp3k2e3wbm3f"]
 
-[ext_resource type="PackedScene" uid="uid://ubi0bjcosamr" path="res://entities/decor/clouds/cloud_1/cloud.tscn" id="1_4q22n"]
+[ext_resource type="PackedScene" uid="uid://ubi0bjcosamr" path="res://entities/decors/clouds/cloud_1/cloud.tscn" id="1_4q22n"]
 [ext_resource type="PackedScene" uid="uid://cypjg413etrtb" path="res://entities/diegetic_ui/game_title/game_title.tscn" id="2_yevsx"]
 [ext_resource type="PackedScene" uid="uid://bx7sb77iogb4g" path="res://entities/characters/target_guy/target_guy.tscn" id="3_icoba"]
 [ext_resource type="PackedScene" uid="uid://crmmgpxf31kdn" path="res://entities/actors/actor_controller.tscn" id="4_6tlwq"]

@@ -2,13 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://c432atnphqs7w" path="res://entities/characters/cow/cow.tscn" id="1_cicbi"]
 [ext_resource type="PackedScene" uid="uid://b8a0vav2gqvcg" path="res://entities/characters/knight/knight.tscn" id="2_h7d0s"]
-[ext_resource type="PackedScene" uid="uid://cn7i0kbjp0mn7" path="res://entities/decor/grass/grass.tscn" id="3_7dtpj"]
+[ext_resource type="PackedScene" uid="uid://cn7i0kbjp0mn7" path="res://entities/decors/grass/grass.tscn" id="3_7dtpj"]
 [ext_resource type="PackedScene" uid="uid://j2lnjv8obup2" path="res://entities/characters/goblin/goblin.tscn" id="4_ljqfs"]
 [ext_resource type="PackedScene" uid="uid://dycms7p36i6lc" path="res://entities/characters/tree_guy/tree_guy.tscn" id="5_i11vo"]
 [ext_resource type="PackedScene" uid="uid://b02lqv1r0o35e" path="res://entities/characters/princess/princess.tscn" id="6_2kjm6"]
-[ext_resource type="PackedScene" uid="uid://ubi0bjcosamr" path="res://entities/decor/clouds/cloud_1/cloud.tscn" id="7_yduw7"]
-[ext_resource type="PackedScene" uid="uid://b11xfxrnpmhje" path="res://entities/decor/clouds/cloud_storm/cloud_storm.tscn" id="8_sysxj"]
-[ext_resource type="PackedScene" uid="uid://erkk1pr4hfnh" path="res://entities/decor/clouds/thunder_1/thunder_1.tscn" id="9_2b3mb"]
+[ext_resource type="PackedScene" uid="uid://ubi0bjcosamr" path="res://entities/decors/clouds/cloud_1/cloud.tscn" id="7_yduw7"]
+[ext_resource type="PackedScene" uid="uid://b11xfxrnpmhje" path="res://entities/decors/clouds/cloud_storm/cloud_storm.tscn" id="8_sysxj"]
+[ext_resource type="PackedScene" uid="uid://erkk1pr4hfnh" path="res://entities/decors/clouds/thunder_1/thunder_1.tscn" id="9_2b3mb"]
 
 [node name="Act2" type="Node3D" unique_id=1765736365]
 

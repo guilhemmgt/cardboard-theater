@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dxch6vbu2k336"]
+
+[ext_resource type="Script" uid="uid://opxnqhgj6yr7" path="res://entities/incidents/intrusion/intru/intru.gd" id="1_wwc15"]
+
+[sub_resource type="Animation" id="Animation_jka67"]
+resource_name = "tremblement"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i5arm"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.17453292), Vector3(0, 0, 0.17453292), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wc5p8"]
+_data = {
+&"RESET": SubResource("Animation_jka67"),
+&"idle": SubResource("Animation_i5arm")
+}
+
+[node name="IntruControl" type="Node" unique_id=187030485]
+script = ExtResource("1_wwc15")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1822450737]
+libraries/ = SubResource("AnimationLibrary_wc5p8")

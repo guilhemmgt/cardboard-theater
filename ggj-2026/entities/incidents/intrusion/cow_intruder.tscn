@@ -3,7 +3,7 @@
 [ext_resource type="AudioStream" uid="uid://yxolqfju8536" path="res://entities/incidents/intrusion/vache1.wav" id="2_jgamt"]
 [ext_resource type="PackedScene" uid="uid://c432atnphqs7w" path="res://entities/characters/cow/cow.tscn" id="2_plkks"]
 [ext_resource type="AudioStream" uid="uid://sl7prj8hnyms" path="res://entities/incidents/intrusion/vache2.wav" id="3_y3rfa"]
-[ext_resource type="Script" uid="uid://opxnqhgj6yr7" path="res://entities/intru/intru.gd" id="4_y3rfa"]
+[ext_resource type="Script" uid="uid://opxnqhgj6yr7" path="res://entities/incidents/intrusion/intru/intru.gd" id="4_y3rfa"]
 [ext_resource type="PackedScene" uid="uid://dq8y837y8ll4b" path="res://entities/incidents/intrusion/intrusion_incident.tscn" id="5_jgamt"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ga4m3"]
