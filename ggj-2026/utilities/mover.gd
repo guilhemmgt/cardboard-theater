@@ -1,6 +1,11 @@
 extends Node
 
-@export var theater: Theater
+var theater: Theater
+
+func _ready() -> void:
+	theater = _find_theater()
+	SignalBus.ask_to_move.connect(move_to_marker)
+	SignalBus.ask_to_set_position.connect(set_position_to_marker)
 
 ## Move a Node3D to a plan and position (moves both X and Y).
 func move_to_marker(node: Node3D, duration: float, plan: int, pos: int):
@@ -22,11 +27,20 @@ func move_to_marker(node: Node3D, duration: float, plan: int, pos: int):
 	tween.tween_property(node, "global_position:z", marker.z, duration)
 	rotation_tween.play()
 	tween.play()
-func _ready() -> void:
-	SignalBus.ask_to_move.connect(move_to_marker)
-	SignalBus.ask_to_set_position.connect(set_position_to_marker)
 
 func set_position_to_marker(node: Node3D, plan: int, pos: int) -> void:
 	var marker: Vector3 = theater.get_marker(plan, pos)
 	node.global_position.x = marker.x
 	node.global_position.z = marker.z
+
+func _get_all_nodes(root: Node) -> Array[Node]:
+	var result: Array[Node] = [root]
+	for child in root.get_children():
+		result.append_array(_get_all_nodes(child))
+	return result
+	
+func _find_theater() -> Theater:
+	for node in _get_all_nodes(get_tree().root):
+		if node is Theater:
+			return node as Theater
+	return null

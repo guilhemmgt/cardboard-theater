@@ -1,11 +1,21 @@
 {
-  "timeline": [
-	{
-	  "INCIDENT_ACTIVATION": {
-		"actor": "Clairon",
-		"begin_time": 2.5,
-		"duration": 1.0
-	  }
-	}
-  ]
+	"timeline": [
+		{
+			"SET_POS": {
+				"actor": "Dragon",
+				"plan": 0,
+				"noeud": 0,
+				"begin_time": 0.0
+			}
+		},
+		{
+			"MOVE": {
+				"actor": "Dragon",
+				"plan": 0,
+				"noeud": 3,
+				"begin_time": 1.0,
+				"duration": 2.0
+			}
+		}
+	]
 }
