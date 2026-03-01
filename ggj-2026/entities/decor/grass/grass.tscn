@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cn7i0kbjp0mn7"]
 
 [ext_resource type="ArrayMesh" uid="uid://dmwaw88xihd1p" path="res://entities/decor/grass/grass.obj" id="1_16hk3"]
-[ext_resource type="Shader" uid="uid://dy6ecpm6tdmku" path="res://carton/Cartons.tres" id="2_0a4dp"]
+[ext_resource type="Shader" uid="uid://dy6ecpm6tdmku" path="res://addons/carton/Cartons.tres" id="2_0a4dp"]
 [ext_resource type="Texture2D" uid="uid://hd6pe8o3are" path="res://entities/decor/grass/grass.png" id="3_wea41"]
-[ext_resource type="Texture2D" uid="uid://dthsikmo58ciq" path="res://carton/paper_0009_1k/paper_0009_normal_opengl_1k.png" id="4_ecuda"]
+[ext_resource type="Texture2D" uid="uid://dthsikmo58ciq" path="res://addons/carton/paper_0009_1k/paper_0009_normal_opengl_1k.png" id="4_ecuda"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mmhxy"]
 render_priority = 0

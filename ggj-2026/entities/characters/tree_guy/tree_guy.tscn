@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dycms7p36i6lc"]
 
 [ext_resource type="ArrayMesh" uid="uid://bgxpmcty0tsnm" path="res://entities/characters/tree_guy/tree_guy.obj" id="1_ac3bc"]
-[ext_resource type="Shader" uid="uid://dy6ecpm6tdmku" path="res://carton/Cartons.tres" id="2_xllyk"]
+[ext_resource type="Shader" uid="uid://dy6ecpm6tdmku" path="res://addons/carton/Cartons.tres" id="2_xllyk"]
 [ext_resource type="Texture2D" uid="uid://d057f73kcb0td" path="res://entities/characters/tree_guy/tree_guy.png" id="3_0el8e"]
-[ext_resource type="Texture2D" uid="uid://dthsikmo58ciq" path="res://carton/paper_0009_1k/paper_0009_normal_opengl_1k.png" id="4_ylts4"]
+[ext_resource type="Texture2D" uid="uid://dthsikmo58ciq" path="res://addons/carton/paper_0009_1k/paper_0009_normal_opengl_1k.png" id="4_ylts4"]
 [ext_resource type="PackedScene" uid="uid://bipa1lx3wul37" path="res://entities/characters/baton.tscn" id="5_xllyk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rtf8u"]

@@ -1,0 +1,24 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ctqhsf2gopi7n"]
+
+[ext_resource type="Texture2D" uid="uid://cktr80sscioby" path="res://addons/carton/paper_0009_1k/paper_0009_color_1k.jpg" id="1_j7uv7"]
+[ext_resource type="Texture2D" uid="uid://bnkso2qdswdra" path="res://addons/carton/paper_0009_1k/paper_0009_ao_1k.jpg" id="2_0fs0t"]
+[ext_resource type="Texture2D" uid="uid://c4l4u5ou5j6f3" path="res://addons/carton/paper_0009_1k/paper_0009_height_1k.png" id="3_x4yc5"]
+[ext_resource type="Texture2D" uid="uid://dt4w8nooq6i5b" path="res://addons/carton/paper_0009_1k/paper_0009_normal_directx_1k.png" id="4_ll3dq"]
+[ext_resource type="Texture2D" uid="uid://e830h1qlky02" path="res://addons/carton/paper_0009_1k/paper_0009_roughness_1k.jpg" id="5_ml8df"]
+
+[resource]
+cull_mode = 2
+specular_mode = 1
+disable_specular_occlusion = true
+albedo_texture = ExtResource("1_j7uv7")
+roughness = 0.8
+roughness_texture = ExtResource("5_ml8df")
+normal_enabled = true
+normal_texture = ExtResource("4_ll3dq")
+ao_enabled = true
+ao_texture = ExtResource("2_0fs0t")
+ao_texture_channel = 4
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_x4yc5")
+uv1_scale = Vector3(1.2, 1.2, 1.2)
+uv2_scale = Vector3(1.2, 1.2, 1.2)

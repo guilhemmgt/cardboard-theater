@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cmoh5erhg8ftq"]
 
 [ext_resource type="ArrayMesh" uid="uid://b0quk2ra240ry" path="res://entities/decor/horn/horn.obj" id="1_mhi3i"]
-[ext_resource type="Shader" uid="uid://dy6ecpm6tdmku" path="res://carton/Cartons.tres" id="2_ancoc"]
+[ext_resource type="Shader" uid="uid://dy6ecpm6tdmku" path="res://addons/carton/Cartons.tres" id="2_ancoc"]
 [ext_resource type="Texture2D" uid="uid://cs0uokc77c28b" path="res://entities/decor/horn/horn.png" id="3_j8gqn"]
-[ext_resource type="Texture2D" uid="uid://dthsikmo58ciq" path="res://carton/paper_0009_1k/paper_0009_normal_opengl_1k.png" id="4_ancoc"]
+[ext_resource type="Texture2D" uid="uid://dthsikmo58ciq" path="res://addons/carton/paper_0009_1k/paper_0009_normal_opengl_1k.png" id="4_ancoc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b3dxe"]
 render_priority = 0

@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://d3uf356n1craj" path="res://ui/cursor/mouse_manager.gd" id="1_1k4el"]
 [ext_resource type="Script" uid="uid://b0q6jva73fkqk" path="res://stages/audio_players.gd" id="1_7iyax"]
 [ext_resource type="PackedScene" uid="uid://db6l51gxty1ec" path="res://entities/theater/theater.tscn" id="1_72s8x"]
-[ext_resource type="AnimationLibrary" uid="uid://ddal5gnqwjbdb" path="res://animations/scene_library.tres" id="1_cu7i0"]
+[ext_resource type="AnimationLibrary" uid="uid://ddal5gnqwjbdb" path="res://idk/animations/scene_library.tres" id="1_cu7i0"]
 [ext_resource type="Script" uid="uid://d4nf05nbgyri8" path="res://stages/main.gd" id="1_v8qa1"]
 [ext_resource type="Script" uid="uid://diiwyqemjac5n" path="res://utilities/mover.gd" id="2_5sjox"]
 [ext_resource type="AudioStream" uid="uid://cb1ckd7b3kmcu" path="res://sounds/music/ggj2026.mp3" id="2_43f5m"]
 [ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="4_0oqm6"]
 [ext_resource type="Script" uid="uid://b0g4fonj8fno0" path="res://utilities/orchestrator/txt_to_anim.gd" id="4_fejr8"]
 [ext_resource type="Script" uid="uid://cldyre5xcua07" path="res://entities/actors/actor_manager.gd" id="7_85ei1"]
-[ext_resource type="Script" uid="uid://cyxrop2yxhieu" path="res://entities/camera.gd" id="8_cu7i0"]
+[ext_resource type="Script" uid="uid://cyxrop2yxhieu" path="res://entities/camera/camera.gd" id="8_cu7i0"]
 
 [node name="Main" type="Node3D" unique_id=62694581 node_paths=PackedStringArray("scenes_parent", "theater")]
 script = ExtResource("1_v8qa1")

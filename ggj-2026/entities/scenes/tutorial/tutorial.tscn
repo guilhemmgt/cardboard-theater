@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://cvp3k2e3wbm3f"]
+
+[ext_resource type="PackedScene" uid="uid://ubi0bjcosamr" path="res://entities/decor/clouds/cloud_1/cloud.tscn" id="1_4q22n"]
+[ext_resource type="PackedScene" uid="uid://cypjg413etrtb" path="res://entities/diegetic_ui/game_title/game_title.tscn" id="2_yevsx"]
+[ext_resource type="PackedScene" uid="uid://bx7sb77iogb4g" path="res://entities/characters/target_guy/target_guy.tscn" id="3_icoba"]
+[ext_resource type="PackedScene" uid="uid://crmmgpxf31kdn" path="res://entities/actors/actor_controller.tscn" id="4_6tlwq"]
+[ext_resource type="PackedScene" uid="uid://c4amdjj53fb3d" path="res://entities/characters/king/king.tscn" id="5_r8hw8"]
+[ext_resource type="PackedScene" uid="uid://b8a0vav2gqvcg" path="res://entities/characters/knight/knight.tscn" id="6_4coqi"]
+[ext_resource type="PackedScene" uid="uid://bn21pj7fdgghm" path="res://entities/characters/dragon/dragon.tscn" id="7_2dy26"]
+[ext_resource type="PackedScene" uid="uid://j2lnjv8obup2" path="res://entities/characters/goblin/goblin.tscn" id="8_bqkr3"]
+[ext_resource type="PackedScene" uid="uid://b02lqv1r0o35e" path="res://entities/characters/princess/princess.tscn" id="9_p8tio"]
+[ext_resource type="PackedScene" uid="uid://dycms7p36i6lc" path="res://entities/characters/tree_guy/tree_guy.tscn" id="10_6qps1"]
+
+[sub_resource type="Animation" id="Animation_jka67"]
+resource_name = "tremblement"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i5arm"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.17453292), Vector3(0, 0, 0.17453292), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_erwgl"]
+_data = {
+&"RESET": SubResource("Animation_jka67"),
+&"idle": SubResource("Animation_i5arm")
+}
+
+[node name="Tutorial" type="Node3D" unique_id=1751269213]
+
+[node name="Nuages" type="Node3D" parent="." unique_id=2096120318]
+transform = Transform3D(11, 0, 0, 0, 6, 0, 0, 0, 6, -0.17333889, 2.1501837, 1.0046821)
+
+[node name="Nuage" parent="Nuages" unique_id=2083094686 instance=ExtResource("1_4q22n")]
+transform = Transform3D(-0.21818183, 0, -8.593034e-09, 0, 0.20000002, 0, 6.039833e-08, 0, -0.10433333, 0.21378422, 0.27467462, 0.10027011)
+
+[node name="Nuage2" parent="Nuages" unique_id=1274215384 instance=ExtResource("1_4q22n")]
+transform = Transform3D(-0.18112631, 0.007923249, 4.148608e-09, 0.029051913, 0.16603246, 0, -2.9030037e-08, 1.2698995e-09, -0.087000005, -0.33520836, 0.28850457, 0.1225204)
+
+[node name="LettersMain" parent="." unique_id=1102856649 instance=ExtResource("2_yevsx")]
+transform = Transform3D(-1.494292, 0.13073361, 1.3113416e-07, 0.13073361, 1.494292, 0, -1.3063516e-07, 1.1429095e-08, -1.5, -0.67975116, 2.8317337, 3.4409409)
+
+[node name="CibleMesh" parent="." unique_id=870559002 instance=ExtResource("3_icoba")]
+transform = Transform3D(1.9999998, 0, 0, 0, 1.9999998, 0, 0, 0, 1.9999995, 3.0286365, 1.1814232, 2.1620302)
+
+[node name="Cible" parent="CibleMesh" unique_id=1767442541 instance=ExtResource("4_6tlwq")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CibleMesh/Cible" unique_id=837035944]
+libraries/ = SubResource("AnimationLibrary_erwgl")
+
+[node name="MadKingMesh" parent="." unique_id=263734070 instance=ExtResource("5_r8hw8")]
+transform = Transform3D(1.6, 0, 0, 0, 1.9999999, 0, 0, 0, 1.9999998, -6.06715, 1.4055457, 0.91185486)
+
+[node name="MadKing" parent="MadKingMesh" unique_id=1058067854 instance=ExtResource("4_6tlwq")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MadKingMesh/MadKing" unique_id=1660216015]
+libraries/ = SubResource("AnimationLibrary_erwgl")
+
+[node name="KnightMesh" parent="." unique_id=1290083251 instance=ExtResource("6_4coqi")]
+transform = Transform3D(1.2999998, 0, 0, 0, 1.9999999, 0, 0, 0, 1.9999998, -7.6349506, 1.4978337, 1.3754579)
+
+[node name="Knight" parent="KnightMesh" unique_id=172250661 instance=ExtResource("4_6tlwq")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="KnightMesh/Knight" unique_id=866058731]
+libraries/ = SubResource("AnimationLibrary_erwgl")
+
+[node name="DragonMesh" parent="." unique_id=521331207 instance=ExtResource("7_2dy26")]
+transform = Transform3D(3.4, 0, 0, 0, 2.9999998, 0, 0, 0, 2.9999995, 6.611217, 1.7069583, 2.217055)
+
+[node name="Dragon" parent="DragonMesh" unique_id=13941431 instance=ExtResource("4_6tlwq")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DragonMesh/Dragon" unique_id=1459435699]
+libraries/ = SubResource("AnimationLibrary_erwgl")
+
+[node name="GobTheGoblinMesh" parent="." unique_id=1319419001 instance=ExtResource("8_bqkr3")]
+transform = Transform3D(1.1999999, 0, 0, 0, 1.4999999, 0, 0, 0, 0.9999999, 6.9065514, 1.2070124, 1.6513566)
+
+[node name="GobTheGoblin" parent="GobTheGoblinMesh" unique_id=1787763211 instance=ExtResource("4_6tlwq")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GobTheGoblinMesh/GobTheGoblin" unique_id=1386631771]
+libraries/ = SubResource("AnimationLibrary_erwgl")
+
+[node name="PrincessMesh" parent="." unique_id=837612745 instance=ExtResource("9_p8tio")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1.4999999, 0, 0, 0, 0.9999999, -7.7515354, 1.0917556, 0.923668)
+
+[node name="Princess" parent="PrincessMesh" unique_id=787861937 instance=ExtResource("4_6tlwq")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PrincessMesh/Princess" unique_id=875071104]
+libraries/ = SubResource("AnimationLibrary_erwgl")
+
+[node name="GreatestTreeMesh" parent="." unique_id=258667498 instance=ExtResource("10_6qps1")]
+transform = Transform3D(1.3999999, 0, 0, 0, 1.9999999, 0, 0, 0, 1.9999998, 6.088828, 1.4199924, 1.4324803)
+
+[node name="GreatestTree" parent="GreatestTreeMesh" unique_id=39129095 instance=ExtResource("4_6tlwq")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GreatestTreeMesh/GreatestTree" unique_id=1379516891]
+libraries/ = SubResource("AnimationLibrary_erwgl")

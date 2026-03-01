@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://o82m05ah8w86"]
+
+[ext_resource type="Script" uid="uid://ddijc5m4ssyqb" path="res://entities/scenes/menu/menu_manager.gd" id="1_4gnbf"]
+[ext_resource type="Texture2D" uid="uid://cktr80sscioby" path="res://addons/carton/paper_0009_1k/paper_0009_color_1k.jpg" id="2_gnmvk"]
+[ext_resource type="Texture2D" uid="uid://dt4w8nooq6i5b" path="res://addons/carton/paper_0009_1k/paper_0009_normal_directx_1k.png" id="3_jl308"]
+[ext_resource type="PackedScene" uid="uid://dlevpco8snw5k" path="res://entities/diegetic_ui/button/bouton.tscn" id="4_bw2uc"]
+[ext_resource type="PackedScene" uid="uid://bx7sb77iogb4g" path="res://entities/characters/target_guy/target_guy.tscn" id="5_yaten"]
+[ext_resource type="PackedScene" uid="uid://ubi0bjcosamr" path="res://entities/decor/clouds/cloud_1/cloud.tscn" id="6_aejji"]
+[ext_resource type="PackedScene" uid="uid://bn21pj7fdgghm" path="res://entities/characters/dragon/dragon.tscn" id="7_ft42f"]
+[ext_resource type="PackedScene" uid="uid://b8a0vav2gqvcg" path="res://entities/characters/knight/knight.tscn" id="8_3sswb"]
+[ext_resource type="PackedScene" uid="uid://cn7i0kbjp0mn7" path="res://entities/decor/grass/grass.tscn" id="9_cnkic"]
+[ext_resource type="PackedScene" uid="uid://d72scnyrgy0p" path="res://entities/characters/rockstar/rockstar.tscn" id="10_fhhc2"]
+[ext_resource type="PackedScene" uid="uid://dycms7p36i6lc" path="res://entities/characters/tree_guy/tree_guy.tscn" id="11_5kjqy"]
+[ext_resource type="PackedScene" uid="uid://cypjg413etrtb" path="res://entities/diegetic_ui/game_title/game_title.tscn" id="12_th1g5"]
+[ext_resource type="Texture2D" uid="uid://b1rb783r5r7w7" path="res://entities/decor/background/background.png" id="13_mivc0"]
+[ext_resource type="PackedScene" uid="uid://c432atnphqs7w" path="res://entities/characters/cow/cow.tscn" id="14_f48m2"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ls1ps"]
+size = Vector2(0.3, 5)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1g62v"]
+albedo_texture = ExtResource("2_gnmvk")
+normal_enabled = true
+normal_scale = 11.27
+normal_texture = ExtResource("3_jl308")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jaqyd"]
+points = PackedVector3Array(0.1656566, 2.5126262, -0.012626263, -0.16262627, -2.5126262, -0.012626263, -0.16262627, 2.5126262, -0.012626263, 0.1656566, -2.5126262, -0.012626263)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ls1ps"]
+load_path = "res://.godot/imported/paper_0009_color_1k.jpg-c19a8a5bb58e136e6e388f24c7cc6063.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1g62v"]
+load_path = "res://.godot/imported/paper_0009_normal_directx_1k.png-e0f1516355d5fde08e394ea98189b9eb.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1igi2"]
+albedo_texture = SubResource("CompressedTexture2D_ls1ps")
+normal_enabled = true
+normal_scale = 11.27
+normal_texture = SubResource("CompressedTexture2D_1g62v")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_i7ewm"]
+points = PackedVector3Array(0.1656566, 2.5126262, -0.012626263, -0.16262627, -2.5126262, -0.012626263, -0.16262627, 2.5126262, -0.012626263, 0.1656566, -2.5126262, -0.012626263)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hhemq"]
+points = PackedVector3Array(0.1656566, 2.5126262, -0.012626263, -0.16262627, -2.5126262, -0.012626263, -0.16262627, 2.5126262, -0.012626263, 0.1656566, -2.5126262, -0.012626263)
+
+[node name="Menu" type="Node3D" unique_id=814067477 node_paths=PackedStringArray("play_button", "credits_button", "quit_button")]
+script = ExtResource("1_4gnbf")
+play_button = NodePath("PlayButton")
+credits_button = NodePath("CreditsButton")
+quit_button = NodePath("QuitButton")
+
+[node name="Post2" type="MeshInstance3D" parent="." unique_id=1508316564]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.9325718, -0.95916176, 1.147182)
+mesh = SubResource("PlaneMesh_ls1ps")
+surface_material_override/0 = SubResource("StandardMaterial3D_1g62v")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Post2" unique_id=1170579592]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Post2/StaticBody3D2" unique_id=816816255]
+shape = SubResource("ConvexPolygonShape3D_jaqyd")
+
+[node name="Post" type="MeshInstance3D" parent="." unique_id=671716641]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.2549055, -0.6080452, 1.147182)
+mesh = SubResource("PlaneMesh_ls1ps")
+surface_material_override/0 = SubResource("StandardMaterial3D_1igi2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Post" unique_id=1591278208]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Post/StaticBody3D" unique_id=930371663]
+shape = SubResource("ConvexPolygonShape3D_i7ewm")
+
+[node name="Post3" type="MeshInstance3D" parent="." unique_id=1803706604]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.14569086, -0.60804486, 1.147182)
+mesh = SubResource("PlaneMesh_ls1ps")
+surface_material_override/0 = SubResource("StandardMaterial3D_1g62v")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Post3" unique_id=1336164795]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Post3/StaticBody3D" unique_id=1033097206]
+shape = SubResource("ConvexPolygonShape3D_hhemq")
+
+[node name="CreditsButton" parent="." unique_id=834246769 instance=ExtResource("4_bw2uc")]
+transform = Transform3D(0.014468241, 0, 0.99989533, 0, 1, 0, -0.99989533, 0, 0.014468241, -1.870667, 1.8163846, 1.1529043)
+text = "Credits"
+
+[node name="QuitButton" parent="." unique_id=763163492 instance=ExtResource("4_bw2uc")]
+transform = Transform3D(0.014468241, 0, 0.99989533, 0, 1, 0, -0.99989533, 0, 0.014468241, 2.2640731, 1.8733858, 1.1555107)
+text = "Quit"
+
+[node name="PlayButton" parent="." unique_id=643307507 instance=ExtResource("4_bw2uc")]
+transform = Transform3D(0.014468241, 0, 0.99989533, 0, 1, 0, -0.99989533, 0, 0.014468241, 0.17857951, 1.9394405, 1.147182)
+text = "Play"
+
+[node name="Cible" parent="." unique_id=870559002 instance=ExtResource("5_yaten")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.1786852, 1.6004493, 2.2293332)
+
+[node name="Nuage" parent="." unique_id=2083094686 instance=ExtResource("6_aejji")]
+transform = Transform3D(-2.4, 0, -9.452337e-08, 0, 1.2, 0, 3.6238995e-07, 0, -0.626, 4.9688635, 3.7982314, 2.3769097)
+
+[node name="Nuage2" parent="." unique_id=1175446920 instance=ExtResource("6_aejji")]
+transform = Transform3D(-1.9923894, 0.08715574, 4.563469e-08, 0.17431147, 0.9961947, 0, -1.7418022e-07, 7.619397e-09, -0.522, -3.6257076, 3.2203412, 1.3229113)
+
+[node name="Dragon" parent="." unique_id=521331207 instance=ExtResource("7_ft42f")]
+transform = Transform3D(2.663, 0, 0, 0, 2.35, 0, 0, 0, 2.35, 3.8491879, 2.062935, 2.3732672)
+
+[node name="MeshInstance3D5" parent="." unique_id=1290083251 instance=ExtResource("8_3sswb")]
+transform = Transform3D(1.03, 0, 0, 0, 1.585, 0, 0, 0, 1.585, 1.5301108, 1.7765934, 2.2317479)
+
+[node name="Grass2" parent="." unique_id=265710641 instance=ExtResource("9_cnkic")]
+transform = Transform3D(10, 0, 0, 0, 0.8, 0, 0, 0, 1, 0.32947993, 0.7103294, 1.0053465)
+
+[node name="Grass5" parent="." unique_id=1355157476 instance=ExtResource("9_cnkic")]
+transform = Transform3D(10, 0, 0, 0, 0.8, 0, 0, 0, 1, 3.1093473, 0.70095086, 1.8437526)
+
+[node name="Grass6" parent="." unique_id=2087053449 instance=ExtResource("9_cnkic")]
+transform = Transform3D(10, 0, 0, 0, 0.8, 0, 0, 0, 1, -2.6500561, 0.70095086, 1.8839602)
+
+[node name="Grass7" parent="." unique_id=830964853 instance=ExtResource("9_cnkic")]
+transform = Transform3D(10, 0, 0, 0, 0.8, 0, 0, 0, 1, 3.167223, 0.70095086, 3.0610044)
+
+[node name="Grass8" parent="." unique_id=396863961 instance=ExtResource("9_cnkic")]
+transform = Transform3D(10, 0, 0, 0, 0.8, 0, 0, 0, 1, -2.5921803, 0.70095086, 3.101212)
+
+[node name="IntruderCrazy" parent="." unique_id=1374366765 instance=ExtResource("10_fhhc2")]
+transform = Transform3D(1.6, 0, 0, 0, 2, 0, 0, 0, 2, -3.9834876, 1.719929, 1.5459027)
+
+[node name="GreatestTree" parent="." unique_id=258667498 instance=ExtResource("11_5kjqy")]
+transform = Transform3D(1.4, 0, 0, 0, 2, 0, 0, 0, 2, -4.011456, 1.9060879, 3.2987747)
+
+[node name="GreatestTree2" parent="." unique_id=603471796 instance=ExtResource("11_5kjqy")]
+transform = Transform3D(1.4, 0, 0, 0, 2, 0, 0, 0, 2, 5.1322136, 1.9060879, 3.2987747)
+
+[node name="LettersMain" parent="." unique_id=1102856649 instance=ExtResource("12_th1g5")]
+transform = Transform3D(-1.494292, 0.13073361, 1.3113416e-07, 0.13073361, 1.494292, 0, -1.3063516e-07, 1.1429095e-08, -1.5, 0.36592102, 3.7534642, 3.3291109)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=16177506]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 1.0922277, 6.5319805, 3.4553173)
+texture = ExtResource("13_mivc0")
+
+[node name="Cow" parent="." unique_id=1879863676 instance=ExtResource("14_f48m2")]
+transform = Transform3D(1.54, 0, 0, 0, 1.54, 0, 0, 0, 1.54, 0.75368965, 1.3852214, 3.1938174)

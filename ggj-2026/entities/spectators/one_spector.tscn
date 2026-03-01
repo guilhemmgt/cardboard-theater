@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cbg24h2i8goyj" path="res://entities/spectators/reactions/cow.svg" id="4_nns7w"]
 [ext_resource type="Texture2D" uid="uid://xssdpkbjkg5i" path="res://entities/spectators/reactions/guitare.svg" id="5_0gwn5"]
 [ext_resource type="Texture2D" uid="uid://be454emiryrdi" path="res://entities/spectators/reactions/angry.svg" id="6_exf4q"]
-[ext_resource type="PackedScene" uid="uid://d0b08xu72xnum" path="res://carton/3Dcardboards/bulle_main/bulle_main.tscn" id="7_exf4q"]
-[ext_resource type="PackedScene" uid="uid://cl7su7uskwgcj" path="res://carton/3Dcardboards/bulle_handle/bulle_handle.tscn" id="8_u1ujy"]
+[ext_resource type="PackedScene" uid="uid://d0b08xu72xnum" path="res://entities/diegetic_ui/speech_bubble/main/bubble_main.tscn" id="7_exf4q"]
+[ext_resource type="PackedScene" uid="uid://cl7su7uskwgcj" path="res://entities/diegetic_ui/speech_bubble/handle/bubble_handle.tscn" id="8_u1ujy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mycd"]
 albedo_color = Color(0.20392157, 0.05490196, 0.02745098, 1)
