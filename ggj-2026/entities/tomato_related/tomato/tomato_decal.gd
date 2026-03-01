@@ -3,7 +3,7 @@ class_name TomatoDecal
 
 
 func _ready() -> void:
-	SignalBus.act_start.connect(disappear) 
+	SignalBus.start_act.connect(disappear) 
 
 
 func disappear():

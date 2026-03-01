@@ -27,6 +27,6 @@ signal tomato_released ## A tomato was either put down in the basket, or thrown 
 signal tomato_hit(body : Node3D, point : Vector3) ## A tomato has hit a body
 
 # Act signals
-signal act_start
+signal start_act ## Start an act #TODO add an integer parameter to specify which act ?
 
 @warning_ignore_restore("unused_signal")
