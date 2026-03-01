@@ -53,6 +53,7 @@ func on_click(_camera: Node,
 			  _event_position: Vector3,
 			  _normal: Vector3,
 			  _shape_idx: int):
+	print("click")
 	if (event.is_action_pressed('click')):
 		clicks_done += 1
 		if clicks_done >= clicks_required:

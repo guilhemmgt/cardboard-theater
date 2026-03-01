@@ -17,14 +17,15 @@ signal toggle_curtains ## Open/close the curtains
 signal curtains_opening_started ## The curtains are closed but are about to open
 signal curtains_opened ## The curtains are fully opened
 signal curtains_closed ## The curtains are fully closed
-signal init_curtains(open : bool) ## Set curtains position instantly (open/close)
+signal init_curtains(open: bool) ## Set curtains position instantly (open/close)
 
 signal ask_to_move(node: Node3D, duration: float, plan: int, pos: int)
+signal ask_to_set_position(node: Node3D, plan: int, pos: int)
 
 # Tomato
 signal tomato_picked ## A tomato was picked, the player is now aiming
 signal tomato_released ## A tomato was either put down in the basket, or thrown at something
-signal tomato_hit(body : Node3D, point : Vector3) ## A tomato has hit a body
+signal tomato_hit(body: Node3D, point: Vector3) ## A tomato has hit a body
 
 # Act signals
 signal start_act ## Start an act #TODO add an integer parameter to specify which act ?

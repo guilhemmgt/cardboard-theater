@@ -24,3 +24,9 @@ func move_to_marker(node: Node3D, duration: float, plan: int, pos: int):
 	tween.play()
 func _ready() -> void:
 	SignalBus.ask_to_move.connect(move_to_marker)
+	SignalBus.ask_to_set_position.connect(set_position_to_marker)
+
+func set_position_to_marker(node: Node3D, plan: int, pos: int) -> void:
+	var marker: Vector3 = theater.get_marker(plan, pos)
+	node.global_position.x = marker.x
+	node.global_position.z = marker.z

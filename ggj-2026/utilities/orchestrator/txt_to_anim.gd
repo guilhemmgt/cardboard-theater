@@ -1,7 +1,7 @@
 @tool
 extends Node
 
-@export_file("*.json") var timeline_file : String
+@export_file("*.json") var timeline_file: String
 @export var animation_player: AnimationPlayer
 
 @export_tool_button("Générer Animation")
@@ -16,9 +16,9 @@ func generate_animation() -> void:
 		return
 
 	tracks.clear()
-	var timeline : Array = _load_json_timeline(timeline_file)
+	var timeline: Array = _load_json_timeline(timeline_file)
 
-	var anim : Animation = Animation.new()
+	var anim: Animation = Animation.new()
 	anim.resource_name = "scene_generated"
 	anim.length = 60.0
 
@@ -83,6 +83,12 @@ func _process_command(anim: Animation, cmd_type: String, data: Dictionary) -> vo
 			var noeud: int = int(data.get("noeud", 0))
 			_add_method_key(anim, actor, begin_time, "move_to", [plan, noeud, duration])
 		
+		"SET_POS":
+			var actor: String = data.get("actor", "")
+			var plan: int = int(data.get("plan", 0))
+			var noeud: int = int(data.get("noeud", 0))
+			_add_method_key(anim, actor, begin_time, "set_actor_position", [plan, noeud])
+		
 		"INCIDENT_ACTIVATION":
 			var actor: String = data.get("actor", "")
 			_add_method_key(anim, actor, begin_time, "activate", [duration])
@@ -110,7 +116,7 @@ func _add_method_key(anim: Animation, target: String, time: float, method: Strin
 		printerr("Target vide pour méthode: ", method)
 		return
 	
-	var track :int = _get_track(anim, target)
+	var track: int = _get_track(anim, target)
 	if track == -1:
 		printerr("Track introuvable pour: ", target)
 		return
@@ -126,11 +132,11 @@ func _get_track(anim: Animation, target: String) -> int:
 	if target in tracks:
 		return tracks[target]
 
-	var node_path : NodePath = _find_node_path(target)
+	var node_path: NodePath = _find_node_path(target)
 	if node_path.is_empty():
 		return -1
 
-	var idx : int = anim.add_track(Animation.TYPE_METHOD)
+	var idx: int = anim.add_track(Animation.TYPE_METHOD)
 	anim.track_set_path(idx, node_path)
 	tracks[target] = idx
 	return idx
@@ -143,15 +149,15 @@ func _apply_animation(anim: Animation) -> void:
 	if not dir.dir_exists("animations"):
 		dir.make_dir("animations")
 	
-	var anim_path : String = "res://animations/scene0.tres"
-	var lib_path : String  = "res://animations/scene_library.tres"
+	var anim_path: String = "res://animations/scene0.tres"
+	var lib_path: String = "res://animations/scene_library.tres"
 	
 	# Utiliser take_over_path pour éviter les conflits de ressource
 	anim.take_over_path(anim_path)
 	ResourceSaver.save(anim, anim_path)
 	
 	# Créer une nouvelle library (évite les problèmes de cache)
-	var lib : AnimationLibrary = AnimationLibrary.new()
+	var lib: AnimationLibrary = AnimationLibrary.new()
 	lib.add_animation("scene0", anim)
 	lib.take_over_path(lib_path)
 	ResourceSaver.save(lib, lib_path)
@@ -167,5 +173,5 @@ func _apply_animation(anim: Animation) -> void:
 
 func _find_node_path(node_name: String) -> NodePath:
 	var root = animation_player.get_parent()
-	var node : Node = root.find_child(node_name, true, false)
+	var node: Node = root.find_child(node_name, true, false)
 	return root.get_path_to(node) if node else NodePath()
