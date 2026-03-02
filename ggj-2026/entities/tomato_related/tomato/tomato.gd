@@ -1,7 +1,6 @@
 extends Area3D
 
 @onready var sprotch_player: AudioStreamPlayer3D = $Splash
-@export var sprotch_texture: Texture
 var _sprotched_already: bool = false
 
 
@@ -30,14 +29,15 @@ func _on_body_entered(body: Node3D):
 	
 	# Instantiate SPROTCH sprite
 	var decal: TomatoDecal = TomatoDecal.new()
-	decal.texture_albedo = sprotch_texture	
-	decal.size = Vector3(0.2, 1, 0.2) / body.get_parent_node_3d().scale
-	body.add_child(decal)
+	decal.texture_albedo = TomatoDecal.generate_splat_texture()
+	decal.size = Vector3(0.4, 1, 0.4)
+	body.get_tree().root.add_child(decal)
 	decal.global_position = global_position
 	var normal: Vector3 = global_transform.basis.z # cheap way to compute normal, since tomato_basket.gd tweens the tomato to face its trajectory
-	var up : Vector3 = Vector3.UP if abs(normal.y) < 0.9 else Vector3.RIGHT
+	var up: Vector3 = Vector3.UP if abs(normal.y) < 0.9 else Vector3.RIGHT
 	decal.look_at(global_position + normal, up)
-	decal.rotate_object_local(Vector3.RIGHT, PI/2)
+	decal.rotate_object_local(Vector3.RIGHT, PI / 2)
+	decal.start_tracking(body, global_position)
 	
 	# SFX
 	sprotch_player.play()

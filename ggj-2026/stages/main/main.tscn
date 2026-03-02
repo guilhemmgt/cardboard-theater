@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://d4nf05nbgyri8" path="res://stages/main/main.gd" id="1_v8qa1"]
 [ext_resource type="AudioStream" uid="uid://cb1ckd7b3kmcu" path="res://stages/main/main_theme.mp3" id="2_43f5m"]
 [ext_resource type="Script" uid="uid://cyxrop2yxhieu" path="res://entities/camera/camera.gd" id="8_cu7i0"]
-[ext_resource type="PackedScene" uid="uid://o82m05ah8w86" path="res://stages/scenes/menu/menu.tscn" id="9_cu7i0"]
 [ext_resource type="PackedScene" uid="uid://d7q75ia1fgbf" path="res://stages/scenes/act_1/Act1.tscn" id="10_1k4el"]
 
 [node name="Main" type="Node3D" unique_id=62694581 node_paths=PackedStringArray("scenes_parent", "theater")]
@@ -33,9 +32,6 @@ debug_curtains = true
 
 [node name="ScenesParent" type="Node3D" parent="." unique_id=1917959928]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.124498844)
-
-[node name="Menu" parent="ScenesParent" unique_id=457549405 instance=ExtResource("9_cu7i0")]
-visible = false
 
 [node name="act1" parent="ScenesParent" unique_id=1394700224 instance=ExtResource("10_1k4el")]
 
