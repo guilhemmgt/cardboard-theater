@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://d4nf05nbgyri8" path="res://stages/main/main.gd" id="1_v8qa1"]
 [ext_resource type="AudioStream" uid="uid://cb1ckd7b3kmcu" path="res://stages/main/main_theme.mp3" id="2_43f5m"]
 [ext_resource type="Script" uid="uid://cyxrop2yxhieu" path="res://entities/camera/camera.gd" id="8_cu7i0"]
-[ext_resource type="PackedScene" uid="uid://d7q75ia1fgbf" path="res://stages/scenes/act_1/Act1.tscn" id="10_1k4el"]
+[ext_resource type="PackedScene" uid="uid://d7q75ia1fgbf" path="res://stages/scenes/act_1/act_1.tscn" id="10_1k4el"]
 
 [node name="Main" type="Node3D" unique_id=62694581 node_paths=PackedStringArray("scenes_parent", "theater")]
 script = ExtResource("1_v8qa1")
