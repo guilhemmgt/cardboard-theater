@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="LevelRegistry" format=3 uid="uid://d4j1sslm6sisq"]
+
+[ext_resource type="PackedScene" uid="uid://o82m05ah8w86" path="res://stages/scenes/menu/menu.tscn" id="1_a86ye"]
+[ext_resource type="PackedScene" uid="uid://cvp3k2e3wbm3f" path="res://stages/scenes/tutorial/tutorial.tscn" id="2_arwog"]
+[ext_resource type="PackedScene" uid="uid://d7q75ia1fgbf" path="res://stages/scenes/act_1/act_1.tscn" id="3_e36j1"]
+[ext_resource type="PackedScene" uid="uid://bjou7rgyje3hi" path="res://stages/scenes/act_2/act_2.tscn" id="4_47u6j"]
+[ext_resource type="Script" uid="uid://cdgevp7ci4cnf" path="res://utilities/level_registry.gd" id="5_7acvr"]
+
+[resource]
+script = ExtResource("5_7acvr")
+_levels = Array[PackedScene]([ExtResource("1_a86ye"), ExtResource("2_arwog"), ExtResource("3_e36j1"), ExtResource("4_47u6j")])
+default_level_name = "menu"
+metadata/_custom_type_script = "uid://cdgevp7ci4cnf"
