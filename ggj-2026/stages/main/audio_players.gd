@@ -6,6 +6,7 @@ extends Node
 func _ready() -> void:
 	SignalBus.toggle_music.connect(func(): set_music(not _music_mute))
 	SignalBus.play_sfx.connect(play_sfx)
+	_musicPlayer.play(0)
 
 var _music_mute: bool = false ## Is the music currently mute ?
 var _music_volume: float = 0.0 ## Save the normal music volume
