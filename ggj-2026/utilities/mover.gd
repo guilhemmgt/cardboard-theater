@@ -38,7 +38,7 @@ func _get_all_nodes(root: Node) -> Array[Node]:
 	for child in root.get_children():
 		result.append_array(_get_all_nodes(child))
 	return result
-	
+
 func _find_theater() -> Theater:
 	for node in _get_all_nodes(get_tree().root):
 		if node is Theater:

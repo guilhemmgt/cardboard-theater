@@ -49,7 +49,7 @@ func debug_set_curtains(open: bool):
 		push_warning("Tried to open (or close) already opened (or closed) curtains.")
 		return
 	# teleport
-	var to_x: float = opened_x if open else closed_x
+	# var to_x: float = opened_x if open else closed_x
 	#_left.position.x = to_x
 	#_right.position.x = -to_x
 	# after

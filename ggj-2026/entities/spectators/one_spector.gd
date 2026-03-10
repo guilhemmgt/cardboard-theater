@@ -9,7 +9,7 @@ class_name Spectator
 func _ready() -> void:
 	anim.play("idle", -1, randf_range(0.8, 1.2), bool(randi()%2))
 	anim.animation_finished.connect(idle)
-	SignalBus.tomato_hit.connect(func(body: Node3D, pos: Vector3):
+	SignalBus.tomato_hit.connect(func(body: Node3D, _pos: Vector3):
 		if bodies.has(body):
 			_on_sprouch()
 	)
@@ -38,7 +38,7 @@ func come():
 	anim.play_backwards("leave")
 	await anim.animation_finished
 	idle("come")
-	
+
 func idle(anim_playing: String):
 	if anim_playing != "leave":
 		anim.play("idle")

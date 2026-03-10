@@ -65,7 +65,7 @@ func _load_json_timeline(path: String) -> Array:
 func _process_entry(anim: Animation, entry) -> void:
 	if typeof(entry) != TYPE_DICTIONARY:
 		return
-	
+
 	var entry_dict: Dictionary = entry
 	for entry_type in entry_dict.keys():
 		print("Processing entry type: %s" % entry_type)
@@ -82,29 +82,29 @@ func _process_command(anim: Animation, cmd_type: String, data: Dictionary) -> vo
 			var plan: int = int(data.get("plan", 0))
 			var noeud: int = int(data.get("noeud", 0))
 			_add_method_key(anim, actor, begin_time, "move_to", [plan, noeud, duration])
-		
+
 		"SET_POS":
 			var actor: String = data.get("actor", "")
 			var plan: int = int(data.get("plan", 0))
 			var noeud: int = int(data.get("noeud", 0))
 			_add_method_key(anim, actor, begin_time, "set_actor_position", [plan, noeud])
-		
+
 		"INCIDENT_ACTIVATION":
 			var actor: String = data.get("actor", "")
 			_add_method_key(anim, actor, begin_time, "activate", [duration])
-		
+
 		"INCIDENT_BREAK":
 			var actor: String = data.get("actor", "")
 			_add_method_key(anim, actor, begin_time, "activate", [duration])
-		
+
 		"INCIDENT_INTRU":
 			var intru: String = data.get("actor", "")
 			_add_method_key(anim, intru, begin_time, "activate", [duration])
-		
+
 		"ANIMATION":
 			var actor: String = data.get("actor", "")
 			_add_method_key(anim, actor, begin_time, "anim", [data.get("animation", ""), data.get("duration", 1.0)])
-		
+
 		"AUDIO":
 			var audio_file: String = data.get("audio_file", "")
 			_add_method_key(anim, "AudioReplicPlayer", begin_time, "play_audio", [audio_file])
@@ -115,7 +115,7 @@ func _add_method_key(anim: Animation, target: String, time: float, method: Strin
 	if target.is_empty():
 		printerr("Target vide pour méthode: ", method)
 		return
-	
+
 	var track: int = _get_track(anim, target)
 	if track == -1:
 		printerr("Track introuvable pour: ", target)
@@ -148,25 +148,25 @@ func _apply_animation(anim: Animation) -> void:
 	var dir = DirAccess.open("res://")
 	if not dir.dir_exists("animations"):
 		dir.make_dir("animations")
-	
-	var anim_path: String = "res://animations/scene0.tres"
+
+	var anim_path: String = "res://animations/scene_"+animation_player.get_parent().get_name()+".tres"
 	var lib_path: String = "res://animations/scene_library.tres"
-	
+
 	# Utiliser take_over_path pour éviter les conflits de ressource
 	anim.take_over_path(anim_path)
 	ResourceSaver.save(anim, anim_path)
-	
+
 	# Créer une nouvelle library (évite les problèmes de cache)
 	var lib: AnimationLibrary = AnimationLibrary.new()
-	lib.add_animation("scene0", anim)
+	lib.add_animation("scene", anim)
 	lib.take_over_path(lib_path)
 	ResourceSaver.save(lib, lib_path)
-	
+
 	# Assigner au player
 	if animation_player.has_animation_library(""):
 		animation_player.remove_animation_library("")
 	animation_player.add_animation_library("", lib)
-	
+
 	print("💾 Animation sauvegardée: ", anim_path)
 
 # -----------------------------------------------------

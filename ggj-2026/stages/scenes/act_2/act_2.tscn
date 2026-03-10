@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bjou7rgyje3hi"]
 
+[ext_resource type="Script" uid="uid://qe4xvy1uamgu" path="res://stages/scenes/act.gd" id="1_80yuu"]
 [ext_resource type="PackedScene" uid="uid://c432atnphqs7w" path="res://entities/characters/cow/cow.tscn" id="1_cicbi"]
 [ext_resource type="PackedScene" uid="uid://b8a0vav2gqvcg" path="res://entities/characters/knight/knight.tscn" id="2_h7d0s"]
 [ext_resource type="PackedScene" uid="uid://cn7i0kbjp0mn7" path="res://entities/decors/grass/grass.tscn" id="3_7dtpj"]
@@ -9,8 +10,16 @@
 [ext_resource type="PackedScene" uid="uid://ubi0bjcosamr" path="res://entities/decors/clouds/cloud_1/cloud.tscn" id="7_yduw7"]
 [ext_resource type="PackedScene" uid="uid://b11xfxrnpmhje" path="res://entities/decors/clouds/cloud_storm/cloud_storm.tscn" id="8_sysxj"]
 [ext_resource type="PackedScene" uid="uid://erkk1pr4hfnh" path="res://entities/decors/clouds/thunder_1/thunder_1.tscn" id="9_2b3mb"]
+[ext_resource type="AnimationLibrary" uid="uid://nh0wbjm3gbv1" path="res://animations/scene_library.tres" id="9_snbev"]
+[ext_resource type="Script" uid="uid://burtkkchfm8es" path="res://entities/actors/actor.gd" id="10_bhrc8"]
+[ext_resource type="Script" uid="uid://b0g4fonj8fno0" path="res://utilities/orchestrator/txt_to_anim.gd" id="10_gkm4l"]
+[ext_resource type="Script" uid="uid://cldyre5xcua07" path="res://entities/actors/actor_manager.gd" id="12_k37ja"]
+[ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="15_mk68p"]
+[ext_resource type="Script" uid="uid://diiwyqemjac5n" path="res://utilities/mover.gd" id="16_ke8fa"]
 
-[node name="Act2" type="Node3D" unique_id=1765736365]
+[node name="Act2" type="Node3D" unique_id=1765736365 node_paths=PackedStringArray("anim")]
+script = ExtResource("1_80yuu")
+anim = NodePath("AnimationPlayer")
 
 [node name="Cow" parent="." unique_id=1879863676 instance=ExtResource("1_cicbi")]
 transform = Transform3D(-2.3, 0, -2.0107238e-07, 0, 2.3, 0, 2.0107238e-07, 0, -2.3, 5.4938483, 1.4847078, 1.2895038)
@@ -57,9 +66,6 @@ transform = Transform3D(1.3998135, 0, 0.032636207, 0, 2, 0, -0.022845345, 0, 1.9
 [node name="GreatestTree6" parent="." unique_id=2068957766 instance=ExtResource("5_i11vo")]
 transform = Transform3D(1.4, 0, 0, 0, 2, 0, 0, 0, 2, -5.098761, 1.2142696, 3.2112343)
 
-[node name="Princess" parent="." unique_id=837612745 instance=ExtResource("6_2kjm6")]
-transform = Transform3D(1.5, 0, 0, 0, 2, 0, 0, 0, 1, -1.2259451, 1.28499, 2.088852)
-
 [node name="Nuage" parent="." unique_id=2083094686 instance=ExtResource("7_yduw7")]
 transform = Transform3D(-1.8, 0, -7.881981e-08, 0, 1, 0, 2.7179243e-07, 0, -0.522, -0.21961331, 3.1341567, 1.0551085)
 
@@ -74,3 +80,31 @@ transform = Transform3D(2, 0, 0, 0, 1.333, 0, 0, 0, 2, 1.0478468, 3.648228, 1.17
 
 [node name="Thunder1" parent="." unique_id=2065845154 instance=ExtResource("9_2b3mb")]
 transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, 1.0997136, 3.1571815, 1.1963427)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1345225217 node_paths=PackedStringArray("animation_player")]
+libraries/ = ExtResource("9_snbev")
+script = ExtResource("10_gkm4l")
+timeline_file = "res://stages/scenes/act_2/script.json"
+animation_player = NodePath(".")
+
+[node name="IncidentsManager" type="Node3D" parent="." unique_id=1247865705]
+
+[node name="ActorsManager" type="Node3D" parent="." unique_id=655174343]
+script = ExtResource("12_k37ja")
+
+[node name="Princess" type="Node3D" parent="ActorsManager" unique_id=701654610]
+script = ExtResource("10_bhrc8")
+
+[node name="Princess" parent="ActorsManager/Princess" unique_id=837612745 instance=ExtResource("6_2kjm6")]
+transform = Transform3D(1.5, 0, 0, 0, 2, 0, 0, 0, 1, -1.2259451, 1.28499, 2.088852)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ActorsManager/Princess" unique_id=513212364]
+
+[node name="Orchestrator" type="Node" parent="." unique_id=1389342541 node_paths=PackedStringArray("incidents_manager", "actor_manager")]
+script = ExtResource("15_mk68p")
+incidents_manager = NodePath("../IncidentsManager")
+actor_manager = NodePath("../ActorsManager")
+metadata/_custom_type_script = "uid://bukq7d3xlecfq"
+
+[node name="Mover" type="Node" parent="." unique_id=297206766]
+script = ExtResource("16_ke8fa")

@@ -1,4 +1,4 @@
-extends Node3D
+extends Act
 class_name MenuManager
 
 @export var camera : Camera3D

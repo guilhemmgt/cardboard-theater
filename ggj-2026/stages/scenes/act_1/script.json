@@ -1,0 +1,52 @@
+{
+	"timeline": [
+		{
+			"SET_POS": {
+				"actor": "MadKing",
+				"plan": 1,
+				"noeud": 4,
+				"begin_time": 0.0
+			}
+		},{
+			"SET_POS": {
+				"actor": "Knight",
+				"plan": 1,
+				"noeud": 0,
+				"begin_time": 0.0
+			}
+		},{
+			"SET_POS": {
+				"actor": "Dragon",
+				"plan": 2,
+				"noeud": 0,
+				"begin_time": 0.0
+			}
+		},{
+			"SET_POS": {
+				"actor": "Cow",
+				"plan": 0,
+				"noeud": 0,
+				"begin_time": 0.0
+			}
+		},{
+			"INCIDENT_ACTIVATION": {
+				"actor":"Horn",
+				"begin_time": 0.1,
+				"duration": 3.0
+			}
+		},{
+			"MOVE":{
+				"actor": "Knight",
+				"plan": 1,
+				"noeud": 3,
+				"begin_time": 1.0
+			}
+		}, {
+			"INCIDENT_BREAK":{
+				"actor": "Chandelier",
+				"begin_time":4.0,
+				"duration":5.0
+			}
+		}
+	]
+}

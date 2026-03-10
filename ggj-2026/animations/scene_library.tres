@@ -1,8 +1,8 @@
 [gd_resource type="AnimationLibrary" format=3 uid="uid://nh0wbjm3gbv1"]
 
-[ext_resource type="Animation" uid="uid://b255n3elc0ndk" path="res://animations/scene0.tres" id="1_bbxuw"]
+[ext_resource type="Animation" uid="uid://8xw7b5247vph" path="res://animations/scene_act1.tres" id="1_bbxuw"]
 
 [resource]
 _data = {
-&"scene0": ExtResource("1_bbxuw")
+&"scene": ExtResource("1_bbxuw")
 }

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://d7q75ia1fgbf"]
 
+[ext_resource type="Script" uid="uid://qe4xvy1uamgu" path="res://stages/scenes/act.gd" id="1_0yll8"]
 [ext_resource type="Material" uid="uid://b7m2u0l3plbek" path="res://addons/carton/better_paper_carton.tres" id="6_pko0v"]
 [ext_resource type="PackedScene" uid="uid://ubi0bjcosamr" path="res://entities/decors/clouds/cloud_1/cloud.tscn" id="6_vfdue"]
 [ext_resource type="Script" uid="uid://cldyre5xcua07" path="res://entities/actors/actor_manager.gd" id="7_24phf"]
@@ -11,10 +12,15 @@
 [ext_resource type="Script" uid="uid://b0g4fonj8fno0" path="res://utilities/orchestrator/txt_to_anim.gd" id="9_mx2m4"]
 [ext_resource type="Script" uid="uid://bukq7d3xlecfq" path="res://utilities/orchestrator/orchestrator.gd" id="11_bobrk"]
 [ext_resource type="PackedScene" uid="uid://cmoh5erhg8ftq" path="res://entities/decors/horn/horn.tscn" id="11_pko0v"]
+[ext_resource type="PackedScene" uid="uid://c4amdjj53fb3d" path="res://entities/characters/king/king.tscn" id="11_rohcp"]
 [ext_resource type="AnimationLibrary" uid="uid://nh0wbjm3gbv1" path="res://animations/scene_library.tres" id="12_7r5fe"]
 [ext_resource type="Script" uid="uid://diiwyqemjac5n" path="res://utilities/mover.gd" id="12_ba7jx"]
 [ext_resource type="PackedScene" uid="uid://dpkayn65c5wf2" path="res://entities/decors/wall/wall.tscn" id="12_q5veb"]
+[ext_resource type="PackedScene" uid="uid://c432atnphqs7w" path="res://entities/characters/cow/cow.tscn" id="12_wagbe"]
 [ext_resource type="Texture2D" uid="uid://b1rb783r5r7w7" path="res://entities/decors/background/background.png" id="13_75rtk"]
+[ext_resource type="PackedScene" uid="uid://b8a0vav2gqvcg" path="res://entities/characters/knight/knight.tscn" id="13_mwpvx"]
+[ext_resource type="AudioStream" uid="uid://bsbafa7i7i611" path="res://entities/decors/horn/horn.wav" id="15_mwpvx"]
+[ext_resource type="PackedScene" uid="uid://dm7riayv01aoj" path="res://entities/decors/chandelier/chandelier.tscn" id="17_o2r0l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c53p4"]
 size = Vector3(1.2324219, 1, 0.2006836)
@@ -22,13 +28,17 @@ size = Vector3(1.2324219, 1, 0.2006836)
 [sub_resource type="BoxShape3D" id="BoxShape3D_v8hr0"]
 size = Vector3(2.5240479, 3.6135254, 1)
 
-[node name="act1" type="Node3D" unique_id=814067477]
+[sub_resource type="BoxShape3D" id="BoxShape3D_o2r0l"]
+
+[node name="act1" type="Node3D" unique_id=814067477 node_paths=PackedStringArray("anim")]
+script = ExtResource("1_0yll8")
+anim = NodePath("Act1")
 
 [node name="Nuage" parent="." unique_id=2083094686 instance=ExtResource("6_vfdue")]
-transform = Transform3D(-2.4, 0, -9.452337e-08, 0, 1.2, 0, 3.6238995e-07, 0, -0.626, 4.9688635, 3.7982314, 2.3769097)
+transform = Transform3D(-2.4, 0, -9.452337e-08, 0, 1.2, 0, 3.6238995e-07, 0, -0.626, 4.9688635, 3.7982314, 5.7749143)
 
 [node name="Nuage2" parent="." unique_id=1175446920 instance=ExtResource("6_vfdue")]
-transform = Transform3D(-1.9923894, 0.08715574, 4.563469e-08, 0.17431147, 0.9961947, 0, -1.7418022e-07, 7.619397e-09, -0.522, -3.6257076, 3.2203412, 1.3229113)
+transform = Transform3D(-1.9923894, 0.08715574, 4.563469e-08, 0.17431147, 0.9961947, 0, -1.7418022e-07, 7.619397e-09, -0.522, -3.6257076, 3.2203412, 4.720916)
 
 [node name="Grass2" parent="." unique_id=265710641 instance=ExtResource("9_m5fv5")]
 transform = Transform3D(10, 0, 0, 0, 0.8, 0, 0, 0, 1, 0.32947993, 0.7103294, 1.0053465)
@@ -79,17 +89,44 @@ script = ExtResource("8_rgnm7")
 
 [node name="Dragon" parent="ActorManager/Dragon" unique_id=521331207 instance=ExtResource("8_7r5fe")]
 
+[node name="MadKing" type="Node3D" parent="ActorManager" unique_id=1148222956]
+script = ExtResource("8_rgnm7")
+metadata/_custom_type_script = "uid://burtkkchfm8es"
+
+[node name="MadKing" parent="ActorManager/MadKing" unique_id=263734070 instance=ExtResource("11_rohcp")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ActorManager/MadKing" unique_id=1095589574]
+
+[node name="Cow" type="Node3D" parent="ActorManager" unique_id=1124292354]
+script = ExtResource("8_rgnm7")
+metadata/_custom_type_script = "uid://burtkkchfm8es"
+
+[node name="Cow" parent="ActorManager/Cow" unique_id=1879863676 instance=ExtResource("12_wagbe")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ActorManager/Cow" unique_id=605309888]
+
+[node name="Knight" type="Node3D" parent="ActorManager" unique_id=597632797]
+script = ExtResource("8_rgnm7")
+metadata/_custom_type_script = "uid://burtkkchfm8es"
+
+[node name="knight" parent="ActorManager/Knight" unique_id=1290083251 instance=ExtResource("13_mwpvx")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ActorManager/Knight" unique_id=404051481]
+
 [node name="IncidentsManager" type="Node3D" parent="." unique_id=947991996]
 
-[node name="Clairon" parent="IncidentsManager" unique_id=1908609802 instance=ExtResource("8_c53p4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7305264, 3.6333258, 1.860429)
+[node name="Horn" parent="IncidentsManager" unique_id=1908609802 instance=ExtResource("8_c53p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8512087, 3.6333258, 1.860429)
 
-[node name="CollisionShape3D" parent="IncidentsManager/Clairon/Area3D" parent_id_path=PackedInt32Array(1908609802, 245994403) index="0" unique_id=1933543471]
+[node name="CollisionShape3D" parent="IncidentsManager/Horn/Area3D" parent_id_path=PackedInt32Array(1908609802, 245994403) index="0" unique_id=1933543471]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5208819, 0, 0.005865097)
 shape = SubResource("BoxShape3D_c53p4")
 
-[node name="Horn" parent="IncidentsManager/Clairon" unique_id=2138029699 instance=ExtResource("11_pko0v")]
+[node name="Horn" parent="IncidentsManager/Horn" unique_id=2138029699 instance=ExtResource("11_pko0v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5380206, 0, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="IncidentsManager/Horn" unique_id=6803725]
+stream = ExtResource("15_mwpvx")
 
 [node name="Herse" parent="IncidentsManager" unique_id=168455966 instance=ExtResource("8_c53p4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1850696, 3.6333258, 1.860429)
@@ -101,14 +138,26 @@ shape = SubResource("BoxShape3D_v8hr0")
 [node name="Herse" parent="IncidentsManager/Herse" unique_id=2104592546 instance=ExtResource("8_v8hr0")]
 transform = Transform3D(3.365, 0, 0, 0, 4.807, 0, 0, 0, 4.807, 0.3563161, -1.1503198, 2.2629588)
 
+[node name="Chandelier" parent="IncidentsManager" unique_id=84749677 instance=ExtResource("8_c53p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.6459904, 2.9942575)
+
+[node name="CollisionShape3D" parent="IncidentsManager/Chandelier/Area3D" parent_id_path=PackedInt32Array(84749677, 245994403) index="0" unique_id=1933543471]
+shape = SubResource("BoxShape3D_o2r0l")
+
+[node name="Chandelier" parent="IncidentsManager/Chandelier" unique_id=1891042531 instance=ExtResource("17_o2r0l")]
+transform = Transform3D(1.9996648, -0.02929197, 0, 0.03661496, 1.5997318, 0, 0, 0, 1.5999999, 0, 0, 0)
+
 [node name="GenerateurAction" type="Node" parent="." unique_id=1316480028 node_paths=PackedStringArray("animation_player")]
 script = ExtResource("9_mx2m4")
 timeline_file = "res://test.json"
 animation_player = NodePath("../Act1")
 
-[node name="Act1" type="AnimationPlayer" parent="." unique_id=887369996]
+[node name="Act1" type="AnimationPlayer" parent="." unique_id=887369996 node_paths=PackedStringArray("animation_player")]
 libraries/ = ExtResource("12_7r5fe")
-autoplay = &"scene0"
+autoplay = &"scene"
+script = ExtResource("9_mx2m4")
+timeline_file = "res://stages/scenes/act_1/script.json"
+animation_player = NodePath(".")
 
 [node name="Orchestrator" type="Node" parent="." unique_id=843205800 node_paths=PackedStringArray("incidents_manager", "actor_manager")]
 script = ExtResource("11_bobrk")
@@ -118,5 +167,6 @@ actor_manager = NodePath("../ActorManager")
 [node name="Mover" type="Node" parent="." unique_id=1355920691]
 script = ExtResource("12_ba7jx")
 
-[editable path="IncidentsManager/Clairon"]
+[editable path="IncidentsManager/Horn"]
 [editable path="IncidentsManager/Herse"]
+[editable path="IncidentsManager/Chandelier"]

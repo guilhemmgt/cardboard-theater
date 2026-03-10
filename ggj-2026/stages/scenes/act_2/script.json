@@ -1,0 +1,30 @@
+{
+	"timeline": [
+		{
+			"SET_POS": {
+				"actor": "Princess",
+				"plan": 0,
+				"noeud": 0,
+				"begin_time": 0.0
+			}
+		},
+		{
+			"MOVE": {
+				"actor": "Princess",
+				"plan": 0,
+				"noeud": 3,
+				"begin_time": 1.0,
+				"duration": 2.0
+			}
+		},
+		{
+			"MOVE": {
+				"actor": "Princess",
+				"plan": 0,
+				"noeud": 1,
+				"begin_time": 4.0,
+				"duration": 2.0
+			}
+		}
+	]
+}

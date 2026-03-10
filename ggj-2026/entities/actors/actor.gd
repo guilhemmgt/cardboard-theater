@@ -1,4 +1,4 @@
-extends Node
+extends Node3D
 class_name Actor
 
 @onready var actor_animation_player: AnimationPlayer = $AnimationPlayer
@@ -33,7 +33,7 @@ func on_animation_timer_timeout() -> void:
 	actor_animation_player.stop()
 
 func move_to(plan: int, node: int, duration: float) -> void:
-	SignalBus.ask_to_move.emit(self , duration, plan, node)
+	SignalBus.ask_to_move.emit(self, duration, plan, node)
 
 func set_actor_position(plan: int, node: int) -> void:
 	SignalBus.ask_to_set_position.emit(self , plan, node)

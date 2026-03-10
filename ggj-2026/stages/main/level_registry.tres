@@ -9,5 +9,5 @@
 [resource]
 script = ExtResource("5_7acvr")
 _levels = Array[PackedScene]([ExtResource("1_a86ye"), ExtResource("2_arwog"), ExtResource("3_e36j1"), ExtResource("4_47u6j")])
-default_level_name = "menu"
+default_level_name = "act_1"
 metadata/_custom_type_script = "uid://cdgevp7ci4cnf"
